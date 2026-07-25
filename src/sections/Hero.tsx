@@ -1,0 +1,143 @@
+import { motion } from 'framer-motion';
+import { ArrowRight, Play, Sparkles, ShieldCheck, TrendingUp } from 'lucide-react';
+import { LinkButton } from '@/components/Button';
+import DashboardMockup from '@/components/DashboardMockup';
+import { useLang } from '@/i18n/LanguageContext';
+import { posProductDashboard } from '@/data/heroDashboard';
+
+export default function Hero() {
+  const { t, lang } = useLang();
+
+  return (
+    <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 overflow-hidden">
+      {/* Background layers */}
+      <div className="absolute inset-0 bg-radial-blue" />
+      <div className="absolute inset-0 bg-grid-soft opacity-60" />
+      <motion.div
+        aria-hidden
+        className="absolute -top-20 -right-32 h-[420px] w-[420px] rounded-full bg-liafrik-200/40 blur-3xl"
+        animate={{ scale: [1, 1.12, 1], opacity: [0.5, 0.7, 0.5] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        aria-hidden
+        className="absolute top-40 -left-32 h-[380px] w-[380px] rounded-full bg-cyanx-400/30 blur-3xl"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.6, 0.4] }}
+        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* Left */}
+          <div className="flex flex-col items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur border border-liafrik-100 px-3.5 py-1.5 text-xs font-semibold text-liafrik-700 shadow-card"
+            >
+              <Sparkles className="h-3.5 w-3.5" />
+              {t('hero.trust')}
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-5 font-display text-4xl sm:text-5xl lg:text-[64px] xl:text-[72px] font-extrabold leading-[1.04] tracking-tight text-ink"
+            >
+              {t('hero.headline')}
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-5 text-base sm:text-lg text-ink-muted leading-relaxed max-w-xl"
+            >
+              {t('hero.sub1')}{' '}
+              <span className="text-ink-soft font-medium">{t('hero.sub2')}</span>
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-7 flex flex-wrap items-center gap-3"
+            >
+              <LinkButton to="/#contact" variant="primary" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
+                {t('hero.cta.start')}
+              </LinkButton>
+              <LinkButton to="/#contact" variant="white" size="lg" icon={<Play className="h-4 w-4" />}>
+                {t('hero.cta.demo')}
+              </LinkButton>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-ink-light"
+            >
+              <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-liafrik-600" /> {lang === 'en' ? 'Bank-grade security' : 'Sécurité niveau bancaire'}</span>
+              <span className="inline-flex items-center gap-1.5"><TrendingUp className="h-4 w-4 text-liafrik-600" /> 99.99% uptime</span>
+            </motion.div>
+          </div>
+
+          {/* Right — animated dashboard */}
+          <motion.div
+            initial={{ opacity: 0, x: 40, rotateY: 8 }}
+            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative perspective-2000"
+          >
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <DashboardMockup spec={posProductDashboard} />
+            </motion.div>
+
+            {/* Floating notification cards */}
+            <FloatingNotifications />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FloatingNotifications() {
+  const { lang } = useLang();
+  const cards = [
+    { icon: TrendingUp, label: lang === 'en' ? 'New order' : 'Nouvelle commande', value: '+$1,240', color: 'from-liafrik-500 to-cyanx-500', delay: 0, x: '-left-6 sm:-left-10', top: 'top-6' },
+    { icon: Sparkles, label: lang === 'en' ? 'AI insight' : 'Insight IA', value: lang === 'en' ? 'Restock soon' : 'Réappro bientôt', color: 'from-cyanx-500 to-liafrik-500', delay: 1.4, x: '-right-4 sm:-right-8', top: 'top-1/3' },
+    { icon: ShieldCheck, label: lang === 'en' ? 'Backup done' : 'Sauvegarde ok', value: lang === 'en' ? 'All data synced' : 'Données synchronisées', color: 'from-liafrik-600 to-liafrik-400', delay: 2.6, x: '-left-4 sm:-left-12', top: 'bottom-10' },
+  ];
+  return (
+    <>
+      {cards.map((c, i) => (
+        <motion.div key={i}
+          initial={{ opacity: 0, scale: 0.8, y: 10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 1 + i * 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className={`absolute ${c.x} ${c.top} hidden sm:flex`}
+        >
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 5 + i, repeat: Infinity, ease: 'easeInOut', delay: c.delay }}
+            className="flex items-center gap-2.5 rounded-2xl glass-card px-3.5 py-2.5"
+          >
+            <span className={`grid place-items-center h-8 w-8 rounded-xl bg-gradient-to-br ${c.color} text-white`}>
+              <c.icon className="h-4 w-4" />
+            </span>
+            <div className="pr-1">
+              <p className="text-[11px] font-semibold text-ink-soft leading-tight">{c.label}</p>
+              <p className="text-[10px] text-ink-light leading-tight">{c.value}</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      ))}
+    </>
+  );
+}
