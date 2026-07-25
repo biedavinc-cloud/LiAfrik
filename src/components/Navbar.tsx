@@ -26,7 +26,7 @@ export default function Navbar() {
     { label: t('nav.solutions'), href: '/#ecosystem' },
     { label: t('nav.industries'), href: '/#industries' },
     { label: t('nav.features'), href: '/#features' },
-    { label: t('nav.developers'), href: '/#developers' },
+    { label: t('nav.security'), href: '/#security' },
     { label: t('nav.about'), href: '/#about' },
     { label: t('nav.contact'), href: '/#contact' },
   ];

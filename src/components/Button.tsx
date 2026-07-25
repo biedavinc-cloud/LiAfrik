@@ -43,6 +43,7 @@ interface AnchorProps extends BaseProps {
 interface ButtonProps extends BaseProps {
   onClick?: () => void;
   type?: 'button' | 'submit';
+  disabled?: boolean;
 }
 
 const motionProps = {
@@ -50,9 +51,9 @@ const motionProps = {
   transition: { type: 'spring' as const, stiffness: 400, damping: 17 },
 };
 
-export function Button({ children, variant = 'primary', size = 'md', className, icon, iconRight, onClick, type = 'button' }: ButtonProps) {
+export function Button({ children, variant = 'primary', size = 'md', className, icon, iconRight, onClick, type = 'button', disabled }: ButtonProps) {
   return (
-    <motion.button type={type} onClick={onClick} className={classes(variant, size, className)} {...motionProps}>
+    <motion.button type={type} onClick={onClick} disabled={disabled} className={cn(classes(variant, size, className), disabled && 'opacity-60 cursor-not-allowed pointer-events-none')} {...motionProps}>
       {icon && <span className="shrink-0">{icon}</span>}
       {children}
       {iconRight && <span className="shrink-0">{iconRight}</span>}

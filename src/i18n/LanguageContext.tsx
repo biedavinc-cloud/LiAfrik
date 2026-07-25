@@ -9,6 +9,7 @@ export const translations: Dict = {
   'nav.solutions': { en: 'Solutions', fr: 'Solutions' },
   'nav.industries': { en: 'Industries', fr: 'Industries' },
   'nav.features': { en: 'Features', fr: 'Fonctionnalités' },
+  'nav.security': { en: 'Security', fr: 'Sécurité' },
   'nav.developers': { en: 'Developers', fr: 'Développeurs' },
   'nav.about': { en: 'About', fr: 'À propos' },
   'nav.contact': { en: 'Contact', fr: 'Contact' },

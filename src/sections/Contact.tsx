@@ -1,18 +1,39 @@
 import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, MessageCircle, Headset, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, MessageCircle, Headset, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { Button } from '@/components/Button';
 import { useLang } from '@/i18n/LanguageContext';
+import { supabase } from '@/lib/supabase';
+
+type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function Contact() {
   const { t, lang } = useLang();
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>('idle');
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    const form = e.currentTarget as HTMLFormElement;
+    const data = new FormData(form);
+    const name = String(data.get('name') ?? '').trim();
+    const email = String(data.get('email') ?? '').trim();
+    const company = String(data.get('company') ?? '').trim() || null;
+    const message = String(data.get('message') ?? '').trim();
+
+    setStatus('submitting');
+    const { error } = await supabase.from('contact_submissions').insert({
+      name, email, company, message, lang,
+    });
+
+    if (error) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+      return;
+    }
+    setStatus('success');
+    form.reset();
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   return (
@@ -64,10 +85,33 @@ export default function Contact() {
             </div>
             <div className="flex items-center justify-between gap-4 pt-1">
               <p className="text-xs text-ink-light">{lang === 'en' ? 'We reply within one business day.' : 'Nous répondons sous un jour ouvré.'}</p>
-              <Button type="submit" variant="primary" size="md" iconRight={sent ? <CheckCircle2 className="h-4 w-4" /> : <Send className="h-4 w-4" />}>
-                {sent ? t('contact.form.success') : t('contact.form.send')}
+              <Button
+                type="submit"
+                variant="primary"
+                size="md"
+                disabled={status === 'submitting' || status === 'success'}
+                iconRight={
+                  status === 'submitting' ? <Loader2 className="h-4 w-4 animate-spin" />
+                  : status === 'success' ? <CheckCircle2 className="h-4 w-4" />
+                  : status === 'error' ? <AlertCircle className="h-4 w-4" />
+                  : <Send className="h-4 w-4" />
+                }
+              >
+                {status === 'submitting'
+                  ? (lang === 'en' ? 'Sending...' : 'Envoi...')
+                  : status === 'success'
+                    ? t('contact.form.success')
+                    : status === 'error'
+                      ? (lang === 'en' ? 'Try again' : 'Réessayer')
+                      : t('contact.form.send')}
               </Button>
             </div>
+            {status === 'error' && (
+              <p className="text-xs text-red-600 flex items-center gap-1.5">
+                <AlertCircle className="h-3.5 w-3.5" />
+                {lang === 'en' ? 'Something went wrong. Please try again or email us directly.' : 'Une erreur est survenue. Veuillez réessayer ou nous écrire directement.'}
+              </p>
+            )}
           </motion.form>
         </div>
       </div>
