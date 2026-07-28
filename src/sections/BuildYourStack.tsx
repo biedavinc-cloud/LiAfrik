@@ -188,7 +188,7 @@ function StackOrbit({ products: mods }: { products: Product[] }) {
         transition={{ type: 'spring', stiffness: 260, damping: 18 }}
         className="relative z-10 grid place-items-center h-20 w-20 rounded-2xl bg-gradient-to-br from-liafrik-700 to-cyanx-500 text-white shadow-glow-blue"
       >
-        <span className="font-display font-extrabold text-xl leading-none">LiAfrik</span>
+        <span className="font-display font-bold text-xl leading-none">LiAfrik</span>
         <motion.span
           className="absolute inset-0 rounded-2xl border-2 border-liafrik-300"
           animate={{ scale: [1, 1.25, 1], opacity: [0.6, 0, 0.6] }}

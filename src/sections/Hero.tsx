@@ -95,7 +95,7 @@ export default function Hero() {
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <DashboardMockup spec={posProductDashboard} productName="POS" accent="#0070E0" />
+              <DashboardMockup spec={posProductDashboard} productName="POS" accent="#0070E0" variant="hero" />
             </motion.div>
 
             {/* Floating notification cards */}

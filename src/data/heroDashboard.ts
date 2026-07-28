@@ -1,8 +1,8 @@
 import type { DashboardSpec } from './products';
 
 export const posProductDashboard: DashboardSpec = {
-  title: { en: 'LiAfrik — Operations', fr: 'LiAfrik — Opérations' },
-  metric: { label: { en: 'Revenue today', fr: "Chiffre d'affaires du jour" }, value: '$24,580', delta: '+18.2%', up: true },
+  title: { en: 'LiAfrik Ecosystem — Overview', fr: 'Écosystème LiAfrik — Vue d\'ensemble' },
+  metric: { label: { en: 'Ecosystem revenue today', fr: "Chiffre d'affaires écosystème du jour" }, value: '$48,920', delta: '+24.6%', up: true },
   panels: [
     {
       kind: 'line',
@@ -15,8 +15,8 @@ export const posProductDashboard: DashboardSpec = {
       items: [
         { label: { en: 'New order — OS', fr: 'Nouvelle commande — OS' }, value: '$89', sub: '2s ago' },
         { label: { en: 'Payment — POS', fr: 'Paiement — POS' }, value: '$320', sub: '1m ago' },
-        { label: { en: 'Tenant paid — Bailly', fr: 'Locataire payé — Bailly' }, value: '$1,200', sub: '4m ago' },
-        { label: { en: 'Tontine payout — Kolo', fr: 'Versement tontine — Kolo' }, value: '$8,200', sub: '12m ago' },
+        { label: { en: 'Invoice paid — LiBooks', fr: 'Facture payée — LiBooks' }, value: '$1,200', sub: '4m ago' },
+        { label: { en: 'Contribution — Kolo', fr: 'Contribution — Kolo' }, value: '$8,200', sub: '12m ago' },
       ],
     },
     {
@@ -35,7 +35,7 @@ export const posProductDashboard: DashboardSpec = {
       segments: [
         { label: { en: 'POS', fr: 'POS' }, value: 32, color: '#0070E0' },
         { label: { en: 'OS', fr: 'OS' }, value: 26, color: '#3D9BFF' },
-        { label: { en: 'HR', fr: 'RH' }, value: 18, color: '#00BFE0' },
+        { label: { en: 'Faka', fr: 'Faka' }, value: 18, color: '#00BFE0' },
         { label: { en: 'Other', fr: 'Autres' }, value: 24, color: '#A8D0FF' },
       ],
     },

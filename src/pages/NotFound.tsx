@@ -7,7 +7,7 @@ export default function NotFound() {
   const { lang } = useLang();
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
-      <p className="font-display text-[120px] sm:text-[160px] font-extrabold leading-none text-gradient-blue-strong">404</p>
+      <p className="font-display text-[120px] sm:text-[160px] font-bold leading-none text-gradient-blue-strong">404</p>
       <p className="mt-2 font-display text-2xl font-bold text-ink">{lang === 'en' ? 'Page not found' : 'Page introuvable'}</p>
       <p className="mt-2 text-ink-muted max-w-md">{lang === 'en' ? 'The page you are looking for does not exist or has moved.' : "La page que vous cherchez n'existe pas ou a été déplacée."}</p>
       <div className="mt-6">

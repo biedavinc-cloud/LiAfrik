@@ -61,7 +61,7 @@ export default function ComingSoonPage() {
               <Icon className="h-7 w-7" strokeWidth={2.2} />
             </span>
             <div className="text-left">
-              <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-ink leading-tight">{product.name}</h1>
+              <h1 className="font-display text-3xl sm:text-4xl font-bold text-ink leading-tight">{product.name}</h1>
               <p className="text-sm font-medium text-ink-light uppercase tracking-wider">{product.category[lang]}</p>
             </div>
           </motion.div>

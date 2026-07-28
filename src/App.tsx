@@ -12,6 +12,8 @@ import SecurityPage from '@/pages/SecurityPage';
 import FounderPage from '@/pages/FounderPage';
 import PresencePage from '@/pages/PresencePage';
 import SupportPage from '@/pages/SupportPage';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import TermsOfService from '@/pages/TermsOfService';
 import ComingSoonPage from '@/pages/ComingSoonPage';
 import NotFound from '@/pages/NotFound';
 
@@ -52,6 +54,8 @@ export default function App() {
             <Route path="/founder" element={<FounderPage />} />
             <Route path="/presence" element={<PresencePage />} />
             <Route path="/support" element={<SupportPage />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

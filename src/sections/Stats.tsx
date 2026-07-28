@@ -35,7 +35,7 @@ export default function Stats() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">{t('stats.title')}</h2>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">{t('stats.title')}</h2>
           <p className="mt-3 text-liafrik-100 text-base sm:text-lg">{t('stats.sub')}</p>
         </div>
 
@@ -49,7 +49,7 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               className="rounded-2xl bg-white/10 backdrop-blur border border-white/15 p-5 text-center"
             >
-              <div className="font-display text-3xl sm:text-4xl font-extrabold text-white tabular-nums">
+              <div className="font-display text-3xl sm:text-4xl font-bold text-white tabular-nums">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} decimals={stat.decimals} active={inView} />
               </div>
               <p className="mt-1.5 text-xs font-medium text-liafrik-100 leading-snug">{renderLabel(stat, lang)}</p>

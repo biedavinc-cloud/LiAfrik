@@ -27,7 +27,7 @@ export default function Logo({ className = '', variant = 'color', showText = tru
         <LogoMark variant={variant} size={size} />
         {showText && (
           <span className="flex flex-col leading-none">
-            <span className={`font-display font-extrabold ${s.text} tracking-tight ${textColor}`}>
+            <span className={`font-display font-bold ${s.text} tracking-tight ${textColor}`}>
               Li<span className="text-gradient-blue">Afrik</span>
             </span>
           </span>
@@ -92,7 +92,7 @@ export function LogoMark({ variant = 'color', size = 'md' }: { variant?: Variant
 export function LogoWordmark({ variant = 'color' }: { variant?: Variant }) {
   const textColor = variant === 'light' ? 'text-white' : 'text-ink';
   return (
-    <span className={`font-display font-extrabold text-2xl tracking-tight ${textColor}`}>
+    <span className={`font-display font-bold text-2xl tracking-tight ${textColor}`}>
       Li<span className="text-gradient-blue">Afrik</span>
     </span>
   );

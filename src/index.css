@@ -18,11 +18,39 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('https://cdn.jsdelivr.net/gh/ms-studio/webfont-glacial-indifference@master/glacial-indifference/regular.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/ms-studio/webfont-glacial-indifference@master/glacial-indifference/regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('https://cdn.jsdelivr.net/gh/ms-studio/webfont-glacial-indifference@master/glacial-indifference/bold.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/ms-studio/webfont-glacial-indifference@master/glacial-indifference/bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('https://cdn.jsdelivr.net/gh/ms-studio/webfont-glacial-indifference@master/glacial-indifference/italic.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/ms-studio/webfont-glacial-indifference@master/glacial-indifference/italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
   body {
-    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    font-family: 'Glacial Indifference', system-ui, -apple-system, sans-serif;
     background-color: #FFFFFF;
     color: #0F172A;
     overflow-x: hidden;
+    font-weight: 400;
   }
 
   ::selection {
@@ -50,7 +78,7 @@
 
 @layer utilities {
   .font-display {
-    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    font-family: 'Glacial Indifference', system-ui, -apple-system, sans-serif;
   }
 
   .text-gradient-blue {

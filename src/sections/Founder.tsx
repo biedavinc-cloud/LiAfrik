@@ -72,7 +72,7 @@ export default function Founder() {
                     transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                     className="mx-auto grid place-items-center h-16 w-16 rounded-2xl bg-gradient-to-br from-liafrik-700 to-cyanx-500 text-white shadow-glow-blue"
                   >
-                    <span className="font-display font-extrabold text-xl">LG</span>
+                    <span className="font-display font-bold text-xl">LG</span>
                   </motion.div>
                   <p className="mt-4 font-display font-bold text-lg text-ink">LIYAH GROUP</p>
                   <p className="mt-1 text-sm text-ink-muted">

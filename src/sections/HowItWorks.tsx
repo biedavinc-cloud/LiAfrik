@@ -44,7 +44,7 @@ export default function HowItWorks() {
                   <span className="grid place-items-center h-12 w-12 rounded-2xl bg-gradient-to-br from-liafrik-600 to-cyanx-500 text-white shadow-glow-blue">
                     <Icon className="h-6 w-6" strokeWidth={2.2} />
                   </span>
-                  <span className="font-display text-5xl font-extrabold text-cloud-300 leading-none">{step.number}</span>
+                  <span className="font-display text-5xl font-bold text-cloud-300 leading-none">{step.number}</span>
                 </div>
                 <h3 className="mt-5 font-display font-bold text-xl text-ink leading-tight">{t(step.titleKey)}</h3>
                 <p className="mt-2.5 text-sm text-ink-muted leading-relaxed">{t(step.descKey)}</p>

@@ -257,13 +257,13 @@ export const translations: Dict = {
 
   // Founder page
   'founderPage.title': { en: 'The vision behind LiAfrik', fr: 'La vision derrière LiAfrik' },
-  'founderPage.desc': { en: 'A global SaaS ecosystem born from African ambition — built to elevate how businesses and communities work everywhere.', fr: 'Un écosystème SaaS mondial né d\'une ambition africaine — conçu pour élever la façon dont les entreprises et communautés travaillent partout.' },
+  'founderPage.desc': { en: 'Meet Vincent Nogue — the founder and CEO building a global SaaS ecosystem with African roots.', fr: 'Rencontrez Vincent Nogue — le fondateur et CEO qui construit un écosystème SaaS mondial avec des racines africaines.' },
   'founderPage.vision.title': { en: 'A vision born in Africa, built for the world', fr: 'Une vision née en Afrique, conçue pour le monde' },
   'founderPage.vision.body': { en: 'LiAfrik was founded with a clear conviction: that technology built with African roots can serve the world. The platform brings together specialized SaaS for commerce, healthcare, education, HR, finance, real estate, restaurants and community — all connected within a single ecosystem.', fr: 'LiAfrik a été fondé avec une conviction claire : la technologie née avec des racines africaines peut servir le monde. La plateforme réunit des SaaS spécialisés pour le commerce, la santé, l\'éducation, les RH, la finance, l\'immobilier, la restauration et la communauté — tous connectés au sein d\'un seul écosystème.' },
   'founderPage.vision.body2': { en: 'The mission is simple: give businesses, organizations, professionals and communities the tools they need to manage, grow and operate more effectively — wherever they are.', fr: 'La mission est simple : donner aux entreprises, organisations, professionnels et communautés les outils dont ils ont besoin pour gérer, croître et opérer plus efficacement — où qu\'ils soient.' },
-  'founderPage.group.title': { en: 'Learn more about the founder', fr: 'En savoir plus sur le fondateur' },
-  'founderPage.group.desc': { en: 'Discover the broader vision and the group of companies behind LiAfrik at Liyah Group.', fr: 'Découvrez la vision plus large et le groupe de sociétés derrière LiAfrik chez Liyah Group.' },
-  'founderPage.group.cta': { en: 'Visit Liyah Group', fr: 'Visiter Liyah Group' },
+  'founderPage.group.title': { en: 'A vision built on global experience', fr: 'Une vision fondée sur l\'expérience mondiale' },
+  'founderPage.group.desc': { en: 'From Cameroon to Dubai, from design to full-stack engineering — the LiAfrik ecosystem reflects a journey of continuous learning and global ambition.', fr: 'Du Cameroun à Dubaï, du design à l\'ingénierie full-stack — l\'écosystème LiAfrik reflète un parcours d\'apprentissage continu et d\'ambition mondiale.' },
+  'founderPage.group.cta': { en: 'Explore the ecosystem', fr: 'Explorer l\'écosystème' },
 
   // Presence page
   'presence.tag': { en: 'Our Presence', fr: 'Notre présence' },

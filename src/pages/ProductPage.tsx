@@ -48,7 +48,7 @@ export default function ProductPage() {
                   <Icon className="h-6 w-6" strokeWidth={2.2} />
                 </span>
                 <div>
-                  <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-ink leading-tight">{product.name}</h1>
+                  <h1 className="font-display text-3xl sm:text-4xl font-bold text-ink leading-tight">{product.name}</h1>
                   <p className="text-sm font-medium text-ink-light uppercase tracking-wider">{product.category[lang]}</p>
                 </div>
               </motion.div>
@@ -194,7 +194,7 @@ export default function ProductPage() {
                   <p className="font-display font-bold text-lg text-ink">{plan.name[lang]}</p>
                   <p className="text-sm text-ink-muted mt-1 min-h-[40px]">{plan.description[lang]}</p>
                   <div className="mt-4 flex items-end gap-1">
-                    <span className="font-display text-4xl font-extrabold text-ink">{plan.price}</span>
+                    <span className="font-display text-4xl font-bold text-ink">{plan.price}</span>
                     {plan.period && <span className="text-sm text-ink-light mb-1">{t('product.perMonth')}</span>}
                   </div>
                   <ul className="mt-6 space-y-2.5 flex-1">
@@ -228,7 +228,7 @@ export default function ProductPage() {
               <div className="flex items-center justify-center gap-2 text-liafrik-100 text-xs font-semibold mb-3">
                 <ShieldCheck className="h-4 w-4" /> {lang === 'en' ? 'Secure · Scalable · Global' : 'Sécurisé · Évolutif · Global'}
               </div>
-              <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-white">{lang === 'en' ? `Run your business on ${product.name}` : `Pilotez votre entreprise avec ${product.name}`}</h2>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">{lang === 'en' ? `Run your business on ${product.name}` : `Pilotez votre entreprise avec ${product.name}`}</h2>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                 <LinkButton to="/products" variant="white" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>{t('product.cta')}</LinkButton>
                 <a href="mailto:cs@liafrik.com" className="inline-flex items-center gap-2 rounded-full text-white border border-white/30 px-7 py-3.5 text-base font-semibold hover:bg-white/10 transition-colors">
