@@ -13,7 +13,7 @@ export const posProductDashboard: DashboardSpec = {
       kind: 'list',
       title: { en: 'Live activity', fr: 'Activité en direct' },
       items: [
-        { label: { en: 'New order — LiOS', fr: 'Nouvelle commande — LiOS' }, value: '$89', sub: '2s ago' },
+        { label: { en: 'New order — OS', fr: 'Nouvelle commande — OS' }, value: '$89', sub: '2s ago' },
         { label: { en: 'Payment — POS', fr: 'Paiement — POS' }, value: '$320', sub: '1m ago' },
         { label: { en: 'Tenant paid — Bailly', fr: 'Locataire payé — Bailly' }, value: '$1,200', sub: '4m ago' },
         { label: { en: 'Tontine payout — Kolo', fr: 'Versement tontine — Kolo' }, value: '$8,200', sub: '12m ago' },
@@ -34,7 +34,7 @@ export const posProductDashboard: DashboardSpec = {
       title: { en: 'Apps in use', fr: 'Apps utilisées' },
       segments: [
         { label: { en: 'POS', fr: 'POS' }, value: 32, color: '#0070E0' },
-        { label: { en: 'LiOS', fr: 'LiOS' }, value: 26, color: '#3D9BFF' },
+        { label: { en: 'OS', fr: 'OS' }, value: 26, color: '#3D9BFF' },
         { label: { en: 'HR', fr: 'RH' }, value: 18, color: '#00BFE0' },
         { label: { en: 'Other', fr: 'Autres' }, value: 24, color: '#A8D0FF' },
       ],

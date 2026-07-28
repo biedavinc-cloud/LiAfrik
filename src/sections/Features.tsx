@@ -31,7 +31,7 @@ const features: Feature[] = [
   { icon: Brain, en: 'AI Ready', fr: "Prêt pour l'IA", descEn: 'Built-in AI assistance across modules.', descFr: 'Assistant IA intégré dans tous les modules.' },
   { icon: BellRing, en: 'Notifications', fr: 'Notifications', descEn: 'Stay informed on every important event.', descFr: 'Restez informé de chaque événement clé.' },
   { icon: Smartphone, en: 'Mobile Friendly', fr: 'Adapté au mobile', descEn: 'A beautiful experience on any device.', descFr: 'Une expérience fluide sur tout appareil.' },
-  { icon: Globe2, en: 'African-first Architecture', fr: "Architecture africaine d'abord", descEn: 'Designed for African business realities.', descFr: 'Pensé pour les réalités africaines.' },
+  { icon: Globe2, en: 'Global Architecture', fr: 'Architecture globale', descEn: 'Designed for business realities worldwide.', descFr: 'Pensé pour les réalités commerciales mondiales.' },
 ];
 
 export default function Features() {

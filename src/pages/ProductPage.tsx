@@ -33,7 +33,7 @@ export default function ProductPage() {
         <div aria-hidden className="absolute inset-0 bg-radial-blue" />
         <div aria-hidden className="absolute -top-20 right-0 h-72 w-72 rounded-full bg-liafrik-200/40 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-          <Link to="/#ecosystem" className="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-liafrik-700 transition-colors mb-6">
+          <Link to="/products" className="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-liafrik-700 transition-colors mb-6">
             <ArrowLeft className="h-4 w-4" /> {t('product.back')}
           </Link>
 
@@ -79,9 +79,9 @@ export default function ProductPage() {
                     <ExternalLink className="h-4 w-4" /> {t('product.openApp')}
                   </a>
                 ) : (
-                  <LinkButton to="/#contact" variant="primary" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>{t('product.cta')}</LinkButton>
+                  <LinkButton to="/products" variant="primary" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>{t('product.cta')}</LinkButton>
                 )}
-                <LinkButton to="/#contact" variant="outline" size="lg" icon={<Phone className="h-4 w-4" />}>{t('product.contact')}</LinkButton>
+                <LinkButton to="/support" variant="outline" size="lg" icon={<Phone className="h-4 w-4" />}>{t('product.contact')}</LinkButton>
               </motion.div>
 
               {!product.appUrl && product.available && (
@@ -207,9 +207,9 @@ export default function ProductPage() {
                   </ul>
                   <div className="mt-6">
                     {plan.popular ? (
-                      <LinkButton to="/#contact" variant="primary" size="md" className="w-full justify-center">{plan.cta[lang]}</LinkButton>
+                      <LinkButton to="/products" variant="primary" size="md" className="w-full justify-center">{plan.cta[lang]}</LinkButton>
                     ) : (
-                      <LinkButton to="/#contact" variant="outline" size="md" className="w-full justify-center">{plan.cta[lang]}</LinkButton>
+                      <LinkButton to="/products" variant="outline" size="md" className="w-full justify-center">{plan.cta[lang]}</LinkButton>
                     )}
                   </div>
                 </motion.div>
@@ -226,11 +226,11 @@ export default function ProductPage() {
             <div aria-hidden className="absolute inset-0 bg-grid-soft opacity-10" />
             <div className="relative">
               <div className="flex items-center justify-center gap-2 text-liafrik-100 text-xs font-semibold mb-3">
-                <ShieldCheck className="h-4 w-4" /> {lang === 'en' ? 'Secure · Scalable · African-first' : "Sécurisé · Évolutif · Africain d'abord"}
+                <ShieldCheck className="h-4 w-4" /> {lang === 'en' ? 'Secure · Scalable · Global' : 'Sécurisé · Évolutif · Global'}
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-white">{lang === 'en' ? `Run your business on ${product.name}` : `Pilotez votre entreprise avec ${product.name}`}</h2>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                <LinkButton to="/#contact" variant="white" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>{t('product.cta')}</LinkButton>
+                <LinkButton to="/products" variant="white" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>{t('product.cta')}</LinkButton>
                 <a href="mailto:cs@liafrik.com" className="inline-flex items-center gap-2 rounded-full text-white border border-white/30 px-7 py-3.5 text-base font-semibold hover:bg-white/10 transition-colors">
                   <Mail className="h-4 w-4" /> {t('product.contact')}
                 </a>

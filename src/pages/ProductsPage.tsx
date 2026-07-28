@@ -13,9 +13,9 @@ type CategoryFilter = 'all' | 'business' | 'industry' | 'education' | 'community
 
 const categoryMap: Record<CategoryFilter, string[]> = {
   all: [],
-  business: ['pos', 'liOS', 'crm', 'books', 'hr'],
-  industry: ['health-core', 'bailly', 'restaurant'],
-  education: ['school', 'digital-skills'],
+  business: ['pos', 'os', 'crm', 'libooks', 'faka'],
+  industry: ['health', 'bailly', 'eat'],
+  education: ['klasso', 'skills'],
   community: ['kolo', 'mafo'],
 };
 

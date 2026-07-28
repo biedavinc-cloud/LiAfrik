@@ -46,7 +46,7 @@ export default function Contact() {
           <div className="lg:col-span-2 space-y-4">
             <InfoCard icon={Phone} title={t('contact.phone')} lines={['+971 50 385 7203', '+237 6XX XXX XXX']} />
             <InfoCard icon={Mail} title={t('contact.email')} lines={['cs@liafrik.com', 'support@liafrik.com']} />
-            <InfoCard icon={MapPin} title={lang === 'en' ? 'Presence' : 'Présence'} lines={['Dubai · Yaoundé · Lagos']} />
+            <InfoCard icon={MapPin} title={lang === 'en' ? 'Presence' : 'Présence'} lines={['Dubai · Yaoundé']} />
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}

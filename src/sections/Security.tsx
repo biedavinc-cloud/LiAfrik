@@ -67,8 +67,8 @@ export default function Security() {
           <ShieldCheck className="h-8 w-8 shrink-0" />
           <p className="text-sm sm:text-base font-medium leading-relaxed">
             {lang === 'en'
-              ? 'From Health Core to Mafo, from Books to Kolo — sensitive data is treated with the highest standard of confidentiality and care.'
-              : "De Health Core à Mafo, de Books à Kolo — les données sensibles sont traitées selon les standards les plus stricts de confidentialité et d'attention."}
+              ? 'From Health to Mafo, from LiBooks to Kolo — sensitive data is treated with the highest standard of confidentiality and care.'
+              : "De Health à Mafo, de LiBooks à Kolo — les données sensibles sont traitées selon les standards les plus stricts de confidentialité et d'attention."}
           </p>
         </motion.div>
       </div>

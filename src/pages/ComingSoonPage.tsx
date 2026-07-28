@@ -40,7 +40,7 @@ export default function ComingSoonPage() {
         />
 
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6 text-center">
-          <Link to="/#ecosystem" className="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-liafrik-700 transition-colors mb-8">
+          <Link to="/products" className="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-liafrik-700 transition-colors mb-8">
             <ArrowLeft className="h-4 w-4" /> {t('product.back')}
           </Link>
 
@@ -124,7 +124,7 @@ export default function ComingSoonPage() {
             )}
           </motion.div>
 
-          <Link to="/#ecosystem" className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-liafrik-700 hover:text-liafrik-800 transition-colors">
+          <Link to="/products" className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-liafrik-700 hover:text-liafrik-800 transition-colors">
             {t('cs.backEco')} <ArrowLeft className="h-4 w-4 rotate-180" />
           </Link>
         </div>

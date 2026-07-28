@@ -44,7 +44,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-5 font-display text-4xl sm:text-5xl lg:text-[64px] xl:text-[72px] font-extrabold leading-[1.04] tracking-tight text-ink"
+              className="mt-5 font-display text-4xl sm:text-5xl lg:text-[58px] xl:text-[66px] font-bold leading-[1.08] tracking-tight text-ink"
             >
               {t('hero.headline')}
             </motion.h1>

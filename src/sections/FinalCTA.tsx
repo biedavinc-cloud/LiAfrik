@@ -29,17 +29,17 @@ export default function FinalCTA() {
           />
 
           <div className="relative">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-3xl mx-auto">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight max-w-3xl mx-auto">
               {t('finalCta.title')}
             </h2>
             <p className="mt-4 text-lg text-liafrik-100 max-w-xl mx-auto">
               {t('finalCta.sub')}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <LinkButton to="/#contact" variant="white" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
+              <LinkButton to="/products" variant="white" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
                 {t('finalCta.start')}
               </LinkButton>
-              <LinkButton to="/#contact" variant="ghost" size="lg" className="text-white hover:bg-white/10" icon={<Play className="h-4 w-4" />}>
+              <LinkButton to="/support" variant="ghost" size="lg" className="text-white hover:bg-white/10" icon={<Play className="h-4 w-4" />}>
                 {t('finalCta.demo')}
               </LinkButton>
             </div>

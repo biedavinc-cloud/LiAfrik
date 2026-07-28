@@ -117,10 +117,10 @@ export default function BuildYourStack() {
                   <div className="mt-5 pt-4 border-t border-cloud-200">
                     <p className="text-xs text-ink-light mb-3">{selectedProducts.length} {t('stack.modules')}</p>
                     <div className="flex flex-wrap gap-2.5">
-                      <LinkButton to="/#contact" variant="primary" size="md" iconRight={<ArrowRight className="h-4 w-4" />}>
+                      <LinkButton to="/products" variant="primary" size="md" iconRight={<ArrowRight className="h-4 w-4" />}>
                         {t('stack.start')}
                       </LinkButton>
-                      <LinkButton to="/#contact" variant="outline" size="md">
+                      <LinkButton to="/support" variant="outline" size="md">
                         {t('stack.demo')}
                       </LinkButton>
                     </div>

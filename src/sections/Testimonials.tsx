@@ -25,8 +25,8 @@ const examples: Testimonial[] = [
     initials: 'EX',
   },
   {
-    quoteEn: 'Running a 120-bed hospital means coordinating across systems. With Health Core, admissions, appointments and medical records would be unified, reducing wait times dramatically.',
-    quoteFr: "Gérer un hôpital de 120 lits implique de coordonner plusieurs systèmes. Avec Health Core, admissions, rendez-vous et dossiers médicaux seraient unifiés, réduisant les temps d'attente de façon spectaculaire.",
+    quoteEn: 'Running a 120-bed hospital means coordinating across systems. With Health, admissions, appointments and medical records would be unified, reducing wait times dramatically.',
+    quoteFr: "Gérer un hôpital de 120 lits implique de coordonner plusieurs systèmes. Avec Health, admissions, rendez-vous et dossiers médicaux seraient unifiés, réduisant les temps d'attente de façon spectaculaire.",
     name: 'Example',
     roleEn: 'Hospital Director',
     roleFr: "Directeur d'hôpital",
@@ -34,8 +34,8 @@ const examples: Testimonial[] = [
     initials: 'EX',
   },
   {
-    quoteEn: 'Managing 2,000 students across three campuses. School Management would centralize enrollment, grading and parent communication, keeping parents connected to what we do.',
-    quoteFr: 'Gérer 2 000 élèves sur trois campus. School Management centraliserait les inscriptions, la notation et la communication avec les parents, gardant les parents connectés à notre travail.',
+    quoteEn: 'Managing 2,000 students across three campuses. KlasSo would centralize enrollment, grading and parent communication, keeping parents connected to what we do.',
+    quoteFr: 'Gérer 2 000 élèves sur trois campus. KlasSo centraliserait les inscriptions, la notation et la communication avec les parents, gardant les parents connectés à notre travail.',
     name: 'Example',
     roleEn: 'School Administrator',
     roleFr: 'Administrateur scolaire',
@@ -43,8 +43,8 @@ const examples: Testimonial[] = [
     initials: 'EX',
   },
   {
-    quoteEn: 'The kitchen display and table management would change how we serve. Orders flowing from waiters to cooks instantly, two outlets from the same system — a game changer for African restaurants.',
-    quoteFr: "L'affichage cuisine et la gestion des tables changeraient notre service. Des commandes passant des serveurs aux cuisiniers instantanément, deux établissements depuis le même système — décisif pour les restaurants africains.",
+    quoteEn: 'The kitchen display and table management would change how we serve. Orders flowing from waiters to cooks instantly, two outlets from the same system — a game changer for restaurants.',
+    quoteFr: "L'affichage cuisine et la gestion des tables changeraient notre service. Des commandes passant des serveurs aux cuisiniers instantanément, deux établissements depuis le même système — décisif pour les restaurants.",
     name: 'Example',
     roleEn: 'Restaurant Owner',
     roleFr: 'Restaurateur',
@@ -61,8 +61,8 @@ const examples: Testimonial[] = [
     initials: 'EX',
   },
   {
-    quoteEn: 'As a founder, I would stop spending evenings reconciling tools. With LiAfrik, commerce, finance and HR connected — focus on growth, not on software. The future for African SMEs.',
-    quoteFr: "En tant que fondateur, je cesserais de passer mes soirées à réconcilier des outils. Avec LiAfrik, commerce, finance et RH connectés — se concentrer sur la croissance, pas sur les logiciels. Le futur pour les PME africaines.",
+    quoteEn: 'As a founder, I would stop spending evenings reconciling tools. With LiAfrik, commerce, finance and HR connected — focus on growth, not on software. The future for ambitious businesses.',
+    quoteFr: "En tant que fondateur, je cesserais de passer mes soirées à réconcilier des outils. Avec LiAfrik, commerce, finance et RH connectés — se concentrer sur la croissance, pas sur les logiciels. Le futur pour les entreprises ambitieuses.",
     name: 'Example',
     roleEn: 'SME Founder',
     roleFr: 'Fondateur de PME',

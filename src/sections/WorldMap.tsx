@@ -3,18 +3,8 @@ import SectionHeading from '@/components/SectionHeading';
 import { useLang } from '@/i18n/LanguageContext';
 
 const cities = [
-  { name: 'Lagos', x: 49, y: 58, delay: 0 },
-  { name: 'Nairobi', x: 64, y: 66, delay: 0.2 },
-  { name: 'Cairo', x: 56, y: 41, delay: 0.4 },
-  { name: 'Cape Town', x: 54, y: 86, delay: 0.6 },
-  { name: 'Accra', x: 46, y: 56, delay: 0.8 },
-  { name: 'Dakar', x: 41, y: 49, delay: 1 },
-  { name: 'Yaoundé', x: 52, y: 62, delay: 1.2 },
-  { name: 'Kigali', x: 60, y: 68, delay: 1.4 },
-  { name: 'Addis Ababa', x: 63, y: 56, delay: 1.6 },
-  { name: 'Dubai', x: 65, y: 49, delay: 1.8 },
-  { name: 'Abidjan', x: 44, y: 55, delay: 2 },
-  { name: 'Kinshasa', x: 55, y: 68, delay: 2.2 },
+  { name: 'Yaoundé', x: 52, y: 62, delay: 0 },
+  { name: 'Dubai', x: 65, y: 49, delay: 0.3 },
 ];
 
 export default function WorldMap() {

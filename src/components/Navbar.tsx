@@ -23,12 +23,11 @@ export default function Navbar() {
   useEffect(() => { setOpen(false); }, [location.pathname]);
 
   const navItems = [
+    { label: t('nav.products'), href: '/products' },
     { label: t('nav.solutions'), href: '/#ecosystem' },
-    { label: t('nav.industries'), href: '/#industries' },
-    { label: t('nav.features'), href: '/#features' },
-    { label: t('nav.security'), href: '/#security' },
+    { label: t('nav.security'), href: '/security' },
     { label: t('nav.about'), href: '/#about' },
-    { label: t('nav.contact'), href: '/#contact' },
+    { label: t('nav.support'), href: '/support' },
   ];
 
   return (

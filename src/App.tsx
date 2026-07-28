@@ -8,6 +8,10 @@ import { FloatingContact } from '@/sections/Contact';
 import Home from '@/pages/Home';
 import ProductPage from '@/pages/ProductPage';
 import ProductsPage from '@/pages/ProductsPage';
+import SecurityPage from '@/pages/SecurityPage';
+import FounderPage from '@/pages/FounderPage';
+import PresencePage from '@/pages/PresencePage';
+import SupportPage from '@/pages/SupportPage';
 import ComingSoonPage from '@/pages/ComingSoonPage';
 import NotFound from '@/pages/NotFound';
 
@@ -44,6 +48,10 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:slug" element={<ProductOrComingSoon />} />
+            <Route path="/security" element={<SecurityPage />} />
+            <Route path="/founder" element={<FounderPage />} />
+            <Route path="/presence" element={<PresencePage />} />
+            <Route path="/support" element={<SupportPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
