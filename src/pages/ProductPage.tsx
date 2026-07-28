@@ -1,12 +1,12 @@
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  ArrowLeft, ArrowRight, Check, Phone, Mail, Sparkles, ShieldCheck, Zap,
-  ExternalLink, Clock,
+  ArrowLeft, ArrowRight, Check, Phone, Mail, Sparkles, ShieldCheck,
+  ExternalLink, Clock, LayoutDashboard,
 } from 'lucide-react';
 import { getProductBySlug } from '@/data/products';
 import DashboardMockup from '@/components/DashboardMockup';
-import { LinkButton, Button } from '@/components/Button';
+import { LinkButton } from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
 import { useLang } from '@/i18n/LanguageContext';
 import NotFound from '@/pages/NotFound';
@@ -17,14 +17,12 @@ export default function ProductPage() {
   const product = getProductBySlug(slug);
 
   if (!product || !product.available) {
-    if (product && !product.available) {
-      // Coming soon product — redirect handled by ComingSoon page via routing, but guard here
-      return null;
-    }
+    if (product && !product.available) return null;
     return <NotFound />;
   }
 
   const Icon = product.icon;
+  const en = lang === 'en';
 
   return (
     <div className="pt-24">
@@ -74,8 +72,12 @@ export default function ProductPage() {
                 className="mt-7 flex flex-wrap items-center gap-3"
               >
                 {product.appUrl ? (
-                  <a href={product.appUrl} target="_blank" rel="noopener noreferrer"
-                     className="inline-flex items-center justify-center gap-2 rounded-full bg-liafrik-600 text-white text-base font-semibold px-7 py-3.5 hover:bg-liafrik-700 shadow-premium hover:shadow-glow-blue hover:-translate-y-0.5 active:translate-y-0 transition-all">
+                  <a
+                    href={product.appUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-liafrik-600 text-white text-base font-semibold px-7 py-3.5 hover:bg-liafrik-700 shadow-premium hover:shadow-glow-blue hover:-translate-y-0.5 active:translate-y-0 transition-all"
+                  >
                     <ExternalLink className="h-4 w-4" /> {t('product.openApp')}
                   </a>
                 ) : (
@@ -109,7 +111,7 @@ export default function ProductPage() {
       {/* Features */}
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading tag={t('product.features')} title={`${product.name} ${lang === 'en' ? 'features' : 'fonctionnalités'}`} align="left" />
+          <SectionHeading tag={t('product.features')} title={`${product.name} ${en ? 'features' : 'fonctionnalités'}`} align="left" />
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {product.features.map((f, i) => (
               <motion.div
@@ -117,7 +119,7 @@ export default function ProductPage() {
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: (i % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="rounded-2xl bg-white border border-cloud-200 p-5 shadow-card hover:shadow-float transition-shadow"
+                className="rounded-2xl bg-white border border-cloud-200 p-5 shadow-card hover:shadow-float hover:-translate-y-0.5 transition-all"
               >
                 <span className="grid place-items-center h-9 w-9 rounded-xl bg-liafrik-50 text-liafrik-600 mb-3">
                   <Check className="h-5 w-5" strokeWidth={2.5} />
@@ -132,7 +134,7 @@ export default function ProductPage() {
       {/* Benefits */}
       <section className="py-16 sm:py-20 bg-cloud-100/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading tag={t('product.benefits')} title={lang === 'en' ? 'Why teams choose it' : 'Pourquoi les équipes le choisissent'} align="left" />
+          <SectionHeading tag={t('product.benefits')} title={en ? 'Why teams choose it' : 'Pourquoi les équipes le choisissent'} align="left" />
           <div className="mt-10 grid sm:grid-cols-2 gap-4">
             {product.benefits.map((b, i) => (
               <motion.div
@@ -143,7 +145,7 @@ export default function ProductPage() {
                 className="flex items-start gap-3 rounded-2xl bg-white border border-cloud-200 p-5 shadow-card"
               >
                 <span className="grid place-items-center h-9 w-9 rounded-xl bg-gradient-to-br from-liafrik-600 to-cyanx-500 text-white shrink-0">
-                  <Sparkles className="h-4.5 w-4.5" />
+                  <Sparkles className="h-4 w-4" />
                 </span>
                 <p className="text-sm font-medium text-ink-soft leading-relaxed pt-1.5">{b[lang]}</p>
               </motion.div>
@@ -155,7 +157,7 @@ export default function ProductPage() {
       {/* Industries */}
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading tag={t('product.industries')} title={lang === 'en' ? 'Built for your industry' : 'Conçu pour votre industrie'} align="left" />
+          <SectionHeading tag={t('product.industries')} title={en ? 'Built for your industry' : 'Conçu pour votre industrie'} align="left" />
           <div className="mt-8 flex flex-wrap gap-3">
             {product.industries.map((ind, i) => (
               <motion.span
@@ -172,49 +174,47 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* Pricing */}
-      {product.pricing.length > 0 && (
+      {/* Explore Plan — replaces pricing table */}
+      {product.appUrl && (
         <section className="py-16 sm:py-20 bg-cloud-100/60">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <SectionHeading tag={lang === 'en' ? 'Pricing' : 'Tarification'} title={t('product.pricingTitle')} subtitle={t('product.pricingSub')} />
-            <div className="mt-10 grid md:grid-cols-3 gap-5 items-stretch">
-              {product.pricing.map((plan, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`relative rounded-3xl p-6 sm:p-7 flex flex-col ${plan.popular ? 'bg-white border-2 border-liafrik-400 shadow-glow-blue md:-translate-y-3' : 'bg-white border border-cloud-200 shadow-card'}`}
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="rounded-3xl bg-white border border-cloud-200 p-10 sm:p-14 shadow-card"
+            >
+              <span className="inline-grid place-items-center h-14 w-14 rounded-2xl bg-gradient-to-br from-liafrik-600 to-cyanx-500 text-white shadow-glow-blue mx-auto mb-5">
+                <LayoutDashboard className="h-7 w-7" strokeWidth={1.8} />
+              </span>
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-ink">
+                {en ? `Start using ${product.name}` : `Commencer avec ${product.name}`}
+              </h3>
+              <p className="mt-3 text-base text-ink-muted max-w-sm mx-auto leading-relaxed">
+                {en
+                  ? `Discover the full pricing and plan options directly inside ${product.name}. Start free and upgrade as you grow.`
+                  : `Découvrez les prix et options de plan directement dans ${product.name}. Commencez gratuitement et évoluez selon votre croissance.`}
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href={product.appUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-liafrik-600 text-white text-base font-semibold px-8 py-3.5 hover:bg-liafrik-700 shadow-premium hover:shadow-glow-blue hover:-translate-y-0.5 active:translate-y-0 transition-all w-full sm:w-auto"
                 >
-                  {plan.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-liafrik-600 to-cyanx-500 text-white text-[11px] font-bold px-3 py-1 shadow-glow-blue">
-                      {t('product.mostPopular')}
-                    </span>
-                  )}
-                  <p className="font-display font-bold text-lg text-ink">{plan.name[lang]}</p>
-                  <p className="text-sm text-ink-muted mt-1 min-h-[40px]">{plan.description[lang]}</p>
-                  <div className="mt-4 flex items-end gap-1">
-                    <span className="font-display text-4xl font-bold text-ink">{plan.price}</span>
-                    {plan.period && <span className="text-sm text-ink-light mb-1">{t('product.perMonth')}</span>}
-                  </div>
-                  <ul className="mt-6 space-y-2.5 flex-1">
-                    {plan.features.map((f, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-ink-soft">
-                        <Check className="h-4 w-4 text-liafrik-600 shrink-0 mt-0.5" strokeWidth={2.5} />
-                        {f[lang]}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-6">
-                    {plan.popular ? (
-                      <LinkButton to="/products" variant="primary" size="md" className="w-full justify-center">{plan.cta[lang]}</LinkButton>
-                    ) : (
-                      <LinkButton to="/products" variant="outline" size="md" className="w-full justify-center">{plan.cta[lang]}</LinkButton>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                  <LayoutDashboard className="h-4 w-4" />
+                  {en ? 'Explore Plan' : 'Voir le Plan'}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <LinkButton to="/support" variant="outline" size="lg" icon={<Phone className="h-4 w-4" />} className="w-full sm:w-auto justify-center">
+                  {t('product.contact')}
+                </LinkButton>
+              </div>
+              <p className="mt-5 text-xs text-ink-light">
+                {en ? 'No credit card required to get started.' : 'Aucune carte de crédit requise pour démarrer.'}
+              </p>
+            </motion.div>
           </div>
         </section>
       )}
@@ -226,11 +226,24 @@ export default function ProductPage() {
             <div aria-hidden className="absolute inset-0 bg-grid-soft opacity-10" />
             <div className="relative">
               <div className="flex items-center justify-center gap-2 text-liafrik-100 text-xs font-semibold mb-3">
-                <ShieldCheck className="h-4 w-4" /> {lang === 'en' ? 'Secure · Scalable · Global' : 'Sécurisé · Évolutif · Global'}
+                <ShieldCheck className="h-4 w-4" /> {en ? 'Secure · Scalable · Global' : 'Sécurisé · Évolutif · Global'}
               </div>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">{lang === 'en' ? `Run your business on ${product.name}` : `Pilotez votre entreprise avec ${product.name}`}</h2>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">
+                {en ? `Run your business on ${product.name}` : `Pilotez votre entreprise avec ${product.name}`}
+              </h2>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                <LinkButton to="/products" variant="white" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>{t('product.cta')}</LinkButton>
+                {product.appUrl ? (
+                  <a
+                    href={product.appUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-white text-liafrik-700 text-base font-semibold px-7 py-3.5 hover:bg-cloud-50 shadow-premium hover:-translate-y-0.5 transition-all"
+                  >
+                    {en ? 'Explore Plan' : 'Voir le Plan'} <ArrowRight className="h-4 w-4" />
+                  </a>
+                ) : (
+                  <LinkButton to="/products" variant="white" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>{t('product.cta')}</LinkButton>
+                )}
                 <a href="mailto:cs@liafrik.com" className="inline-flex items-center gap-2 rounded-full text-white border border-white/30 px-7 py-3.5 text-base font-semibold hover:bg-white/10 transition-colors">
                   <Mail className="h-4 w-4" /> {t('product.contact')}
                 </a>
