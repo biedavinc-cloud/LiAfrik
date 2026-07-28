@@ -142,7 +142,7 @@ function ProductCard({ product }: { product: Product }) {
         </div>
 
         <div className="px-4 pb-3 shrink-0">
-          <DashboardMockup spec={product.dashboard} compact />
+          <DashboardMockup spec={product.dashboard} compact productName={product.name} accent={product.accent} />
         </div>
 
         <div className="px-5 pb-5 pt-1 mt-auto">

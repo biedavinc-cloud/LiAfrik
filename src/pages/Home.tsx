@@ -10,6 +10,7 @@ import Stats from '@/sections/Stats';
 import HowItWorks from '@/sections/HowItWorks';
 import Testimonials from '@/sections/Testimonials';
 import WorldMap from '@/sections/WorldMap';
+import Founder from '@/sections/Founder';
 import FAQ from '@/sections/FAQ';
 import Contact from '@/sections/Contact';
 import FinalCTA from '@/sections/FinalCTA';
@@ -37,6 +38,7 @@ export default function Home() {
       </div>
       <Testimonials />
       <WorldMap />
+      <Founder />
       <FAQ />
       <Contact />
       <FinalCTA />

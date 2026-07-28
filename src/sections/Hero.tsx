@@ -65,11 +65,11 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
               className="mt-7 flex flex-wrap items-center gap-3"
             >
-              <LinkButton to="/#contact" variant="primary" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
+              <LinkButton to="/products" variant="primary" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
                 {t('hero.cta.start')}
               </LinkButton>
-              <LinkButton to="/#contact" variant="white" size="lg" icon={<Play className="h-4 w-4" />}>
-                {t('hero.cta.demo')}
+              <LinkButton to="/#ecosystem" variant="white" size="lg" icon={<Play className="h-4 w-4" />}>
+                {t('hero.cta.ecosystem') ?? t('hero.cta.demo')}
               </LinkButton>
             </motion.div>
 
@@ -95,7 +95,7 @@ export default function Hero() {
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <DashboardMockup spec={posProductDashboard} />
+              <DashboardMockup spec={posProductDashboard} productName="POS" accent="#0070E0" />
             </motion.div>
 
             {/* Floating notification cards */}

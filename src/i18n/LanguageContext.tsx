@@ -17,16 +17,17 @@ export const translations: Dict = {
   'nav.startFree': { en: 'Start Free', fr: 'Commencer gratuitement' },
 
   // Hero
-  'hero.headline': { en: 'Africa Runs on LiAfrik.', fr: "L'Afrique tourne sur LiAfrik." },
+  'hero.headline': { en: 'One Ecosystem. Powerful SaaS. Built for the World.', fr: 'Un écosystème. Des SaaS puissants. Conçu pour le monde.' },
   'hero.sub1': {
-    en: 'The Operating System for African Businesses. Manage your entire business from one intelligent cloud platform.',
-    fr: "Le système d'exploitation des entreprises africaines. Gérez toute votre entreprise depuis une seule plateforme cloud intelligente.",
+    en: 'LiAfrik brings together powerful, specialized SaaS platforms that help businesses, organizations, institutions and communities manage the most important parts of their operations — all within one connected ecosystem.',
+    fr: 'LiAfrik réunit des plateformes SaaS spécialisées et puissantes qui aident les entreprises, organisations, institutions et communautés à gérer les parties les plus importantes de leurs opérations — au sein d’un seul écosystème connecté.',
   },
   'hero.sub2': {
-    en: 'Commerce. People. Education. Healthcare. Finance. Restaurants. Real Estate. Everything connected.',
-    fr: 'Commerce. RH. Éducation. Santé. Finance. Restauration. Immobilier. Tout est connecté.',
+    en: 'African-born. Global by design. Commerce, healthcare, education, HR, finance, real estate, restaurants, community — everything connected.',
+    fr: "Né en Afrique. Global par conception. Commerce, santé, éducation, RH, finance, immobilier, restauration, communauté — tout est connecté.",
   },
   'hero.cta.start': { en: 'Start Free', fr: 'Commencer gratuitement' },
+  'hero.cta.ecosystem': { en: 'Explore the Ecosystem', fr: "Explorer l'écosystème" },
   'hero.cta.demo': { en: 'Request Demo', fr: 'Demander une démo' },
   'hero.trust': {
     en: 'Trusted by ambitious businesses building the future of Africa.',
@@ -225,6 +226,28 @@ export const translations: Dict = {
   'testi.real': { en: 'Verified customer', fr: 'Client vérifié' },
   'testi.placeholder': { en: 'Real testimonials from our first customers coming soon', fr: 'Vrais témoignages de nos premiers clients bientôt disponibles' },
   'testi.placeholderSub': { en: 'We are onboarding our first businesses across Africa. Their stories will appear here.', fr: 'Nous accueillons nos premières entreprises en Afrique. Leurs histoires apparaîtront ici.' },
+
+  // Products catalog page
+  'products.tag': { en: 'The Ecosystem', fr: "L'écosystème" },
+  'products.title': { en: 'Explore every LiAfrik platform', fr: 'Explorez chaque plateforme LiAfrik' },
+  'products.sub': { en: 'Specialized SaaS for every part of your operations — all connected, all under one ecosystem.', fr: 'Des SaaS spécialisés pour chaque partie de vos opérations — tous connectés, tous sous un seul écosystème.' },
+  'products.filterAll': { en: 'All Platforms', fr: 'Toutes les plateformes' },
+  'products.available': { en: 'Available now', fr: 'Disponible' },
+  'products.comingSoon': { en: 'Coming soon', fr: 'Bientôt disponible' },
+  'products.explore': { en: 'Explore', fr: 'Explorer' },
+  'products.launch': { en: 'Launch App', fr: 'Lancer l\'app' },
+  'products.joinWaitlist': { en: 'Join Waitlist', fr: 'Rejoindre la liste d\'attente' },
+  'products.pricingFrom': { en: 'from', fr: 'à partir de' },
+  'products.category.business': { en: 'Business & Commerce', fr: 'Commerce & Affaires' },
+  'products.category.industry': { en: 'Industry & Operations', fr: 'Industrie & Opérations' },
+  'products.category.education': { en: 'Education & Learning', fr: 'Éducation & Apprentissage' },
+  'products.category.community': { en: 'Community & Wellbeing', fr: 'Communauté & Bien-être' },
+
+  // Founder
+  'founder.tag': { en: 'About the Founder', fr: 'À propos du fondateur' },
+  'founder.title': { en: 'A vision born in Africa, built for the world', fr: 'Une vision née en Afrique, conçue pour le monde' },
+  'founder.desc': { en: 'LiAfrik is part of the LIYAH GROUP family of companies — building technology that elevates how communities and businesses work everywhere.', fr: 'LiAfrik fait partie de la famille de sociétés LIYAH GROUP — construisant des technologies qui élèvent la manière dont les communautés et les entreprises travaillent partout.' },
+  'founder.cta': { en: 'Meet the Founder', fr: 'Rencontrer le fondateur' },
 };
 
 interface LanguageContextValue {

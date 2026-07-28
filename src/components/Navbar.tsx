@@ -61,10 +61,10 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <LanguageToggle lang={lang} setLang={setLang} />
-            <LinkButton to="/#contact" variant="ghost" size="sm" className="hidden sm:inline-flex">
+            <LinkButton to="/products" variant="ghost" size="sm" className="hidden sm:inline-flex">
               {t('nav.bookDemo')}
             </LinkButton>
-            <LinkButton to="/#contact" variant="primary" size="sm" iconRight={<ArrowRight className="h-4 w-4" />} className="hidden sm:inline-flex">
+            <LinkButton to="/products" variant="primary" size="sm" iconRight={<ArrowRight className="h-4 w-4" />} className="hidden sm:inline-flex">
               {t('nav.startFree')}
             </LinkButton>
             <button onClick={() => setOpen((v) => !v)} className="lg:hidden grid place-items-center h-9 w-9 rounded-lg text-ink-soft hover:bg-liafrik-50" aria-label="Menu">
@@ -90,8 +90,8 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="pt-2 grid grid-cols-2 gap-2">
-                <LinkButton to="/#contact" variant="outline" size="sm" className="w-full justify-center">{t('nav.bookDemo')}</LinkButton>
-                <LinkButton to="/#contact" variant="primary" size="sm" className="w-full justify-center">{t('nav.startFree')}</LinkButton>
+                <LinkButton to="/products" variant="outline" size="sm" className="w-full justify-center">{t('nav.bookDemo')}</LinkButton>
+                <LinkButton to="/products" variant="primary" size="sm" className="w-full justify-center">{t('nav.startFree')}</LinkButton>
               </div>
             </div>
           </motion.div>

@@ -3,34 +3,21 @@ import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import { ArrowUpRight, ArrowDownRight, Sparkles, Bell, Search } from 'lucide-react';
 import type { DashboardSpec, DashboardPanel } from '@/data/products';
 import { useLang } from '@/i18n/LanguageContext';
+import { cn } from '@/lib/cn';
 
 interface Props {
   spec: DashboardSpec;
+  productName?: string;
+  accent?: string;
   className?: string;
   compact?: boolean;
 }
 
-export default function DashboardMockup({ spec, className = '', compact = false }: Props) {
+export default function DashboardMockup({ spec, productName, accent = '#0070E0', className = '', compact = false }: Props) {
   const { lang } = useLang();
-  const liveValue = useMotionValue(0);
-  const display = useTransform(liveValue, (v) => formatLike(spec.metric.value, v));
-  const ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const target = numericPart(spec.metric.value);
-    const controls = animate(liveValue, target, {
-      duration: 2,
-      ease: [0.22, 1, 0.36, 1],
-    });
-    const interval = setInterval(() => {
-      const jitter = target * (0.985 + Math.random() * 0.03);
-      animate(liveValue, jitter, { duration: 1.6, ease: 'easeInOut' });
-    }, 3200);
-    return () => { controls.stop(); clearInterval(interval); };
-  }, [spec.metric.value, liveValue]);
 
   return (
-    <div className={`relative w-full rounded-3xl glass-card-strong overflow-hidden ${className}`}>
+    <div className={cn('relative w-full rounded-3xl glass-card-strong overflow-hidden', className)}>
       {/* Top bar */}
       <div className="flex items-center justify-between px-5 py-3.5 border-b border-cloud-200/70">
         <div className="flex items-center gap-2">
@@ -44,30 +31,31 @@ export default function DashboardMockup({ spec, className = '', compact = false 
         </div>
         <div className="flex items-center gap-2.5">
           <Bell className="h-4 w-4 text-ink-light" />
-          <span className="grid place-items-center h-7 w-7 rounded-full bg-gradient-to-br from-liafrik-500 to-cyanx-500 text-white text-[11px] font-bold">LA</span>
+          <span className="grid place-items-center h-7 w-7 rounded-full text-white text-[11px] font-bold" style={{ background: `linear-gradient(135deg, ${accent}, #00BFE0)` }}>
+            {productName ? productName.slice(0, 2).toUpperCase() : 'LA'}
+          </span>
         </div>
       </div>
 
-      <div className={`p-5 ${compact ? 'space-y-4' : 'space-y-5'}`}>
+      <div className={cn('p-5', compact ? 'space-y-4' : 'space-y-5')}>
         {/* Hero metric */}
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-xs font-medium text-ink-light uppercase tracking-wider">{spec.metric.label[lang]}</p>
             <div className="mt-1 flex items-end gap-2">
-              <motion.span ref={ref} className="text-3xl sm:text-4xl font-extrabold text-ink tracking-tight tabular-nums">
-                <AnimatedMetric value={spec.metric.value} />
-              </motion.span>
+              <AnimatedMetric value={spec.metric.value} accent={accent} />
               <span
-                className={`inline-flex items-center gap-0.5 text-xs font-bold mb-1.5 px-2 py-0.5 rounded-full ${
-                  spec.metric.up ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50'
-                }`}
+                className={cn(
+                  'inline-flex items-center gap-0.5 text-xs font-bold mb-1.5 px-2 py-0.5 rounded-full',
+                  spec.metric.up ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50',
+                )}
               >
                 {spec.metric.up ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
                 {spec.metric.delta}
               </span>
             </div>
           </div>
-          <div className="hidden sm:flex items-center gap-1.5 rounded-full bg-liafrik-50 px-2.5 py-1.5 text-[11px] font-semibold text-liafrik-700">
+          <div className="hidden sm:flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[11px] font-semibold" style={{ background: `${accent}15`, color: accent }}>
             <Sparkles className="h-3.5 w-3.5" />
             {lang === 'en' ? 'AI insight' : 'Insight IA'}
           </div>
@@ -76,7 +64,7 @@ export default function DashboardMockup({ spec, className = '', compact = false 
         {/* Panels */}
         <div className="grid gap-3 sm:grid-cols-2">
           {spec.panels.slice(0, compact ? 2 : 4).map((panel, i) => (
-            <Panel key={i} panel={panel} index={i} />
+            <Panel key={i} panel={panel} index={i} accent={accent} />
           ))}
         </div>
       </div>
@@ -84,8 +72,7 @@ export default function DashboardMockup({ spec, className = '', compact = false 
   );
 }
 
-function AnimatedMetric({ value }: { value: string }) {
-  const { } = useLang();
+function AnimatedMetric({ value, accent }: { value: string; accent: string }) {
   const target = numericPart(value);
   const mv = useMotionValue(0);
   const rounded = useTransform(mv, (v) => Math.round(v));
@@ -100,62 +87,71 @@ function AnimatedMetric({ value }: { value: string }) {
     return () => { controls.stop(); unsub(); clearInterval(interval); };
   }, [target, value, mv, rounded]);
 
-  return <span className="tabular-nums">{text}</span>;
+  return (
+    <motion.span
+      className="text-3xl sm:text-4xl font-extrabold tracking-tight tabular-nums"
+      style={{ color: '#0F172A' }}
+    >
+      {text}
+    </motion.span>
+  );
 }
 
-function Panel({ panel, index }: { panel: DashboardPanel; index: number }) {
+function Panel({ panel, index, accent }: { panel: DashboardPanel; index: number; accent: string }) {
   const { lang } = useLang();
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="rounded-2xl bg-white/80 border border-cloud-200 p-4"
+      className="rounded-2xl bg-white/80 border border-cloud-200 p-4 hover:border-liafrik-200 hover:shadow-card transition-all"
     >
       <p className="text-[11px] font-semibold text-ink-light uppercase tracking-wider mb-3">{panel.title[lang]}</p>
-      {panel.kind === 'line' && <LineChart data={panel.data ?? []} />}
-      {panel.kind === 'bars' && <BarsChart data={panel.data ?? []} />}
+      {panel.kind === 'line' && <LineChart data={panel.data ?? []} accent={accent} />}
+      {panel.kind === 'bars' && <BarsChart data={panel.data ?? []} accent={accent} />}
       {panel.kind === 'donut' && <DonutChart segments={panel.segments ?? []} />}
-      {panel.kind === 'list' && <ListPanel items={panel.items ?? []} />}
+      {panel.kind === 'list' && <ListPanel items={panel.items ?? []} accent={accent} />}
       {panel.kind === 'stat' && <StatGrid stats={panel.stats ?? []} />}
       {panel.kind === 'progress' && <ProgressPanel progress={panel.progress ?? []} />}
     </motion.div>
   );
 }
 
-function LineChart({ data }: { data: number[] }) {
+function LineChart({ data, accent }: { data: number[]; accent: string }) {
   const max = Math.max(...data, 1);
   const w = 200, h = 64;
   const stepX = w / (data.length - 1);
   const points = data.map((d, i) => [i * stepX, h - (d / max) * (h - 8) - 4]);
   const path = points.map(([x, y], i) => `${i === 0 ? 'M' : 'L'} ${x} ${y}`).join(' ');
   const area = `${path} L ${w} ${h} L 0 ${h} Z`;
+  const gradId = `lg-${accent.replace('#', '')}-${data.length}`;
   return (
     <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-16" preserveAspectRatio="none">
       <defs>
-        <linearGradient id={`lg-${data.join('')}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0070E0" stopOpacity="0.28" />
-          <stop offset="100%" stopColor="#0070E0" stopOpacity="0" />
+        <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={accent} stopOpacity="0.28" />
+          <stop offset="100%" stopColor={accent} stopOpacity="0" />
         </linearGradient>
       </defs>
-      <motion.path d={area} fill={`url(#lg-${data.join('')})`} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} />
-      <motion.path d={path} fill="none" stroke="#0070E0" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"
+      <motion.path d={area} fill={`url(#${gradId})`} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} />
+      <motion.path d={path} fill="none" stroke={accent} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"
         initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }} />
       {points.map(([x, y], i) => (
-        <motion.circle key={i} cx={x} cy={y} r="2.4" fill="#0070E0"
+        <motion.circle key={i} cx={x} cy={y} r="2.4" fill={accent}
           initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.8 + i * 0.05 }} />
       ))}
     </svg>
   );
 }
 
-function BarsChart({ data }: { data: number[] }) {
+function BarsChart({ data, accent }: { data: number[]; accent: string }) {
   const max = Math.max(...data, 1);
   return (
     <div className="flex items-end gap-1.5 h-16">
       {data.map((d, i) => (
-        <motion.div key={i} className="flex-1 rounded-md bg-gradient-to-t from-liafrik-600 to-cyanx-400"
+        <motion.div key={i} className="flex-1 rounded-md"
+          style={{ background: `linear-gradient(to top, ${accent}, ${accent}aa)` }}
           initial={{ height: 0 }} whileInView={{ height: `${(d / max) * 100}%` }} viewport={{ once: true }}
           transition={{ duration: 0.7, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }} />
       ))}
@@ -176,7 +172,8 @@ function DonutChart({ segments }: { segments: { label: { en: string; fr: string 
           const el = (
             <motion.circle key={i} cx="36" cy="36" r={r} fill="none" stroke={s.color} strokeWidth="9"
               strokeDasharray={`${len} ${c - len}`} strokeDashoffset={-offset}
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} />
+              initial={{ opacity: 0, strokeDasharray: `0 ${c}` }} whileInView={{ opacity: 1, strokeDasharray: `${len} ${c - len}` }} viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }} />
           );
           offset += len;
           return el;
@@ -196,7 +193,7 @@ function DonutChart({ segments }: { segments: { label: { en: string; fr: string 
   );
 }
 
-function ListPanel({ items }: { items: { label: { en: string; fr: string }; value: string; sub?: string }[] }) {
+function ListPanel({ items, accent }: { items: { label: { en: string; fr: string }; value: string; sub?: string }[]; accent: string }) {
   const { lang } = useLang();
   return (
     <div className="space-y-2">
@@ -207,7 +204,7 @@ function ListPanel({ items }: { items: { label: { en: string; fr: string }; valu
             <p className="text-xs font-medium text-ink-soft truncate">{it.label[lang]}</p>
             {it.sub && <p className="text-[10px] text-ink-light">{it.sub}</p>}
           </div>
-          <span className="text-xs font-bold text-liafrik-700 tabular-nums whitespace-nowrap">{it.value}</span>
+          <span className="text-xs font-bold tabular-nums whitespace-nowrap" style={{ color: accent }}>{it.value}</span>
         </motion.div>
       ))}
     </div>
@@ -223,7 +220,7 @@ function StatGrid({ stats }: { stats: { label: { en: string; fr: string }; value
           className="rounded-xl bg-cloud-50 p-2.5">
           <p className="text-[10px] text-ink-light uppercase tracking-wide">{s.label[lang]}</p>
           <p className="text-base font-bold text-ink mt-0.5">{s.value}</p>
-          {s.delta && <p className={`text-[10px] font-semibold ${s.up ? 'text-emerald-600' : 'text-rose-600'}`}>{s.delta}</p>}
+          {s.delta && <p className={cn('text-[10px] font-semibold', s.up ? 'text-emerald-600' : 'text-rose-600')}>{s.delta}</p>}
         </motion.div>
       ))}
     </div>
@@ -260,8 +257,7 @@ function formatLike(template: string, num: number): string {
   if (template.includes('$')) {
     const suffix = template.includes('M') ? 'M' : template.includes('k') ? 'k' : '';
     const decimals = template.includes('.') ? 1 : 0;
-    const n = suffix === 'M' ? num : num;
-    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix;
+    return '$' + num.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + suffix;
   }
   if (template.includes('%')) return Math.round(num) + '%';
   return Math.round(num).toLocaleString('en-US');

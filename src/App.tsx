@@ -7,6 +7,7 @@ import Footer from '@/sections/Footer';
 import { FloatingContact } from '@/sections/Contact';
 import Home from '@/pages/Home';
 import ProductPage from '@/pages/ProductPage';
+import ProductsPage from '@/pages/ProductsPage';
 import ComingSoonPage from '@/pages/ComingSoonPage';
 import NotFound from '@/pages/NotFound';
 
@@ -41,6 +42,7 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:slug" element={<ProductOrComingSoon />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

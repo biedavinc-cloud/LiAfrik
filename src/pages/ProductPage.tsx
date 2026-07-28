@@ -99,7 +99,7 @@ export default function ProductPage() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}>
-                <DashboardMockup spec={product.dashboard} />
+                <DashboardMockup spec={product.dashboard} productName={product.name} accent={product.accent} />
               </motion.div>
             </motion.div>
           </div>
