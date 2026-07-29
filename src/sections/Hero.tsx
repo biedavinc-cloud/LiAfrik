@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Play, Sparkles, ShieldCheck, TrendingUp } from 'lucide-react';
 import { LinkButton } from '@/components/Button';
 import DashboardMockup from '@/components/DashboardMockup';
+import HeroBackground from '@/components/HeroBackground';
 import { useLang } from '@/i18n/LanguageContext';
 import { posProductDashboard } from '@/data/heroDashboard';
 
@@ -10,21 +11,8 @@ export default function Hero() {
 
   return (
     <section className="relative pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-radial-blue" />
-      <div className="absolute inset-0 bg-grid-soft opacity-60" />
-      <motion.div
-        aria-hidden
-        className="absolute -top-20 -right-32 h-[420px] w-[420px] rounded-full bg-liafrik-200/40 blur-3xl"
-        animate={{ scale: [1, 1.12, 1], opacity: [0.5, 0.7, 0.5] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        aria-hidden
-        className="absolute top-40 -left-32 h-[380px] w-[380px] rounded-full bg-cyanx-400/30 blur-3xl"
-        animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.6, 0.4] }}
-        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-      />
+      {/* Animated tech background */}
+      <HeroBackground />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">

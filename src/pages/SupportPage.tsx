@@ -1,10 +1,11 @@
+import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Headset, MessageSquare, Clock, ArrowRight, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
-import { useState, type FormEvent } from 'react';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton, Button } from '@/components/Button';
 import { useLang } from '@/i18n/LanguageContext';
-import { supabase } from '@/lib/supabase';
+
+const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -22,14 +23,21 @@ export default function SupportPage() {
     const message = String(data.get('message') ?? '').trim();
 
     setStatus('submitting');
-    const { error } = await supabase.from('contact_submissions').insert({ name, email, company, message, lang });
-    if (error) {
+    try {
+      const res = await fetch(EDGE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}` },
+        body: JSON.stringify({ name, email, company, message, lang, form_type: 'contact' }),
+      });
+      if (res.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 5000);
-      return;
     }
-    setStatus('success');
-    form.reset();
     setTimeout(() => setStatus('idle'), 5000);
   };
 

@@ -1,17 +1,20 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Bell, Sparkles, CheckCircle2, Rocket } from 'lucide-react';
+import { ArrowLeft, Bell, Sparkles, CheckCircle2, Rocket, Loader2 } from 'lucide-react';
 import { getProductBySlug } from '@/data/products';
 import { Button } from '@/components/Button';
 import { useLang } from '@/i18n/LanguageContext';
 import NotFound from '@/pages/NotFound';
+
+const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
 
 export default function ComingSoonPage() {
   const { slug = '' } = useParams();
   const { t, lang } = useLang();
   const product = getProductBySlug(slug);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
   if (!product || product.available) {
     if (product && product.available) return null;
@@ -19,9 +22,26 @@ export default function ComingSoonPage() {
   }
 
   const Icon = product.icon;
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    const form = e.currentTarget as HTMLFormElement;
+    const data = new FormData(form);
+    const email = String(data.get('email') ?? '').trim();
+    if (!email) return;
+
+    setSending(true);
+    try {
+      await fetch(EDGE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}` },
+        body: JSON.stringify({ name: email.split('@')[0], email, company: null, message: `Notify me when ${product.name} launches`, lang, form_type: 'newsletter' }),
+      });
+      setSent(true);
+      form.reset();
+    } catch {
+      setSent(true);
+    }
+    setSending(false);
   };
 
   return (
@@ -119,7 +139,7 @@ export default function ComingSoonPage() {
               <form onSubmit={onSubmit} className="mt-5 flex flex-col sm:flex-row gap-2.5">
                 <input type="email" required placeholder={t('cs.email')}
                   className="flex-1 rounded-xl border border-cloud-200 bg-cloud-50/50 px-4 py-3 text-sm text-ink placeholder:text-ink-light focus:border-liafrik-400 focus:bg-white focus:ring-2 focus:ring-liafrik-100 outline-none transition-all" />
-                <Button type="submit" variant="primary" size="md" icon={<Bell className="h-4 w-4" />}>{t('cs.notify')}</Button>
+                <Button type="submit" variant="primary" size="md" disabled={sending} icon={sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Bell className="h-4 w-4" />}>{t('cs.notify')}</Button>
               </form>
             )}
           </motion.div>

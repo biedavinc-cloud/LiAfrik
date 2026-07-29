@@ -14,6 +14,7 @@ import PresencePage from '@/pages/PresencePage';
 import SupportPage from '@/pages/SupportPage';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import TermsOfService from '@/pages/TermsOfService';
+import CursorGlow from '@/components/CursorGlow';
 import ComingSoonPage from '@/pages/ComingSoonPage';
 import NotFound from '@/pages/NotFound';
 
@@ -43,6 +44,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <CursorGlow />
         <ScrollManager />
         <Navbar />
         <main>

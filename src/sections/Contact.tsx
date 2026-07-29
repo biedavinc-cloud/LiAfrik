@@ -4,7 +4,21 @@ import { Phone, Mail, MapPin, Send, MessageCircle, Headset, CheckCircle2, AlertC
 import SectionHeading from '@/components/SectionHeading';
 import { Button } from '@/components/Button';
 import { useLang } from '@/i18n/LanguageContext';
-import { supabase } from '@/lib/supabase';
+
+const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
+
+async function submitForm(payload: Record<string, unknown>): Promise<boolean> {
+  try {
+    const res = await fetch(EDGE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}` },
+      body: JSON.stringify(payload),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -22,17 +36,13 @@ export default function Contact() {
     const message = String(data.get('message') ?? '').trim();
 
     setStatus('submitting');
-    const { error } = await supabase.from('contact_submissions').insert({
-      name, email, company, message, lang,
-    });
-
-    if (error) {
+    const ok = await submitForm({ name, email, company, message, lang, form_type: 'contact' });
+    if (ok) {
+      setStatus('success');
+      form.reset();
+    } else {
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 5000);
-      return;
     }
-    setStatus('success');
-    form.reset();
     setTimeout(() => setStatus('idle'), 5000);
   };
 

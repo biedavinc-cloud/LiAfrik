@@ -15,7 +15,7 @@ const categoryMap: Record<CategoryFilter, string[]> = {
   all: [],
   business: ['pos', 'os', 'crm', 'libooks', 'faka'],
   industry: ['health', 'bailly', 'eat'],
-  education: ['klasso', 'skills'],
+  education: ['klasoo', 'skills'],
   community: ['kolo', 'mafo'],
 };
 

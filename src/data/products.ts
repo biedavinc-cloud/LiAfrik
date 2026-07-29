@@ -329,8 +329,8 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: 'klasso',
-    name: 'KlasSo',
+    slug: 'klasoo',
+    name: 'Klasoo',
     tagline: { en: 'School Management Platform', fr: 'Plateforme de gestion scolaire' },
     description: {
       en: 'A complete operating system for modern educational institutions — connecting administrators, teachers, students and parents in one interconnected platform.',
@@ -362,7 +362,7 @@ export const products: Product[] = [
       { en: 'Cooperatives', fr: 'Coopératives' },
     ],
     dashboard: {
-      title: { en: 'KlasSo Dashboard', fr: 'Tableau de bord KlasSo' },
+      title: { en: 'Klasoo Dashboard', fr: 'Tableau de bord Klasoo' },
       metric: { label: { en: 'Enrolled students', fr: 'Élèves inscrits' }, value: '2,184', delta: '+124', up: true },
       panels: [
         { kind: 'stat', title: { en: 'School overview', fr: 'Aperçu école' }, stats: [
@@ -874,7 +874,7 @@ export const sectors: Sector[] = [
     id: 'education',
     name: { en: 'Education', fr: 'Éducation' },
     icon: GraduationCap,
-    productSlugs: ['klasso', 'skills'],
+    productSlugs: ['klasoo', 'skills'],
   },
   {
     id: 'healthcare',

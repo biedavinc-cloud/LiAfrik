@@ -34,8 +34,8 @@ const examples: Testimonial[] = [
     initials: 'EX',
   },
   {
-    quoteEn: 'Managing 2,000 students across three campuses. KlasSo would centralize enrollment, grading and parent communication, keeping parents connected to what we do.',
-    quoteFr: 'Gérer 2 000 élèves sur trois campus. KlasSo centraliserait les inscriptions, la notation et la communication avec les parents, gardant les parents connectés à notre travail.',
+    quoteEn: 'Managing 2,000 students across three campuses. Klasoo would centralize enrollment, grading and parent communication, keeping parents connected to what we do.',
+    quoteFr: 'Gérer 2 000 élèves sur trois campus. Klasoo centraliserait les inscriptions, la notation et la communication avec les parents, gardant les parents connectés à notre travail.',
     name: 'Example',
     roleEn: 'School Administrator',
     roleFr: 'Administrateur scolaire',
