@@ -51,8 +51,8 @@ const faqs: QA[] = [
   {
     qEn: 'How much does LiAfrik cost?',
     qFr: 'Combien coûte LiAfrik ?',
-    aEn: 'Each platform has its own pricing. Visit the product page for the application you are interested in to see its plans and details.',
-    aFr: 'Chaque plateforme a sa propre tarification. Consultez la page du produit qui vous intéresse pour voir ses plans et ses détails.',
+    aEn: 'Each platform has its own plans. Open the platform you are interested in and explore the plan that fits your business — start free and upgrade as you grow.',
+    aFr: 'Chaque plateforme a ses propres plans. Ouvrez la plateforme qui vous intéresse et explorez le plan adapté à votre entreprise — commencez gratuitement et évoluez selon votre croissance.',
   },
 ];
 

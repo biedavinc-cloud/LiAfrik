@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import { ArrowRight, User } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { useLang } from '@/i18n/LanguageContext';
 
@@ -28,25 +29,13 @@ export default function Founder() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-7 flex flex-wrap items-center gap-3"
             >
-              <a href="https://liyahgroup.me" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-liafrik-600 text-white text-base font-semibold px-6 py-3.5 hover:bg-liafrik-700 shadow-premium hover:shadow-glow-blue hover:-translate-y-0.5 active:translate-y-0 transition-all">
-                {t('founder.cta')} <ExternalLink className="h-4 w-4" />
-              </a>
-              <a href="https://liyahgroup.me" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-soft hover:text-liafrik-700 transition-colors">
-                liyahgroup.me <ArrowRight className="h-3.5 w-3.5" />
-              </a>
+              <Link
+                to="/founder"
+                className="inline-flex items-center gap-2 rounded-full bg-liafrik-600 text-white text-base font-semibold px-6 py-3.5 hover:bg-liafrik-700 shadow-premium hover:shadow-glow-blue hover:-translate-y-0.5 active:translate-y-0 transition-all"
+              >
+                {t('founder.cta')} <ArrowRight className="h-4 w-4" />
+              </Link>
             </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="mt-4 text-xs text-ink-light"
-            >
-              {lang === 'en' ? 'A LIYAH GROUP company' : 'Une société LIYAH GROUP'}
-            </motion.p>
           </motion.div>
 
           <motion.div
@@ -56,11 +45,8 @@ export default function Founder() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-2"
           >
-            <motion.a
-              href="https://liyahgroup.me"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -8, rotateY: 4 }}
+            <motion.div
+              whileHover={{ y: -8 }}
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
               className="block perspective-1200"
             >
@@ -72,15 +58,16 @@ export default function Founder() {
                     transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                     className="mx-auto grid place-items-center h-16 w-16 rounded-2xl bg-gradient-to-br from-liafrik-700 to-cyanx-500 text-white shadow-glow-blue"
                   >
-                    <span className="font-display font-bold text-xl">LG</span>
+                    <User className="h-8 w-8" strokeWidth={1.8} />
                   </motion.div>
-                  <p className="mt-4 font-display font-bold text-lg text-ink">LIYAH GROUP</p>
-                  <p className="mt-1 text-sm text-ink-muted">
+                  <p className="mt-4 font-display font-bold text-lg text-ink">Vincent Nogue</p>
+                  <p className="text-sm text-liafrik-700 font-medium">{lang === 'en' ? 'CEO & Founder' : 'CEO & Fondateur'}</p>
+                  <p className="mt-1.5 text-sm text-ink-muted leading-relaxed">
                     {lang === 'en' ? 'Building technology that elevates how the world works.' : 'Construire des technologies qui élèvent la façon dont le monde travaille.'}
                   </p>
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           </motion.div>
         </div>
       </div>

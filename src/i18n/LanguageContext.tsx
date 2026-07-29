@@ -252,7 +252,7 @@ export const translations: Dict = {
   // Founder
   'founder.tag': { en: 'About the Founder', fr: 'À propos du fondateur' },
   'founder.title': { en: 'A vision born in Africa, built for the world', fr: 'Une vision née en Afrique, conçue pour le monde' },
-  'founder.desc': { en: 'LiAfrik is part of the LIYAH GROUP family of companies — building technology that elevates how communities and businesses work everywhere.', fr: 'LiAfrik fait partie de la famille de sociétés LIYAH GROUP — construisant des technologies qui élèvent la manière dont les communautés et les entreprises travaillent partout.' },
+  'founder.desc': { en: 'A global SaaS ecosystem born from African ambition — building technology that elevates how communities and businesses work everywhere.', fr: 'Un écosystème SaaS mondial né d\'une ambition africaine — construisant des technologies qui élèvent la manière dont les communautés et les entreprises travaillent partout.' },
   'founder.cta': { en: 'Meet the Founder', fr: 'Rencontrer le fondateur' },
 
   // Founder page

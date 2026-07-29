@@ -103,7 +103,7 @@ export default function ProductsPage() {
         <div className="mt-16 text-center">
           <Link to="/" className="inline-flex items-center gap-1.5 text-sm font-semibold text-liafrik-700 hover:text-liafrik-800 transition-colors">
             <Logo showText={false} size="sm" />
-            {lang === 'en' ? 'Back to home' : 'Retour à l\'accueil'}
+            {lang === 'en' ? 'Back to home' : "Retour à l'accueil"}
           </Link>
         </div>
       </div>
@@ -114,9 +114,6 @@ export default function ProductsPage() {
 function ProductCard({ product, index }: { product: Product; index: number }) {
   const { t, lang } = useLang();
   const Icon = product.icon;
-  const minPrice = product.pricing.length > 0
-    ? product.pricing.filter((p) => p.price.startsWith('$')).sort((a, b) => parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)))[0]
-    : null;
 
   return (
     <motion.div
@@ -148,27 +145,25 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
       <p className="mt-2.5 text-sm text-ink-muted leading-relaxed line-clamp-2 flex-1">{product.tagline[lang]}</p>
 
       <div className="mt-4 pt-4 border-t border-cloud-200 flex items-center justify-between">
-        {minPrice ? (
-          <span className="text-xs text-ink-light">
-            {t('products.pricingFrom')} <span className="font-bold text-ink">{minPrice.price}</span>
-            {minPrice.period === 'mo' && <span>/{lang === 'en' ? 'mo' : 'mois'}</span>}
-          </span>
+        {product.appUrl && product.available ? (
+          <a
+            href={product.appUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-liafrik-700 hover:text-liafrik-800 transition-colors"
+          >
+            <ExternalLink className="h-3.5 w-3.5" /> {t('products.launch')}
+          </a>
         ) : (
           <span className="text-xs text-ink-light">{lang === 'en' ? 'Explore plans' : 'Voir les offres'}</span>
         )}
 
-        <div className="flex items-center gap-2">
-          {product.appUrl && product.available && (
-            <a href={product.appUrl} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-bold text-liafrik-700 hover:text-liafrik-800 transition-colors">
-              <ExternalLink className="h-3.5 w-3.5" /> {t('products.launch')}
-            </a>
-          )}
-          <Link to={`/products/${product.slug}`}
-            className="inline-flex items-center gap-1 rounded-full bg-liafrik-50 text-liafrik-700 text-xs font-bold px-3 py-1.5 hover:bg-liafrik-100 transition-colors">
-            {t('products.explore')} <ArrowRight className="h-3 w-3" />
-          </Link>
-        </div>
+        <Link
+          to={`/products/${product.slug}`}
+          className="inline-flex items-center gap-1 rounded-full bg-liafrik-50 text-liafrik-700 text-xs font-bold px-3 py-1.5 hover:bg-liafrik-100 transition-colors"
+        >
+          {t('products.explore')} <ArrowRight className="h-3 w-3" />
+        </Link>
       </div>
     </motion.div>
   );

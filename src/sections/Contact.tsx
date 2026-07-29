@@ -188,7 +188,7 @@ export function FloatingContact() {
                 <Phone className="h-4 w-4 text-liafrik-600" /> +971 50 385 7203
               </a>
             </div>
-            <p className="mt-4 text-[11px] text-ink-light">{lang === 'en' ? 'LIYAH GROUP · liyahgroup.me' : 'LIYAH GROUP · liyahgroup.me'}</p>
+            <p className="mt-4 text-[11px] text-ink-light">{lang === 'en' ? 'LiAfrik — Dubai, UAE' : 'LiAfrik — Dubaï, EAU'}</p>
           </motion.div>
         )}
       </motion.div>
