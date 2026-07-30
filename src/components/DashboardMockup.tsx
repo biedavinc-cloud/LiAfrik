@@ -49,7 +49,7 @@ export default function DashboardMockup({ spec, productName, accent = '#0070E0',
       </div>
 
       {/* App body */}
-      <div className="flex" style={{ minHeight: compact ? 240 : 300 }}>
+      <div className="flex" style={{ minHeight: compact ? 175 : 220 }}>
         {/* Sidebar */}
         <div
           className="hidden sm:flex flex-col w-12 lg:w-14 shrink-0 py-3 gap-1.5 border-r border-cloud-200"
@@ -100,9 +100,9 @@ export default function DashboardMockup({ spec, productName, accent = '#0070E0',
           </div>
 
           {/* Dashboard content */}
-          <div className="flex-1 p-3 sm:p-3.5 space-y-2.5 bg-cloud-50/50">
+          <div className="flex-1 p-2.5 sm:p-3 space-y-2 bg-cloud-50/50">
             {/* KPI row */}
-            <div className="flex items-center justify-between gap-3 rounded-xl bg-white border border-cloud-200 px-3.5 py-2.5 shadow-sm">
+            <div className="flex items-center justify-between gap-3 rounded-xl bg-white border border-cloud-200 px-3 py-2 shadow-sm">
               <div className="min-w-0">
                 <p className="text-[9px] text-ink-light font-medium">{spec.metric.label.en}</p>
                 <p className="text-base sm:text-lg font-bold tabular-nums leading-tight" style={{ color: accent }}>
@@ -125,7 +125,7 @@ export default function DashboardMockup({ spec, productName, accent = '#0070E0',
 
             {/* Main chart panel */}
             {mainPanel && (
-              <div className="rounded-xl bg-white border border-cloud-200 p-3 shadow-sm">
+              <div className="rounded-xl bg-white border border-cloud-200 p-2.5 shadow-sm">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-[9px] text-ink-light font-medium">{mainPanel.title.en}</p>
                   <span className="text-[8px] text-ink-light/70">7d</span>
@@ -196,7 +196,7 @@ function ChartArea({ panel, accent }: { panel: DashboardSpec['panels'][0]; accen
       const gid = `chart-${accent.replace('#', '')}-${Math.random().toString(36).slice(2, 6)}`;
 
       return (
-        <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-14" preserveAspectRatio="none">
+        <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-11" preserveAspectRatio="none">
           <defs>
             <linearGradient id={gid} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor={accent} stopOpacity="0.3" />
@@ -240,7 +240,7 @@ function ChartArea({ panel, accent }: { panel: DashboardSpec['panels'][0]; accen
 
     // Bars
     return (
-      <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-14" preserveAspectRatio="none">
+      <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-11" preserveAspectRatio="none">
         {[0.25, 0.5, 0.75].map((g) => (
           <line key={g} x1="0" y1={h * g} x2={w} y2={h * g} stroke="#EFF4FB" strokeWidth="0.3" />
         ))}

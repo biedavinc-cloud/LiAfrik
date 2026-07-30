@@ -11,8 +11,8 @@ export default function FounderPage() {
   const timeline = [
     { year: '2012', text: en ? 'Began career in digital as a Graphic Designer in Cameroon' : 'Débuts dans le numérique en tant que Designer Graphique au Cameroun' },
     { year: '2015', text: en ? 'Transitioned into e-commerce in Cameroon' : "Passage à l'e-commerce au Cameroun" },
-    { year: '2019', text: en ? 'Founded a web & digital agency in Cameroon' : 'Fondation d\'une agence web & digital au Cameroun' },
-    { year: '2022', text: en ? 'Restructured and expanded operations in Abu Dhabi, UAE' : 'Refonte et amélioration des opérations à Abu Dhabi, EAU' },
+    { year: '2019', text: en ? 'Founded LIYAH GROUP, a web & digital agency in Cameroon' : 'Fondation de LIYAH GROUP, une agence web & digital au Cameroun' },
+    { year: '2022', text: en ? 'Restructured and expanded operations of LIYAH GROUP in Abu Dhabi, UAE' : 'Refonte et expansion des opérations de LIYAH GROUP à Abu Dhabi, EAU' },
     { year: '2025', text: en ? 'Launched LiAfrik with the full suite of SaaS platforms in Dubai, UAE' : "Lancement de LiAfrik avec l'ensemble des plateformes SaaS à Dubaï, EAU" },
   ];
 
