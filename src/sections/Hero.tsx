@@ -77,13 +77,23 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40, rotateY: 8 }}
             animate={{ opacity: 1, x: 0, rotateY: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative perspective-2000"
+            className="relative perspective-2000 max-w-full"
           >
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <DashboardMockup spec={posProductDashboard} productName="POS" accent="#0070E0" variant="hero" />
+              {/* FIX: `compact` ajouté — réduit sidePanels à 2 et passe la grille
+                  en 1 colonne, pour que le mockup reste lisible sur mobile
+                  une fois la sidebar masquée (< sm). Aucun changement sur desktop
+                  au-delà de cette densité d'infos réduite. */}
+              <DashboardMockup
+                spec={posProductDashboard}
+                productName="POS"
+                accent="#0070E0"
+                variant="hero"
+                compact
+              />
             </motion.div>
 
             {/* Floating notification cards */}
