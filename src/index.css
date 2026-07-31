@@ -242,3 +242,12 @@
     -webkit-user-drag: none;
   }
 }
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
