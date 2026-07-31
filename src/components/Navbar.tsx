@@ -22,6 +22,16 @@ export default function Navbar() {
 
   useEffect(() => { setOpen(false); }, [location.pathname]);
 
+  // FIX: bloque le scroll du body quand le menu mobile est ouvert,
+  // pour éviter que la page défile derrière l'overlay.
+  useEffect(() => {
+    if (open) {
+      const original = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = original; };
+    }
+  }, [open]);
+
   const navItems = [
     { label: t('nav.products'), href: '/products' },
     { label: t('nav.solutions'), href: '/#ecosystem' },
@@ -80,7 +90,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden mx-4 sm:mx-6 mt-2 rounded-2xl bg-white/95 backdrop-blur-xl border border-cloud-200 shadow-premium overflow-hidden"
+            // FIX: max-h + overflow-y-auto pour rester accessible en mode paysage
+            // ou sur les petits écrans où le menu déroulant dépasserait la hauteur visible.
+            className="lg:hidden mx-4 sm:mx-6 mt-2 rounded-2xl bg-white/95 backdrop-blur-xl border border-cloud-200 shadow-premium overflow-hidden max-h-[calc(100vh-6rem)] overflow-y-auto"
           >
             <div className="p-4 space-y-1">
               {navItems.map((item) => (
