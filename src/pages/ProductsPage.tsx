@@ -8,6 +8,7 @@ import Logo from '@/components/Logo';
 import AppLogo from '@/components/AppLogo';
 import SectionHeading from '@/components/SectionHeading';
 import { cn } from '@/lib/cn';
+import { useSEO } from '@/lib/useSEO';
 
 type CategoryFilter = 'all' | 'business' | 'industry' | 'education' | 'community';
 
@@ -21,6 +22,14 @@ const categoryMap: Record<CategoryFilter, string[]> = {
 
 export default function ProductsPage() {
   const { t, lang } = useLang();
+  useSEO({
+    title: lang === 'en'
+      ? 'All Products — LiAfrik SaaS Ecosystem'
+      : 'Tous les produits — Écosystème SaaS LiAfrik',
+    description: lang === 'en'
+      ? 'Explore every LiAfrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando — one connected ecosystem, built for the world.'
+      : "Découvrez toutes les applications LiAfrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando — un écosystème connecté, pensé pour le monde entier.",
+  });
   const [filter, setFilter] = useState<CategoryFilter>('all');
   const [query, setQuery] = useState('');
 

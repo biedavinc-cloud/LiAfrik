@@ -10,12 +10,18 @@ import AppLogo from '@/components/AppLogo';
 import { LinkButton } from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
 import { useLang } from '@/i18n/LanguageContext';
+import { useSEO } from '@/lib/useSEO';
 import NotFound from '@/pages/NotFound';
 
 export default function ProductPage() {
   const { slug = '' } = useParams();
   const { t, lang } = useLang();
   const product = getProductBySlug(slug);
+
+  useSEO({
+    title: product ? `${product.name} — ${product.tagline[lang]} | LiAfrik` : 'LiAfrik',
+    description: product?.description[lang],
+  });
 
   if (!product || !product.available) {
     if (product && !product.available) return null;
