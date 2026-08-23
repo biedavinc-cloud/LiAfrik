@@ -46,7 +46,9 @@ sa ligne `logo:` pour pointer vers ton nouveau nom de fichier, ex :
 logo: '/images/logos/sellia.svg',
 ```
 
-## Fichier `_liafrik-placeholder.png`
+## Le logo LiAfrik (marque, pas une app)
 
-C'est le logo LiAfrik que tu as fourni — conservé ici comme référence,
-il n'est utilisé par aucun composant du code.
+Le logo LiAfrik affiché dans la navbar, le footer et le favicon est
+géré séparément, dans `public/images/brand/liafrik-logo.png`.
+Pour le changer : remplace ce fichier par ton propre logo (même nom),
+redéploie. Voir aussi `src/components/Logo.tsx`.
