@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Bell, Sparkles, CheckCircle2, Rocket, Loader2 } from 'lucide-react';
 import { getProductBySlug } from '@/data/products';
 import { Button } from '@/components/Button';
+import AppLogo from '@/components/AppLogo';
 import { useLang } from '@/i18n/LanguageContext';
 import NotFound from '@/pages/NotFound';
 
@@ -21,7 +22,6 @@ export default function ComingSoonPage() {
     return <NotFound />;
   }
 
-  const Icon = product.icon;
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const form = e.currentTarget as HTMLFormElement;
@@ -77,9 +77,7 @@ export default function ComingSoonPage() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 flex items-center justify-center gap-3"
           >
-            <span className={`grid place-items-center h-14 w-14 rounded-2xl bg-gradient-to-br ${product.gradient} text-white shadow-glow-blue`}>
-              <Icon className="h-7 w-7" strokeWidth={2.2} />
-            </span>
+            <AppLogo product={product} className="h-14 w-14 shadow-glow-blue" iconClassName="h-7 w-7" rounded="rounded-2xl" />
             <div className="text-left">
               <h1 className="font-display text-3xl sm:text-4xl font-bold text-ink leading-tight">{product.name}</h1>
               <p className="text-sm font-medium text-ink-light uppercase tracking-wider">{product.category[lang]}</p>

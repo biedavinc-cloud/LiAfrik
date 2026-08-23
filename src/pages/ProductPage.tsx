@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { getProductBySlug } from '@/data/products';
 import DashboardMockup from '@/components/DashboardMockup';
+import AppLogo from '@/components/AppLogo';
 import { LinkButton } from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
 import { useLang } from '@/i18n/LanguageContext';
@@ -21,7 +22,6 @@ export default function ProductPage() {
     return <NotFound />;
   }
 
-  const Icon = product.icon;
   const en = lang === 'en';
 
   return (
@@ -42,9 +42,7 @@ export default function ProductPage() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="inline-flex items-center gap-2.5"
               >
-                <span className={`grid place-items-center h-12 w-12 rounded-2xl bg-gradient-to-br ${product.gradient} text-white shadow-glow-blue`}>
-                  <Icon className="h-6 w-6" strokeWidth={2.2} />
-                </span>
+                <AppLogo product={product} className="h-12 w-12 shadow-glow-blue" iconClassName="h-6 w-6" rounded="rounded-2xl" />
                 <div>
                   <h1 className="font-display text-3xl sm:text-4xl font-bold text-ink leading-tight">{product.name}</h1>
                   <p className="text-sm font-medium text-ink-light uppercase tracking-wider">{product.category[lang]}</p>
