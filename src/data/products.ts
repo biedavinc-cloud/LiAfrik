@@ -2,6 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import {
   ShoppingCart, Store, Users, GraduationCap, UtensilsCrossed,
   HeartPulse, Building2, PiggyBank, MonitorPlay, Flower2, BookOpenCheck,
+  ShoppingBag, Compass,
 } from 'lucide-react';
 
 export interface ProductFeature {
@@ -27,6 +28,14 @@ export interface Product {
   category: { en: string; fr: string };
   available: boolean;
   appUrl?: string;
+  /**
+   * Path to this app's logo image, served from /public.
+   * TO CHANGE A LOGO: just drop a new image file at that exact path in
+   * `public/images/logos/` (same filename) — no code edits needed.
+   * If the file is missing, the UI automatically falls back to the
+   * icon + gradient badge below, so nothing ever breaks.
+   */
+  logo: string;
   icon: LucideIcon;
   gradient: string;
   accent: string;
@@ -63,6 +72,7 @@ export interface DashboardPanel {
 export const products: Product[] = [
   {
     slug: 'pos',
+    logo: '/images/logos/pos.png',
     name: 'POS',
     tagline: { en: 'Retail Management Platform', fr: 'Plateforme de gestion de la vente au détail' },
     description: {
@@ -131,8 +141,9 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: 'os',
-    name: 'OS',
+    slug: 'sellia',
+    logo: '/images/logos/sellia.png',
+    name: 'Sellia',
     tagline: { en: 'Commerce Operating System', fr: 'Système d\'exploitation commercial' },
     description: {
       en: 'A complete commerce platform built for ambitious businesses worldwide. Launch your online store, manage orders, customers and products, and accept payments — all from one place.',
@@ -140,7 +151,7 @@ export const products: Product[] = [
     },
     category: { en: 'Ecommerce', fr: 'E-commerce' },
     available: true,
-    appUrl: 'https://os.liafrik.com',
+    appUrl: 'https://sellia.liafrik.com',
     icon: Store,
     gradient: 'from-liafrik-500 to-liafrik-700',
     accent: '#3D9BFF',
@@ -206,6 +217,7 @@ export const products: Product[] = [
   },
   {
     slug: 'crm',
+    logo: '/images/logos/crm.png',
     name: 'CRM',
     tagline: { en: 'Customer Relationship Management', fr: 'Gestion de la relation client' },
     description: {
@@ -252,6 +264,7 @@ export const products: Product[] = [
   },
   {
     slug: 'faka',
+    logo: '/images/logos/faka.png',
     name: 'Faka',
     tagline: { en: 'HR Management Platform', fr: 'Plateforme de gestion RH' },
     description: {
@@ -330,6 +343,7 @@ export const products: Product[] = [
   },
   {
     slug: 'klasoo',
+    logo: '/images/logos/klasoo.png',
     name: 'Klasoo',
     tagline: { en: 'School Management Platform', fr: 'Plateforme de gestion scolaire' },
     description: {
@@ -401,8 +415,9 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: 'eat',
-    name: 'EAT',
+    slug: 'nutro',
+    logo: '/images/logos/nutro.png',
+    name: 'Nutro',
     tagline: { en: 'Restaurant Technology Platform', fr: 'Plateforme technologique de restauration' },
     description: {
       en: 'A premium restaurant technology platform — present menus digitally, showcase dishes, ingredients and nutritional information, and deliver an elegant dining experience.',
@@ -410,7 +425,7 @@ export const products: Product[] = [
     },
     category: { en: 'Restaurants', fr: 'Restauration' },
     available: true,
-    appUrl: 'https://eat.liafrik.com',
+    appUrl: 'https://nutro.liafrik.com',
     icon: UtensilsCrossed,
     gradient: 'from-cyanx-500 to-liafrik-500',
     accent: '#00BFE0',
@@ -475,6 +490,7 @@ export const products: Product[] = [
   },
   {
     slug: 'health',
+    logo: '/images/logos/health.png',
     name: 'Health',
     tagline: { en: 'Hospital & Clinic Management', fr: 'Gestion hospitalière et cliniques' },
     description: {
@@ -548,6 +564,7 @@ export const products: Product[] = [
   },
   {
     slug: 'bailly',
+    logo: '/images/logos/bailly.png',
     name: 'Bailly',
     tagline: { en: 'Real Estate Management', fr: 'Gestion immobilière' },
     description: {
@@ -625,6 +642,7 @@ export const products: Product[] = [
   },
   {
     slug: 'kolo',
+    logo: '/images/logos/kolo.png',
     name: 'Kolo',
     tagline: { en: 'Digital Djangi / Tontine', fr: 'Djangi / Tontine numérique' },
     description: {
@@ -702,6 +720,7 @@ export const products: Product[] = [
   },
   {
     slug: 'skills',
+    logo: '/images/logos/skills.png',
     name: 'Skills',
  tagline: { en: 'Learning Marketplace', fr: 'Marketplace de formation' },
     description: {
@@ -748,6 +767,7 @@ export const products: Product[] = [
   },
   {
     slug: 'mafo',
+    logo: '/images/logos/mafo.png',
     name: 'Mafo',
     tagline: { en: "Women's Health Platform", fr: 'Plateforme de santé féminine' },
     description: {
@@ -799,6 +819,7 @@ export const products: Product[] = [
   },
   {
     slug: 'libooks',
+    logo: '/images/logos/libooks.png',
     name: 'LiBooks',
     tagline: { en: 'Accounting & Financial Management', fr: 'Comptabilité et gestion financière' },
     description: {
@@ -849,6 +870,128 @@ export const products: Product[] = [
     },
     pricing: [],
   },
+  {
+    slug: 'zando',
+    logo: '/images/logos/zando.png',
+    name: 'Zando',
+    tagline: { en: 'Fashion & Lifestyle Marketplace', fr: 'Marketplace mode et lifestyle' },
+    description: {
+      en: 'A dedicated fashion and lifestyle marketplace connecting brands and independent sellers with shoppers across Africa — curated catalogs, fast checkout, and integrated delivery.',
+      fr: 'Une marketplace dédiée à la mode et au lifestyle, connectant marques et vendeurs indépendants aux acheteurs à travers l\'Afrique — catalogues sélectionnés, paiement rapide et livraison intégrée.',
+    },
+    category: { en: 'Marketplace', fr: 'Marketplace' },
+    available: false,
+    icon: ShoppingBag,
+    gradient: 'from-cyanx-500 to-liafrik-500',
+    accent: '#00BFE0',
+    features: [
+      { en: 'Multi-vendor storefronts', fr: 'Boutiques multi-vendeurs' },
+      { en: 'Curated catalogs', fr: 'Catalogues sélectionnés' },
+      { en: 'Integrated delivery', fr: 'Livraison intégrée' },
+      { en: 'Buyer protection', fr: 'Protection acheteur' },
+      { en: 'Seller analytics', fr: 'Analyses vendeur' },
+      { en: 'Mobile-first checkout', fr: 'Paiement pensé mobile-first' },
+    ],
+    benefits: [
+      { en: 'Reach shoppers across Africa', fr: "Atteignez des acheteurs dans toute l'Afrique" },
+      { en: 'Sell without your own store', fr: 'Vendez sans boutique en ligne propre' },
+      { en: 'Get paid securely', fr: 'Soyez payé en toute sécurité' },
+      { en: 'Grow with built-in marketing', fr: 'Développez-vous avec le marketing intégré' },
+    ],
+    industries: [
+      { en: 'Fashion brands', fr: 'Marques de mode' },
+      { en: 'Independent sellers', fr: 'Vendeurs indépendants' },
+      { en: 'Lifestyle boutiques', fr: 'Boutiques lifestyle' },
+      { en: 'Designers', fr: 'Créateurs' },
+    ],
+    dashboard: {
+      title: { en: 'Zando Dashboard', fr: 'Tableau de bord Zando' },
+      metric: { label: { en: 'Orders today', fr: 'Commandes du jour' }, value: '—', delta: 'Coming soon', up: true },
+      panels: [
+        { kind: 'stat', title: { en: 'Marketplace overview', fr: 'Aperçu marketplace' }, stats: [
+          { label: { en: 'Active sellers', fr: 'Vendeurs actifs' }, value: '—' },
+          { label: { en: 'Listings', fr: 'Annonces' }, value: '—' },
+          { label: { en: 'Categories', fr: 'Catégories' }, value: '—' },
+          { label: { en: 'Launch', fr: 'Lancement' }, value: 'Soon', up: true },
+        ]},
+      ],
+    },
+    pricing: [],
+  },
+  {
+    slug: 'atlas',
+    logo: '/images/logos/atlas.png',
+    name: 'Atlas',
+    tagline: { en: 'Business Intelligence & Analytics', fr: 'Intelligence d\'affaires et analyses' },
+    description: {
+      en: 'A unified analytics platform that pulls data from across your LiAfrik apps into live dashboards, reports and forecasts — so leadership always sees the full picture.',
+      fr: "Une plateforme d'analyse unifiée qui rassemble les données de vos applications LiAfrik dans des tableaux de bord, rapports et prévisions en direct — pour que la direction ait toujours une vue d'ensemble.",
+    },
+    category: { en: 'Analytics', fr: 'Analytique' },
+    available: true,
+    appUrl: 'https://atlas.liafrik.com',
+    icon: Compass,
+    gradient: 'from-liafrik-600 to-cyanx-500',
+    accent: '#0070E0',
+    features: [
+      { en: 'Cross-app dashboards', fr: 'Tableaux de bord multi-applications' },
+      { en: 'Custom reports', fr: 'Rapports personnalisés' },
+      { en: 'Forecasting', fr: 'Prévisions' },
+      { en: 'Role-based views', fr: 'Vues par rôle' },
+      { en: 'Data export & API', fr: 'Export de données et API' },
+      { en: 'Automated alerts', fr: 'Alertes automatisées' },
+    ],
+    benefits: [
+      { en: 'See your whole business at once', fr: "Visualisez toute l'entreprise en un coup d'œil" },
+      { en: 'Spot trends before they cost you', fr: 'Repérez les tendances avant qu\'elles ne coûtent cher' },
+      { en: 'Report faster to stakeholders', fr: 'Rapportez plus vite aux parties prenantes' },
+      { en: 'One source of truth', fr: 'Une seule source de vérité' },
+    ],
+    industries: [
+      { en: 'Group leadership', fr: 'Direction de groupe' },
+      { en: 'Multi-branch businesses', fr: 'Entreprises multi-agences' },
+      { en: 'Investors', fr: 'Investisseurs' },
+      { en: 'Operations teams', fr: 'Équipes opérations' },
+    ],
+    dashboard: {
+      title: { en: 'Atlas Dashboard', fr: 'Tableau de bord Atlas' },
+      metric: { label: { en: 'Group revenue', fr: 'CA du groupe' }, value: '$3.4M', delta: '+11.6%', up: true },
+      panels: [
+        { kind: 'line', title: { en: 'Revenue — 12 weeks', fr: 'Revenus — 12 semaines' }, data: [220, 240, 235, 260, 255, 280, 275, 300, 295, 320, 315, 340] },
+        { kind: 'donut', title: { en: 'Revenue by app', fr: 'Revenus par application' }, segments: [
+          { label: { en: 'POS', fr: 'POS' }, value: 34, color: '#0070E0' },
+          { label: { en: 'Sellia', fr: 'Sellia' }, value: 28, color: '#3D9BFF' },
+          { label: { en: 'LiBooks', fr: 'LiBooks' }, value: 20, color: '#00BFE0' },
+          { label: { en: 'Others', fr: 'Autres' }, value: 18, color: '#A8D0FF' },
+        ]},
+        { kind: 'list', title: { en: 'Active alerts', fr: 'Alertes actives' }, items: [
+          { label: { en: 'Stock low — Store #4', fr: 'Stock bas — Boutique #4' }, value: 'Today', sub: 'Warning' },
+          { label: { en: 'Revenue up — Sellia', fr: 'Revenus en hausse — Sellia' }, value: '+18%', sub: 'This week' },
+          { label: { en: 'Overdue invoices', fr: 'Factures en retard' }, value: '9', sub: 'LiBooks' },
+        ]},
+      ],
+    },
+    pricing: [
+      { name: { en: 'Starter', fr: 'Starter' }, price: '$39', period: 'mo', description: { en: 'For a single business unit.', fr: 'Pour une seule unité d\'affaires.' }, features: [
+        { en: 'Up to 3 connected apps', fr: 'Jusqu\'à 3 applications connectées' },
+        { en: 'Standard dashboards', fr: 'Tableaux de bord standards' },
+        { en: 'Weekly reports', fr: 'Rapports hebdomadaires' },
+        { en: '2 users', fr: '2 utilisateurs' },
+      ], cta: { en: 'Start free', fr: 'Commencer' } },
+      { name: { en: 'Growth', fr: 'Growth' }, price: '$99', period: 'mo', popular: true, description: { en: 'For multi-app, multi-branch groups.', fr: 'Pour les groupes multi-applications et multi-agences.' }, features: [
+        { en: 'Unlimited connected apps', fr: 'Applications connectées illimitées' },
+        { en: 'Custom dashboards', fr: 'Tableaux de bord personnalisés' },
+        { en: 'Forecasting', fr: 'Prévisions' },
+        { en: '10 users', fr: '10 utilisateurs' },
+      ], cta: { en: 'Start free', fr: 'Commencer' } },
+      { name: { en: 'Enterprise', fr: 'Enterprise' }, price: 'Custom', description: { en: 'For large groups & holdings.', fr: 'Pour les grands groupes et holdings.' }, features: [
+        { en: 'API access', fr: 'Accès API' },
+        { en: 'Role-based permissions', fr: 'Permissions par rôle' },
+        { en: 'Dedicated support', fr: 'Support dédié' },
+        { en: 'SLA', fr: 'SLA' },
+      ], cta: { en: 'Contact sales', fr: 'Contacter les ventes' } },
+    ],
+  },
 ];
 
 export const getProductBySlug = (slug: string): Product | undefined =>
@@ -862,13 +1005,13 @@ export const sectors: Sector[] = [
     id: 'retail',
     name: { en: 'Retail & Commerce', fr: 'Commerce de détail' },
     icon: ShoppingCart,
-    productSlugs: ['pos', 'os', 'crm', 'libooks'],
+    productSlugs: ['pos', 'sellia', 'crm', 'libooks'],
   },
   {
     id: 'ecommerce',
     name: { en: 'E-commerce', fr: 'E-commerce' },
     icon: Store,
-    productSlugs: ['os', 'crm', 'libooks'],
+    productSlugs: ['sellia', 'zando', 'crm', 'libooks'],
   },
   {
     id: 'education',
@@ -886,7 +1029,7 @@ export const sectors: Sector[] = [
     id: 'restaurant',
     name: { en: 'Restaurants', fr: 'Restauration' },
     icon: UtensilsCrossed,
-    productSlugs: ['eat', 'pos', 'libooks'],
+    productSlugs: ['nutro', 'pos', 'libooks'],
   },
   {
     id: 'realestate',

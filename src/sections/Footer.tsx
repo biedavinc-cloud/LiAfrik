@@ -6,6 +6,7 @@ import {
   ArrowRight, Mail, MapPin, Send, CheckCircle2, Loader2,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
+import AppLogo from '@/components/AppLogo';
 import { products } from '@/data/products';
 import { useLang } from '@/i18n/LanguageContext';
 
@@ -120,9 +121,7 @@ export default function Footer() {
             {products.map((p) => (
               <Link key={p.slug} to={`/products/${p.slug}`}
                 className="group inline-flex items-center gap-2 rounded-xl bg-white border border-cloud-200 px-3 py-2.5 hover:border-liafrik-300 hover:shadow-card transition-all">
-                <span className={`grid place-items-center h-7 w-7 rounded-lg bg-gradient-to-br ${p.gradient} text-white shrink-0`}>
-                  <p.icon className="h-3.5 w-3.5" strokeWidth={2.5} />
-                </span>
+                <AppLogo product={p} className="h-7 w-7" iconClassName="h-3.5 w-3.5" rounded="rounded-lg" />
                 <div className="min-w-0 flex-1">
                   <span className="block text-sm font-semibold text-ink-soft truncate group-hover:text-liafrik-700 transition-colors">{p.name}</span>
                   <span className="block text-[10px] text-ink-light truncate">{p.category[lang]}</span>
@@ -143,7 +142,7 @@ export default function Footer() {
             <p className="font-display font-bold text-sm text-ink mb-4">{t('footer.products')}</p>
             <ul className="space-y-2.5">
               <li><Link to="/products" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{lang === 'en' ? 'All platforms' : 'Toutes les plateformes'}</Link></li>
-              <li><Link to="/products/os" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">OS</Link></li>
+              <li><Link to="/products/sellia" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">Sellia</Link></li>
               <li><Link to="/products/pos" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">POS</Link></li>
               <li><Link to="/products/crm" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">CRM</Link></li>
               <li><Link to="/products/libooks" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">LiBooks</Link></li>

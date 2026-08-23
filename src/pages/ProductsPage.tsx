@@ -2,10 +2,10 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, Clock, Check, Search } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
 import { products, type Product } from '@/data/products';
 import { useLang } from '@/i18n/LanguageContext';
 import Logo from '@/components/Logo';
+import AppLogo from '@/components/AppLogo';
 import SectionHeading from '@/components/SectionHeading';
 import { cn } from '@/lib/cn';
 
@@ -13,8 +13,8 @@ type CategoryFilter = 'all' | 'business' | 'industry' | 'education' | 'community
 
 const categoryMap: Record<CategoryFilter, string[]> = {
   all: [],
-  business: ['pos', 'os', 'crm', 'libooks', 'faka'],
-  industry: ['health', 'bailly', 'eat'],
+  business: ['pos', 'sellia', 'crm', 'libooks', 'faka', 'atlas'],
+  industry: ['health', 'bailly', 'nutro', 'zando'],
   education: ['klasoo', 'skills'],
   community: ['kolo', 'mafo'],
 };
@@ -113,7 +113,6 @@ export default function ProductsPage() {
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
   const { t, lang } = useLang();
-  const Icon = product.icon;
 
   return (
     <motion.div
@@ -126,9 +125,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
       className="group flex flex-col rounded-3xl bg-white border border-cloud-200 p-5 shadow-card hover:shadow-float transition-shadow"
     >
       <div className="flex items-start justify-between gap-3">
-        <span className={cn('grid place-items-center h-12 w-12 rounded-2xl bg-gradient-to-br text-white shadow-glow-blue shrink-0', product.gradient)}>
-          <Icon className="h-6 w-6" strokeWidth={2.2} />
-        </span>
+        <AppLogo product={product} className="h-12 w-12" iconClassName="h-6 w-6" rounded="rounded-2xl" />
         {product.available ? (
           <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2.5 py-1 border border-emerald-100">
             <Check className="h-3 w-3" /> {t('products.available')}
