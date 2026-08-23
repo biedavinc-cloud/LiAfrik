@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import {
   ShoppingCart, Store, Users, GraduationCap, UtensilsCrossed,
   HeartPulse, Building2, PiggyBank, MonitorPlay, Flower2, BookOpenCheck,
-  ShoppingBag, Compass,
+  ShoppingBag,
 } from 'lucide-react';
 
 export interface ProductFeature {
@@ -922,77 +922,78 @@ export const products: Product[] = [
     slug: 'atlas',
     logo: '/images/logos/atlas.png',
     name: 'Atlas',
-    tagline: { en: 'Business Intelligence & Analytics', fr: 'Intelligence d\'affaires et analyses' },
+    tagline: { en: 'Enterprise CRM, Built Multi-Tenant', fr: 'CRM entreprise, pensé multi-tenant' },
     description: {
-      en: 'A unified analytics platform that pulls data from across your LiAfrik apps into live dashboards, reports and forecasts — so leadership always sees the full picture.',
-      fr: "Une plateforme d'analyse unifiée qui rassemble les données de vos applications LiAfrik dans des tableaux de bord, rapports et prévisions en direct — pour que la direction ait toujours une vue d'ensemble.",
+      en: 'The enterprise-grade CRM for groups, franchises and multi-brand businesses. Every client, branch or business unit gets its own strictly isolated workspace — same platform, zero data leakage between tenants.',
+      fr: "Le CRM entreprise pour les groupes, franchises et structures multi-marques. Chaque client, agence ou unité d'affaires dispose de son propre espace strictement isolé — une seule plateforme, aucune fuite de données entre comptes.",
     },
-    category: { en: 'Analytics', fr: 'Analytique' },
+    category: { en: 'Enterprise CRM', fr: 'CRM entreprise' },
     available: true,
     appUrl: 'https://atlas.liafrik.com',
-    icon: Compass,
+    icon: Users,
     gradient: 'from-liafrik-600 to-cyanx-500',
     accent: '#0070E0',
     features: [
-      { en: 'Cross-app dashboards', fr: 'Tableaux de bord multi-applications' },
-      { en: 'Custom reports', fr: 'Rapports personnalisés' },
-      { en: 'Forecasting', fr: 'Prévisions' },
-      { en: 'Role-based views', fr: 'Vues par rôle' },
-      { en: 'Data export & API', fr: 'Export de données et API' },
-      { en: 'Automated alerts', fr: 'Alertes automatisées' },
+      { en: 'Strict multi-tenant data isolation', fr: 'Isolation stricte des données multi-tenant' },
+      { en: 'Per-tenant roles & permissions', fr: 'Rôles et permissions par tenant' },
+      { en: 'Unified pipeline across brands', fr: 'Pipeline unifié multi-marques' },
+      { en: 'Lead & contact management', fr: 'Gestion des leads et contacts' },
+      { en: 'Automated workflows', fr: 'Flux automatisés' },
+      { en: 'Audit logs & compliance', fr: "Journaux d'audit et conformité" },
     ],
     benefits: [
-      { en: 'See your whole business at once', fr: "Visualisez toute l'entreprise en un coup d'œil" },
-      { en: 'Spot trends before they cost you', fr: 'Repérez les tendances avant qu\'elles ne coûtent cher' },
-      { en: 'Report faster to stakeholders', fr: 'Rapportez plus vite aux parties prenantes' },
-      { en: 'One source of truth', fr: 'Une seule source de vérité' },
+      { en: 'Every client, truly walled off', fr: 'Chaque client, réellement cloisonné' },
+      { en: 'Scale to hundreds of tenants safely', fr: 'Passez à l\'échelle sur des centaines de comptes en toute sécurité' },
+      { en: 'One platform, many businesses', fr: 'Une plateforme, plusieurs entreprises' },
+      { en: 'Audit-ready by design', fr: 'Prêt pour l\'audit dès la conception' },
     ],
     industries: [
-      { en: 'Group leadership', fr: 'Direction de groupe' },
-      { en: 'Multi-branch businesses', fr: 'Entreprises multi-agences' },
-      { en: 'Investors', fr: 'Investisseurs' },
-      { en: 'Operations teams', fr: 'Équipes opérations' },
+      { en: 'Multi-brand groups', fr: 'Groupes multi-marques' },
+      { en: 'Franchises', fr: 'Franchises' },
+      { en: 'Agencies managing clients', fr: 'Agences gérant des clients' },
+      { en: 'SaaS resellers', fr: 'Revendeurs SaaS' },
     ],
     dashboard: {
       title: { en: 'Atlas Dashboard', fr: 'Tableau de bord Atlas' },
-      metric: { label: { en: 'Group revenue', fr: 'CA du groupe' }, value: '$3.4M', delta: '+11.6%', up: true },
+      metric: { label: { en: 'Active tenants', fr: 'Comptes actifs' }, value: '186', delta: '+14 this mo', up: true },
       panels: [
-        { kind: 'line', title: { en: 'Revenue — 12 weeks', fr: 'Revenus — 12 semaines' }, data: [220, 240, 235, 260, 255, 280, 275, 300, 295, 320, 315, 340] },
-        { kind: 'donut', title: { en: 'Revenue by app', fr: 'Revenus par application' }, segments: [
-          { label: { en: 'POS', fr: 'POS' }, value: 34, color: '#0070E0' },
-          { label: { en: 'Sellia', fr: 'Sellia' }, value: 28, color: '#3D9BFF' },
-          { label: { en: 'LiBooks', fr: 'LiBooks' }, value: 20, color: '#00BFE0' },
-          { label: { en: 'Others', fr: 'Autres' }, value: 18, color: '#A8D0FF' },
+        { kind: 'bars', title: { en: 'Pipeline by stage', fr: 'Pipeline par étape' }, data: [95, 74, 58, 41, 24] },
+        { kind: 'stat', title: { en: 'Isolation overview', fr: "Aperçu de l'isolation" }, stats: [
+          { label: { en: 'Isolated workspaces', fr: 'Espaces isolés' }, value: '186' },
+          { label: { en: 'Cross-tenant incidents', fr: 'Incidents inter-comptes' }, value: '0', up: true },
+          { label: { en: 'Data residency checks', fr: 'Contrôles de résidence' }, value: 'Passed', up: true },
+          { label: { en: 'Open deals', fr: 'Affaires en cours' }, value: '412' },
         ]},
-        { kind: 'list', title: { en: 'Active alerts', fr: 'Alertes actives' }, items: [
-          { label: { en: 'Stock low — Store #4', fr: 'Stock bas — Boutique #4' }, value: 'Today', sub: 'Warning' },
-          { label: { en: 'Revenue up — Sellia', fr: 'Revenus en hausse — Sellia' }, value: '+18%', sub: 'This week' },
-          { label: { en: 'Overdue invoices', fr: 'Factures en retard' }, value: '9', sub: 'LiBooks' },
+        { kind: 'list', title: { en: 'Hot leads', fr: 'Leads chauds' }, items: [
+          { label: { en: 'Cameroon Mining Co.', fr: 'Cameroon Mining Co.' }, value: '$48k', sub: 'Negotiation' },
+          { label: { en: 'Savannah Pharma Ltd.', fr: 'Savannah Pharma Ltd.' }, value: '$22k', sub: 'Proposal' },
+          { label: { en: 'Dakar Logistics', fr: 'Dakar Logistics' }, value: '$31k', sub: 'Demo' },
         ]},
       ],
     },
     pricing: [
-      { name: { en: 'Starter', fr: 'Starter' }, price: '$39', period: 'mo', description: { en: 'For a single business unit.', fr: 'Pour une seule unité d\'affaires.' }, features: [
-        { en: 'Up to 3 connected apps', fr: 'Jusqu\'à 3 applications connectées' },
-        { en: 'Standard dashboards', fr: 'Tableaux de bord standards' },
-        { en: 'Weekly reports', fr: 'Rapports hebdomadaires' },
-        { en: '2 users', fr: '2 utilisateurs' },
-      ], cta: { en: 'Start free', fr: 'Commencer' } },
-      { name: { en: 'Growth', fr: 'Growth' }, price: '$99', period: 'mo', popular: true, description: { en: 'For multi-app, multi-branch groups.', fr: 'Pour les groupes multi-applications et multi-agences.' }, features: [
-        { en: 'Unlimited connected apps', fr: 'Applications connectées illimitées' },
-        { en: 'Custom dashboards', fr: 'Tableaux de bord personnalisés' },
-        { en: 'Forecasting', fr: 'Prévisions' },
+      { name: { en: 'Team', fr: 'Team' }, price: '$59', period: 'mo', description: { en: 'For a single business unit.', fr: "Pour une seule unité d'affaires." }, features: [
+        { en: '1 isolated workspace', fr: '1 espace isolé' },
+        { en: 'Pipeline & leads', fr: 'Pipeline et leads' },
+        { en: 'Basic automation', fr: 'Automatisation de base' },
         { en: '10 users', fr: '10 utilisateurs' },
       ], cta: { en: 'Start free', fr: 'Commencer' } },
-      { name: { en: 'Enterprise', fr: 'Enterprise' }, price: 'Custom', description: { en: 'For large groups & holdings.', fr: 'Pour les grands groupes et holdings.' }, features: [
-        { en: 'API access', fr: 'Accès API' },
-        { en: 'Role-based permissions', fr: 'Permissions par rôle' },
+      { name: { en: 'Multi-Tenant', fr: 'Multi-Tenant' }, price: '$149', period: 'mo', popular: true, description: { en: 'For groups running several brands or branches.', fr: 'Pour les groupes multi-marques ou multi-agences.' }, features: [
+        { en: 'Up to 20 isolated workspaces', fr: "Jusqu'à 20 espaces isolés" },
+        { en: 'Per-tenant roles', fr: 'Rôles par tenant' },
+        { en: 'Advanced automation', fr: 'Automatisation avancée' },
+        { en: 'Audit logs', fr: "Journaux d'audit" },
+      ], cta: { en: 'Start free', fr: 'Commencer' } },
+      { name: { en: 'Enterprise', fr: 'Enterprise' }, price: 'Custom', description: { en: 'For large groups, franchises & SaaS resellers.', fr: 'Pour les grands groupes, franchises et revendeurs SaaS.' }, features: [
+        { en: 'Unlimited isolated workspaces', fr: 'Espaces isolés illimités' },
+        { en: 'API & SSO', fr: 'API et SSO' },
+        { en: 'Compliance & data residency', fr: 'Conformité et résidence des données' },
         { en: 'Dedicated support', fr: 'Support dédié' },
-        { en: 'SLA', fr: 'SLA' },
       ], cta: { en: 'Contact sales', fr: 'Contacter les ventes' } },
     ],
   },
 ];
+
 
 export const getProductBySlug = (slug: string): Product | undefined =>
   products.find((p) => p.slug === slug);
@@ -1005,7 +1006,7 @@ export const sectors: Sector[] = [
     id: 'retail',
     name: { en: 'Retail & Commerce', fr: 'Commerce de détail' },
     icon: ShoppingCart,
-    productSlugs: ['pos', 'sellia', 'crm', 'libooks'],
+    productSlugs: ['pos', 'sellia', 'crm', 'atlas', 'libooks'],
   },
   {
     id: 'ecommerce',
@@ -1047,6 +1048,6 @@ export const sectors: Sector[] = [
     id: 'hr',
     name: { en: 'HR & Workforce', fr: 'RH & Effectifs' },
     icon: Users,
-    productSlugs: ['faka', 'crm', 'libooks'],
+    productSlugs: ['faka', 'crm', 'atlas', 'libooks'],
   },
 ];
