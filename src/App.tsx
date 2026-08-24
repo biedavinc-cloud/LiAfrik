@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/sections/Footer';
 import { FloatingContact } from '@/sections/Contact';
 import CursorGlow from '@/components/CursorGlow';
+import CookieConsent from '@/components/CookieConsent';
 
 // Home stays eager (first paint), every other route is code-split so the
 // initial bundle stays small — faster load, especially on mobile networks.
@@ -85,6 +86,7 @@ function LocalizedLayout() {
       </main>
       <Footer />
       <FloatingContact />
+      <CookieConsent />
     </LanguageProvider>
   );
 }

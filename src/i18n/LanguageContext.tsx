@@ -57,6 +57,16 @@ export const translations: Dict = {
   'eco.comingSoon': { en: 'Coming Soon', fr: 'Bientôt disponible' },
   'eco.features': { en: 'Key features', fr: 'Fonctionnalités clés' },
 
+  // Cookie consent
+  'cookie.title': { en: 'We use cookies', fr: 'Nous utilisons des cookies' },
+  'cookie.body': {
+    en: 'Essential cookies keep the site working. With your consent, we also use analytics cookies to understand how the site is used.',
+    fr: 'Les cookies essentiels font fonctionner le site. Avec votre accord, nous utilisons aussi des cookies analytiques pour comprendre son utilisation.',
+  },
+  'cookie.learnMore': { en: 'Learn more', fr: 'En savoir plus' },
+  'cookie.accept': { en: 'Accept', fr: 'Accepter' },
+  'cookie.decline': { en: 'Decline', fr: 'Refuser' },
+
   // Why LiAfrik
   'why.tag': { en: 'Why LiAfrik', fr: 'Pourquoi LiAfrik' },
   'why.title': { en: 'Stop juggling 10 tools. Run one platform.', fr: 'Arrêtez de jongler avec 10 outils. Utilisez une seule plateforme.' },
