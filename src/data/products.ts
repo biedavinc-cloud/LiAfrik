@@ -176,7 +176,7 @@ export const products: Product[] = [
       { en: 'Retailers', fr: 'Détaillants' },
     ],
     dashboard: {
-      title: { en: 'OS Store', fr: 'Boutique OS' },
+      title: { en: 'Sellia Store', fr: 'Boutique Sellia' },
       metric: { label: { en: 'Orders today', fr: 'Commandes du jour' }, value: '1,284', delta: '+24.1%', up: true },
       panels: [
         { kind: 'line', title: { en: 'Orders — last 7 days', fr: 'Commandes — 7 derniers jours' }, data: [120, 180, 150, 220, 200, 260, 320] },
@@ -450,7 +450,7 @@ export const products: Product[] = [
       { en: 'Hotels', fr: 'Hôtels' },
     ],
     dashboard: {
-      title: { en: 'EAT Dashboard', fr: 'Tableau de bord EAT' },
+      title: { en: 'Nutro Dashboard', fr: 'Tableau de bord Nutro' },
       metric: { label: { en: 'Orders today', fr: 'Commandes du jour' }, value: '342', delta: '+28%', up: true },
       panels: [
         { kind: 'line', title: { en: 'Orders — last 7 days', fr: 'Commandes — 7 derniers jours' }, data: [220, 280, 250, 310, 290, 360, 342] },

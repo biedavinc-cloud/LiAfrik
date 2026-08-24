@@ -13,10 +13,10 @@ export const posProductDashboard: DashboardSpec = {
       kind: 'list',
       title: { en: 'Live activity', fr: 'Activité en direct' },
       items: [
-        { label: { en: 'New order — OS', fr: 'Nouvelle commande — OS' }, value: '$89', sub: '2s ago' },
+        { label: { en: 'New order — Sellia', fr: 'Nouvelle commande — Sellia' }, value: '$89', sub: '2s ago' },
         { label: { en: 'Payment — POS', fr: 'Paiement — POS' }, value: '$320', sub: '1m ago' },
         { label: { en: 'Invoice paid — LiBooks', fr: 'Facture payée — LiBooks' }, value: '$1,200', sub: '4m ago' },
-        { label: { en: 'Contribution — Kolo', fr: 'Contribution — Kolo' }, value: '$8,200', sub: '12m ago' },
+        { label: { en: 'New lead — Atlas', fr: 'Nouveau lead — Atlas' }, value: '$8,200', sub: '9m ago' },
       ],
     },
     {
@@ -33,10 +33,10 @@ export const posProductDashboard: DashboardSpec = {
       kind: 'donut',
       title: { en: 'Apps in use', fr: 'Apps utilisées' },
       segments: [
-        { label: { en: 'POS', fr: 'POS' }, value: 32, color: '#0070E0' },
-        { label: { en: 'OS', fr: 'OS' }, value: 26, color: '#3D9BFF' },
-        { label: { en: 'Faka', fr: 'Faka' }, value: 18, color: '#00BFE0' },
-        { label: { en: 'Other', fr: 'Autres' }, value: 24, color: '#A8D0FF' },
+        { label: { en: 'POS', fr: 'POS' }, value: 30, color: '#0070E0' },
+        { label: { en: 'Sellia', fr: 'Sellia' }, value: 24, color: '#3D9BFF' },
+        { label: { en: 'Atlas', fr: 'Atlas' }, value: 16, color: '#00BFE0' },
+        { label: { en: 'Other', fr: 'Autres' }, value: 30, color: '#A8D0FF' },
       ],
     },
   ],

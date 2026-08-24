@@ -63,7 +63,7 @@ export default function Footer() {
   };
 
   return (
-    <footer id="about" className="relative bg-gradient-to-b from-white to-cloud-100/70 border-t border-cloud-200 overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-white to-cloud-100/70 border-t border-cloud-200 overflow-hidden">
       <div aria-hidden className="absolute -top-24 left-1/4 h-48 w-48 rounded-full bg-liafrik-100/40 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-16 pb-8">
@@ -165,13 +165,14 @@ export default function Footer() {
               <li><Link to="/products/sellia" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">Sellia</Link></li>
               <li><Link to="/products/pos" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">POS</Link></li>
               <li><Link to="/products/crm" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">CRM</Link></li>
+              <li><Link to="/products/atlas" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">Atlas</Link></li>
               <li><Link to="/products/libooks" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">LiBooks</Link></li>
             </ul>
           </div>
           <div>
             <p className="font-display font-bold text-sm text-ink mb-4">{t('footer.company')}</p>
             <ul className="space-y-2.5">
-              <li><Link to="/#about" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('footer.about')}</Link></li>
+              <li><Link to="/#why" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('footer.about')}</Link></li>
               <li><Link to="/founder" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.founder')}</Link></li>
               <li><Link to="/presence" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.presence')}</Link></li>
               <li><Link to="/security" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.security')}</Link></li>

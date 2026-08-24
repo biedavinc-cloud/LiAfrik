@@ -37,7 +37,7 @@ export default function Navbar() {
     { label: t('nav.products'), href: '/products' },
     { label: t('nav.solutions'), href: '/#ecosystem' },
     { label: t('nav.security'), href: '/security' },
-    { label: t('nav.about'), href: '/#about' },
+    { label: t('nav.about'), href: '/#why' },
     { label: t('nav.support'), href: '/support' },
   ];
 
