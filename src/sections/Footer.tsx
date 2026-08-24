@@ -113,7 +113,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <p className="font-display font-bold text-sm text-ink mb-3">{t('footer.contact')}</p>
             <ul className="space-y-2.5">
-              <li><a href="mailto:info@liafrik.com" className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-liafrik-700 transition-colors"><Mail className="h-4 w-4 text-liafrik-600" /> info@liafrik.com</a></li>
+              <li><a href="mailto:cs@liafrik.com" className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-liafrik-700 transition-colors"><Mail className="h-4 w-4 text-liafrik-600" /> cs@liafrik.com</a></li>
               <li><a href="mailto:support@liafrik.com" className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-liafrik-700 transition-colors"><Mail className="h-4 w-4 text-liafrik-600" /> support@liafrik.com</a></li>
               <li><span className="inline-flex items-center gap-2 text-sm text-ink-muted"><MapPin className="h-4 w-4 text-liafrik-600" /> {lang === 'en' ? 'Dubai · Yaoundé' : 'Dubaï · Yaoundé'}</span></li>
             </ul>
@@ -180,7 +180,7 @@ export default function Footer() {
           <div>
             <p className="font-display font-bold text-sm text-ink mb-4">{t('footer.support')}</p>
             <ul className="space-y-2.5">
-              <li><a href="mailto:info@liafrik.com" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{lang === 'en' ? 'General Inquiries' : 'Demandes générales'}</a></li>
+              <li><a href="mailto:cs@liafrik.com" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{lang === 'en' ? 'General Inquiries' : 'Demandes générales'}</a></li>
               <li><a href="mailto:support@liafrik.com" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{lang === 'en' ? 'Customer Support' : 'Support client'}</a></li>
               <li><Link to="/support" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('footer.contact')}</Link></li>
             </ul>

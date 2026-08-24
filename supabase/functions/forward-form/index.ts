@@ -6,7 +6,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey",
 };
 
-const TO_EMAIL = "info@liafrik.com";
+const TO_EMAILS = ["cs@liafrik.com", "support@liafrik.com"];
 const FROM_EMAIL = "noreply@liafrik.com";
 
 Deno.serve(async (req: Request) => {
@@ -52,9 +52,40 @@ Deno.serve(async (req: Request) => {
       console.error("DB insert failed:", await dbRes.text());
     }
 
-    // Send email via Supabase built-in email (Resend) if available,
-    // otherwise log for manual follow-up
-    console.log(`Email to ${TO_EMAIL}:\nSubject: ${subject}\n${emailBody}`);
+    // Send the actual email via Resend (https://resend.com).
+    // Requires a RESEND_API_KEY secret set on the Supabase project:
+    //   supabase secrets set RESEND_API_KEY=re_xxx
+    // Without it, the submission is still saved to the database above,
+    // but no email goes out — check the function logs for a warning.
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    let emailSent = false;
+
+    if (resendApiKey) {
+      const emailRes = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${resendApiKey}`,
+        },
+        body: JSON.stringify({
+          from: `LiAfrik <${FROM_EMAIL}>`,
+          to: TO_EMAILS,
+          reply_to: email,
+          subject,
+          text: emailBody,
+        }),
+      });
+
+      if (emailRes.ok) {
+        emailSent = true;
+      } else {
+        console.error("Resend send failed:", await emailRes.text());
+      }
+    } else {
+      console.warn("RESEND_API_KEY not set — email not sent, submission only saved to DB.");
+    }
+
+    console.log(`Contact submission from ${email} — emailSent=${emailSent} — to: ${TO_EMAILS.join(", ")}\nSubject: ${subject}\n${emailBody}`);
 
     return new Response(
       JSON.stringify({ success: true, message: "Form submitted successfully" }),
