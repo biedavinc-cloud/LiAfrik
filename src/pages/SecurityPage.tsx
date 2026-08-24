@@ -6,9 +6,16 @@ import {
 import { LinkButton } from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
 import { useLang } from '@/i18n/LanguageContext';
+import { useSEO } from '@/lib/useSEO';
 
 export default function SecurityPage() {
   const { t, lang } = useLang();
+  useSEO({
+    title: lang === 'en' ? 'Security & Trust | LiAfrik' : 'Sécurité et confiance | LiAfrik',
+    description: lang === 'en'
+      ? 'How LiAfrik protects your data: encryption, cloud infrastructure, backups, role-based access, and strict multi-tenant isolation across every app.'
+      : "Comment LiAfrik protège vos données : chiffrement, infrastructure cloud, sauvegardes, accès par rôle, et isolation stricte multi-tenant sur chaque application.",
+  });
 
   const pillars = [
     { icon: Lock, title: t('secPage.encryption.title'), desc: t('secPage.encryption.desc') },

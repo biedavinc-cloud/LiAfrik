@@ -3,9 +3,16 @@ import { MapPin, Globe2, Building, ArrowRight } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
 import { useLang } from '@/i18n/LanguageContext';
+import { useSEO } from '@/lib/useSEO';
 
 export default function PresencePage() {
   const { t, lang } = useLang();
+  useSEO({
+    title: lang === 'en' ? 'Global Presence | LiAfrik' : 'Présence mondiale | LiAfrik',
+    description: lang === 'en'
+      ? 'LiAfrik operates from Dubai and Yaoundé, built to serve businesses across Africa and the world.'
+      : "LiAfrik opère depuis Dubaï et Yaoundé, conçu pour servir les entreprises à travers l'Afrique et le monde.",
+  });
 
   const locations = [
     {

@@ -3,10 +3,17 @@ import { FileText, ArrowRight } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
 import { useLang } from '@/i18n/LanguageContext';
+import { useSEO } from '@/lib/useSEO';
 
 export default function TermsOfService() {
   const { lang } = useLang();
   const en = lang === 'en';
+  useSEO({
+    title: en ? 'Terms of Service | LiAfrik' : "Conditions d'utilisation | LiAfrik",
+    description: en
+      ? 'The terms governing your use of the LiAfrik SaaS ecosystem — accounts, acceptable use, subscriptions, and liability.'
+      : "Les conditions régissant votre utilisation de l'écosystème SaaS LiAfrik — comptes, utilisation acceptable, abonnements et responsabilité.",
+  });
 
   const sections = en ? [
     { title: '1. Purpose of the Service', body: 'LiAfrik provides a global SaaS ecosystem offering multiple specialized platforms for commerce, healthcare, education, HR, finance, real estate, restaurants, and community management. By using any LiAfrik platform, you agree to these Terms of Service.' },

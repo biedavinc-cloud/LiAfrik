@@ -3,10 +3,17 @@ import { ShieldCheck, ArrowRight } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
 import { useLang } from '@/i18n/LanguageContext';
+import { useSEO } from '@/lib/useSEO';
 
 export default function PrivacyPolicy() {
   const { t, lang } = useLang();
   const en = lang === 'en';
+  useSEO({
+    title: en ? 'Privacy Policy | LiAfrik' : 'Politique de confidentialité | LiAfrik',
+    description: en
+      ? 'How LiAfrik collects, uses, and protects your data across every app in the ecosystem, with strict multi-tenant data isolation.'
+      : "Comment LiAfrik collecte, utilise et protège vos données à travers chaque application de l'écosystème, avec une isolation stricte des données multi-tenant.",
+  });
 
   const sections = en ? [
     { title: '1. Data We Collect', body: 'LiAfrik collects data that you provide directly when creating an account, using our SaaS platforms, or contacting our support team. This includes your name, email address, company information, billing details, and any content you create within our platforms (such as customer records, invoices, employee profiles, health records, and financial data).' },

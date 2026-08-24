@@ -4,6 +4,7 @@ import { Mail, Headset, MessageSquare, Clock, ArrowRight, CheckCircle2, Loader2,
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton, Button } from '@/components/Button';
 import { useLang } from '@/i18n/LanguageContext';
+import { useSEO } from '@/lib/useSEO';
 
 const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
 
@@ -11,6 +12,12 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function SupportPage() {
   const { t, lang } = useLang();
+  useSEO({
+    title: lang === 'en' ? 'Support | LiAfrik' : 'Support | LiAfrik',
+    description: lang === 'en'
+      ? 'Get help from the LiAfrik team — customer support, customer service, and general inquiries for every app in the ecosystem.'
+      : "Obtenez de l'aide de l'équipe LiAfrik — support client, service client et demandes générales pour chaque application de l'écosystème.",
+  });
   const [status, setStatus] = useState<Status>('idle');
 
   const onSubmit = async (e: FormEvent) => {

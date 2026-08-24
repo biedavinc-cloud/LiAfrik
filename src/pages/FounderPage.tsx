@@ -3,10 +3,17 @@ import { ArrowRight, Briefcase, GraduationCap, Award } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
 import { useLang } from '@/i18n/LanguageContext';
+import { useSEO } from '@/lib/useSEO';
 
 export default function FounderPage() {
   const { t, lang } = useLang();
   const en = lang === 'en';
+  useSEO({
+    title: en ? 'Vincent Nogué — Founder & CEO | LiAfrik' : 'Vincent Nogué — Fondateur et PDG | LiAfrik',
+    description: en
+      ? "The story behind LiAfrik: from graphic design in Cameroon to building a global SaaS ecosystem, led by founder Vincent Nogué."
+      : "L'histoire derrière LiAfrik : du design graphique au Cameroun à la construction d'un écosystème SaaS mondial, menée par le fondateur Vincent Nogué.",
+  });
 
   const timeline = [
     { year: '2012', text: en ? 'Began career in digital as a Graphic Designer in Cameroon' : 'Débuts dans le numérique en tant que Designer Graphique au Cameroun' },
