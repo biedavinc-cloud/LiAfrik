@@ -84,17 +84,25 @@ export default function Hero() {
           {/* Ambient glow behind the mockup */}
           <div aria-hidden className="absolute -inset-x-10 -inset-y-6 bg-gradient-to-b from-liafrik-200/40 via-cyanx-200/20 to-transparent blur-3xl -z-10" />
 
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <DashboardMockup
-              spec={posProductDashboard}
-              productName="POS"
-              accent="#0070E0"
-              variant="hero"
-            />
-          </motion.div>
+          {/* Clipped to roughly half height — a "peek" of the dashboard
+              rather than the full mockup, so it doesn't eat vertical space.
+              Same float animation as before, just cropped + faded out. */}
+          <div className="relative overflow-hidden rounded-t-2xl max-h-[220px] sm:max-h-[260px] lg:max-h-[300px]">
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <DashboardMockup
+                spec={posProductDashboard}
+                productName="POS"
+                accent="#0070E0"
+                variant="hero"
+              />
+            </motion.div>
+
+            {/* Fade-out mask at the bottom, into the page background */}
+            <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-20 sm:h-24 bg-gradient-to-b from-transparent to-[#F7F9FC]" />
+          </div>
 
           {/* Floating notification cards */}
           <FloatingNotifications />
