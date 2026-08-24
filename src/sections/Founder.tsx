@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/Link';
 import { motion } from 'framer-motion';
 import { ArrowRight, User } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';

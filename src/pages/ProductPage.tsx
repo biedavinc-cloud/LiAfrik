@@ -1,4 +1,5 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Link } from '@/components/Link';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft, ArrowRight, Check, Phone, Mail, Sparkles, ShieldCheck,

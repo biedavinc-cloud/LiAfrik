@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/Link';
 import { motion } from 'framer-motion';
 
 type Variant = 'color' | 'light' | 'dark';
@@ -28,7 +28,7 @@ export default function Logo({ className = '', variant = 'color', showText = tru
         {showText && (
           <span className="flex flex-col leading-none">
             <span className={`font-display font-bold ${s.text} tracking-tight ${textColor}`}>
-              Li<span className="text-gradient-blue">Afrik</span>
+              LiAfrik
             </span>
           </span>
         )}
@@ -71,7 +71,7 @@ export function LogoWordmark({ variant = 'color' }: { variant?: Variant }) {
   const textColor = variant === 'light' ? 'text-white' : 'text-ink';
   return (
     <span className={`font-display font-bold text-2xl tracking-tight ${textColor}`}>
-      Li<span className="text-gradient-blue">Afrik</span>
+      LiAfrik
     </span>
   );
 }

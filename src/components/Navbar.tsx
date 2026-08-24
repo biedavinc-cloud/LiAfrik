@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Link } from '@/components/Link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, ArrowRight, Globe } from 'lucide-react';
 import Logo from './Logo';
@@ -61,10 +62,10 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href}
+              <Link key={item.label} to={item.href}
                 className="relative px-3.5 py-2 text-sm font-medium text-ink-soft hover:text-liafrik-700 transition-colors rounded-lg hover:bg-liafrik-50/70">
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -96,9 +97,9 @@ export default function Navbar() {
           >
             <div className="p-4 space-y-1">
               {navItems.map((item) => (
-                <a key={item.label} href={item.href} className="block px-3 py-2.5 rounded-lg text-sm font-medium text-ink-soft hover:bg-liafrik-50 hover:text-liafrik-700">
+                <Link key={item.label} to={item.href} className="block px-3 py-2.5 rounded-lg text-sm font-medium text-ink-soft hover:bg-liafrik-50 hover:text-liafrik-700">
                   {item.label}
-                </a>
+                </Link>
               ))}
               <div className="pt-2 grid grid-cols-2 gap-2">
                 <LinkButton to="/products" variant="outline" size="sm" className="w-full justify-center">{t('nav.bookDemo')}</LinkButton>

@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/Link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, Clock, Check, Search } from 'lucide-react';
 import { products, type Product } from '@/data/products';

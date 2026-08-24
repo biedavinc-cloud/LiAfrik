@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useMemo, type ReactNode } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export type Lang = 'en' | 'fr';
 
@@ -310,31 +311,42 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(undefine
 
 const STORAGE_KEY = 'liafrik-lang';
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = window.localStorage.getItem(STORAGE_KEY) as Lang | null;
-      if (saved === 'en' || saved === 'fr') return saved;
-    }
-    return 'en';
-  });
-
-  const setLang = (l: Lang) => {
-    setLangState(l);
-    if (typeof window !== 'undefined') {
-      window.localStorage.setItem(STORAGE_KEY, l);
-    }
-  };
+/**
+ * The language now lives in the URL (/en/... or /fr/...), which is what
+ * lets Google index each language as its own page (proper international
+ * SEO) instead of one URL whose content silently changes client-side.
+ *
+ * `lang` is passed in by the router layout (derived from the :lang path
+ * segment). `setLang` navigates to the equivalent path under the new
+ * language rather than just flipping local state — everything else
+ * (useLang()'s shape, all `t()` call sites) is unchanged.
+ */
+export function LanguageProvider({ lang, children }: { lang: Lang; children: ReactNode }) {
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     document.documentElement.lang = lang;
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(STORAGE_KEY, lang);
+    }
   }, [lang]);
+
+  const setLang = (l: Lang) => {
+    if (l === lang) return;
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(STORAGE_KEY, l);
+    }
+    const rest = location.pathname.replace(/^\/(en|fr)/, '');
+    navigate(`${rest === '' ? `/${l}` : `/${l}${rest}`}${location.search}${location.hash}`);
+  };
 
   const value = useMemo<LanguageContextValue>(() => ({
     lang,
     setLang,
     t: (key: string) => translations[key]?.[lang] ?? key,
-  }), [lang]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }), [lang, location.pathname]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }

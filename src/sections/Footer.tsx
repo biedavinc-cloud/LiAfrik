@@ -1,8 +1,8 @@
 import { useState, type FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/Link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Linkedin, Facebook, Instagram, Twitter, Youtube, Clock,
+  Linkedin, Facebook, Instagram, Youtube, Clock,
   ArrowRight, Mail, MapPin, Send, CheckCircle2, Loader2,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
@@ -11,6 +11,26 @@ import { products } from '@/data/products';
 import { useLang } from '@/i18n/LanguageContext';
 
 const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
+
+// Minimal TikTok glyph — lucide-react has no TikTok icon, so this is a
+// small hand-drawn SVG kept visually consistent (24x24, currentColor).
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M16.5 2h-3v13.2a2.8 2.8 0 1 1-2-2.68V9.4a5.8 5.8 0 1 0 5 5.75V8.9a7.6 7.6 0 0 0 4.5 1.46V7.36A4.6 4.6 0 0 1 16.5 2Z" />
+    </svg>
+  );
+}
+
+const SOCIAL_LINKS = [
+  { icon: TikTokIcon, href: 'https://www.tiktok.com/@liyahgroup?_r=1&_t=ZS-9981XGgaxrE', label: 'TikTok — LiYah Group' },
+  { icon: TikTokIcon, href: 'https://www.tiktok.com/@liafrik4?_r=1&_t=ZN-9981b1Sq59K', label: 'TikTok — LiAfrik' },
+  { icon: Facebook, href: 'https://www.facebook.com/share/1LMAGqsy3n/?mibextid=wwXIfr', label: 'Facebook' },
+  { icon: Instagram, href: 'https://www.instagram.com/liafrik_tech?igsi=eXBjdTc5NG42Zml4&utm_source=qr', label: 'Instagram' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/liafrik/', label: 'LinkedIn — LiAfrik' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/vincent-nogue-5a985a207?utm_source=share_via&utm_content=profile&utm_medium=member_ios', label: 'LinkedIn — Vincent Nogué' },
+  { icon: Youtube, href: 'https://youtube.com/@liyah-n?si=D-lXwovYubw3sdaf', label: 'YouTube' },
+];
 
 export default function Footer() {
   const { t, lang } = useLang();
@@ -52,11 +72,11 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <Logo />
             <p className="mt-4 text-sm text-ink-muted leading-relaxed max-w-sm">{t('footer.tagline')}</p>
-            <div className="mt-5 flex items-center gap-2.5">
-              {[Linkedin, Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
-                <motion.a key={i} href="#" target="_blank" rel="noopener noreferrer"
+            <div className="mt-5 flex flex-wrap items-center gap-2.5">
+              {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
+                <motion.a key={label} href={href} target="_blank" rel="noopener noreferrer"
                   whileHover={{ y: -2 }}
-                  className="grid place-items-center h-9 w-9 rounded-xl bg-white border border-cloud-200 text-ink-light hover:bg-liafrik-600 hover:text-white hover:border-liafrik-600 transition-colors shadow-card" aria-label="social">
+                  className="grid place-items-center h-9 w-9 rounded-xl bg-white border border-cloud-200 text-ink-light hover:bg-liafrik-600 hover:text-white hover:border-liafrik-600 transition-colors shadow-card" aria-label={label} title={label}>
                   <Icon className="h-4 w-4" />
                 </motion.a>
               ))}

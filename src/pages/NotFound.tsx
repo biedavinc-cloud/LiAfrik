@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useCurrentLang } from '@/components/Link';
 import { Home } from 'lucide-react';
 import { LinkButton } from '@/components/Button';
-import { useLang } from '@/i18n/LanguageContext';
 
 export default function NotFound() {
-  const { lang } = useLang();
+  const lang = useCurrentLang();
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <p className="font-display text-[120px] sm:text-[160px] font-bold leading-none text-gradient-blue-strong">404</p>

@@ -43,3 +43,40 @@ export function useSEO({ title, description }: SEOOptions) {
     };
   }, [title, description]);
 }
+
+const SITE = 'https://liafrik.com';
+
+function setLinkTag(rel: string, hreflang: string | null, href: string) {
+  const selector = hreflang
+    ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+    : `link[rel="${rel}"]:not([hreflang])`;
+  let el = document.head.querySelector<HTMLLinkElement>(selector);
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', rel);
+    if (hreflang) el.setAttribute('hreflang', hreflang);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
+/**
+ * Sets the canonical URL and EN/FR hreflang alternates for the current
+ * page, based on its language-prefixed path (/en/... or /fr/...). Runs
+ * on every route change — this is what tells Google "these two URLs are
+ * the same page in different languages" so both can rank internationally
+ * instead of being treated as duplicate content.
+ */
+export function useHreflang(pathname: string) {
+  useEffect(() => {
+    const rest = pathname.replace(/^\/(en|fr)/, '');
+    const canonical = `${SITE}${pathname}`;
+    const enHref = `${SITE}/en${rest}`;
+    const frHref = `${SITE}/fr${rest}`;
+
+    setLinkTag('canonical', null, canonical);
+    setLinkTag('alternate', 'en', enHref);
+    setLinkTag('alternate', 'fr', frHref);
+    setLinkTag('alternate', 'x-default', enHref);
+  }, [pathname]);
+}

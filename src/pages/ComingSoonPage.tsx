@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Link } from '@/components/Link';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Bell, Sparkles, CheckCircle2, Rocket, Loader2 } from 'lucide-react';
 import { getProductBySlug } from '@/data/products';
