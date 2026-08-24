@@ -1,11 +1,8 @@
 import SectionHeading from '@/components/SectionHeading';
 import { useLang } from '@/i18n/LanguageContext';
+import techIcons from '@/data/techIcons.json';
 
-const techs = [
-  'Google Cloud', 'Cloudflare', 'Hostinger', 'Netlify', 'Vercel', 'NVIDIA',
-  'Docker', 'Linux', 'GitHub', 'React', 'TailwindCSS', 'Node.js', 'PostgreSQL',
-  'Redis', 'Next.js',
-];
+const techs = techIcons;
 
 export default function PoweredBy() {
   const { t } = useLang();
@@ -21,8 +18,15 @@ export default function PoweredBy() {
         <div className="flex gap-3 sm:gap-4 w-max animate-marquee-left" style={{ ['--marquee-duration' as string]: '50s' }}>
           {row.map((tech, i) => (
             <div key={i} className="flex items-center gap-2.5 rounded-2xl bg-white border border-cloud-200 px-5 py-3 shadow-card hover:shadow-float transition-shadow">
-              <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-liafrik-500 to-cyanx-400" />
-              <span className="text-sm font-semibold text-ink-soft whitespace-nowrap">{tech}</span>
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4 shrink-0"
+                fill={`#${tech.hex}`}
+                aria-hidden="true"
+              >
+                <path d={tech.path} />
+              </svg>
+              <span className="text-sm font-semibold text-ink-soft whitespace-nowrap">{tech.title}</span>
             </div>
           ))}
         </div>

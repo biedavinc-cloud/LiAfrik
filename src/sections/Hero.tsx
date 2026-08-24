@@ -14,92 +14,91 @@ export default function Hero() {
       {/* Animated tech background */}
       <HeroBackground />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* Left */}
-          <div className="flex flex-col items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur border border-liafrik-100 px-3.5 py-1.5 text-xs font-semibold text-liafrik-700 shadow-card"
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              {t('hero.trust')}
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-5 font-display text-4xl sm:text-5xl lg:text-[58px] xl:text-[66px] font-bold leading-[1.08] tracking-tight text-ink"
-            >
-              {t('hero.headline')}
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-5 text-base sm:text-lg text-ink-muted leading-relaxed max-w-xl"
-            >
-              {t('hero.sub1')}{' '}
-              <span className="text-ink-soft font-medium">{t('hero.sub2')}</span>
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-7 flex flex-wrap items-center gap-3"
-            >
-              <LinkButton to="/products" variant="primary" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
-                {t('hero.cta.start')}
-              </LinkButton>
-              <LinkButton to="/#ecosystem" variant="white" size="lg" icon={<Play className="h-4 w-4" />}>
-                {t('hero.cta.ecosystem') ?? t('hero.cta.demo')}
-              </LinkButton>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-ink-light"
-            >
-              <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-liafrik-600" /> {lang === 'en' ? 'Bank-grade security' : 'Sécurité niveau bancaire'}</span>
-              <span className="inline-flex items-center gap-1.5"><TrendingUp className="h-4 w-4 text-liafrik-600" /> 99.99% uptime</span>
-            </motion.div>
-          </div>
-
-          {/* Right — animated dashboard */}
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
+        {/* Centered text block */}
+        <div className="flex flex-col items-center text-center">
           <motion.div
-            initial={{ opacity: 0, x: 40, rotateY: 8 }}
-            animate={{ opacity: 1, x: 0, rotateY: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative perspective-2000 max-w-full"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur border border-liafrik-100 px-3.5 py-1.5 text-xs font-semibold text-liafrik-700 shadow-card"
           >
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              {/* FIX: `compact` ajouté — réduit sidePanels à 2 et passe la grille
-                  en 1 colonne, pour que le mockup reste lisible sur mobile
-                  une fois la sidebar masquée (< sm). Aucun changement sur desktop
-                  au-delà de cette densité d'infos réduite. */}
-              <DashboardMockup
-                spec={posProductDashboard}
-                productName="POS"
-                accent="#0070E0"
-                variant="hero"
-                compact
-              />
-            </motion.div>
+            <Sparkles className="h-3.5 w-3.5" />
+            {t('hero.trust')}
+          </motion.div>
 
-            {/* Floating notification cards */}
-            <FloatingNotifications />
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-5 font-display text-4xl sm:text-5xl lg:text-[58px] xl:text-[64px] font-bold leading-[1.08] tracking-tight text-ink max-w-4xl"
+          >
+            {t('hero.headline')}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-5 text-base sm:text-lg text-ink-muted leading-relaxed max-w-2xl"
+          >
+            {t('hero.sub1')}{' '}
+            <span className="text-ink-soft font-medium">{t('hero.sub2')}</span>
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-7 flex flex-wrap items-center justify-center gap-3"
+          >
+            <LinkButton to="/products" variant="primary" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
+              {t('hero.cta.start')}
+            </LinkButton>
+            <LinkButton to="/#ecosystem" variant="white" size="lg" icon={<Play className="h-4 w-4" />}>
+              {t('hero.cta.ecosystem') ?? t('hero.cta.demo')}
+            </LinkButton>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-light"
+          >
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-liafrik-600" /> {lang === 'en' ? 'Bank-grade security' : 'Sécurité niveau bancaire'}</span>
+            <span className="inline-flex items-center gap-1.5"><TrendingUp className="h-4 w-4 text-liafrik-600" /> 99.99% uptime</span>
           </motion.div>
         </div>
+      </div>
+
+      {/* Full-width animated dashboard mockup, below the text — same treatment
+          PayUnit uses for its hero product shot. */}
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 mt-14 lg:mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 50, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="relative perspective-2000"
+        >
+          {/* Ambient glow behind the mockup */}
+          <div aria-hidden className="absolute -inset-x-10 -inset-y-6 bg-gradient-to-b from-liafrik-200/40 via-cyanx-200/20 to-transparent blur-3xl -z-10" />
+
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <DashboardMockup
+              spec={posProductDashboard}
+              productName="POS"
+              accent="#0070E0"
+              variant="hero"
+            />
+          </motion.div>
+
+          {/* Floating notification cards */}
+          <FloatingNotifications />
+        </motion.div>
       </div>
     </section>
   );
@@ -108,9 +107,9 @@ export default function Hero() {
 function FloatingNotifications() {
   const { lang } = useLang();
   const cards = [
-    { icon: TrendingUp, label: lang === 'en' ? 'New order' : 'Nouvelle commande', value: '+$1,240', color: 'from-liafrik-500 to-cyanx-500', delay: 0, x: '-left-6 sm:-left-10', top: 'top-6' },
-    { icon: Sparkles, label: lang === 'en' ? 'AI insight' : 'Insight IA', value: lang === 'en' ? 'Restock soon' : 'Réappro bientôt', color: 'from-cyanx-500 to-liafrik-500', delay: 1.4, x: '-right-4 sm:-right-8', top: 'top-1/3' },
-    { icon: ShieldCheck, label: lang === 'en' ? 'Backup done' : 'Sauvegarde ok', value: lang === 'en' ? 'All data synced' : 'Données synchronisées', color: 'from-liafrik-600 to-liafrik-400', delay: 2.6, x: '-left-4 sm:-left-12', top: 'bottom-10' },
+    { icon: TrendingUp, label: lang === 'en' ? 'New order' : 'Nouvelle commande', value: '+$1,240', color: 'from-liafrik-500 to-cyanx-500', delay: 0, x: '-left-4 sm:-left-10 lg:-left-16', top: 'top-4 sm:top-8' },
+    { icon: Sparkles, label: lang === 'en' ? 'AI insight' : 'Insight IA', value: lang === 'en' ? 'Restock soon' : 'Réappro bientôt', color: 'from-cyanx-500 to-liafrik-500', delay: 1.4, x: '-right-2 sm:-right-8 lg:-right-14', top: 'top-1/3' },
+    { icon: ShieldCheck, label: lang === 'en' ? 'Backup done' : 'Sauvegarde ok', value: lang === 'en' ? 'All data synced' : 'Données synchronisées', color: 'from-liafrik-600 to-liafrik-400', delay: 2.6, x: '-left-2 sm:-left-6 lg:-left-10', top: 'bottom-6 sm:bottom-10' },
   ];
   return (
     <>
@@ -118,8 +117,8 @@ function FloatingNotifications() {
         <motion.div key={i}
           initial={{ opacity: 0, scale: 0.8, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ delay: 1 + i * 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`absolute ${c.x} ${c.top} hidden sm:flex`}
+          transition={{ delay: 1.2 + i * 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className={`absolute ${c.x} ${c.top} hidden sm:flex z-10`}
         >
           <motion.div
             animate={{ y: [0, -8, 0] }}
