@@ -9,6 +9,7 @@ import Footer from '@/sections/Footer';
 import { FloatingContact } from '@/sections/Contact';
 import CursorGlow from '@/components/CursorGlow';
 import CookieConsent from '@/components/CookieConsent';
+import LiveChat from '@/components/LiveChat';
 
 // Home stays eager (first paint), every other route is code-split so the
 // initial bundle stays small — faster load, especially on mobile networks.
@@ -87,6 +88,7 @@ function LocalizedLayout() {
       <Footer />
       <FloatingContact />
       <CookieConsent />
+      <LiveChat />
     </LanguageProvider>
   );
 }
