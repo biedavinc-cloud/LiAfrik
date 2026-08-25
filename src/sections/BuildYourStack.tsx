@@ -6,6 +6,7 @@ import { sectors, products, getProductBySlug } from '@/data/products';
 import { useLang } from '@/i18n/LanguageContext';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
+import AppLogo from '@/components/AppLogo';
 import { cn } from '@/lib/cn';
 
 export default function BuildYourStack() {
@@ -100,9 +101,7 @@ export default function BuildYourStack() {
                         transition={{ delay: 0.15 + i * 0.12, type: 'spring', stiffness: 300, damping: 20 }}
                         className="flex items-center gap-3 rounded-2xl bg-cloud-50 border border-cloud-200 px-3.5 py-2.5"
                       >
-                        <span className={cn('grid place-items-center h-8 w-8 rounded-xl bg-gradient-to-br text-white shrink-0', p.gradient)}>
-                          <p.icon className="h-4 w-4" strokeWidth={2.4} />
-                        </span>
+                        <AppLogo product={p} className="h-8 w-8 shrink-0" iconClassName="h-4 w-4" rounded="rounded-xl" />
                         <div className="min-w-0 flex-1">
                           <p className="text-sm font-semibold text-ink leading-tight">{p.name}</p>
                           <p className="text-[11px] text-ink-light truncate">{p.tagline[lang]}</p>
@@ -214,9 +213,7 @@ function StackOrbit({ products: mods }: { products: Product[] }) {
               transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
               className="flex flex-col items-center gap-1.5"
             >
-              <span className={cn('grid place-items-center h-12 w-12 rounded-2xl bg-gradient-to-br text-white shadow-glow-blue', p.gradient)}>
-                <p.icon className="h-5 w-5" strokeWidth={2.3} />
-              </span>
+              <AppLogo product={p} className="h-12 w-12 shadow-glow-blue" iconClassName="h-5 w-5" rounded="rounded-2xl" />
               <span className="text-[10px] font-semibold text-ink-soft bg-white/90 rounded-full px-2 py-0.5 shadow-card whitespace-nowrap">
                 {p.name}
               </span>
