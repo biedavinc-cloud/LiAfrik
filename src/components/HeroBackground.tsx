@@ -29,11 +29,13 @@ export default function HeroBackground() {
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
       />
 
-      {/* Slow-rotating orbital ring — subtle "connected world" accent */}
+      {/* Slow-rotating orbital ring — subtle "connected world" accent.
+          Anchored near the text block (not the whole tall mobile section)
+          so it doesn't drift down behind the mockup on small screens. */}
       {!shouldReduceMotion && (
         <motion.div
           aria-hidden
-          className="absolute left-1/2 top-1/2 h-[520px] w-[520px] sm:h-[720px] sm:w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.06]"
+          className="absolute left-1/2 top-40 sm:top-48 h-[380px] w-[380px] sm:h-[600px] sm:w-[600px] lg:h-[720px] lg:w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.06]"
           style={{ border: '1px dashed #0070E0' }}
           animate={{ rotate: 360 }}
           transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
@@ -82,13 +84,17 @@ export default function HeroBackground() {
 
       {/* Global network graph — connected nodes with flowing data lines and
           radar pings. This is the "high-tech, worldwide" signature: reads
-          as a live, connected network rather than decorative noise. */}
+          as a live, connected network rather than decorative noise.
+          Constrained to a fixed-height band near the top (not the full,
+          very tall mobile section) so the aspect ratio stays sane and the
+          graph never stretches/warps — that's what caused the distorted
+          "beast" look on mobile before. */}
       {!shouldReduceMotion && (
         <svg
           aria-hidden
-          className="absolute inset-0 h-full w-full"
+          className="absolute inset-x-0 top-0 w-full h-[420px] sm:h-[520px] lg:h-[600px]"
           viewBox="0 0 100 100"
-          preserveAspectRatio="none"
+          preserveAspectRatio="xMidYMid slice"
         >
           <defs>
             <linearGradient id="net-line" x1="0%" y1="0%" x2="100%" y2="0%">
