@@ -97,8 +97,8 @@ export default function SupportPage() {
               </div>
               <Field label={t('contact.form.company')} name="company" type="text" />
               <div>
-                <label className="block text-sm font-semibold text-ink-soft mb-1.5">{t('contact.form.message')}</label>
-                <textarea name="message" rows={4} required
+                <label htmlFor="message" className="block text-sm font-semibold text-ink-soft mb-1.5">{t('contact.form.message')}</label>
+                <textarea id="message" name="message" rows={4} required
                   className="w-full rounded-xl border border-cloud-200 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-light focus:border-liafrik-400 focus:ring-2 focus:ring-liafrik-100 outline-none transition-all resize-none" />
               </div>
               <div className="flex items-center justify-between gap-4">
@@ -140,8 +140,8 @@ export default function SupportPage() {
 function Field({ label, name, type, required }: { label: string; name: string; type: string; required?: boolean }) {
   return (
     <div>
-      <label className="block text-sm font-semibold text-ink-soft mb-1.5">{label}</label>
-      <input name={name} type={type} required={required}
+      <label htmlFor={name} className="block text-sm font-semibold text-ink-soft mb-1.5">{label}</label>
+      <input id={name} name={name} type={type} required={required}
         className="w-full rounded-xl border border-cloud-200 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-light focus:border-liafrik-400 focus:ring-2 focus:ring-liafrik-100 outline-none transition-all" />
     </div>
   );

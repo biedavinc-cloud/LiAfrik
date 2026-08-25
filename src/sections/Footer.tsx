@@ -87,7 +87,9 @@ export default function Footer() {
             <p className="font-display font-bold text-sm text-ink mb-3">{lang === 'en' ? 'Stay in the loop' : 'Restez informé'}</p>
             <p className="text-sm text-ink-muted mb-4">{lang === 'en' ? 'Product updates and ecosystem news.' : "Mises à jour produit et actualités de l'écosystème."}</p>
             <form onSubmit={onNewsletter} className="flex items-center gap-2">
-              <input name="email" type="email" placeholder={lang === 'en' ? 'Your email' : 'Votre e-mail'}
+              <input name="email" type="email" required
+                aria-label={lang === 'en' ? 'Your email' : 'Votre e-mail'}
+                placeholder={lang === 'en' ? 'Your email' : 'Votre e-mail'}
                 className="flex-1 min-w-0 rounded-xl border border-cloud-200 bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-light focus:border-liafrik-400 focus:ring-2 focus:ring-liafrik-100 outline-none transition-all" />
               <button type="submit" disabled={nlStatus === 'submitting' || nlStatus === 'success'}
                 className="grid place-items-center h-10 w-10 shrink-0 rounded-xl bg-liafrik-600 text-white hover:bg-liafrik-700 shadow-card transition-colors disabled:opacity-60" aria-label="Subscribe">
