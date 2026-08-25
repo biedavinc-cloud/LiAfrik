@@ -15,8 +15,8 @@ const faqs: QA[] = [
   {
     qEn: 'Can I use only one application?',
     qFr: 'Puis-je utiliser une seule application ?',
-    aEn: 'Absolutely. You can start with a single app — POS, HR, School or any other — and expand whenever you are ready. Every module works perfectly on its own.',
-    aFr: 'Absolument. Vous pouvez commencer avec une seule application — POS, RH, School ou toute autre — et étendre quand vous le souhaitez. Chaque module fonctionne parfaitement seul.',
+    aEn: 'Absolutely. You can start with a single app — POS, Faka (HR), Klasoo (Education) or any other — and expand whenever you are ready. Every module works perfectly on its own.',
+    aFr: 'Absolument. Vous pouvez commencer avec une seule application — POS, Faka (RH), Klasoo (Éducation) ou toute autre — et étendre quand vous le souhaitez. Chaque module fonctionne parfaitement seul.',
   },
   {
     qEn: 'Can I activate more applications later?',
@@ -39,8 +39,8 @@ const faqs: QA[] = [
   {
     qEn: 'Is my data secure?',
     qFr: 'Mes données sont-elles sécurisées ?',
-    aEn: 'Your data is encrypted, backed up continuously, and protected by granular role permissions and full audit logs. We hold security to bank-grade standards.',
-    aFr: "Vos données sont chiffrées, sauvegardées en continu et protégées par des permissions par rôle et des journaux d'audit complets. Nous appliquons des standards de sécurité niveau bancaire.",
+    aEn: 'Yes. Every LiAfrik app is built multi-tenant with strict data isolation — your account runs in its own walled-off workspace, never mixed with anyone else\'s. On top of that, data is encrypted, backed up continuously, and protected by granular role permissions and full audit logs. We hold security to bank-grade standards.',
+    aFr: "Oui. Chaque application LiAfrik est construite en multi-tenant avec une isolation stricte des données — votre compte s'exécute dans son propre espace cloisonné, jamais mélangé avec celui d'un autre. En plus de cela, vos données sont chiffrées, sauvegardées en continu et protégées par des permissions par rôle et des journaux d'audit complets. Nous appliquons des standards de sécurité niveau bancaire.",
   },
   {
     qEn: 'Do you offer onboarding?',
