@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import {
   Lock, Cloud, DatabaseBackup, ScrollText, UserCog, ShieldCheck, Eye, ServerCog,
-  ArrowRight,
+  ArrowRight, Boxes,
 } from 'lucide-react';
 import { LinkButton } from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
@@ -13,11 +13,12 @@ export default function SecurityPage() {
   useSEO({
     title: lang === 'en' ? 'Security & Trust | LiAfrik' : 'Sécurité et confiance | LiAfrik',
     description: lang === 'en'
-      ? 'How LiAfrik protects your data: encryption, cloud infrastructure, backups, role-based access, and strict multi-tenant isolation across every app.'
-      : "Comment LiAfrik protège vos données : chiffrement, infrastructure cloud, sauvegardes, accès par rôle, et isolation stricte multi-tenant sur chaque application.",
+      ? 'How LiAfrik protects your data: strict multi-tenant isolation, encryption, cloud infrastructure, backups, and role-based access across every app.'
+      : "Comment LiAfrik protège vos données : isolation stricte multi-tenant, chiffrement, infrastructure cloud, sauvegardes, et accès par rôle sur chaque application.",
   });
 
   const pillars = [
+    { icon: Boxes, title: t('secPage.tenant.title'), desc: t('secPage.tenant.desc') },
     { icon: Lock, title: t('secPage.encryption.title'), desc: t('secPage.encryption.desc') },
     { icon: Cloud, title: t('secPage.hosting.title'), desc: t('secPage.hosting.desc') },
     { icon: DatabaseBackup, title: t('secPage.backup.title'), desc: t('secPage.backup.desc') },

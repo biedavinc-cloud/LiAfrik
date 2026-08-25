@@ -287,6 +287,8 @@ export const translations: Dict = {
   'secPage.tag': { en: 'Security & Trust', fr: 'Sécurité & Confiance' },
   'secPage.title': { en: 'Security at the core of everything we build', fr: 'La sécurité au cœur de tout ce que nous construisons' },
   'secPage.sub': { en: 'Every LiAfrik platform is designed with strong data protection and privacy practices — from encryption to infrastructure to access control.', fr: 'Chaque plateforme LiAfrik est conçue avec de solides pratiques de protection des données et de confidentialité — du chiffrement à l\'infrastructure au contrôle d\'accès.' },
+  'secPage.tenant.title': { en: 'Strict multi-tenant isolation', fr: 'Isolation stricte multi-tenant' },
+  'secPage.tenant.desc': { en: 'Every account runs in its own strictly isolated workspace across all LiAfrik apps — one shared platform, zero data leakage between tenants.', fr: 'Chaque compte s\'exécute dans son propre espace strictement isolé, sur toutes les applications LiAfrik — une seule plateforme partagée, aucune fuite de données entre comptes.' },
   'secPage.encryption.title': { en: 'Encryption in transit & at rest', fr: 'Chiffrement en transit & au repos' },
   'secPage.encryption.desc': { en: 'All data is encrypted using industry-leading protocols, both while being transmitted and when stored.', fr: 'Toutes les données sont chiffrées via des protocoles de pointe, en transit comme au repos.' },
   'secPage.hosting.title': { en: 'Secure cloud infrastructure', fr: 'Infrastructure cloud sécurisée' },

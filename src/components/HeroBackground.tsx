@@ -86,7 +86,7 @@ export default function HeroBackground() {
       {!shouldReduceMotion && (
         <svg
           aria-hidden
-          className="absolute inset-0 h-full w-full hidden sm:block"
+          className="absolute inset-0 h-full w-full"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
         >
@@ -101,8 +101,9 @@ export default function HeroBackground() {
           {NETWORK_LINKS.map(([aIdx, bIdx], i) => {
             const a = NETWORK_NODES[aIdx];
             const b = NETWORK_NODES[bIdx];
+            const secondary = i >= 8; // fewer animated lines on mobile for perf
             return (
-              <g key={i}>
+              <g key={i} className={secondary ? 'hidden sm:block' : undefined}>
                 <line
                   x1={a.x} y1={a.y} x2={b.x} y2={b.y}
                   stroke="rgba(0,112,224,0.14)" strokeWidth="0.15"
@@ -122,10 +123,12 @@ export default function HeroBackground() {
 
           {NETWORK_NODES.map((n, i) => (
             <g key={i}>
-              {/* radar ping */}
+              {/* radar ping — only on the first half of nodes below sm, to
+                  keep mobile animation load light */}
               <motion.circle
                 cx={n.x} cy={n.y} r="0.6" fill="none"
                 stroke="#0070E0" strokeWidth="0.15"
+                className={i >= 6 ? 'hidden sm:block' : undefined}
                 initial={{ opacity: 0.6, r: 0.6 }}
                 animate={{ opacity: [0.6, 0], r: [0.6, 4] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeOut', delay: i * 0.5 }}
