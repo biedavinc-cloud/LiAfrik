@@ -24,6 +24,14 @@ export default function CookieConsent() {
     }
   }, []);
 
+  // Lets the footer's "Cookie Preferences" link reopen this banner even
+  // after a choice was already made.
+  useEffect(() => {
+    const reopen = () => setVisible(true);
+    window.addEventListener('liafrik-cookie-reopen', reopen);
+    return () => window.removeEventListener('liafrik-cookie-reopen', reopen);
+  }, []);
+
   const choose = (value: ConsentValue) => {
     window.localStorage.setItem(STORAGE_KEY, value);
     window.dispatchEvent(new CustomEvent('liafrik-cookie-consent', { detail: value }));

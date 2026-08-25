@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 import AppLogo from '@/components/AppLogo';
+import LanguageToggle from '@/components/LanguageToggle';
 import { products } from '@/data/products';
 import { useLang } from '@/i18n/LanguageContext';
 
@@ -33,7 +34,7 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Footer() {
-  const { t, lang } = useLang();
+  const { t, lang, setLang } = useLang();
   const [nlStatus, setNlStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const onNewsletter = async (e: FormEvent) => {
@@ -193,12 +194,24 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li><Link to="/privacy" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('footer.privacy')}</Link></li>
               <li><Link to="/terms" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('footer.terms')}</Link></li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent('liafrik-cookie-reopen'))}
+                  className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors text-left"
+                >
+                  {lang === 'en' ? 'Cookie Preferences' : 'Préférences cookies'}
+                </button>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-cloud-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-ink-light text-center sm:text-left">{t('footer.rights')} · © {new Date().getFullYear()}</p>
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-5">
+            <p className="text-xs text-ink-light text-center sm:text-left">{t('footer.rights')} · © {new Date().getFullYear()}</p>
+            <LanguageToggle lang={lang} setLang={setLang} />
+          </div>
           <p className="text-xs text-ink-light text-center sm:text-right">
             {lang === 'en' ? 'LIYAH GROUP · SPC FZC, UAE — operating LiAfrik' : 'LIYAH GROUP · SPC FZC, EAU — exploitant LiAfrik'}
           </p>

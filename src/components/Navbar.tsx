@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from '@/components/Link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, ArrowRight, Globe } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import Logo from './Logo';
 import { LinkButton } from './Button';
+import LanguageToggle from './LanguageToggle';
 import { useLang } from '@/i18n/LanguageContext';
 import { cn } from '@/lib/cn';
 
@@ -113,18 +114,3 @@ export default function Navbar() {
   );
 }
 
-function LanguageToggle({ lang, setLang }: { lang: 'en' | 'fr'; setLang: (l: 'en' | 'fr') => void }) {
-  return (
-    <div className="flex items-center rounded-full bg-cloud-100 border border-cloud-200 p-0.5 text-xs font-semibold">
-      <Globe className="h-3.5 w-3.5 text-liafrik-600 mx-1.5" />
-      <button onClick={() => setLang('en')}
-        className={cn('px-2 py-1 rounded-full transition-all', lang === 'en' ? 'bg-white text-liafrik-700 shadow-sm' : 'text-ink-light hover:text-ink-soft')}>
-        EN
-      </button>
-      <button onClick={() => setLang('fr')}
-        className={cn('px-2 py-1 rounded-full transition-all', lang === 'fr' ? 'bg-white text-liafrik-700 shadow-sm' : 'text-ink-light hover:text-ink-soft')}>
-        FR
-      </button>
-    </div>
-  );
-}
