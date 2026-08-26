@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import {
   ShoppingCart, Store, Users, GraduationCap, UtensilsCrossed,
   HeartPulse, Building2, PiggyBank, MonitorPlay, Flower2, BookOpenCheck,
-  ShoppingBag,
+  ShoppingBag, Route,
 } from 'lucide-react';
 
 export interface ProductFeature {
@@ -987,6 +987,78 @@ export const products: Product[] = [
         { en: 'Unlimited isolated workspaces', fr: 'Espaces isolés illimités' },
         { en: 'API & SSO', fr: 'API et SSO' },
         { en: 'Compliance & data residency', fr: 'Conformité et résidence des données' },
+        { en: 'Dedicated support', fr: 'Support dédié' },
+      ], cta: { en: 'Contact sales', fr: 'Contacter les ventes' } },
+    ],
+  },
+  {
+    slug: 'litrek',
+    logo: '/images/logos/litrek.png',
+    name: 'Litrek',
+    tagline: { en: 'Urban & Interurban Transport Platform', fr: 'Plateforme de transport urbain et interurbain' },
+    description: {
+      en: 'A transport platform for everyone — book bus, van and interurban tickets in a few taps. Local travel agencies list their routes and schedules, and riders book, pay and travel with confidence.',
+      fr: "Une plateforme de transport pour tous — réservez vos billets de bus, van ou trajets interurbains en quelques clics. Les agences de voyages locales publient leurs trajets et horaires, et les usagers réservent, paient et voyagent en toute confiance.",
+    },
+    category: { en: 'Transport', fr: 'Transport' },
+    available: true,
+    appUrl: 'https://litrek.liafrik.com',
+    icon: Route,
+    gradient: 'from-teal-500 to-emerald-400',
+    accent: '#14B8A6',
+    features: [
+      { en: 'Route & schedule listings', fr: 'Trajets et horaires publiés' },
+      { en: 'Online ticket booking', fr: 'Réservation de billets en ligne' },
+      { en: 'Secure online payment', fr: 'Paiement en ligne sécurisé' },
+      { en: 'Digital e-tickets', fr: 'Billets électroniques' },
+      { en: 'Multi-tenant isolation per agency', fr: 'Isolation multi-tenant par agence' },
+      { en: 'Trip & booking history', fr: 'Historique des trajets et réservations' },
+    ],
+    benefits: [
+      { en: 'Book a trip in minutes, from anywhere', fr: 'Réservez un trajet en quelques minutes, où que vous soyez' },
+      { en: 'Agencies reach more travelers online', fr: 'Les agences touchent plus de voyageurs en ligne' },
+      { en: 'No more queueing at the station', fr: 'Fini les files d\'attente à la gare' },
+      { en: 'Each agency\'s data stays its own', fr: "Les données de chaque agence restent les siennes" },
+    ],
+    industries: [
+      { en: 'Local travel agencies', fr: 'Agences de voyages locales' },
+      { en: 'Bus & van operators', fr: 'Opérateurs de bus et vans' },
+      { en: 'Daily commuters', fr: 'Usagers du quotidien' },
+      { en: 'Interurban travelers', fr: 'Voyageurs interurbains' },
+    ],
+    dashboard: {
+      title: { en: 'Litrek Dashboard', fr: 'Tableau de bord Litrek' },
+      metric: { label: { en: 'Tickets booked today', fr: 'Billets réservés aujourd\'hui' }, value: '2,340', delta: '+14.2%', up: true },
+      panels: [
+        { kind: 'bars', title: { en: 'Bookings by route', fr: 'Réservations par trajet' }, data: [58, 74, 45, 90, 65, 82, 70] },
+        { kind: 'stat', title: { en: 'Network overview', fr: 'Aperçu du réseau' }, stats: [
+          { label: { en: 'Active agencies', fr: 'Agences actives' }, value: '64' },
+          { label: { en: 'Routes covered', fr: 'Trajets couverts' }, value: '210' },
+          { label: { en: 'Seats booked', fr: 'Sièges réservés' }, value: '2,340' },
+          { label: { en: 'On-time rate', fr: 'Ponctualité' }, value: '96%', up: true },
+        ]},
+        { kind: 'list', title: { en: 'Next departures', fr: 'Prochains départs' }, items: [
+          { label: { en: 'Douala → Yaoundé', fr: 'Douala → Yaoundé' }, value: '08:30', sub: '12 seats left' },
+          { label: { en: 'Yaoundé → Bafoussam', fr: 'Yaoundé → Bafoussam' }, value: '09:15', sub: '4 seats left' },
+          { label: { en: 'Dubai → Abu Dhabi', fr: 'Dubaï → Abu Dhabi' }, value: '10:00', sub: '20 seats left' },
+        ]},
+      ],
+    },
+    pricing: [
+      { name: { en: 'Rider', fr: 'Voyageur' }, price: 'Free', description: { en: 'For anyone booking trips.', fr: 'Pour tous les voyageurs.' }, features: [
+        { en: 'Book & pay for tickets', fr: 'Réserver et payer ses billets' },
+        { en: 'Digital e-tickets', fr: 'Billets électroniques' },
+        { en: 'Trip history', fr: 'Historique des trajets' },
+      ], cta: { en: 'Start free', fr: 'Commencer' } },
+      { name: { en: 'Agency', fr: 'Agence' }, price: '$49', period: 'mo', popular: true, description: { en: 'For travel agencies & operators.', fr: 'Pour les agences et opérateurs de transport.' }, features: [
+        { en: 'Unlimited routes & schedules', fr: 'Trajets et horaires illimités' },
+        { en: 'Isolated agency workspace', fr: 'Espace agence isolé' },
+        { en: 'Booking analytics', fr: 'Analyses des réservations' },
+        { en: '5 staff accounts', fr: '5 comptes collaborateurs' },
+      ], cta: { en: 'Start free', fr: 'Commencer' } },
+      { name: { en: 'Network', fr: 'Réseau' }, price: 'Custom', description: { en: 'For large multi-agency networks.', fr: 'Pour les grands réseaux multi-agences.' }, features: [
+        { en: 'Unlimited agencies', fr: 'Agences illimitées' },
+        { en: 'API access', fr: 'Accès API' },
         { en: 'Dedicated support', fr: 'Support dédié' },
       ], cta: { en: 'Contact sales', fr: 'Contacter les ventes' } },
     ],

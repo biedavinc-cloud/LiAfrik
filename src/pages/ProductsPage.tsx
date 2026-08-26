@@ -15,7 +15,7 @@ type CategoryFilter = 'all' | 'business' | 'industry' | 'education' | 'community
 const categoryMap: Record<CategoryFilter, string[]> = {
   all: [],
   business: ['pos', 'sellia', 'crm', 'libooks', 'faka', 'atlas'],
-  industry: ['health', 'bailly', 'nutro', 'zando'],
+  industry: ['health', 'bailly', 'nutro', 'zando', 'litrek'],
   education: ['klasoo', 'skills'],
   community: ['kolo', 'mafo'],
 };
@@ -27,8 +27,8 @@ export default function ProductsPage() {
       ? 'All Products — LiAfrik SaaS Ecosystem'
       : 'Tous les produits — Écosystème SaaS LiAfrik',
     description: lang === 'en'
-      ? 'Explore every LiAfrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando — one connected ecosystem, built for the world.'
-      : "Découvrez toutes les applications LiAfrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando — un écosystème connecté, pensé pour le monde entier.",
+      ? 'Explore every LiAfrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — one connected ecosystem, built for the world.'
+      : "Découvrez toutes les applications LiAfrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — un écosystème connecté, pensé pour le monde entier.",
   });
   const [filter, setFilter] = useState<CategoryFilter>('all');
   const [query, setQuery] = useState('');

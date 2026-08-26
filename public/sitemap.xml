@@ -240,4 +240,16 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/atlas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/atlas" />
   </url>
+  <url>
+    <loc>https://liafrik.com/en/products/litrek</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/litrek" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/litrek" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/litrek" />
+  </url>
+  <url>
+    <loc>https://liafrik.com/fr/products/litrek</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/litrek" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/litrek" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/litrek" />
+  </url>
 </urlset>

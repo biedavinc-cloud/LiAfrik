@@ -36,6 +36,7 @@ ne casse jamais visuellement.
 | LiBooks | libooks.png                | Actif         |
 | Zando   | zando.png                  | À venir       |
 | Atlas   | atlas.png                  | Actif         |
+| Litrek  | litrek.png                 | Actif         |
 
 ## Changer l'extension (ex: utiliser un .svg au lieu de .png)
 
