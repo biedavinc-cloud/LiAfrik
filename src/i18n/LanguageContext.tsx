@@ -110,7 +110,7 @@ export const translations: Dict = {
   'how.step1.title': { en: 'Create your workspace', fr: 'Créez votre espace de travail' },
   'how.step1.desc': { en: 'Sign up and set up your company in minutes. No technical skills required.', fr: 'Inscrivez-vous et configurez votre entreprise en quelques minutes. Aucune compétence technique requise.' },
   'how.step2.title': { en: 'Activate the apps you need', fr: 'Activez les applications dont vous avez besoin' },
-  'how.step2.desc': { en: 'Turn on POS, HR, School, Restaurant or any other module with a single click.', fr: "Activez POS, RH, School, Restaurant ou tout autre module d'un simple clic." },
+  'how.step2.desc': { en: 'Turn on POS, Faka (HR), Klasoo (Education), Nutro (Restaurants) or any other module with a single click.', fr: "Activez POS, Faka (RH), Klasoo (Éducation), Nutro (Restauration) ou tout autre module d'un simple clic." },
   'how.step3.title': { en: 'Run your entire business', fr: 'Pilotez toute votre entreprise' },
   'how.step3.desc': { en: 'One login, one dashboard, one subscription. Everything stays in sync.', fr: 'Un identifiant, un tableau de bord, un abonnement. Tout reste synchronisé.' },
 
