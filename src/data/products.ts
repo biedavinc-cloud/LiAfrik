@@ -1121,4 +1121,10 @@ export const sectors: Sector[] = [
     icon: Users,
     productSlugs: ['faka', 'crm', 'atlas', 'libooks'],
   },
+  {
+    id: 'transport',
+    name: { en: 'Transport', fr: 'Transport' },
+    icon: Route,
+    productSlugs: ['litrek', 'crm', 'libooks'],
+  },
 ];
