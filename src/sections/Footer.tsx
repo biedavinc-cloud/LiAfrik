@@ -3,7 +3,7 @@ import { Link } from '@/components/Link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Linkedin, Facebook, Instagram, Youtube, Clock,
-  ArrowRight, Mail, MapPin, Send, CheckCircle2, Loader2,
+  ArrowRight, Mail, MapPin, Phone, Send, CheckCircle2, Loader2,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 import AppLogo from '@/components/AppLogo';
@@ -118,6 +118,16 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li><a href="mailto:cs@liafrik.com" className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-liafrik-700 transition-colors"><Mail className="h-4 w-4 text-liafrik-600" /> cs@liafrik.com</a></li>
               <li><a href="mailto:support@liafrik.com" className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-liafrik-700 transition-colors"><Mail className="h-4 w-4 text-liafrik-600" /> support@liafrik.com</a></li>
+              {/*
+                RÉSERVÉ — numéro de téléphone, à activer manuellement.
+                Décommente la ligne ci-dessous et remplace :
+                  1) href="tel:+XXXXXXXXXXX"  (code pays + numéro, sans espaces)
+                  2) le texte affiché, ex: "+237 6XX XXX XXX"
+                Laissé désactivé pour l'instant pour ne pas afficher un
+                faux numéro aux visiteurs tant qu'il n'est pas renseigné.
+
+                <li><a href="tel:+XXXXXXXXXXX" className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-liafrik-700 transition-colors"><Phone className="h-4 w-4 text-liafrik-600" /> +XXX XX XXX XXX</a></li>
+              */}
               <li><span className="inline-flex items-center gap-2 text-sm text-ink-muted"><MapPin className="h-4 w-4 text-liafrik-600" /> {lang === 'en' ? 'Dubai · Yaoundé' : 'Dubaï · Yaoundé'}</span></li>
             </ul>
           </div>
