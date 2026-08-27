@@ -15,7 +15,7 @@ interface Stat {
 
 const stats: Stat[] = [
   { value: 50, suffix: '+', labelEn: 'Business Processes', labelFr: 'Processus métier' },
-  { value: 15, suffix: '+', labelEn: 'Enterprise Applications', labelFr: 'Applications entreprise' },
+  { value: 16, suffix: '+', labelEn: 'Enterprise Applications', labelFr: 'Applications entreprise' },
   { value: 100, suffix: '%', labelEn: 'Cloud Based', labelFr: 'Basé sur le cloud' },
   { value: 99.99, suffix: '%', decimals: 2, labelEn: 'Availability', labelFr: 'Disponibilité' },
   { value: 24, suffix: '/7', labelEn: 'Support', labelFr: 'Support' },
