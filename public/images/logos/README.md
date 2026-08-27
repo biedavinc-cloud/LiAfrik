@@ -26,15 +26,15 @@ ne casse jamais visuellement.
 | Sellia  | sellia.png                 | Actif         |
 | CRM     | crm.png                    | Actif         |
 | Faka    | faka.png                   | Actif         |
-| Klasoo  | klasoo.png                 | À venir (violet)   |
+| Klasoo  | klasoo.png                 | Actif (violet)     |
 | Nutro   | nutro.png                  | Actif         |
 | Health  | health.png                 | Actif         |
 | Bailly  | bailly.png                 | Actif         |
-| Kolo    | kolo.png                   | À venir (orange)   |
+| Kolo    | kolo.png                   | Actif (orange)     |
 | Skills  | skills.png                 | Actif         |
 | Mafo    | mafo.png                   | Actif         |
 | LiBooks | libooks.png                | Actif         |
-| Zando   | zando.png                  | À venir       |
+| Zando   | zando.png                  | Actif         |
 | Atlas   | atlas.png                  | Actif         |
 | Litrek  | litrek.png                 | Actif         |
 
