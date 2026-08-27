@@ -77,10 +77,16 @@ function LocalizedLayout() {
 
   return (
     <LanguageProvider lang={lang}>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-liafrik-600 focus:text-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
       <CursorGlow />
       <ScrollManager />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Suspense fallback={<PageFallback />}>
           <Outlet />
         </Suspense>
