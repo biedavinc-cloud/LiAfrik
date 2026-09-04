@@ -22,6 +22,7 @@ const PresencePage = lazy(() => import('@/pages/PresencePage'));
 const SupportPage = lazy(() => import('@/pages/SupportPage'));
 const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('@/pages/TermsOfService'));
+const RefundPolicy = lazy(() => import('@/pages/RefundPolicy'));
 const ComingSoonPage = lazy(() => import('@/pages/ComingSoonPage'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
@@ -134,6 +135,7 @@ export default function App() {
           <Route path="support" element={<SupportPage />} />
           <Route path="privacy" element={<PrivacyPolicy />} />
           <Route path="terms" element={<TermsOfService />} />
+          <Route path="refund" element={<RefundPolicy />} />
         </Route>
 
         {/* Legacy bookmarks / old links without a language prefix */}
@@ -146,6 +148,7 @@ export default function App() {
         <Route path="/support" element={<LegacyRedirect suffix="support" />} />
         <Route path="/privacy" element={<LegacyRedirect suffix="privacy" />} />
         <Route path="/terms" element={<LegacyRedirect suffix="terms" />} />
+        <Route path="/refund" element={<LegacyRedirect suffix="refund" />} />
 
         <Route path="*" element={
           <Suspense fallback={<PageFallback />}>

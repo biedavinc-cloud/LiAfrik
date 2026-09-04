@@ -204,6 +204,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li><Link to="/privacy" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('footer.privacy')}</Link></li>
               <li><Link to="/terms" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('footer.terms')}</Link></li>
+              <li><Link to="/refund" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('footer.refund')}</Link></li>
               <li>
                 <button
                   type="button"
@@ -223,7 +224,7 @@ export default function Footer() {
             <LanguageToggle lang={lang} setLang={setLang} />
           </div>
           <p className="text-xs text-ink-light text-center sm:text-right">
-            {lang === 'en' ? 'LIYAH GROUP · SPC FZC, UAE — operating LiAfrik' : 'LIYAH GROUP · SPC FZC, EAU — exploitant LiAfrik'}
+            {lang === 'en' ? 'LIYAH GROUP · SPC FZC, UAE — operating LiAfrik — License No. 4425201.01' : 'LIYAH GROUP · SPC FZC, EAU — exploitant LiAfrik — Licence N° 4425201.01'}
           </p>
         </div>
       </div>

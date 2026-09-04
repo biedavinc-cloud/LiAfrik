@@ -174,6 +174,7 @@ export const translations: Dict = {
   'footer.contact': { en: 'Contact', fr: 'Contact' },
   'footer.privacy': { en: 'Privacy Policy', fr: 'Politique de confidentialité' },
   'footer.terms': { en: 'Terms of Service', fr: "Conditions d'utilisation" },
+  'footer.refund': { en: 'Refund Policy', fr: 'Politique de remboursement' },
   'footer.rights': { en: 'LiAfrik. All rights reserved.', fr: 'LiAfrik. Tous droits réservés.' },
 
   // Product page
