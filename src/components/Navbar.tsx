@@ -59,7 +59,7 @@ export default function Navbar() {
             ? 'h-14 bg-white/85 backdrop-blur-xl border border-cloud-200 shadow-card'
             : 'h-16 bg-white/60 backdrop-blur-md border border-white/60'
         )}>
-          <Logo showText={false} />
+          <Logo />
 
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (

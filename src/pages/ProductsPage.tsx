@@ -111,7 +111,7 @@ export default function ProductsPage() {
 
         <div className="mt-16 text-center">
           <Link to="/" className="inline-flex items-center gap-1.5 text-sm font-semibold text-liafrik-700 hover:text-liafrik-800 transition-colors">
-            <Logo showText={false} size="sm" />
+            <Logo size="sm" />
             {lang === 'en' ? 'Back to home' : "Retour à l'accueil"}
           </Link>
         </div>
