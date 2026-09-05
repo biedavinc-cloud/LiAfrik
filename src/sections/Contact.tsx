@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, MessageCircle, Headset, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { Button } from '@/components/Button';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 
 const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
 
@@ -56,7 +56,7 @@ export default function Contact() {
           <div className="lg:col-span-2 space-y-4">
             <InfoCard icon={Phone} title={t('contact.phone')} lines={['+971 50 385 7203', '+237 6XX XXX XXX']} />
             <InfoCard icon={Mail} title={t('contact.email')} lines={['cs@liafrik.com', 'support@liafrik.com']} />
-            <InfoCard icon={MapPin} title={lang === 'en' ? 'Presence' : 'Présence'} lines={['Dubai · Yaoundé']} />
+            <InfoCard icon={MapPin} title={pick(lang, { en: 'Presence', fr: 'Présence', ar: 'حضورنا', es: 'Presencia', pt: 'Presença' })} lines={['Dubai · Yaoundé']} />
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +94,7 @@ export default function Contact() {
                 className="w-full rounded-xl border border-cloud-200 bg-cloud-50/50 px-4 py-3 text-sm text-ink placeholder:text-ink-light focus:border-liafrik-400 focus:bg-white focus:ring-2 focus:ring-liafrik-100 outline-none transition-all resize-none" />
             </div>
             <div className="flex items-center justify-between gap-4 pt-1">
-              <p className="text-xs text-ink-light">{lang === 'en' ? 'We reply within one business day.' : 'Nous répondons sous un jour ouvré.'}</p>
+              <p className="text-xs text-ink-light">{pick(lang, { en: 'We reply within one business day.', fr: 'Nous répondons sous un jour ouvré.', ar: 'نرد خلال يوم عمل واحد.', es: 'Respondemos en un día hábil.', pt: 'Respondemos em até um dia útil.' })}</p>
               <Button
                 type="submit"
                 variant="primary"
@@ -108,18 +108,18 @@ export default function Contact() {
                 }
               >
                 {status === 'submitting'
-                  ? (lang === 'en' ? 'Sending...' : 'Envoi...')
+                  ? pick(lang, { en: 'Sending...', fr: 'Envoi...', ar: 'جارٍ الإرسال...', es: 'Enviando...', pt: 'Enviando...' })
                   : status === 'success'
                     ? t('contact.form.success')
                     : status === 'error'
-                      ? (lang === 'en' ? 'Try again' : 'Réessayer')
+                      ? pick(lang, { en: 'Try again', fr: 'Réessayer', ar: 'حاول مرة أخرى', es: 'Inténtalo de nuevo', pt: 'Tente novamente' })
                       : t('contact.form.send')}
               </Button>
             </div>
             {status === 'error' && (
               <p className="text-xs text-red-600 flex items-center gap-1.5">
                 <AlertCircle className="h-3.5 w-3.5" />
-                {lang === 'en' ? 'Something went wrong. Please try again or email us directly.' : 'Une erreur est survenue. Veuillez réessayer ou nous écrire directement.'}
+                {pick(lang, { en: 'Something went wrong. Please try again or email us directly.', fr: 'Une erreur est survenue. Veuillez réessayer ou nous écrire directement.', ar: 'حدث خطأ ما. يرجى المحاولة مرة أخرى أو مراسلتنا مباشرة عبر البريد الإلكتروني.', es: 'Algo salió mal. Inténtalo de nuevo o escríbenos directamente.', pt: 'Algo deu errado. Tente novamente ou envie um e-mail diretamente.' })}
               </p>
             )}
           </motion.form>
@@ -198,7 +198,7 @@ export function FloatingContact() {
                 <Phone className="h-4 w-4 text-liafrik-600" /> +971 50 385 7203
               </a>
             </div>
-            <p className="mt-4 text-[11px] text-ink-light">{lang === 'en' ? 'LiAfrik — Dubai, UAE' : 'LiAfrik — Dubaï, EAU'}</p>
+            <p className="mt-4 text-[11px] text-ink-light">{pick(lang, { en: 'LiAfrik — Dubai, UAE', fr: 'LiAfrik — Dubaï, EAU', ar: 'LiAfrik — دبي، الإمارات', es: 'LiAfrik — Dubái, EAU', pt: 'LiAfrik — Dubai, EAU' })}</p>
           </motion.div>
         )}
       </motion.div>

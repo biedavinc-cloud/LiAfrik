@@ -2,27 +2,26 @@ import { motion } from 'framer-motion';
 import SectionHeading from '@/components/SectionHeading';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import { useInViewOnce } from '@/hooks/useInView';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, type Lang } from '@/i18n/LanguageContext';
 
 interface Stat {
   value: number;
   suffix?: string;
   prefix?: string;
   decimals?: number;
-  labelEn: string;
-  labelFr: string;
+  label: Record<Lang, string>;
 }
 
 const stats: Stat[] = [
-  { value: 50, suffix: '+', labelEn: 'Business Processes', labelFr: 'Processus métier' },
-  { value: 16, suffix: '+', labelEn: 'Enterprise Applications', labelFr: 'Applications entreprise' },
-  { value: 100, suffix: '%', labelEn: 'Cloud Based', labelFr: 'Basé sur le cloud' },
-  { value: 99.99, suffix: '%', decimals: 2, labelEn: 'Availability', labelFr: 'Disponibilité' },
-  { value: 24, suffix: '/7', labelEn: 'Support', labelFr: 'Support' },
-  { value: 100, suffix: '%', labelEn: 'Unlimited Businesses', labelFr: 'Entreprises illimitées' },
+  { value: 50, suffix: '+', label: { en: 'Business Processes', fr: 'Processus métier', ar: 'عمليات الأعمال', es: 'Procesos empresariales', pt: 'Processos de negócio' } },
+  { value: 16, suffix: '+', label: { en: 'Enterprise Applications', fr: 'Applications entreprise', ar: 'تطبيقات المؤسسات', es: 'Aplicaciones empresariales', pt: 'Aplicativos empresariais' } },
+  { value: 100, suffix: '%', label: { en: 'Cloud Based', fr: 'Basé sur le cloud', ar: 'قائم على السحابة', es: 'Basado en la nube', pt: 'Baseado em nuvem' } },
+  { value: 99.99, suffix: '%', decimals: 2, label: { en: 'Availability', fr: 'Disponibilité', ar: 'التوافر', es: 'Disponibilidad', pt: 'Disponibilidade' } },
+  { value: 24, suffix: '/7', label: { en: 'Support', fr: 'Support', ar: 'الدعم', es: 'Soporte', pt: 'Suporte' } },
+  { value: 100, suffix: '%', label: { en: 'Unlimited Businesses', fr: 'Entreprises illimitées', ar: 'شركات غير محدودة', es: 'Empresas ilimitadas', pt: 'Empresas ilimitadas' } },
 ];
 
-const renderLabel = (stat: Stat, lang: 'en' | 'fr') => (lang === 'en' ? stat.labelEn : stat.labelFr);
+const renderLabel = (stat: Stat, lang: Lang) => stat.label[lang];
 
 export default function Stats() {
   const { t, lang } = useLang();

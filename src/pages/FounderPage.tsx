@@ -2,31 +2,70 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Briefcase, GraduationCap, Award } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
 
 export default function FounderPage() {
   const { t, lang } = useLang();
-  const en = lang === 'en';
   useSEO({
-    title: en ? 'Vincent Nogué — Founder & CEO | LiAfrik' : 'Vincent Nogué — Fondateur et PDG | LiAfrik',
-    description: en
-      ? "The story behind LiAfrik: from graphic design in Cameroon to building a global SaaS ecosystem, led by founder Vincent Nogué."
-      : "L'histoire derrière LiAfrik : du design graphique au Cameroun à la construction d'un écosystème SaaS mondial, menée par le fondateur Vincent Nogué.",
+    title: pick(lang, {
+      en: 'Vincent Nogué — Founder & CEO | LiAfrik',
+      fr: 'Vincent Nogué — Fondateur et PDG | LiAfrik',
+      ar: 'فينسنت نوغيه — المؤسس والرئيس التنفيذي | LiAfrik',
+      es: 'Vincent Nogué — Fundador y CEO | LiAfrik',
+      pt: 'Vincent Nogué — Fundador e CEO | LiAfrik',
+    }),
+    description: pick(lang, {
+      en: 'The story behind LiAfrik: from graphic design in Cameroon to building a global SaaS ecosystem, led by founder Vincent Nogué.',
+      fr: "L'histoire derrière LiAfrik : du design graphique au Cameroun à la construction d'un écosystème SaaS mondial, menée par le fondateur Vincent Nogué.",
+      ar: 'قصة LiAfrik: من التصميم الجرافيكي في الكاميرون إلى بناء نظام SaaS عالمي متكامل، بقيادة المؤسس فينسنت نوغيه.',
+      es: 'La historia detrás de LiAfrik: del diseño gráfico en Camerún a construir un ecosistema SaaS global, liderado por el fundador Vincent Nogué.',
+      pt: 'A história por trás da LiAfrik: do design gráfico nos Camarões à construção de um ecossistema SaaS global, liderado pelo fundador Vincent Nogué.',
+    }),
   });
 
   const timeline = [
-    { year: '2012', text: en ? 'Began career in digital as a Graphic Designer in Cameroon' : 'Débuts dans le numérique en tant que Designer Graphique au Cameroun' },
-    { year: '2015', text: en ? 'Transitioned into e-commerce in Cameroon' : "Passage à l'e-commerce au Cameroun" },
-    { year: '2019', text: en ? 'Founded LIYAH GROUP, a web & digital agency in Cameroon' : 'Fondation de LIYAH GROUP, une agence web & digital au Cameroun' },
-    { year: '2022', text: en ? 'Restructured and expanded operations of LIYAH GROUP in Abu Dhabi, UAE' : 'Refonte et expansion des opérations de LIYAH GROUP à Abu Dhabi, EAU' },
-    { year: '2025', text: en ? 'Launched LiAfrik with the full suite of SaaS platforms in Dubai, UAE' : "Lancement de LiAfrik avec l'ensemble des plateformes SaaS à Dubaï, EAU" },
+    { year: '2012', text: pick(lang, {
+      en: 'Began career in digital as a Graphic Designer in Cameroon',
+      fr: 'Débuts dans le numérique en tant que Designer Graphique au Cameroun',
+      ar: 'بدأ مسيرته الرقمية كمصمم جرافيك في الكاميرون',
+      es: 'Comenzó su carrera digital como diseñador gráfico en Camerún',
+      pt: 'Iniciou a carreira digital como Designer Gráfico nos Camarões',
+    }) },
+    { year: '2015', text: pick(lang, {
+      en: 'Transitioned into e-commerce in Cameroon',
+      fr: "Passage à l'e-commerce au Cameroun",
+      ar: 'انتقل إلى مجال التجارة الإلكترونية في الكاميرون',
+      es: 'Hizo la transición al comercio electrónico en Camerún',
+      pt: 'Fez a transição para o e-commerce nos Camarões',
+    }) },
+    { year: '2019', text: pick(lang, {
+      en: 'Founded LIYAH GROUP, a web & digital agency in Cameroon',
+      fr: 'Fondation de LIYAH GROUP, une agence web & digital au Cameroun',
+      ar: 'أسّس LIYAH GROUP، وكالة ويب ورقمية في الكاميرون',
+      es: 'Fundó LIYAH GROUP, una agencia web y digital en Camerún',
+      pt: 'Fundou a LIYAH GROUP, uma agência web e digital nos Camarões',
+    }) },
+    { year: '2022', text: pick(lang, {
+      en: 'Restructured and expanded operations of LIYAH GROUP in Abu Dhabi, UAE',
+      fr: 'Refonte et expansion des opérations de LIYAH GROUP à Abu Dhabi, EAU',
+      ar: 'أعاد هيكلة عمليات LIYAH GROUP ووسّعها في أبوظبي، الإمارات',
+      es: 'Reestructuró y expandió las operaciones de LIYAH GROUP en Abu Dabi, EAU',
+      pt: 'Reestruturou e expandiu as operações da LIYAH GROUP em Abu Dhabi, EAU',
+    }) },
+    { year: '2025', text: pick(lang, {
+      en: 'Launched LiAfrik with the full suite of SaaS platforms in Dubai, UAE',
+      fr: "Lancement de LiAfrik avec l'ensemble des plateformes SaaS à Dubaï, EAU",
+      ar: 'أطلق LiAfrik بمجموعته الكاملة من منصات SaaS في دبي، الإمارات',
+      es: 'Lanzó LiAfrik con la suite completa de plataformas SaaS en Dubái, EAU',
+      pt: 'Lançou a LiAfrik com o conjunto completo de plataformas SaaS em Dubai, EAU',
+    }) },
   ];
 
   const education = [
-    { icon: GraduationCap, title: en ? 'Master in E-commerce' : 'Master en E-commerce', school: 'Learners Point Academy Intl, Dubai', note: en ? 'With distinction' : 'Mention très bien' },
-    { icon: Award, title: en ? 'Full Stack Web Dev / SaaS Expert Diploma' : 'Diplôme Full Stack Web Dev / SaaS Expert', school: 'Learners Point Academy Intl, Dubai', note: en ? 'With distinction' : 'Mention très bien' },
-    { icon: Briefcase, title: en ? 'Complementary Diplomas' : 'Diplômes complémentaires', school: 'Dubai Knowledge Academy (DKA)', note: '' },
+    { icon: GraduationCap, title: pick(lang, { en: 'Master in E-commerce', fr: 'Master en E-commerce', ar: 'ماجستير في التجارة الإلكترونية', es: 'Máster en Comercio Electrónico', pt: 'Mestrado em E-commerce' }), school: 'Learners Point Academy Intl, Dubai', note: pick(lang, { en: 'With distinction', fr: 'Mention très bien', ar: 'بامتياز', es: 'Con distinción', pt: 'Com distinção' }) },
+    { icon: Award, title: pick(lang, { en: 'Full Stack Web Dev / SaaS Expert Diploma', fr: 'Diplôme Full Stack Web Dev / SaaS Expert', ar: 'دبلوم تطوير الويب المتكامل / خبير SaaS', es: 'Diploma de Desarrollo Web Full Stack / Experto en SaaS', pt: 'Diploma de Desenvolvimento Web Full Stack / Especialista em SaaS' }), school: 'Learners Point Academy Intl, Dubai', note: pick(lang, { en: 'With distinction', fr: 'Mention très bien', ar: 'بامتياز', es: 'Con distinción', pt: 'Com distinção' }) },
+    { icon: Briefcase, title: pick(lang, { en: 'Complementary Diplomas', fr: 'Diplômes complémentaires', ar: 'دبلومات تكميلية', es: 'Diplomas complementarios', pt: 'Diplomas complementares' }), school: 'Dubai Knowledge Academy (DKA)', note: '' },
   ];
 
   return (
@@ -54,12 +93,16 @@ export default function FounderPage() {
           </div>
           <div className="text-center sm:text-left">
             <h3 className="font-display font-bold text-2xl sm:text-3xl text-ink">Vincent Nogue</h3>
-            <p className="text-sm font-medium text-liafrik-700 mt-1">{en ? 'CEO & Founder of LiAfrik' : 'CEO & Fondateur de LiAfrik'}</p>
-            <p className="mt-1 text-xs text-ink-light uppercase tracking-wider">{en ? 'Dubai, UAE · Yaoundé, Cameroon' : 'Dubaï, EAU · Yaoundé, Cameroun'}</p>
+            <p className="text-sm font-medium text-liafrik-700 mt-1">{pick(lang, { en: 'CEO & Founder of LiAfrik', fr: 'CEO & Fondateur de LiAfrik', ar: 'الرئيس التنفيذي ومؤسس LiAfrik', es: 'CEO y fundador de LiAfrik', pt: 'CEO e fundador da LiAfrik' })}</p>
+            <p className="mt-1 text-xs text-ink-light uppercase tracking-wider">{pick(lang, { en: 'Dubai, UAE · Yaoundé, Cameroon', fr: 'Dubaï, EAU · Yaoundé, Cameroun', ar: 'دبي، الإمارات · ياوندي، الكاميرون', es: 'Dubái, EAU · Yaundé, Camerún', pt: 'Dubai, EAU · Yaoundé, Camarões' })}</p>
             <p className="mt-4 text-sm text-ink-muted leading-relaxed max-w-md">
-              {en
-                ? 'A designer-turned-developer-turned-founder, Vincent built LiAfrik from a conviction: technology with African roots can serve the world. Over 12 years building digital products, he combined his background in design, e-commerce, and engineering to create an ecosystem that works for any ambitious business, anywhere.'
-                : "Designer devenu développeur devenu fondateur, Vincent a construit LiAfrik avec une conviction : la technologie née en Afrique peut servir le monde. En plus de 12 ans à construire des produits numériques, il a combiné son expérience en design, e-commerce et ingénierie pour créer un écosystème qui fonctionne pour toute entreprise ambitieuse, partout."}
+              {pick(lang, {
+                en: 'A designer-turned-developer-turned-founder, Vincent built LiAfrik from a conviction: technology with African roots can serve the world. Over 12 years building digital products, he combined his background in design, e-commerce, and engineering to create an ecosystem that works for any ambitious business, anywhere.',
+                fr: "Designer devenu développeur devenu fondateur, Vincent a construit LiAfrik avec une conviction : la technologie née en Afrique peut servir le monde. En plus de 12 ans à construire des produits numériques, il a combiné son expérience en design, e-commerce et ingénierie pour créer un écosystème qui fonctionne pour toute entreprise ambitieuse, partout.",
+                ar: 'مصمم تحوّل إلى مطوّر ثم إلى مؤسس، بنى فينسنت LiAfrik انطلاقاً من قناعة راسخة: أن التقنية ذات الجذور الأفريقية يمكنها خدمة العالم. على مدى أكثر من 12 عاماً في بناء المنتجات الرقمية، جمع بين خبرته في التصميم والتجارة الإلكترونية والهندسة ليصنع نظاماً متكاملاً يخدم أي عمل طموح، في أي مكان.',
+                es: 'Diseñador convertido en desarrollador y luego en fundador, Vincent construyó LiAfrik a partir de una convicción: la tecnología con raíces africanas puede servir al mundo. Con más de 12 años creando productos digitales, combinó su experiencia en diseño, comercio electrónico e ingeniería para crear un ecosistema que funciona para cualquier negocio ambicioso, en cualquier lugar.',
+                pt: 'De designer a desenvolvedor e depois fundador, Vincent construiu a LiAfrik a partir de uma convicção: a tecnologia com raízes africanas pode servir o mundo. Com mais de 12 anos construindo produtos digitais, ele combinou sua experiência em design, e-commerce e engenharia para criar um ecossistema que funciona para qualquer negócio ambicioso, em qualquer lugar.',
+              })}
             </p>
           </div>
         </motion.div>
@@ -72,7 +115,7 @@ export default function FounderPage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-8 rounded-3xl bg-white border border-cloud-200 p-8 sm:p-10 shadow-card"
         >
-          <h3 className="font-display font-bold text-xl text-ink mb-8">{en ? 'The journey' : 'Le parcours'}</h3>
+          <h3 className="font-display font-bold text-xl text-ink mb-8">{pick(lang, { en: 'The journey', fr: 'Le parcours', ar: 'المسيرة', es: 'El recorrido', pt: 'A jornada' })}</h3>
           <div className="relative pl-8 space-y-7 before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-px before:bg-gradient-to-b before:from-liafrik-300 before:to-cyanx-300/40">
             {timeline.map((item, i) => (
               <motion.div
@@ -99,7 +142,7 @@ export default function FounderPage() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-8 rounded-3xl bg-white border border-cloud-200 p-8 sm:p-10 shadow-card"
         >
-          <h3 className="font-display font-bold text-xl text-ink mb-6">{en ? 'Education' : 'Formation'}</h3>
+          <h3 className="font-display font-bold text-xl text-ink mb-6">{pick(lang, { en: 'Education', fr: 'Formation', ar: 'التعليم', es: 'Formación', pt: 'Formação' })}</h3>
           <div className="space-y-5">
             {education.map((edu, i) => (
               <motion.div
@@ -138,12 +181,22 @@ export default function FounderPage() {
           <div aria-hidden className="absolute inset-0 bg-grid-soft opacity-10" />
           <div className="relative">
             <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-              {en ? '"African roots. Global ambition."' : '"Racines africaines. Ambition mondiale."'}
+              {pick(lang, {
+                en: '"African roots. Global ambition."',
+                fr: '"Racines africaines. Ambition mondiale."',
+                ar: '"جذور أفريقية. طموح عالمي."',
+                es: '"Raíces africanas. Ambición global."',
+                pt: '"Raízes africanas. Ambição global."',
+              })}
             </h3>
             <p className="mt-4 text-liafrik-100 max-w-2xl mx-auto leading-relaxed">
-              {en
-                ? 'LiAfrik was built from the belief that powerful, elegant software should not be the privilege of any single continent. Every platform in the ecosystem reflects the real problems Vincent encountered across Africa and the Middle East — and the conviction that they deserve world-class solutions.'
-                : "LiAfrik a été construit avec la conviction que des logiciels puissants et élégants ne devraient pas être le privilège d'un seul continent. Chaque plateforme de l'écosystème reflète des problèmes réels rencontrés en Afrique et au Moyen-Orient — et la conviction qu'ils méritent des solutions de classe mondiale."}
+              {pick(lang, {
+                en: 'LiAfrik was built from the belief that powerful, elegant software should not be the privilege of any single continent. Every platform in the ecosystem reflects the real problems Vincent encountered across Africa and the Middle East — and the conviction that they deserve world-class solutions.',
+                fr: "LiAfrik a été construit avec la conviction que des logiciels puissants et élégants ne devraient pas être le privilège d'un seul continent. Chaque plateforme de l'écosystème reflète des problèmes réels rencontrés en Afrique et au Moyen-Orient — et la conviction qu'ils méritent des solutions de classe mondiale.",
+                ar: 'بُني LiAfrik انطلاقاً من قناعة بأن البرمجيات القوية والأنيقة لا ينبغي أن تكون امتيازاً لقارة واحدة فقط. تعكس كل منصة في هذا النظام المتكامل مشكلات حقيقية واجهها فينسنت في أفريقيا والشرق الأوسط — وقناعة بأنها تستحق حلولاً عالمية المستوى.',
+                es: 'LiAfrik se construyó a partir de la convicción de que un software potente y elegante no debería ser el privilegio de un solo continente. Cada plataforma del ecosistema refleja los problemas reales que Vincent encontró en África y Oriente Medio, y la convicción de que merecen soluciones de clase mundial.',
+                pt: 'A LiAfrik foi construída a partir da crença de que um software poderoso e elegante não deveria ser privilégio de um único continente. Cada plataforma do ecossistema reflete os problemas reais que Vincent encontrou na África e no Oriente Médio — e a convicção de que eles merecem soluções de classe mundial.',
+              })}
             </p>
           </div>
         </motion.div>

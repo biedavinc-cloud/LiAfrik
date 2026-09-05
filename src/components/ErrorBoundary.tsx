@@ -1,5 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { RefreshCw, Home } from 'lucide-react';
+import { Sentry } from '@/lib/sentry';
 
 interface Props {
   children: ReactNode;
@@ -25,6 +26,10 @@ export default class ErrorBoundary extends Component<Props, State> {
   componentDidCatch(error: Error, info: ErrorInfo) {
     // eslint-disable-next-line no-console
     console.error('LiAfrik: uncaught render error', error, info);
+    Sentry.withScope((scope) => {
+      scope.setExtra('componentStack', info.componentStack);
+      Sentry.captureException(error);
+    });
   }
 
   render() {

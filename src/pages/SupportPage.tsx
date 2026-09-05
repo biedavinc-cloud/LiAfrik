@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Headset, MessageSquare, Clock, ArrowRight, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton, Button } from '@/components/Button';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
 
 const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
@@ -13,10 +13,14 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 export default function SupportPage() {
   const { t, lang } = useLang();
   useSEO({
-    title: lang === 'en' ? 'Support | LiAfrik' : 'Support | LiAfrik',
-    description: lang === 'en'
-      ? 'Get help from the LiAfrik team — customer support, customer service, and general inquiries for every app in the ecosystem.'
-      : "Obtenez de l'aide de l'équipe LiAfrik — support client, service client et demandes générales pour chaque application de l'écosystème.",
+    title: 'Support | LiAfrik',
+    description: pick(lang, {
+      en: 'Get help from the LiAfrik team — customer support, customer service, and general inquiries for every app in the ecosystem.',
+      fr: "Obtenez de l'aide de l'équipe LiAfrik — support client, service client et demandes générales pour chaque application de l'écosystème.",
+      ar: 'احصل على المساعدة من فريق LiAfrik — دعم العملاء، وخدمة العملاء، والاستفسارات العامة لكل تطبيق في النظام المتكامل.',
+      es: 'Obtén ayuda del equipo de LiAfrik: soporte técnico, atención al cliente y consultas generales para cada app del ecosistema.',
+      pt: 'Obtenha ajuda da equipe da LiAfrik — suporte ao cliente, atendimento ao cliente e perguntas gerais para cada aplicativo do ecossistema.',
+    }),
   });
   const [status, setStatus] = useState<Status>('idle');
 
@@ -49,8 +53,8 @@ export default function SupportPage() {
   };
 
   const channels = [
-    { icon: Mail, label: 'Customer Support', email: 'support@liafrik.com', desc: lang === 'en' ? 'Technical issues and product help' : 'Problèmes techniques et aide produit' },
-    { icon: Headset, label: 'Customer Service', email: 'cs@liafrik.com', desc: lang === 'en' ? 'Account and billing questions' : 'Questions de compte et de facturation' },
+    { icon: Mail, label: 'Customer Support', email: 'support@liafrik.com', desc: pick(lang, { en: 'Technical issues and product help', fr: 'Problèmes techniques et aide produit', ar: 'المشكلات التقنية ومساعدة المنتج', es: 'Problemas técnicos y ayuda con el producto', pt: 'Problemas técnicos e ajuda com o produto' }) },
+    { icon: Headset, label: 'Customer Service', email: 'cs@liafrik.com', desc: pick(lang, { en: 'Account and billing questions', fr: 'Questions de compte et de facturation', ar: 'أسئلة الحساب والفوترة', es: 'Preguntas de cuenta y facturación', pt: 'Perguntas sobre conta e faturamento' }) },
   ];
 
   return (
@@ -102,14 +106,14 @@ export default function SupportPage() {
                   className="w-full rounded-xl border border-cloud-200 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink-light focus:border-liafrik-400 focus:ring-2 focus:ring-liafrik-100 outline-none transition-all resize-none" />
               </div>
               <div className="flex items-center justify-between gap-4">
-                <p className="text-xs text-ink-light flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {lang === 'en' ? 'We reply within one business day' : 'Réponse sous un jour ouvré'}</p>
+                <p className="text-xs text-ink-light flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {pick(lang, { en: 'We reply within one business day', fr: 'Réponse sous un jour ouvré', ar: 'نرد خلال يوم عمل واحد', es: 'Respondemos en un día hábil', pt: 'Respondemos em até um dia útil' })}</p>
                 <Button type="submit" variant="primary" size="md" disabled={status === 'submitting' || status === 'success'}
                   iconRight={status === 'submitting' ? <Loader2 className="h-4 w-4 animate-spin" /> : status === 'success' ? <CheckCircle2 className="h-4 w-4" /> : status === 'error' ? <AlertCircle className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}>
-                  {status === 'submitting' ? (lang === 'en' ? 'Sending...' : 'Envoi...') : status === 'success' ? t('contact.form.success') : status === 'error' ? (lang === 'en' ? 'Try again' : 'Réessayer') : t('contact.form.send')}
+                  {status === 'submitting' ? pick(lang, { en: 'Sending...', fr: 'Envoi...', ar: 'جارٍ الإرسال...', es: 'Enviando...', pt: 'Enviando...' }) : status === 'success' ? t('contact.form.success') : status === 'error' ? pick(lang, { en: 'Try again', fr: 'Réessayer', ar: 'حاول مرة أخرى', es: 'Inténtalo de nuevo', pt: 'Tente novamente' }) : t('contact.form.send')}
                 </Button>
               </div>
               {status === 'error' && (
-                <p className="text-xs text-red-600 flex items-center gap-1.5"><AlertCircle className="h-3.5 w-3.5" /> {lang === 'en' ? 'Something went wrong. Please try again or email us directly.' : 'Une erreur est survenue. Veuillez réessayer ou nous écrire directement.'}</p>
+                <p className="text-xs text-red-600 flex items-center gap-1.5"><AlertCircle className="h-3.5 w-3.5" /> {pick(lang, { en: 'Something went wrong. Please try again or email us directly.', fr: 'Une erreur est survenue. Veuillez réessayer ou nous écrire directement.', ar: 'حدث خطأ ما. يرجى المحاولة مرة أخرى أو مراسلتنا مباشرة عبر البريد الإلكتروني.', es: 'Algo salió mal. Inténtalo de nuevo o escríbenos directamente.', pt: 'Algo deu errado. Tente novamente ou envie um e-mail diretamente.' })}</p>
               )}
             </form>
           </div>
@@ -117,11 +121,11 @@ export default function SupportPage() {
           <div className="lg:col-span-2 space-y-4">
             <div className="rounded-3xl bg-cloud-50 border border-cloud-200 p-6">
               <MessageSquare className="h-8 w-8 text-liafrik-600 mb-3" />
-              <h4 className="font-display font-bold text-sm text-ink">{lang === 'en' ? 'Response times' : 'Temps de réponse'}</h4>
+              <h4 className="font-display font-bold text-sm text-ink">{pick(lang, { en: 'Response times', fr: 'Temps de réponse', ar: 'أوقات الاستجابة', es: 'Tiempos de respuesta', pt: 'Tempos de resposta' })}</h4>
               <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-                <li>{lang === 'en' ? 'Critical issues: under 2 hours' : 'Problèmes critiques : sous 2h'}</li>
-                <li>{lang === 'en' ? 'General support: within 1 business day' : 'Support général : sous 1 jour ouvré'}</li>
-                <li>{lang === 'en' ? '24/7 cloud monitoring' : 'Surveillance cloud 24/7'}</li>
+                <li>{pick(lang, { en: 'Critical issues: under 2 hours', fr: 'Problèmes critiques : sous 2h', ar: 'المشكلات الحرجة: خلال أقل من ساعتين', es: 'Problemas críticos: en menos de 2 horas', pt: 'Problemas críticos: em menos de 2 horas' })}</li>
+                <li>{pick(lang, { en: 'General support: within 1 business day', fr: 'Support général : sous 1 jour ouvré', ar: 'الدعم العام: خلال يوم عمل واحد', es: 'Soporte general: en 1 día hábil', pt: 'Suporte geral: em até 1 dia útil' })}</li>
+                <li>{pick(lang, { en: '24/7 cloud monitoring', fr: 'Surveillance cloud 24/7', ar: 'مراقبة سحابية على مدار الساعة', es: 'Monitoreo en la nube 24/7', pt: 'Monitoramento em nuvem 24/7' })}</li>
               </ul>
             </div>
           </div>

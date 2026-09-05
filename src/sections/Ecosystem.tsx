@@ -2,7 +2,7 @@ import { Link } from '@/components/Link';
 import { motion } from 'framer-motion';
 import type { Product } from '@/data/products';
 import { products } from '@/data/products';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 import SectionHeading from '@/components/SectionHeading';
 import AppLogo from '@/components/AppLogo';
 
@@ -16,7 +16,7 @@ export default function Ecosystem() {
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
-          tag={lang === 'en' ? 'The Ecosystem' : "L'écosystème"}
+          tag={pick(lang, { en: 'The Ecosystem', fr: "L'écosystème", ar: 'النظام المتكامل', es: 'El ecosistema', pt: 'O ecossistema' })}
           title={<span className="text-gradient-blue-strong">{t('eco.title')}</span>}
           subtitle={t('eco.sub')}
         />

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Check, X, ArrowRight } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 
 export default function WhyLiAfrik() {
   const { t, lang } = useLang();
@@ -74,7 +74,7 @@ export default function WhyLiAfrik() {
             </ul>
             <div className="mt-6">
               <LinkButton to="/#ecosystem" variant="white" size="sm" iconRight={<ArrowRight className="h-4 w-4" />}>
-                {lang === 'en' ? 'Explore the ecosystem' : "Explorer l'écosystème"}
+                {pick(lang, { en: 'Explore the ecosystem', fr: "Explorer l'écosystème", ar: 'استكشف النظام المتكامل', es: 'Explorar el ecosistema', pt: 'Explorar o ecossistema' })}
               </LinkButton>
             </div>
           </motion.div>

@@ -1,7 +1,12 @@
 import { forwardRef } from 'react';
 import { Link as RouterLink, useParams, type LinkProps } from 'react-router-dom';
+import { SUPPORTED_LANGS, type Lang } from '@/i18n/LanguageContext';
 
 const STORAGE_KEY = 'liafrik-lang';
+
+function isSupportedLang(v: string | undefined): v is Lang {
+  return !!v && (SUPPORTED_LANGS as string[]).includes(v);
+}
 
 /**
  * Resolves the language to use for building a localized href.
@@ -10,14 +15,15 @@ const STORAGE_KEY = 'liafrik-lang';
  *   fall back to the saved preference, then the browser language,
  *   then 'en'.
  */
-export function useCurrentLang(): 'en' | 'fr' {
+export function useCurrentLang(): Lang {
   const { lang } = useParams<{ lang?: string }>();
-  if (lang === 'en' || lang === 'fr') return lang;
+  if (isSupportedLang(lang)) return lang;
 
   if (typeof window !== 'undefined') {
     const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved === 'en' || saved === 'fr') return saved;
-    if (navigator.language?.toLowerCase().startsWith('fr')) return 'fr';
+    if (isSupportedLang(saved ?? undefined)) return saved as Lang;
+    const browserLang = navigator.language?.toLowerCase().slice(0, 2);
+    if (isSupportedLang(browserLang)) return browserLang as Lang;
   }
   return 'en';
 }

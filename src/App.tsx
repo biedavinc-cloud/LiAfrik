@@ -1,6 +1,6 @@
 import { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes, Navigate, Outlet, useLocation, useParams } from 'react-router-dom';
-import { LanguageProvider } from '@/i18n/LanguageContext';
+import { LanguageProvider, SUPPORTED_LANGS, type Lang } from '@/i18n/LanguageContext';
 import { useCurrentLang } from '@/components/Link';
 import { useHreflang } from '@/lib/useSEO';
 import { getProductBySlug } from '@/data/products';
@@ -65,7 +65,7 @@ function ProductOrComingSoon() {
 function LocalizedLayout() {
   const { lang } = useParams<{ lang: string }>();
   const location = useLocation();
-  const validLang = lang === 'en' || lang === 'fr';
+  const validLang = (SUPPORTED_LANGS as string[]).includes(lang ?? '');
   useHreflang(validLang ? location.pathname : '/en');
 
   if (!validLang) {
@@ -77,7 +77,7 @@ function LocalizedLayout() {
   }
 
   return (
-    <LanguageProvider lang={lang}>
+    <LanguageProvider lang={lang as Lang}>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-liafrik-600 focus:text-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow-lg"

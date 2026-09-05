@@ -10,7 +10,7 @@ import DashboardMockup from '@/components/DashboardMockup';
 import AppLogo from '@/components/AppLogo';
 import { LinkButton } from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
 import NotFound from '@/pages/NotFound';
 
@@ -28,8 +28,6 @@ export default function ProductPage() {
     if (product && !product.available) return null;
     return <NotFound />;
   }
-
-  const en = lang === 'en';
 
   return (
     <div className="pt-24">
@@ -116,7 +114,7 @@ export default function ProductPage() {
       {/* Features */}
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading tag={t('product.features')} title={`${product.name} ${en ? 'features' : 'fonctionnalités'}`} align="left" />
+          <SectionHeading tag={t('product.features')} title={`${product.name} ${pick(lang, { en: 'features', fr: 'fonctionnalités', ar: 'الميزات', es: 'funciones', pt: 'funcionalidades' })}`} align="left" />
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {product.features.map((f, i) => (
               <motion.div
@@ -139,7 +137,7 @@ export default function ProductPage() {
       {/* Benefits */}
       <section className="py-16 sm:py-20 bg-cloud-100/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading tag={t('product.benefits')} title={en ? 'Why teams choose it' : 'Pourquoi les équipes le choisissent'} align="left" />
+          <SectionHeading tag={t('product.benefits')} title={pick(lang, { en: 'Why teams choose it', fr: 'Pourquoi les équipes le choisissent', ar: 'لماذا تختاره الفرق', es: 'Por qué los equipos lo eligen', pt: 'Por que as equipes escolhem' })} align="left" />
           <div className="mt-10 grid sm:grid-cols-2 gap-4">
             {product.benefits.map((b, i) => (
               <motion.div
@@ -162,7 +160,7 @@ export default function ProductPage() {
       {/* Industries */}
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading tag={t('product.industries')} title={en ? 'Built for your industry' : 'Conçu pour votre industrie'} align="left" />
+          <SectionHeading tag={t('product.industries')} title={pick(lang, { en: 'Built for your industry', fr: 'Conçu pour votre industrie', ar: 'مصمم لقطاعك', es: 'Creado para tu industria', pt: 'Criado para o seu setor' })} align="left" />
           <div className="mt-8 flex flex-wrap gap-3">
             {product.industries.map((ind, i) => (
               <motion.span
@@ -194,12 +192,16 @@ export default function ProductPage() {
                 <LayoutDashboard className="h-7 w-7" strokeWidth={1.8} />
               </span>
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-ink">
-                {en ? `Start using ${product.name}` : `Commencer avec ${product.name}`}
+                {pick(lang, { en: `Start using ${product.name}`, fr: `Commencer avec ${product.name}`, ar: `ابدأ استخدام ${product.name}`, es: `Empieza a usar ${product.name}`, pt: `Comece a usar ${product.name}` })}
               </h3>
               <p className="mt-3 text-base text-ink-muted max-w-sm mx-auto leading-relaxed">
-                {en
-                  ? `Discover the full pricing and plan options directly inside ${product.name}. Start free and upgrade as you grow.`
-                  : `Découvrez les prix et options de plan directement dans ${product.name}. Commencez gratuitement et évoluez selon votre croissance.`}
+                {pick(lang, {
+                  en: `Discover the full pricing and plan options directly inside ${product.name}. Start free and upgrade as you grow.`,
+                  fr: `Découvrez les prix et options de plan directement dans ${product.name}. Commencez gratuitement et évoluez selon votre croissance.`,
+                  ar: `اكتشف الأسعار الكاملة وخيارات الخطط مباشرة داخل ${product.name}. ابدأ مجاناً وترقّ مع نموك.`,
+                  es: `Descubre todos los precios y opciones de plan directamente en ${product.name}. Empieza gratis y mejora a medida que creces.`,
+                  pt: `Descubra os preços completos e as opções de plano diretamente na ${product.name}. Comece grátis e faça upgrade conforme cresce.`,
+                })}
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
@@ -209,7 +211,7 @@ export default function ProductPage() {
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-liafrik-600 text-white text-base font-semibold px-8 py-3.5 hover:bg-liafrik-700 shadow-premium hover:shadow-glow-blue hover:-translate-y-0.5 active:translate-y-0 transition-all w-full sm:w-auto"
                 >
                   <LayoutDashboard className="h-4 w-4" />
-                  {en ? 'Explore Plan' : 'Voir le Plan'}
+                  {pick(lang, { en: 'Explore Plan', fr: 'Voir le Plan', ar: 'استعرض الخطة', es: 'Ver plan', pt: 'Ver plano' })}
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <LinkButton to="/support" variant="outline" size="lg" icon={<Phone className="h-4 w-4" />} className="w-full sm:w-auto justify-center">
@@ -217,7 +219,7 @@ export default function ProductPage() {
                 </LinkButton>
               </div>
               <p className="mt-5 text-xs text-ink-light">
-                {en ? 'No credit card required to get started.' : 'Aucune carte de crédit requise pour démarrer.'}
+                {pick(lang, { en: 'No credit card required to get started.', fr: 'Aucune carte de crédit requise pour démarrer.', ar: 'لا حاجة إلى بطاقة ائتمان للبدء.', es: 'No se requiere tarjeta de crédito para empezar.', pt: 'Não é necessário cartão de crédito para começar.' })}
               </p>
             </motion.div>
           </div>
@@ -231,10 +233,10 @@ export default function ProductPage() {
             <div aria-hidden className="absolute inset-0 bg-grid-soft opacity-10" />
             <div className="relative">
               <div className="flex items-center justify-center gap-2 text-liafrik-100 text-xs font-semibold mb-3">
-                <ShieldCheck className="h-4 w-4" /> {en ? 'Secure · Scalable · Global' : 'Sécurisé · Évolutif · Global'}
+                <ShieldCheck className="h-4 w-4" /> {pick(lang, { en: 'Secure · Scalable · Global', fr: 'Sécurisé · Évolutif · Global', ar: 'آمن · قابل للتوسع · عالمي', es: 'Seguro · Escalable · Global', pt: 'Seguro · Escalável · Global' })}
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">
-                {en ? `Run your business on ${product.name}` : `Pilotez votre entreprise avec ${product.name}`}
+                {pick(lang, { en: `Run your business on ${product.name}`, fr: `Pilotez votre entreprise avec ${product.name}`, ar: `أدر عملك باستخدام ${product.name}`, es: `Gestiona tu negocio con ${product.name}`, pt: `Administre seu negócio com ${product.name}` })}
               </h2>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
                 {product.appUrl ? (
@@ -244,7 +246,7 @@ export default function ProductPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-white text-liafrik-700 text-base font-semibold px-7 py-3.5 hover:bg-cloud-50 shadow-premium hover:-translate-y-0.5 transition-all"
                   >
-                    {en ? 'Explore Plan' : 'Voir le Plan'} <ArrowRight className="h-4 w-4" />
+                    {pick(lang, { en: 'Explore Plan', fr: 'Voir le Plan', ar: 'استعرض الخطة', es: 'Ver plan', pt: 'Ver plano' })} <ArrowRight className="h-4 w-4" />
                   </a>
                 ) : (
                   <LinkButton to="/products" variant="white" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>{t('product.cta')}</LinkButton>

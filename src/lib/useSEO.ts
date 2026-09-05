@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { SUPPORTED_LANGS } from '@/i18n/LanguageContext';
 
 interface SEOOptions {
   title: string;
@@ -80,16 +81,24 @@ function setLinkTag(rel: string, hreflang: string | null, href: string) {
  * the same page in different languages" so both can rank internationally
  * instead of being treated as duplicate content.
  */
+/**
+ * Sets the canonical URL and hreflang alternates (one per supported
+ * language, plus x-default) for the current page, based on its
+ * language-prefixed path (/en/..., /fr/..., /ar/..., /es/..., /pt/...).
+ * Runs on every route change — this is what tells Google "these URLs
+ * are the same page in different languages" so each can rank
+ * internationally instead of being treated as duplicate content.
+ */
 export function useHreflang(pathname: string) {
   useEffect(() => {
-    const rest = pathname.replace(/^\/(en|fr)/, '');
+    const rest = pathname.replace(/^\/(en|fr|ar|es|pt)/, '');
     const canonical = `${SITE}${pathname}`;
     const enHref = `${SITE}/en${rest}`;
-    const frHref = `${SITE}/fr${rest}`;
 
     setLinkTag('canonical', null, canonical);
-    setLinkTag('alternate', 'en', enHref);
-    setLinkTag('alternate', 'fr', frHref);
+    for (const l of SUPPORTED_LANGS) {
+      setLinkTag('alternate', l, `${SITE}/${l}${rest}`);
+    }
     setLinkTag('alternate', 'x-default', enHref);
   }, [pathname]);
 }

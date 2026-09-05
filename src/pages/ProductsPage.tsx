@@ -3,7 +3,7 @@ import { Link } from '@/components/Link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, Clock, Check, Search } from 'lucide-react';
 import { products, type Product } from '@/data/products';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 import Logo from '@/components/Logo';
 import AppLogo from '@/components/AppLogo';
 import SectionHeading from '@/components/SectionHeading';
@@ -23,12 +23,20 @@ const categoryMap: Record<CategoryFilter, string[]> = {
 export default function ProductsPage() {
   const { t, lang } = useLang();
   useSEO({
-    title: lang === 'en'
-      ? 'All Products — LiAfrik SaaS Ecosystem'
-      : 'Tous les produits — Écosystème SaaS LiAfrik',
-    description: lang === 'en'
-      ? 'Explore every LiAfrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — one connected ecosystem, built for the world.'
-      : "Découvrez toutes les applications LiAfrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — un écosystème connecté, pensé pour le monde entier.",
+    title: pick(lang, {
+      en: 'All Products — LiAfrik SaaS Ecosystem',
+      fr: 'Tous les produits — Écosystème SaaS LiAfrik',
+      ar: 'كل المنتجات — نظام LiAfrik المتكامل',
+      es: 'Todos los productos — Ecosistema SaaS LiAfrik',
+      pt: 'Todos os produtos — Ecossistema SaaS LiAfrik',
+    }),
+    description: pick(lang, {
+      en: 'Explore every LiAfrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — one connected ecosystem, built for the world.',
+      fr: "Découvrez toutes les applications LiAfrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — un écosystème connecté, pensé pour le monde entier.",
+      ar: 'استكشف كل تطبيقات LiAfrik: POS وSellia وCRM وAtlas وFaka وKlasoo وNutro وHealth وBailly وKolo وSkills وMafo وLiBooks وZando وLitrek — نظام واحد متكامل، مصمم للعالم.',
+      es: 'Explora todas las apps de LiAfrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek: un ecosistema conectado, creado para el mundo.',
+      pt: 'Explore todos os aplicativos da LiAfrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — um ecossistema conectado, criado para o mundo.',
+    }),
   });
   const [filter, setFilter] = useState<CategoryFilter>('all');
   const [query, setQuery] = useState('');
@@ -89,7 +97,7 @@ export default function ProductsPage() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder={lang === 'en' ? 'Search platforms...' : 'Rechercher...'}
+              placeholder={pick(lang, { en: 'Search platforms...', fr: 'Rechercher...', ar: 'ابحث عن المنصات...', es: 'Buscar plataformas...', pt: 'Buscar plataformas...' })}
               className="w-full rounded-full border border-cloud-200 bg-white pl-9 pr-4 py-2.5 text-sm text-ink placeholder:text-ink-light focus:border-liafrik-400 focus:ring-2 focus:ring-liafrik-100 outline-none transition-all"
             />
           </div>
@@ -105,14 +113,14 @@ export default function ProductsPage() {
 
         {filtered.length === 0 && (
           <div className="mt-16 text-center text-ink-light">
-            {lang === 'en' ? 'No platforms found. Try a different search.' : 'Aucune plateforme trouvée. Essayez une autre recherche.'}
+            {pick(lang, { en: 'No platforms found. Try a different search.', fr: 'Aucune plateforme trouvée. Essayez une autre recherche.', ar: 'لم يتم العثور على منصات. جرّب بحثاً مختلفاً.', es: 'No se encontraron plataformas. Prueba con otra búsqueda.', pt: 'Nenhuma plataforma encontrada. Tente outra busca.' })}
           </div>
         )}
 
         <div className="mt-16 text-center">
           <Link to="/" className="inline-flex items-center gap-1.5 text-sm font-semibold text-liafrik-700 hover:text-liafrik-800 transition-colors">
             <Logo size="sm" />
-            {lang === 'en' ? 'Back to home' : "Retour à l'accueil"}
+            {pick(lang, { en: 'Back to home', fr: "Retour à l'accueil", ar: 'العودة إلى الرئيسية', es: 'Volver al inicio', pt: 'Voltar ao início' })}
           </Link>
         </div>
       </div>
@@ -161,7 +169,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             <ExternalLink className="h-3.5 w-3.5" /> {t('products.launch')}
           </a>
         ) : (
-          <span className="text-xs text-ink-light">{lang === 'en' ? 'Explore plans' : 'Voir les offres'}</span>
+          <span className="text-xs text-ink-light">{pick(lang, { en: 'Explore plans', fr: 'Voir les offres', ar: 'استعرض الخطط', es: 'Ver planes', pt: 'Ver planos' })}</span>
         )}
 
         <Link

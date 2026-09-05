@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '@/components/SectionHeading';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 
 const cities = [
   { name: 'Yaoundé', x: 52, y: 62, delay: 0 },
@@ -74,8 +74,8 @@ export default function WorldMap() {
           </div>
 
           <div className="relative mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-light">
-            <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-liafrik-600" /> {lang === 'en' ? 'Active deployments' : 'Déploiements actifs'}</span>
-            <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-cyanx-400" /> {lang === 'en' ? 'Cloud regions' : 'Régions cloud'}</span>
+            <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-liafrik-600" /> {pick(lang, { en: 'Active deployments', fr: 'Déploiements actifs', ar: 'عمليات نشر فعّالة', es: 'Implementaciones activas', pt: 'Implantações ativas' })}</span>
+            <span className="inline-flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-cyanx-400" /> {pick(lang, { en: 'Cloud regions', fr: 'Régions cloud', ar: 'مناطق سحابية', es: 'Regiones de nube', pt: 'Regiões de nuvem' })}</span>
           </div>
         </motion.div>
       </div>

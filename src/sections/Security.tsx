@@ -4,7 +4,7 @@ import {
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 
 interface SecItem {
   icon: LucideIcon;
@@ -66,9 +66,13 @@ export default function Security() {
         >
           <ShieldCheck className="h-8 w-8 shrink-0" />
           <p className="text-sm sm:text-base font-medium leading-relaxed">
-            {lang === 'en'
-              ? 'From Health to Mafo, from LiBooks to Kolo — sensitive data is treated with the highest standard of confidentiality and care.'
-              : "De Health à Mafo, de LiBooks à Kolo — les données sensibles sont traitées selon les standards les plus stricts de confidentialité et d'attention."}
+            {pick(lang, {
+              en: 'From Health to Mafo, from LiBooks to Kolo — sensitive data is treated with the highest standard of confidentiality and care.',
+              fr: "De Health à Mafo, de LiBooks à Kolo — les données sensibles sont traitées selon les standards les plus stricts de confidentialité et d'attention.",
+              ar: 'من Health إلى Mafo، ومن LiBooks إلى Kolo — تُعامَل البيانات الحساسة بأعلى معايير السرية والعناية.',
+              es: 'De Health a Mafo, de LiBooks a Kolo, los datos sensibles se tratan con el más alto estándar de confidencialidad y cuidado.',
+              pt: 'De Health a Mafo, de LiBooks a Kolo — dados sensíveis são tratados com o mais alto padrão de confidencialidade e cuidado.',
+            })}
           </p>
         </motion.div>
       </div>

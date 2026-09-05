@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 import { LinkButton } from '@/components/Button';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 
 export default function SecurityTeaser() {
   const { t, lang } = useLang();
@@ -25,17 +25,21 @@ export default function SecurityTeaser() {
                 <ShieldCheck className="h-4 w-4" /> {t('sec.tag')}
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight">
-                {lang === 'en' ? 'Your data is protected by design' : 'Vos données sont protégées par conception'}
+                {pick(lang, { en: 'Your data is protected by design', fr: 'Vos données sont protégées par conception', ar: 'بياناتك محمية بالتصميم', es: 'Tus datos están protegidos desde el diseño', pt: 'Seus dados são protegidos desde a conceção' })}
               </h2>
               <p className="mt-3 text-liafrik-100 max-w-xl">
-                {lang === 'en'
-                  ? 'Encryption, secure cloud infrastructure, automated backups and role-based permissions — built into every LiAfrik platform.'
-                  : 'Chiffrement, infrastructure cloud sécurisée, sauvegardes automatiques et permissions par rôle — intégrés dans chaque plateforme LiAfrik.'}
+                {pick(lang, {
+                  en: 'Encryption, secure cloud infrastructure, automated backups and role-based permissions — built into every LiAfrik platform.',
+                  fr: 'Chiffrement, infrastructure cloud sécurisée, sauvegardes automatiques et permissions par rôle — intégrés dans chaque plateforme LiAfrik.',
+                  ar: 'التشفير، والبنية التحتية السحابية الآمنة، والنسخ الاحتياطي التلقائي، والصلاحيات القائمة على الأدوار — مدمجة في كل منصة من منصات LiAfrik.',
+                  es: 'Cifrado, infraestructura en la nube segura, copias de seguridad automáticas y permisos basados en roles, integrados en cada plataforma LiAfrik.',
+                  pt: 'Criptografia, infraestrutura em nuvem segura, backups automáticos e permissões baseadas em função — integrados em cada plataforma LiAfrik.',
+                })}
               </p>
             </div>
             <div className="shrink-0">
               <LinkButton to="/security" variant="white" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
-                {lang === 'en' ? 'Explore Security' : 'Voir la sécurité'}
+                {pick(lang, { en: 'Explore Security', fr: 'Voir la sécurité', ar: 'استكشف الأمان', es: 'Explorar seguridad', pt: 'Explorar segurança' })}
               </LinkButton>
             </div>
           </div>

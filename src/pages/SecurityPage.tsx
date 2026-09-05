@@ -5,16 +5,23 @@ import {
 } from 'lucide-react';
 import { LinkButton } from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
 
 export default function SecurityPage() {
   const { t, lang } = useLang();
   useSEO({
-    title: lang === 'en' ? 'Security & Trust | LiAfrik' : 'Sécurité et confiance | LiAfrik',
-    description: lang === 'en'
-      ? 'How LiAfrik protects your data: strict multi-tenant isolation, encryption, cloud infrastructure, backups, and role-based access across every app.'
-      : "Comment LiAfrik protège vos données : isolation stricte multi-tenant, chiffrement, infrastructure cloud, sauvegardes, et accès par rôle sur chaque application.",
+    title: pick(lang, {
+      en: 'Security & Trust | LiAfrik', fr: 'Sécurité et confiance | LiAfrik',
+      ar: 'الأمان والثقة | LiAfrik', es: 'Seguridad y confianza | LiAfrik', pt: 'Segurança e confiança | LiAfrik',
+    }),
+    description: pick(lang, {
+      en: 'How LiAfrik protects your data: strict multi-tenant isolation, encryption, cloud infrastructure, backups, and role-based access across every app.',
+      fr: "Comment LiAfrik protège vos données : isolation stricte multi-tenant, chiffrement, infrastructure cloud, sauvegardes, et accès par rôle sur chaque application.",
+      ar: 'كيف يحمي LiAfrik بياناتك: عزل صارم متعدد المستأجرين، تشفير، بنية تحتية سحابية، نسخ احتياطي، ووصول قائم على الأدوار عبر كل تطبيق.',
+      es: 'Cómo LiAfrik protege tus datos: aislamiento estricto multi-tenant, cifrado, infraestructura en la nube, copias de seguridad y acceso basado en roles en cada app.',
+      pt: 'Como a LiAfrik protege seus dados: isolamento rigoroso multi-tenant, criptografia, infraestrutura em nuvem, backups e acesso baseado em função em cada aplicativo.',
+    }),
   });
 
   const pillars = [
@@ -79,9 +86,13 @@ export default function SecurityPage() {
         </motion.div>
 
         <p className="mt-10 text-center text-xs text-ink-light max-w-2xl mx-auto">
-          {lang === 'en'
-            ? 'LiAfrik is designed with strong data protection and privacy practices in mind. Specific compliance certifications will be documented here as they are verified.'
-            : 'LiAfrik est conçu avec de solides pratiques de protection des données et de confidentialité. Les certifications de conformité spécifiques seront documentées ici dès qu\'elles seront vérifiées.'}
+          {pick(lang, {
+            en: 'LiAfrik is designed with strong data protection and privacy practices in mind. Specific compliance certifications will be documented here as they are verified.',
+            fr: "LiAfrik est conçu avec de solides pratiques de protection des données et de confidentialité. Les certifications de conformité spécifiques seront documentées ici dès qu'elles seront vérifiées.",
+            ar: 'صُمم LiAfrik وفق ممارسات صارمة لحماية البيانات والخصوصية. سيتم توثيق شهادات الامتثال المحددة هنا فور التحقق منها.',
+            es: 'LiAfrik está diseñado con sólidas prácticas de protección de datos y privacidad. Las certificaciones de cumplimiento específicas se documentarán aquí a medida que se verifiquen.',
+            pt: 'A LiAfrik é projetada com fortes práticas de proteção de dados e privacidade. Certificações de conformidade específicas serão documentadas aqui à medida que forem verificadas.',
+          })}
         </p>
       </div>
     </div>

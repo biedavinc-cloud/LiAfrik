@@ -9,7 +9,7 @@ import Logo from '@/components/Logo';
 import AppLogo from '@/components/AppLogo';
 import LanguageToggle from '@/components/LanguageToggle';
 import { products } from '@/data/products';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 
 const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
 
@@ -85,12 +85,12 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <p className="font-display font-bold text-sm text-ink mb-3">{lang === 'en' ? 'Stay in the loop' : 'Restez informé'}</p>
-            <p className="text-sm text-ink-muted mb-4">{lang === 'en' ? 'Product updates and ecosystem news.' : "Mises à jour produit et actualités de l'écosystème."}</p>
+            <p className="font-display font-bold text-sm text-ink mb-3">{pick(lang, { en: 'Stay in the loop', fr: 'Restez informé', ar: 'ابقَ على اطلاع', es: 'Mantente al tanto', pt: 'Fique por dentro' })}</p>
+            <p className="text-sm text-ink-muted mb-4">{pick(lang, { en: 'Product updates and ecosystem news.', fr: "Mises à jour produit et actualités de l'écosystème.", ar: 'تحديثات المنتج وأخبار النظام المتكامل.', es: 'Actualizaciones de productos y noticias del ecosistema.', pt: 'Atualizações de produtos e notícias do ecossistema.' })}</p>
             <form onSubmit={onNewsletter} className="flex items-center gap-2">
               <input name="email" type="email" required
-                aria-label={lang === 'en' ? 'Your email' : 'Votre e-mail'}
-                placeholder={lang === 'en' ? 'Your email' : 'Votre e-mail'}
+                aria-label={pick(lang, { en: 'Your email', fr: 'Votre e-mail', ar: 'بريدك الإلكتروني', es: 'Tu correo electrónico', pt: 'Seu e-mail' })}
+                placeholder={pick(lang, { en: 'Your email', fr: 'Votre e-mail', ar: 'بريدك الإلكتروني', es: 'Tu correo electrónico', pt: 'Seu e-mail' })}
                 className="flex-1 min-w-0 rounded-xl border border-cloud-200 bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-light focus:border-liafrik-400 focus:ring-2 focus:ring-liafrik-100 outline-none transition-all" />
               <button type="submit" disabled={nlStatus === 'submitting' || nlStatus === 'success'}
                 className="grid place-items-center h-10 w-10 shrink-0 rounded-xl bg-liafrik-600 text-white hover:bg-liafrik-700 shadow-card transition-colors disabled:opacity-60" aria-label="Subscribe">
@@ -101,13 +101,13 @@ export default function Footer() {
               {nlStatus === 'success' && (
                 <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                   className="mt-2 text-xs text-emerald-600 font-medium">
-                  {lang === 'en' ? 'Subscribed! Welcome to the ecosystem.' : 'Inscrit ! Bienvenue dans l\'écosystème.'}
+                  {pick(lang, { en: 'Subscribed! Welcome to the ecosystem.', fr: "Inscrit ! Bienvenue dans l'écosystème.", ar: 'تم الاشتراك! مرحباً بك في النظام المتكامل.', es: '¡Suscrito! Bienvenido al ecosistema.', pt: 'Inscrito! Bem-vindo ao ecossistema.' })}
                 </motion.p>
               )}
               {nlStatus === 'error' && (
                 <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                   className="mt-2 text-xs text-red-500 font-medium">
-                  {lang === 'en' ? 'Something went wrong. Please try again.' : 'Une erreur est survenue. Veuillez réessayer.'}
+                  {pick(lang, { en: 'Something went wrong. Please try again.', fr: 'Une erreur est survenue. Veuillez réessayer.', ar: 'حدث خطأ ما. يرجى المحاولة مرة أخرى.', es: 'Algo salió mal. Inténtalo de nuevo.', pt: 'Algo deu errado. Tente novamente.' })}
                 </motion.p>
               )}
             </AnimatePresence>
@@ -128,12 +128,12 @@ export default function Footer() {
 
                 <li><a href="tel:+XXXXXXXXXXX" className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-liafrik-700 transition-colors"><Phone className="h-4 w-4 text-liafrik-600" /> +XXX XX XXX XXX</a></li>
               */}
-              <li><span className="inline-flex items-center gap-2 text-sm text-ink-muted"><MapPin className="h-4 w-4 text-liafrik-600" /> {lang === 'en' ? 'Dubai · Yaoundé' : 'Dubaï · Yaoundé'}</span></li>
+              <li><span className="inline-flex items-center gap-2 text-sm text-ink-muted"><MapPin className="h-4 w-4 text-liafrik-600" /> {pick(lang, { en: 'Dubai · Yaoundé', fr: 'Dubaï · Yaoundé', ar: 'دبي · ياوندي', es: 'Dubái · Yaundé', pt: 'Dubai · Yaoundé' })}</span></li>
             </ul>
           </div>
 
           <div className="lg:col-span-2">
-            <p className="font-display font-bold text-sm text-ink mb-3">{lang === 'en' ? 'Get started' : 'Démarrer'}</p>
+            <p className="font-display font-bold text-sm text-ink mb-3">{pick(lang, { en: 'Get started', fr: 'Démarrer', ar: 'ابدأ الآن', es: 'Empezar', pt: 'Começar' })}</p>
             <div className="space-y-2.5">
               <Link to="/products" className="inline-flex items-center gap-1.5 text-sm font-semibold text-liafrik-700 hover:text-liafrik-800 transition-colors">
                 {t('nav.startFree')} <ArrowRight className="h-3.5 w-3.5" />
@@ -174,7 +174,7 @@ export default function Footer() {
           <div>
             <p className="font-display font-bold text-sm text-ink mb-4">{t('footer.products')}</p>
             <ul className="space-y-2.5">
-              <li><Link to="/products" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{lang === 'en' ? 'All platforms' : 'Toutes les plateformes'}</Link></li>
+              <li><Link to="/products" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{pick(lang, { en: 'All platforms', fr: 'Toutes les plateformes', ar: 'كل المنصات', es: 'Todas las plataformas', pt: 'Todas as plataformas' })}</Link></li>
               <li><Link to="/products/sellia" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">Sellia</Link></li>
               <li><Link to="/products/pos" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">POS</Link></li>
               <li><Link to="/products/crm" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">CRM</Link></li>
@@ -194,8 +194,8 @@ export default function Footer() {
           <div>
             <p className="font-display font-bold text-sm text-ink mb-4">{t('footer.support')}</p>
             <ul className="space-y-2.5">
-              <li><a href="mailto:cs@liafrik.com" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{lang === 'en' ? 'General Inquiries' : 'Demandes générales'}</a></li>
-              <li><a href="mailto:support@liafrik.com" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{lang === 'en' ? 'Customer Support' : 'Support client'}</a></li>
+              <li><a href="mailto:cs@liafrik.com" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{pick(lang, { en: 'General Inquiries', fr: 'Demandes générales', ar: 'استفسارات عامة', es: 'Consultas generales', pt: 'Perguntas gerais' })}</a></li>
+              <li><a href="mailto:support@liafrik.com" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{pick(lang, { en: 'Customer Support', fr: 'Support client', ar: 'دعم العملاء', es: 'Atención al cliente', pt: 'Suporte ao cliente' })}</a></li>
               <li><Link to="/support" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('footer.contact')}</Link></li>
             </ul>
           </div>
@@ -211,7 +211,7 @@ export default function Footer() {
                   onClick={() => window.dispatchEvent(new CustomEvent('liafrik-cookie-reopen'))}
                   className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors text-left"
                 >
-                  {lang === 'en' ? 'Cookie Preferences' : 'Préférences cookies'}
+                  {pick(lang, { en: 'Cookie Preferences', fr: 'Préférences cookies', ar: 'تفضيلات ملفات تعريف الارتباط', es: 'Preferencias de cookies', pt: 'Preferências de cookies' })}
                 </button>
               </li>
             </ul>
@@ -224,7 +224,7 @@ export default function Footer() {
             <LanguageToggle lang={lang} setLang={setLang} />
           </div>
           <p className="text-xs text-ink-light text-center sm:text-right">
-            {lang === 'en' ? 'LIYAH GROUP · SPC FZC, UAE — operating LiAfrik — License No. 4425201.01' : 'LIYAH GROUP · SPC FZC, EAU — exploitant LiAfrik — Licence N° 4425201.01'}
+            {pick(lang, { en: 'LIYAH GROUP · SPC FZC, UAE — operating LiAfrik — License No. 4425201.01', fr: 'LIYAH GROUP · SPC FZC, EAU — exploitant LiAfrik — Licence N° 4425201.01', ar: 'LIYAH GROUP · SPC FZC، الإمارات — تدير LiAfrik — رخصة رقم 4425201.01', es: 'LIYAH GROUP · SPC FZC, EAU — opera LiAfrik — Licencia N.º 4425201.01', pt: 'LIYAH GROUP · SPC FZC, EAU — operando a LiAfrik — Licença N.º 4425201.01' })}
           </p>
         </div>
       </div>

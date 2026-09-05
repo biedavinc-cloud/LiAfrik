@@ -2,7 +2,7 @@ import { Link } from '@/components/Link';
 import { motion } from 'framer-motion';
 import { ArrowRight, User } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 
 export default function Founder() {
   const { t, lang } = useLang();
@@ -61,9 +61,9 @@ export default function Founder() {
                     <User className="h-8 w-8" strokeWidth={1.8} />
                   </motion.div>
                   <p className="mt-4 font-display font-bold text-lg text-ink">Vincent Nogue</p>
-                  <p className="text-sm text-liafrik-700 font-medium">{lang === 'en' ? 'CEO & Founder' : 'CEO & Fondateur'}</p>
+                  <p className="text-sm text-liafrik-700 font-medium">{pick(lang, { en: 'CEO & Founder', fr: 'CEO & Fondateur', ar: 'الرئيس التنفيذي والمؤسس', es: 'CEO y fundador', pt: 'CEO e fundador' })}</p>
                   <p className="mt-1.5 text-sm text-ink-muted leading-relaxed">
-                    {lang === 'en' ? 'Building technology that elevates how the world works.' : 'Construire des technologies qui élèvent la façon dont le monde travaille.'}
+                    {pick(lang, { en: 'Building technology that elevates how the world works.', fr: 'Construire des technologies qui élèvent la façon dont le monde travaille.', ar: 'نبني تقنية ترتقي بطريقة عمل العالم.', es: 'Construyendo tecnología que eleva la forma en que el mundo trabaja.', pt: 'Construindo tecnologia que eleva a forma como o mundo trabalha.' })}
                   </p>
                 </div>
               </div>

@@ -6,7 +6,7 @@ import { ArrowLeft, Bell, Sparkles, CheckCircle2, Rocket, Loader2 } from 'lucide
 import { getProductBySlug } from '@/data/products';
 import { Button } from '@/components/Button';
 import AppLogo from '@/components/AppLogo';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
 import NotFound from '@/pages/NotFound';
 
@@ -19,11 +19,16 @@ export default function ComingSoonPage() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
 
-  const en = lang === 'en';
   useSEO(
     product
       ? {
-          title: en ? `${product.name} — Coming Soon | LiAfrik` : `${product.name} — Bientôt disponible | LiAfrik`,
+          title: pick(lang, {
+            en: `${product.name} — Coming Soon | LiAfrik`,
+            fr: `${product.name} — Bientôt disponible | LiAfrik`,
+            ar: `${product.name} — قريباً | LiAfrik`,
+            es: `${product.name} — Próximamente | LiAfrik`,
+            pt: `${product.name} — Em breve | LiAfrik`,
+          }),
           description: product.description[lang],
         }
       : { title: 'LiAfrik', noindex: true }

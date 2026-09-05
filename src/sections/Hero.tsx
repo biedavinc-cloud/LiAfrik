@@ -3,7 +3,7 @@ import { ArrowRight, Play, Sparkles, ShieldCheck, TrendingUp } from 'lucide-reac
 import { LinkButton } from '@/components/Button';
 import DashboardMockup from '@/components/DashboardMockup';
 import HeroBackground from '@/components/HeroBackground';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 import { posProductDashboard } from '@/data/heroDashboard';
 
 export default function Hero() {
@@ -66,7 +66,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-light"
           >
-            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-liafrik-600" /> {lang === 'en' ? 'Bank-grade security' : 'Sécurité niveau bancaire'}</span>
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-liafrik-600" /> {pick(lang, { en: 'Bank-grade security', fr: 'Sécurité niveau bancaire', ar: 'أمان بمستوى مصرفي', es: 'Seguridad de nivel bancario', pt: 'Segurança de nível bancário' })}</span>
             <span className="inline-flex items-center gap-1.5"><TrendingUp className="h-4 w-4 text-liafrik-600" /> 99.99% uptime</span>
           </motion.div>
         </div>
@@ -115,9 +115,9 @@ export default function Hero() {
 function FloatingNotifications() {
   const { lang } = useLang();
   const cards = [
-    { icon: TrendingUp, label: lang === 'en' ? 'New order' : 'Nouvelle commande', value: '+$1,240', color: 'from-liafrik-500 to-cyanx-500', delay: 0, x: '-left-4 sm:-left-10 lg:-left-16', top: 'top-4 sm:top-8' },
-    { icon: Sparkles, label: lang === 'en' ? 'AI insight' : 'Insight IA', value: lang === 'en' ? 'Restock soon' : 'Réappro bientôt', color: 'from-cyanx-500 to-liafrik-500', delay: 1.4, x: '-right-2 sm:-right-8 lg:-right-14', top: 'top-1/3' },
-    { icon: ShieldCheck, label: lang === 'en' ? 'Backup done' : 'Sauvegarde ok', value: lang === 'en' ? 'All data synced' : 'Données synchronisées', color: 'from-liafrik-600 to-liafrik-400', delay: 2.6, x: '-left-2 sm:-left-6 lg:-left-10', top: 'bottom-6 sm:bottom-10' },
+    { icon: TrendingUp, label: pick(lang, { en: 'New order', fr: 'Nouvelle commande', ar: 'طلب جديد', es: 'Nuevo pedido', pt: 'Novo pedido' }), value: '+$1,240', color: 'from-liafrik-500 to-cyanx-500', delay: 0, x: '-left-4 sm:-left-10 lg:-left-16', top: 'top-4 sm:top-8' },
+    { icon: Sparkles, label: pick(lang, { en: 'AI insight', fr: 'Insight IA', ar: 'رؤية ذكاء اصطناعي', es: 'Información de IA', pt: 'Insight de IA' }), value: pick(lang, { en: 'Restock soon', fr: 'Réappro bientôt', ar: 'إعادة التخزين قريباً', es: 'Reponer pronto', pt: 'Reabastecer em breve' }), color: 'from-cyanx-500 to-liafrik-500', delay: 1.4, x: '-right-2 sm:-right-8 lg:-right-14', top: 'top-1/3' },
+    { icon: ShieldCheck, label: pick(lang, { en: 'Backup done', fr: 'Sauvegarde ok', ar: 'تم النسخ الاحتياطي', es: 'Copia de seguridad lista', pt: 'Backup concluído' }), value: pick(lang, { en: 'All data synced', fr: 'Données synchronisées', ar: 'تمت مزامنة جميع البيانات', es: 'Todos los datos sincronizados', pt: 'Todos os dados sincronizados' }), color: 'from-liafrik-600 to-liafrik-400', delay: 2.6, x: '-left-2 sm:-left-6 lg:-left-10', top: 'bottom-6 sm:bottom-10' },
   ];
   return (
     <>

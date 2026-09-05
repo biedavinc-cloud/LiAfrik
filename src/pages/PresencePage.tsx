@@ -2,30 +2,37 @@ import { motion } from 'framer-motion';
 import { MapPin, Globe2, Building, ArrowRight } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
-import { useLang } from '@/i18n/LanguageContext';
+import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
 
 export default function PresencePage() {
   const { t, lang } = useLang();
   useSEO({
-    title: lang === 'en' ? 'Global Presence | LiAfrik' : 'Présence mondiale | LiAfrik',
-    description: lang === 'en'
-      ? 'LiAfrik operates from Dubai and Yaoundé, built to serve businesses across Africa and the world.'
-      : "LiAfrik opère depuis Dubaï et Yaoundé, conçu pour servir les entreprises à travers l'Afrique et le monde.",
+    title: pick(lang, {
+      en: 'Global Presence | LiAfrik', fr: 'Présence mondiale | LiAfrik',
+      ar: 'الحضور العالمي | LiAfrik', es: 'Presencia global | LiAfrik', pt: 'Presença global | LiAfrik',
+    }),
+    description: pick(lang, {
+      en: 'LiAfrik operates from Dubai and Yaoundé, built to serve businesses across Africa and the world.',
+      fr: "LiAfrik opère depuis Dubaï et Yaoundé, conçu pour servir les entreprises à travers l'Afrique et le monde.",
+      ar: 'يعمل LiAfrik من دبي وياوندي، وقد صُمم لخدمة الشركات عبر أفريقيا والعالم.',
+      es: 'LiAfrik opera desde Dubái y Yaundé, creado para servir a empresas en toda África y el mundo.',
+      pt: 'A LiAfrik opera a partir de Dubai e Yaoundé, criada para atender empresas em toda a África e no mundo.',
+    }),
   });
 
   const locations = [
     {
       city: 'Dubai',
-      country: lang === 'en' ? 'United Arab Emirates' : 'Émirats arabes unis',
+      country: pick(lang, { en: 'United Arab Emirates', fr: 'Émirats arabes unis', ar: 'الإمارات العربية المتحدة', es: 'Emiratos Árabes Unidos', pt: 'Emirados Árabes Unidos' }),
       address: 'Jumeirah 1, Dubai',
       icon: Building,
       accent: 'from-liafrik-600 to-cyanx-500',
     },
     {
       city: 'Yaoundé',
-      country: 'Cameroon',
-      address: lang === 'en' ? 'Yaoundé, Cameroon' : 'Yaoundé, Cameroun',
+      country: pick(lang, { en: 'Cameroon', fr: 'Cameroun', ar: 'الكاميرون', es: 'Camerún', pt: 'Camarões' }),
+      address: pick(lang, { en: 'Yaoundé, Cameroon', fr: 'Yaoundé, Cameroun', ar: 'ياوندي، الكاميرون', es: 'Yaundé, Camerún', pt: 'Yaoundé, Camarões' }),
       icon: MapPin,
       accent: 'from-cyanx-500 to-liafrik-600',
     },
