@@ -1,9 +1,16 @@
 import { Link, useCurrentLang } from '@/components/Link';
 import { Home } from 'lucide-react';
 import { LinkButton } from '@/components/Button';
+import { useSEO } from '@/lib/useSEO';
 
 export default function NotFound() {
   const lang = useCurrentLang();
+  const en = lang === 'en';
+  useSEO({
+    title: en ? 'Page Not Found | LiAfrik' : 'Page introuvable | LiAfrik',
+    description: en ? 'The page you are looking for does not exist or has moved.' : "La page que vous cherchez n'existe pas ou a été déplacée.",
+    noindex: true,
+  });
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <p className="font-display text-[120px] sm:text-[160px] font-bold leading-none text-gradient-blue-strong">404</p>

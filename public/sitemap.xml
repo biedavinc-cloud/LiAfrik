@@ -2,254 +2,338 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://liafrik.com/en</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en" />
   </url>
   <url>
     <loc>https://liafrik.com/fr</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products" />
   </url>
   <url>
     <loc>https://liafrik.com/en/security</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/security" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/security" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/security" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/security</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/security" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/security" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/security" />
   </url>
   <url>
     <loc>https://liafrik.com/en/founder</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/founder" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/founder" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/founder" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/founder</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/founder" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/founder" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/founder" />
   </url>
   <url>
     <loc>https://liafrik.com/en/presence</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/presence" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/presence" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/presence" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/presence</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/presence" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/presence" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/presence" />
   </url>
   <url>
     <loc>https://liafrik.com/en/support</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/support" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/support" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/support" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/support</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/support" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/support" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/support" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/pos</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/pos" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/pos" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/pos" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/pos</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/pos" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/pos" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/pos" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/sellia</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/sellia" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/sellia" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/sellia" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/sellia</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/sellia" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/sellia" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/sellia" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/crm</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/crm" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/crm" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/crm" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/crm</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/crm" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/crm" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/crm" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/faka</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/faka" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/faka" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/faka" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/faka</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/faka" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/faka" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/faka" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/klasoo</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/klasoo" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/klasoo" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/klasoo" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/klasoo</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/klasoo" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/klasoo" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/klasoo" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/nutro</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/nutro" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/nutro" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/nutro" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/nutro</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/nutro" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/nutro" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/nutro" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/health</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/health" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/health" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/health" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/health</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/health" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/health" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/health" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/bailly</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/bailly" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/bailly" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/bailly" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/bailly</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/bailly" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/bailly" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/bailly" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/kolo</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/kolo" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/kolo" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/kolo" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/kolo</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/kolo" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/kolo" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/kolo" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/skills</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/skills" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/skills" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/skills" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/skills</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/skills" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/skills" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/skills" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/mafo</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/mafo" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/mafo" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/mafo" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/mafo</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/mafo" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/mafo" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/mafo" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/libooks</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/libooks" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/libooks" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/libooks" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/libooks</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/libooks" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/libooks" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/libooks" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/zando</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/zando" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/zando" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/zando" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/zando</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/zando" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/zando" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/zando" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/atlas</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/atlas" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/atlas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/atlas" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/atlas</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/atlas" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/atlas" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/atlas" />
   </url>
   <url>
     <loc>https://liafrik.com/en/products/litrek</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/litrek" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/litrek" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/litrek" />
   </url>
   <url>
     <loc>https://liafrik.com/fr/products/litrek</loc>
+    <lastmod>2026-09-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/products/litrek" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/products/litrek" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/products/litrek" />
+  </url>
+  <url>
+    <loc>https://liafrik.com/en/privacy</loc>
+    <lastmod>2026-09-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/privacy" />
+  </url>
+  <url>
+    <loc>https://liafrik.com/fr/privacy</loc>
+    <lastmod>2026-09-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/privacy" />
+  </url>
+  <url>
+    <loc>https://liafrik.com/en/terms</loc>
+    <lastmod>2026-09-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/terms" />
+  </url>
+  <url>
+    <loc>https://liafrik.com/fr/terms</loc>
+    <lastmod>2026-09-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/terms" />
+  </url>
+  <url>
+    <loc>https://liafrik.com/en/refund</loc>
+    <lastmod>2026-09-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/refund" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/refund" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/refund" />
+  </url>
+  <url>
+    <loc>https://liafrik.com/fr/refund</loc>
+    <lastmod>2026-09-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liafrik.com/en/refund" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://liafrik.com/fr/refund" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liafrik.com/en/refund" />
   </url>
 </urlset>

@@ -3,18 +3,22 @@ import { useEffect } from 'react';
 interface SEOOptions {
   title: string;
   description?: string;
+  /** Set true for pages that should never appear in search results
+   *  (e.g. the 404 page) — adds <meta name="robots" content="noindex, nofollow">. */
+  noindex?: boolean;
 }
 
 /**
- * Sets the document <title> and meta description for the current page.
- * Lightweight alternative to react-helmet — no extra dependency, works
- * fine for an SPA since Google's crawler executes JS before indexing.
+ * Sets the document <title>, meta description, and (optionally) a
+ * noindex directive for the current page. Lightweight alternative to
+ * react-helmet — no extra dependency, works fine for an SPA since
+ * Google's crawler executes JS before indexing.
  *
- * NOTE: this does NOT give each language its own indexable URL (that
- * would require route-based i18n, e.g. /fr/... vs /en/...). It's a
- * safe, incremental improvement on top of the current single-URL setup.
+ * Paired with useHreflang() below (called once per route in App.tsx),
+ * which sets the canonical + EN/FR hreflang alternates — together these
+ * give every route its own indexable, language-aware URL.
  */
-export function useSEO({ title, description }: SEOOptions) {
+export function useSEO({ title, description, noindex }: SEOOptions) {
   useEffect(() => {
     const prevTitle = document.title;
     document.title = title;
@@ -35,13 +39,22 @@ export function useSEO({ title, description }: SEOOptions) {
     let ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc && description) ogDesc.setAttribute('content', description);
 
+    let robotsTag: HTMLMetaElement | null = null;
+    if (noindex) {
+      robotsTag = document.createElement('meta');
+      robotsTag.setAttribute('name', 'robots');
+      robotsTag.setAttribute('content', 'noindex, nofollow');
+      document.head.appendChild(robotsTag);
+    }
+
     return () => {
       document.title = prevTitle;
       if (descTag && prevDescription !== undefined) {
         descTag.setAttribute('content', prevDescription);
       }
+      if (robotsTag) robotsTag.remove();
     };
-  }, [title, description]);
+  }, [title, description, noindex]);
 }
 
 const SITE = 'https://liafrik.com';

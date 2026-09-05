@@ -7,6 +7,7 @@ import { getProductBySlug } from '@/data/products';
 import { Button } from '@/components/Button';
 import AppLogo from '@/components/AppLogo';
 import { useLang } from '@/i18n/LanguageContext';
+import { useSEO } from '@/lib/useSEO';
 import NotFound from '@/pages/NotFound';
 
 const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
@@ -17,6 +18,16 @@ export default function ComingSoonPage() {
   const product = getProductBySlug(slug);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+
+  const en = lang === 'en';
+  useSEO(
+    product
+      ? {
+          title: en ? `${product.name} — Coming Soon | LiAfrik` : `${product.name} — Bientôt disponible | LiAfrik`,
+          description: product.description[lang],
+        }
+      : { title: 'LiAfrik', noindex: true }
+  );
 
   if (!product || product.available) {
     if (product && product.available) return null;
