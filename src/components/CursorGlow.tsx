@@ -14,14 +14,7 @@ export default function CursorGlow() {
     let rx = mx;
     let ry = my;
     let raf = 0;
-
-    const onMove = (e: MouseEvent) => {
-      mx = e.clientX;
-      my = e.clientY;
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
-      }
-    };
+    let running = false;
 
     const animate = () => {
       rx += (mx - rx) * 0.18;
@@ -29,11 +22,29 @@ export default function CursorGlow() {
       if (ringRef.current) {
         ringRef.current.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
       }
+      // Stop once the ring has essentially caught up — no point burning
+      // frames animating a value that isn't visibly changing anymore.
+      // The loop restarts instantly on the next mousemove below.
+      if (Math.abs(mx - rx) < 0.5 && Math.abs(my - ry) < 0.5) {
+        running = false;
+        return;
+      }
       raf = requestAnimationFrame(animate);
     };
 
+    const onMove = (e: MouseEvent) => {
+      mx = e.clientX;
+      my = e.clientY;
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+      }
+      if (!running) {
+        running = true;
+        raf = requestAnimationFrame(animate);
+      }
+    };
+
     window.addEventListener('mousemove', onMove);
-    raf = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('mousemove', onMove);

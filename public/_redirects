@@ -1,1 +1,10 @@
+# Redirect the bare root to the default language at the edge — instant
+# HTTP redirect, before any JS downloads or runs. Previously this was a
+# client-side redirect (React Router), which meant the browser had to
+# download the full JS bundle, hydrate, and THEN navigate before any
+# content painted — a major hit to LCP/FCP for anyone hitting the bare
+# domain (which is the most common URL for people/tools to test).
+# Matches the "x-default" hreflang, which already points to /en.
+/  /en  302
+
 /*  /index.html  200

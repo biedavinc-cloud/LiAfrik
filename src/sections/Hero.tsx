@@ -27,24 +27,24 @@ export default function Hero() {
             {t('hero.trust')}
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 font-display text-4xl sm:text-5xl lg:text-[58px] xl:text-[64px] font-bold leading-[1.08] tracking-tight text-ink max-w-4xl"
+          {/*
+            Plain h1 with a pure-CSS animation (not framer-motion): this is
+            the page's Largest Contentful Paint element, so it must be able
+            to paint immediately rather than wait on JS to hydrate before
+            becoming visible. See .animate-hero-fade-in in index.css.
+          */}
+          <h1
+            className="animate-hero-fade-in mt-5 font-display text-4xl sm:text-5xl lg:text-[58px] xl:text-[64px] font-bold leading-[1.08] tracking-tight text-ink max-w-4xl"
           >
             {t('hero.headline')}
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 text-base sm:text-lg text-ink-muted leading-relaxed max-w-2xl"
+          <p
+            className="animate-hero-fade-in-delay mt-5 text-base sm:text-lg text-ink-muted leading-relaxed max-w-2xl"
           >
             {t('hero.sub1')}{' '}
             <span className="text-ink-soft font-medium">{t('hero.sub2')}</span>
-          </motion.p>
+          </p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

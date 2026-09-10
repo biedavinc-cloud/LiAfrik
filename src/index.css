@@ -232,6 +232,22 @@
     animation: shimmer 2.4s linear infinite;
   }
 
+  /* Pure-CSS fade-in for above-the-fold hero text. Unlike the framer-motion
+     opacity:0 -> 1 pattern used elsewhere, this paints visible content
+     immediately and animates via the stylesheet (already loaded before
+     JS executes), so it never delays Largest Contentful Paint waiting on
+     React/framer-motion to hydrate. */
+  @keyframes hero-fade-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-hero-fade-in {
+    animation: hero-fade-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-hero-fade-in-delay {
+    animation: hero-fade-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+  }
+
   @keyframes blob-drift {
     0%, 100% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(40px, -30px) scale(1.08); }
