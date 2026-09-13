@@ -11,6 +11,11 @@ dist
 dist-ssr
 *.local
 
+# Generated at build time by scripts/prerender.mjs — recreated on every
+# build, no need to version them.
+scripts/.lucide-stub.mjs
+scripts/.products-bundle.mjs
+
 .vscode/*
 !.vscode/extensions.json
 .idea

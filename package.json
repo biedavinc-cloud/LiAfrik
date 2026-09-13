@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "esbuild": "^0.21.5",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
