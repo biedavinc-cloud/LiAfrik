@@ -15,7 +15,7 @@ type CategoryFilter = 'all' | 'business' | 'industry' | 'education' | 'community
 const categoryMap: Record<CategoryFilter, string[]> = {
   all: [],
   business: ['pos', 'sellia', 'crm', 'libooks', 'faka', 'atlas'],
-  industry: ['health', 'bailly', 'nutro', 'zando', 'litrek'],
+  industry: ['health', 'bailly', 'nutro', 'zanldo', 'litrek'],
   education: ['klasoo', 'skills'],
   community: ['kolo', 'mafo'],
 };
@@ -31,11 +31,11 @@ export default function ProductsPage() {
       pt: 'Todos os produtos — Ecossistema SaaS LiAfrik',
     }),
     description: pick(lang, {
-      en: 'Explore every LiAfrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — one connected ecosystem, built for the world.',
-      fr: "Découvrez toutes les applications LiAfrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — un écosystème connecté, pensé pour le monde entier.",
-      ar: 'استكشف كل تطبيقات LiAfrik: POS وSellia وCRM وAtlas وFaka وKlasoo وNutro وHealth وBailly وKolo وSkills وMafo وLiBooks وZando وLitrek — نظام واحد متكامل، مصمم للعالم.',
-      es: 'Explora todas las apps de LiAfrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek: un ecosistema conectado, creado para el mundo.',
-      pt: 'Explore todos os aplicativos da LiAfrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zando, Litrek — um ecossistema conectado, criado para o mundo.',
+      en: 'Explore every LiAfrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — one connected ecosystem, built for the world.',
+      fr: "Découvrez toutes les applications LiAfrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — un écosystème connecté, pensé pour le monde entier.",
+      ar: 'استكشف كل تطبيقات LiAfrik: POS وSellia وCRM وAtlas وFaka وKlasoo وNutro وHealth وBailly وKolo وSkills وMafo وLiBooks وZanldo وLitrek — نظام واحد متكامل، مصمم للعالم.',
+      es: 'Explora todas las apps de LiAfrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek: un ecosistema conectado, creado para el mundo.',
+      pt: 'Explore todos os aplicativos da LiAfrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — um ecossistema conectado, criado para o mundo.',
     }),
   });
   const [filter, setFilter] = useState<CategoryFilter>('all');

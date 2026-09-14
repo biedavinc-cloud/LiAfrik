@@ -867,16 +867,16 @@ export const products: Product[] = [
     pricing: [],
   },
   {
-    slug: 'zando',
+    slug: 'zanldo',
     logo: '/images/logos/zando.png',
-    name: 'Zando',
+    name: 'Zanldo',
     tagline: { en: "Fashion & Lifestyle Marketplace", fr: "Marketplace mode et lifestyle", ar: "سوق الموضة ونمط الحياة", es: "Mercado de moda y estilo de vida", pt: "Marketplace de moda e estilo de vida" },
     description: {
       en: "A dedicated fashion and lifestyle marketplace connecting brands and independent sellers with shoppers across Africa — curated catalogs, fast checkout, and integrated delivery.", fr: "Une marketplace dédiée à la mode et au lifestyle, connectant marques et vendeurs indépendants aux acheteurs à travers l'Afrique — catalogues sélectionnés, paiement rapide et livraison intégrée.", ar: "سوق مخصص للموضة ونمط الحياة يربط العلامات التجارية والبائعين المستقلين بالمتسوقين في جميع أنحاء أفريقيا — كتالوجات منتقاة، دفع سريع، وتوصيل متكامل.", es: "Un mercado dedicado a la moda y el estilo de vida que conecta marcas y vendedores independientes con compradores de toda África: catálogos seleccionados, pago rápido y entrega integrada.", pt: "Um marketplace dedicado a moda e estilo de vida, conectando marcas e vendedores independentes a compradores em toda a África — catálogos selecionados, checkout rápido e entrega integrada.",
     },
     category: { en: "Marketplace", fr: "Marketplace", ar: "السوق الإلكتروني", es: "Marketplace", pt: "Marketplace" },
-    available: false,
-    appUrl: 'https://zando.liafrik.com',
+    available: true,
+    appUrl: 'https://zanldo.com',
     icon: ShoppingBag,
     gradient: 'from-cyanx-500 to-liafrik-500',
     accent: '#00BFE0',
@@ -901,7 +901,7 @@ export const products: Product[] = [
       { en: "Designers", fr: "Créateurs", ar: "المصممون", es: "Diseñadores", pt: "Designers" },
     ],
     dashboard: {
-      title: { en: 'Zando Dashboard', fr: 'Tableau de bord Zando' },
+      title: { en: 'Zanldo Dashboard', fr: 'Tableau de bord Zanldo' },
       metric: { label: { en: 'Orders today', fr: 'Commandes du jour' }, value: '312', delta: '+9.4%', up: true },
       panels: [
         { kind: 'stat', title: { en: 'Marketplace overview', fr: 'Aperçu marketplace' }, stats: [
@@ -1103,7 +1103,7 @@ export const sectors: Sector[] = [
     id: 'ecommerce',
     name: { en: "E-commerce", fr: "E-commerce", ar: "التجارة الإلكترونية", es: "Comercio electrónico", pt: "E-commerce" },
     icon: Store,
-    productSlugs: ['sellia', 'zando', 'crm', 'libooks'],
+    productSlugs: ['sellia', 'zanldo', 'crm', 'libooks'],
   },
   {
     id: 'education',

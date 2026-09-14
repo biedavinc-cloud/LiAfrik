@@ -44,11 +44,11 @@ const sections: Section[] = [
   {
     title: { en: '4. Intellectual Property', fr: '4. Propriété intellectuelle', ar: '4. الملكية الفكرية', es: '4. Propiedad intelectual', pt: '4. Propriedade intelectual' },
     body: {
-      en: 'LiAfrik, including its platform names (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zando, Litrek), logos, designs, and software, is the property of LiAfrik. You retain full ownership of all data you create within our platforms.',
-      fr: "LiAfrik, y compris les noms de ses plateformes (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zando, Litrek), logos, designs et logiciels, est la propriété de LiAfrik. Vous conservez la pleine propriété de toutes les données que vous créez dans nos plateformes.",
-      ar: 'إن LiAfrik، بما في ذلك أسماء منصاته (Sellia وPOS وCRM وAtlas وLiBooks وFaka وHealth وMafo وKolo وBailly وSkills وKlasoo وNutro وZando وLitrek)، والشعارات، والتصاميم، والبرمجيات، هي ملك لـ LiAfrik. تحتفظ أنت بالملكية الكاملة لجميع البيانات التي تنشئها ضمن منصاتنا.',
-      es: 'LiAfrik, incluidos los nombres de sus plataformas (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zando, Litrek), logotipos, diseños y software, es propiedad de LiAfrik. Conservas la propiedad total de todos los datos que crees dentro de nuestras plataformas.',
-      pt: 'A LiAfrik, incluindo os nomes de suas plataformas (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zando, Litrek), logotipos, designs e software, é propriedade da LiAfrik. Você mantém total propriedade de todos os dados que criar em nossas plataformas.',
+      en: 'LiAfrik, including its platform names (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek), logos, designs, and software, is the property of LiAfrik. You retain full ownership of all data you create within our platforms.',
+      fr: "LiAfrik, y compris les noms de ses plateformes (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek), logos, designs et logiciels, est la propriété de LiAfrik. Vous conservez la pleine propriété de toutes les données que vous créez dans nos plateformes.",
+      ar: 'إن LiAfrik، بما في ذلك أسماء منصاته (Sellia وPOS وCRM وAtlas وLiBooks وFaka وHealth وMafo وKolo وBailly وSkills وKlasoo وNutro وZanldo وLitrek)، والشعارات، والتصاميم، والبرمجيات، هي ملك لـ LiAfrik. تحتفظ أنت بالملكية الكاملة لجميع البيانات التي تنشئها ضمن منصاتنا.',
+      es: 'LiAfrik, incluidos los nombres de sus plataformas (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek), logotipos, diseños y software, es propiedad de LiAfrik. Conservas la propiedad total de todos los datos que crees dentro de nuestras plataformas.',
+      pt: 'A LiAfrik, incluindo os nomes de suas plataformas (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek), logotipos, designs e software, é propriedade da LiAfrik. Você mantém total propriedade de todos os dados que criar em nossas plataformas.',
     },
   },
   {

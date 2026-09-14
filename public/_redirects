@@ -7,4 +7,13 @@
 # Matches the "x-default" hreflang, which already points to /en.
 /  /en  302
 
+# Zando was renamed to Zanldo — redirect the old product slug to the
+# new one for each language, so any link already shared/indexed under
+# the old name still lands on the right page instead of a 404.
+/en/products/zando  /en/products/zanldo  301
+/fr/products/zando  /fr/products/zanldo  301
+/ar/products/zando  /ar/products/zanldo  301
+/es/products/zando  /es/products/zanldo  301
+/pt/products/zando  /pt/products/zanldo  301
+
 /*  /index.html  200

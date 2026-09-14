@@ -12,10 +12,11 @@ LiAfrik is not a single product — it's an ecosystem of independent SaaS applic
 - [Health](https://liafrik.com/en/products/health) — Hospital & clinic management: patient records, appointment scheduling, billing and insurance.
 - [LiBooks](https://liafrik.com/en/products/libooks) — E-commerce platform: online storefront builder, order management, African payment gateways.
 - [Atlas](https://liafrik.com/en/products/atlas) — Property management: rent collection, tenant management, maintenance requests.
+- [Zanldo](https://liafrik.com/en/products/zanldo) — Fashion & lifestyle marketplace connecting brands and independent sellers with shoppers across Africa. Own domain: zanldo.com.
 
 ## In development (coming soon)
 
-Sellia (commerce OS), Faka (HR & payroll), Klasoo (school management), Bailly (accounting & finance), Kolo (digital savings circles / tontine), Skills (learning marketplace), Mafo (women's health), Zando (fashion & lifestyle marketplace), Litrek (transport & travel booking).
+Sellia (commerce OS), Faka (HR & payroll), Klasoo (school management), Bailly (accounting & finance), Kolo (digital savings circles / tontine), Skills (learning marketplace), Mafo (women's health), Litrek (transport & travel booking).
 
 ## Key facts
 
