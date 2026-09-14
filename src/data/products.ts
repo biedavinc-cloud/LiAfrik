@@ -872,7 +872,7 @@ export const products: Product[] = [
     name: 'Zanldo',
     tagline: { en: "Fashion & Lifestyle Marketplace", fr: "Marketplace mode et lifestyle", ar: "سوق الموضة ونمط الحياة", es: "Mercado de moda y estilo de vida", pt: "Marketplace de moda e estilo de vida" },
     description: {
-      en: "A dedicated fashion and lifestyle marketplace connecting brands and independent sellers with shoppers across Africa — curated catalogs, fast checkout, and integrated delivery.", fr: "Une marketplace dédiée à la mode et au lifestyle, connectant marques et vendeurs indépendants aux acheteurs à travers l'Afrique — catalogues sélectionnés, paiement rapide et livraison intégrée.", ar: "سوق مخصص للموضة ونمط الحياة يربط العلامات التجارية والبائعين المستقلين بالمتسوقين في جميع أنحاء أفريقيا — كتالوجات منتقاة، دفع سريع، وتوصيل متكامل.", es: "Un mercado dedicado a la moda y el estilo de vida que conecta marcas y vendedores independientes con compradores de toda África: catálogos seleccionados, pago rápido y entrega integrada.", pt: "Um marketplace dedicado a moda e estilo de vida, conectando marcas e vendedores independentes a compradores em toda a África — catálogos selecionados, checkout rápido e entrega integrada.",
+      en: "A global fashion and lifestyle marketplace connecting buyers and sellers around the world. Every seller connects their own payment provider and is paid directly — Zanldo never holds your money. Our only revenue comes from subscriptions and advertising, never a cut of your sales.", fr: "Une marketplace mondiale de mode et lifestyle qui connecte acheteurs et vendeurs partout dans le monde. Chaque vendeur connecte son propre prestataire de paiement et est payé directement — Zanldo ne détient jamais votre argent. Notre seul revenu provient des abonnements et de la publicité, jamais d'une commission sur vos ventes.", ar: "سوق عالمي للموضة ونمط الحياة يربط المشترين والبائعين حول العالم. يقوم كل بائع بربط مزوّد الدفع الخاص به ويُدفع له مباشرة — لا يحتفظ Zanldo بأموالك أبداً. يأتي دخلنا الوحيد من الاشتراكات والإعلانات، وليس من عمولة على مبيعاتك.", es: "Un mercado global de moda y estilo de vida que conecta a compradores y vendedores de todo el mundo. Cada vendedor conecta su propio proveedor de pagos y cobra directamente — Zanldo nunca retiene tu dinero. Nuestro único ingreso proviene de las suscripciones y la publicidad, nunca de una comisión sobre tus ventas.", pt: "Um marketplace global de moda e estilo de vida que conecta compradores e vendedores em todo o mundo. Cada vendedor conecta seu próprio provedor de pagamentos e recebe diretamente — a Zanldo nunca retém o seu dinheiro. Nossa única receita vem de assinaturas e publicidade, nunca de uma comissão sobre suas vendas.",
     },
     category: { en: "Marketplace", fr: "Marketplace", ar: "السوق الإلكتروني", es: "Marketplace", pt: "Marketplace" },
     available: true,
@@ -882,6 +882,7 @@ export const products: Product[] = [
     accent: '#00BFE0',
     features: [
       { en: "Multi-vendor storefronts", fr: "Boutiques multi-vendeurs", ar: "واجهات متاجر متعددة البائعين", es: "Tiendas multivendedor", pt: "Vitrines multi-vendedor" },
+      { en: "Connect your own payment provider", fr: "Connectez votre propre prestataire de paiement", ar: "اربط مزوّد الدفع الخاص بك", es: "Conecta tu propio proveedor de pagos", pt: "Conecte seu próprio provedor de pagamentos" },
       { en: "Curated catalogs", fr: "Catalogues sélectionnés", ar: "كتالوجات منتقاة", es: "Catálogos seleccionados", pt: "Catálogos selecionados" },
       { en: "Integrated delivery", fr: "Livraison intégrée", ar: "توصيل متكامل", es: "Entrega integrada", pt: "Entrega integrada" },
       { en: "Buyer protection", fr: "Protection acheteur", ar: "حماية المشتري", es: "Protección al comprador", pt: "Proteção ao comprador" },
@@ -889,9 +890,9 @@ export const products: Product[] = [
       { en: "Mobile-first checkout", fr: "Paiement pensé mobile-first", ar: "دفع سريع عبر الهاتف أولاً", es: "Pago optimizado para móvil", pt: "Checkout mobile-first" },
     ],
     benefits: [
-      { en: "Reach shoppers across Africa", fr: "Atteignez des acheteurs dans toute l'Afrique", ar: "صِل إلى متسوقين في جميع أنحاء أفريقيا", es: "Llega a compradores de toda África", pt: "Alcance compradores em toda a África" },
+      { en: "Reach shoppers worldwide", fr: "Atteignez des acheteurs partout dans le monde", ar: "صِل إلى متسوقين حول العالم", es: "Llega a compradores de todo el mundo", pt: "Alcance compradores em todo o mundo" },
       { en: "Sell without your own store", fr: "Vendez sans boutique en ligne propre", ar: "بِع دون متجرك الخاص", es: "Vende sin tu propia tienda", pt: "Venda sem ter sua própria loja" },
-      { en: "Get paid securely", fr: "Soyez payé en toute sécurité", ar: "احصل على أموالك بأمان", es: "Cobra de forma segura", pt: "Receba pagamentos com segurança" },
+      { en: "Get paid directly — we never hold your funds", fr: "Soyez payé directement — nous ne détenons jamais vos fonds", ar: "احصل على أموالك مباشرة — نحن لا نحتفظ بأموالك أبداً", es: "Cobra directamente — nunca retenemos tus fondos", pt: "Receba diretamente — nunca retemos os seus fundos" },
       { en: "Grow with built-in marketing", fr: "Développez-vous avec le marketing intégré", ar: "انمُ مع التسويق المدمج", es: "Crece con marketing integrado", pt: "Cresça com marketing integrado" },
     ],
     industries: [
@@ -919,14 +920,14 @@ export const products: Product[] = [
       ],
     },
     pricing: [
-      { name: { en: "Seller", fr: "Vendeur", ar: "Seller", es: "Vendedor", pt: "Vendedor" }, price: '$0', period: 'mo', description: { en: "Free to list, pay per sale.", fr: "Gratuit pour lister, payez à la vente.", ar: "مجاني للإدراج، ادفع لكل عملية بيع.", es: "Gratis para publicar, pagas por venta.", pt: "Grátis para listar, pague por venda." }, features: [
+      { name: { en: "Seller", fr: "Vendeur", ar: "Seller", es: "Vendedor", pt: "Vendedor" }, price: '$0', period: 'mo', description: { en: "Free to list — no commission on your sales.", fr: "Gratuit pour lister — aucune commission sur vos ventes.", ar: "مجاني للإدراج — بدون عمولة على مبيعاتك.", es: "Gratis para publicar — sin comisión sobre tus ventas.", pt: "Grátis para listar — sem comissão sobre suas vendas." }, features: [
         { en: "Unlimited listings", fr: "Annonces illimitées", ar: "إعلانات غير محدودة", es: "Listados ilimitados", pt: "Anúncios ilimitados" },
         { en: "Buyer protection", fr: "Protection acheteur", ar: "حماية المشتري", es: "Protección al comprador", pt: "Proteção ao comprador" },
         { en: "Mobile-first checkout", fr: "Paiement mobile-first", ar: "دفع سريع عبر الهاتف أولاً", es: "Pago optimizado para móvil", pt: "Checkout mobile-first" },
         { en: "Seller dashboard", fr: "Tableau de bord vendeur", ar: "لوحة تحكم البائع", es: "Panel de vendedor", pt: "Painel do vendedor" },
       ], cta: { en: "Start selling", fr: "Commencer à vendre", ar: "ابدأ البيع", es: "Empieza a vender", pt: "Comece a vender" } },
       { name: { en: "Pro Seller", fr: "Vendeur Pro", ar: "بائع محترف", es: "Vendedor Pro", pt: "Vendedor Pro" }, price: '$29', period: 'mo', popular: true, description: { en: "For growing brands and boutiques.", fr: "Pour les marques et boutiques en croissance.", ar: "للعلامات التجارية والبوتيكات النامية.", es: "Para marcas y boutiques en crecimiento.", pt: "Para marcas e boutiques em crescimento." }, features: [
-        { en: "Lower transaction fees", fr: "Frais de transaction réduits", ar: "رسوم معاملات أقل", es: "Comisiones de transacción más bajas", pt: "Taxas de transação mais baixas" },
+        { en: "Custom storefront branding", fr: "Personnalisation de la boutique", ar: "تخصيص واجهة المتجر", es: "Personalización de la tienda", pt: "Personalização da vitrine" },
         { en: "Seller analytics", fr: "Analyses vendeur", ar: "تحليلات البائع", es: "Análisis de vendedor", pt: "Análises do vendedor" },
         { en: "Featured listings", fr: "Annonces mises en avant", ar: "إعلانات مميزة", es: "Listados destacados", pt: "Anúncios em destaque" },
         { en: "Priority support", fr: "Support prioritaire", ar: "دعم أولوية", es: "Soporte prioritario", pt: "Suporte prioritário" },
