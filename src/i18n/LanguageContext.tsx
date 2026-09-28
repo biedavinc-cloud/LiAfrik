@@ -117,6 +117,7 @@ export const translations: Dict = {
   'nav.presence': { en: "Presence", fr: "Présence", ar: "حضورنا", es: "Presencia", pt: "Presença" },
   'nav.products': { en: "Products", fr: "Produits", ar: "المنتجات", es: "Productos", pt: "Produtos" },
   'nav.security': { en: "Security", fr: "Sécurité", ar: "الأمان", es: "Seguridad", pt: "Segurança" },
+  'nav.partners': { en: "Partners & Investors", fr: "Partenaires & Investisseurs", ar: "الشركاء والمستثمرون", es: "Socios e Inversores", pt: "Parceiros e Investidores" },
   'nav.solutions': { en: "Solutions", fr: "Solutions", ar: "الحلول", es: "Soluciones", pt: "Soluções" },
   'nav.startFree': { en: "Start Free", fr: "Commencer gratuitement", ar: "ابدأ مجاناً", es: "Empezar gratis", pt: "Começar grátis" },
   'nav.support': { en: "Support", fr: "Support", ar: "الدعم", es: "Soporte", pt: "Suporte" },

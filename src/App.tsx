@@ -19,6 +19,7 @@ const ProductsPage = lazy(() => import('@/pages/ProductsPage'));
 const SecurityPage = lazy(() => import('@/pages/SecurityPage'));
 const FounderPage = lazy(() => import('@/pages/FounderPage'));
 const PresencePage = lazy(() => import('@/pages/PresencePage'));
+const PartnersPage = lazy(() => import('@/pages/PartnersPage'));
 const SupportPage = lazy(() => import('@/pages/SupportPage'));
 const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('@/pages/TermsOfService'));
@@ -132,6 +133,7 @@ export default function App() {
           <Route path="security" element={<SecurityPage />} />
           <Route path="founder" element={<FounderPage />} />
           <Route path="presence" element={<PresencePage />} />
+          <Route path="partners" element={<PartnersPage />} />
           <Route path="support" element={<SupportPage />} />
           <Route path="privacy" element={<PrivacyPolicy />} />
           <Route path="terms" element={<TermsOfService />} />
@@ -145,6 +147,7 @@ export default function App() {
         <Route path="/security" element={<LegacyRedirect suffix="security" />} />
         <Route path="/founder" element={<LegacyRedirect suffix="founder" />} />
         <Route path="/presence" element={<LegacyRedirect suffix="presence" />} />
+        <Route path="/partners" element={<LegacyRedirect suffix="partners" />} />
         <Route path="/support" element={<LegacyRedirect suffix="support" />} />
         <Route path="/privacy" element={<LegacyRedirect suffix="privacy" />} />
         <Route path="/terms" element={<LegacyRedirect suffix="terms" />} />

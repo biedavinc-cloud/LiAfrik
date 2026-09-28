@@ -35,7 +35,7 @@ const RTL_LANGS = ['ar'];
 const stubPath = join(ROOT, 'scripts', '.lucide-stub.mjs');
 writeFileSync(
   stubPath,
-  `const stub = () => null;\nexport const ShoppingCart=stub,Store=stub,Users=stub,GraduationCap=stub,UtensilsCrossed=stub,HeartPulse=stub,Building2=stub,PiggyBank=stub,MonitorPlay=stub,Flower2=stub,BookOpenCheck=stub,ShoppingBag=stub,Route=stub;\n`
+  `const stub = () => null;\nexport const ShoppingCart=stub,Store=stub,Users=stub,GraduationCap=stub,UtensilsCrossed=stub,HeartPulse=stub,Building2=stub,PiggyBank=stub,MonitorPlay=stub,Flower2=stub,BookOpenCheck=stub,ShoppingBag=stub,Route=stub,Hotel=stub;\n`
 );
 
 const built = await esbuild.build({
@@ -207,6 +207,23 @@ const STATIC_PAGES = {
       pt: 'Como reembolsos, cancelamentos e disputas de faturamento são tratados.',
     },
   },
+  partners: {
+    title: {
+      en: 'Partners & Investors | LiAfrik', fr: 'Partenaires & Investisseurs | LiAfrik',
+      ar: 'الشركاء والمستثمرون | LiAfrik', es: 'Socios e Inversores | LiAfrik', pt: 'Parceiros e Investidores | LiAfrik',
+    },
+    h1: {
+      en: 'Build the future of the LiAfrik ecosystem with us', fr: "Construisez l'avenir de l'écosystème LiAfrik avec nous",
+      ar: 'ابنِ مستقبل نظام LiAfrik المتكامل معنا', es: 'Construye el futuro del ecosistema LiAfrik con nosotros', pt: 'Construa o futuro do ecossistema LiAfrik conosco',
+    },
+    desc: {
+      en: 'Partner with LiAfrik or invest in a global SaaS ecosystem spanning commerce, hospitality, healthcare, education, finance and more.',
+      fr: "Devenez partenaire de LiAfrik ou investissez dans un écosystème SaaS mondial couvrant le commerce, l'hôtellerie, la santé, l'éducation, la finance et plus.",
+      ar: 'كن شريكاً لـ LiAfrik أو استثمر في نظام SaaS عالمي متكامل يشمل التجارة والضيافة والصحة والتعليم والتمويل وأكثر.',
+      es: 'Asóciate con LiAfrik o invierte en un ecosistema SaaS global que abarca comercio, hostelería, salud, educación, finanzas y más.',
+      pt: 'Seja parceiro da LiAfrik ou invista em um ecossistema SaaS global que abrange comércio, hotelaria, saúde, educação, finanças e mais.',
+    },
+  },
 };
 
 const NAV_LABEL = {
@@ -217,6 +234,7 @@ const NAV_LABEL = {
   support: { en: 'Support', fr: 'Support', ar: 'الدعم', es: 'Soporte', pt: 'Suporte' },
   privacy: { en: 'Privacy Policy', fr: 'Confidentialité', ar: 'الخصوصية', es: 'Privacidad', pt: 'Privacidade' },
   terms: { en: 'Terms', fr: 'Conditions', ar: 'الشروط', es: 'Términos', pt: 'Termos' },
+  partners: { en: 'Partners & Investors', fr: 'Partenaires & Investisseurs', ar: 'الشركاء والمستثمرون', es: 'Socios e Inversores', pt: 'Parceiros e Investidores' },
 };
 
 // ---- 3. Read the built index.html to reuse its <script>/<link> asset tags ----
@@ -245,7 +263,7 @@ function hreflangTags(path) {
   return lines.join('\n    ');
 }
 
-function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks }) {
+function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, extraJsonLd }) {
   const dir = RTL_LANGS.includes(lang) ? 'rtl' : 'ltr';
   const url = `${SITE}/${lang}${path}`;
   const navHtml = navLinks
@@ -273,6 +291,7 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks })
     <meta name="twitter:title" content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(description)}" />
     ${jsonLd}
+    ${extraJsonLd ? `<script type="application/ld+json">${JSON.stringify(extraJsonLd)}</script>` : ''}
     ${headAssetTags}
   </head>
   <body>
@@ -314,6 +333,7 @@ for (const lang of LANGS) {
     { href: `/${lang}/support`, label: NAV_LABEL.support[lang] },
     { href: `/${lang}/privacy`, label: NAV_LABEL.privacy[lang] },
     { href: `/${lang}/terms`, label: NAV_LABEL.terms[lang] },
+    { href: `/${lang}/partners`, label: NAV_LABEL.partners[lang] },
   ];
 
   // Static pages (home + 8 others)
@@ -340,6 +360,20 @@ for (const lang of LANGS) {
   for (const p of products) {
     const routePath = `/products/${p.slug}`;
     const title = `${p.name} — LiAfrik`;
+    const firstPlan = p.pricing && p.pricing[0];
+    const priceNumber = firstPlan ? String(firstPlan.price).replace(/[^0-9.]/g, '') : '';
+    const softwareAppLd = {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: `LiAfrik ${p.name}`,
+      url: `${SITE}/en/products/${p.slug}`,
+      description: p.description.en,
+      applicationCategory: p.category.en,
+      operatingSystem: 'Web',
+      ...(firstPlan && priceNumber
+        ? { offers: { '@type': 'Offer', price: priceNumber, priceCurrency: 'USD', availability: p.available ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder' } }
+        : {}),
+    };
     const html = renderPage({
       lang,
       path: routePath,
@@ -351,6 +385,7 @@ for (const lang of LANGS) {
             ${p.features.slice(0, 6).map((f) => `<li>${esc(f[lang])}</li>`).join('\n            ')}
           </ul>`,
       navLinks: [...commonNav, { href: `/${lang}/products`, label: NAV_LABEL.products[lang] }],
+      extraJsonLd: softwareAppLd,
     });
     writeRoute(lang, `products/${p.slug}`, html);
     count++;

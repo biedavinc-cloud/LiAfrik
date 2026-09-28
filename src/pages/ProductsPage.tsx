@@ -14,10 +14,10 @@ type CategoryFilter = 'all' | 'business' | 'industry' | 'education' | 'community
 
 const categoryMap: Record<CategoryFilter, string[]> = {
   all: [],
-  business: ['pos', 'sellia', 'crm', 'libooks', 'faka', 'atlas'],
-  industry: ['health', 'bailly', 'nutro', 'zanldo', 'litrek'],
+  business: ['pos', 'sellia', 'crm', 'libooks', 'faka', 'atlas', 'kolo'],
+  industry: ['health', 'bailly', 'nutro', 'zanldo', 'litrek', 'hostrek'],
   education: ['klasoo', 'skills'],
-  community: ['kolo', 'mafo'],
+  community: ['mafo'],
 };
 
 export default function ProductsPage() {

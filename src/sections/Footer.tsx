@@ -189,6 +189,7 @@ export default function Footer() {
               <li><Link to="/founder" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.founder')}</Link></li>
               <li><Link to="/presence" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.presence')}</Link></li>
               <li><Link to="/security" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.security')}</Link></li>
+              <li><Link to="/partners" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.partners')}</Link></li>
             </ul>
           </div>
           <div>

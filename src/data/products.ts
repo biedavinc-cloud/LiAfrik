@@ -3,7 +3,7 @@ import type { Lang } from '@/i18n/LanguageContext';
 import {
   ShoppingCart, Store, Users, GraduationCap, UtensilsCrossed,
   HeartPulse, Building2, PiggyBank, MonitorPlay, Flower2, BookOpenCheck,
-  ShoppingBag, Route,
+  ShoppingBag, Route, Hotel,
 } from 'lucide-react';
 
 /** Fully localized (all 5 supported languages) short piece of text. */
@@ -155,7 +155,7 @@ export const products: Product[] = [
       en: "A complete commerce platform built for ambitious businesses worldwide. Launch your online store, manage orders, customers and products, and accept payments — all from one place.", fr: "Une plateforme de commerce complète, conçue pour les entreprises ambitieuses du monde entier. Lancez votre boutique en ligne, gérez commandes, clients et produits, et encaissez les paiements — depuis un seul endroit.", ar: "منصة تجارة متكاملة مصممة للشركات الطموحة حول العالم. أطلق متجرك الإلكتروني، أدر الطلبات والعملاء والمنتجات، واقبل المدفوعات — كل ذلك من مكان واحد.", es: "Una plataforma de comercio completa creada para empresas ambiciosas de todo el mundo. Lanza tu tienda online, gestiona pedidos, clientes y productos, y acepta pagos, todo desde un solo lugar.", pt: "Uma plataforma de comércio completa criada para empresas ambiciosas em todo o mundo. Lance sua loja online, gerencie pedidos, clientes e produtos, e aceite pagamentos — tudo em um só lugar.",
     },
     category: { en: "Ecommerce", fr: "E-commerce", ar: "التجارة الإلكترونية", es: "Comercio electrónico", pt: "E-commerce" },
-    available: false,
+    available: true,
     appUrl: 'https://sellia.liafrik.com',
     icon: Store,
     gradient: 'from-liafrik-500 to-liafrik-700',
@@ -165,11 +165,11 @@ export const products: Product[] = [
       { en: "Order management", fr: "Gestion des commandes", ar: "إدارة الطلبات", es: "Gestión de pedidos", pt: "Gestão de pedidos" },
       { en: "Customer accounts", fr: "Comptes clients", ar: "حسابات العملاء", es: "Cuentas de clientes", pt: "Contas de clientes" },
       { en: "Product catalog", fr: "Catalogue de produits", ar: "كتالوج المنتجات", es: "Catálogo de productos", pt: "Catálogo de produtos" },
-      { en: "African payment gateways", fr: "Passerelles de paiement africaines", ar: "بوابات دفع أفريقية", es: "Pasarelas de pago africanas", pt: "Gateways de pagamento africanos" },
+      { en: "Global payment gateways", fr: "Passerelles de paiement mondiales", ar: "بوابات دفع عالمية", es: "Pasarelas de pago globales", pt: "Gateways de pagamento globais" },
       { en: "Shipping integrations", fr: "Intégrations de livraison", ar: "تكاملات الشحن", es: "Integraciones de envío", pt: "Integrações de envio" },
     ],
     benefits: [
-      { en: "Sell across Africa", fr: "Vendez dans toute l'Afrique", ar: "بِع في جميع أنحاء أفريقيا", es: "Vende en toda África", pt: "Venda em toda a África" },
+      { en: "Sell worldwide", fr: "Vendez dans le monde entier", ar: "بِع حول العالم", es: "Vende en todo el mundo", pt: "Venda no mundo todo" },
       { en: "All payments in one place", fr: "Tous les paiements au même endroit", ar: "جميع المدفوعات في مكان واحد", es: "Todos los pagos en un solo lugar", pt: "Todos os pagamentos em um só lugar" },
       { en: "Grow with built-in CRM", fr: "Développez avec un CRM intégré", ar: "انمُ مع نظام CRM مدمج", es: "Crece con un CRM integrado", pt: "Cresça com um CRM integrado" },
       { en: "Mobile-first checkout", fr: "Paiement pensé mobile-first", ar: "دفع سريع عبر الهاتف أولاً", es: "Pago optimizado para móvil", pt: "Checkout mobile-first" },
@@ -203,10 +203,10 @@ export const products: Product[] = [
       { name: { en: "Launch", fr: "Launch", ar: "Launch", es: "Launch", pt: "Launch" }, price: '$29', period: 'mo', description: { en: "Start selling online today.", fr: "Commencez à vendre en ligne.", ar: "ابدأ البيع عبر الإنترنت اليوم.", es: "Empieza a vender online hoy mismo.", pt: "Comece a vender online hoje." }, features: [
         { en: "Up to 500 products", fr: "Jusqu'à 500 produits", ar: "حتى 500 منتج", es: "Hasta 500 productos", pt: "Até 500 produtos" },
         { en: "2 staff accounts", fr: "2 comptes équipe", ar: "حسابا فريق", es: "2 cuentas de equipo", pt: "2 contas de equipe" },
-        { en: "African payments", fr: "Paiements africains", ar: "مدفوعات أفريقية", es: "Pagos africanos", pt: "Pagamentos africanos" },
+        { en: "Global payments", fr: "Paiements internationaux", ar: "مدفوعات عالمية", es: "Pagos globales", pt: "Pagamentos globais" },
         { en: "Basic analytics", fr: "Analyses de base", ar: "تحليلات أساسية", es: "Análisis básico", pt: "Análises básicas" },
       ], cta: { en: "Start free", fr: "Commencer", ar: "ابدأ مجاناً", es: "Empezar gratis", pt: "Começar grátis" } },
-      { name: { en: "Scale", fr: "Scale", ar: "Scale", es: "Scale", pt: "Scale" }, price: '$79', period: 'mo', popular: true, description: { en: "For brands scaling across Africa.", fr: "Pour les marques qui se développent en Afrique.", ar: "للعلامات التجارية المتوسعة في أفريقيا.", es: "Para marcas que crecen por toda África.", pt: "Para marcas em expansão pela África." }, features: [
+      { name: { en: "Scale", fr: "Scale", ar: "Scale", es: "Scale", pt: "Scale" }, price: '$79', period: 'mo', popular: true, description: { en: "For brands scaling globally.", fr: "Pour les marques qui se développent à l'international.", ar: "للعلامات التجارية المتوسعة عالمياً.", es: "Para marcas que crecen a nivel global.", pt: "Para marcas em expansão global." }, features: [
         { en: "Unlimited products", fr: "Produits illimités", ar: "منتجات غير محدودة", es: "Productos ilimitados", pt: "Produtos ilimitados" },
         { en: "10 staff accounts", fr: "10 comptes équipe", ar: "10 حسابات فريق", es: "10 cuentas de equipo", pt: "10 contas de equipe" },
         { en: "Abandoned cart recovery", fr: "Récupération de panier", ar: "استرجاع سلة التسوق المهجورة", es: "Recuperación de carritos abandonados", pt: "Recuperação de carrinho abandonado" },
@@ -644,77 +644,74 @@ export const products: Product[] = [
     slug: 'kolo',
     logo: '/images/logos/kolo.png',
     name: 'Kolo',
-    tagline: { en: "Digital Djangi / Tontine", fr: "Djangi / Tontine numérique", ar: "جانجي / تونتين رقمي", es: "Djangi / Tontina digital", pt: "Djangi / Tontina digital" },
+    tagline: { en: "Personal & Family Finance Manager", fr: "Gestionnaire de finances personnelles et familiales", ar: "مدير الشؤون المالية الشخصية والعائلية", es: "Gestor de finanzas personales y familiares", pt: "Gerenciador de finanças pessoais e familiares" },
     description: {
-      en: "Bring the traditional African savings circle into the digital age — manage tontine groups, contributions, savings and loans.", fr: "Faites entrer la tontine africaine traditionnelle dans l'ère numérique — gérez groupes, contributions, épargne et prêts.", ar: "انقل دائرة الادخار الأفريقية التقليدية إلى العصر الرقمي — أدر مجموعات التونتين والمساهمات والمدخرات والقروض.", es: "Lleva el círculo de ahorro africano tradicional a la era digital: gestiona grupos de tontinas, aportes, ahorros y préstamos.", pt: "Leve o círculo de poupança africano tradicional para a era digital — gerencie grupos de tontina, contribuições, poupança e empréstimos.",
+      en: "Track spending, categorize expenses, and see your complete financial picture — for individuals, families, and small teams. Kolo brings clarity to your income and expenses so you always know where your money goes.", fr: "Suivez vos dépenses, catégorisez-les et visualisez l'ensemble de votre situation financière — pour les particuliers, les familles et les petites équipes. Kolo apporte de la clarté à vos revenus et dépenses pour que vous sachiez toujours où va votre argent.", ar: "تتبّع نفقاتك، صنّفها، واطّلع على وضعك المالي بالكامل — للأفراد والعائلات والفرق الصغيرة. يمنحك Kolo وضوحاً حول دخلك ونفقاتك لتعرف دائماً أين يذهب مالك.", es: "Registra tus gastos, categorízalos y ve tu situación financiera completa: para particulares, familias y equipos pequeños. Kolo aporta claridad a tus ingresos y gastos para que siempre sepas adónde va tu dinero.", pt: "Acompanhe seus gastos, categorize-os e veja sua situação financeira completa — para pessoas, famílias e pequenas equipes. A Kolo traz clareza às suas receitas e despesas para que você sempre saiba para onde vai o seu dinheiro.",
     },
-    category: { en: "Finance", fr: "Finance", ar: "التمويل", es: "Finanzas", pt: "Finanças" },
+    category: { en: "Personal Finance", fr: "Finances personnelles", ar: "التمويل الشخصي", es: "Finanzas personales", pt: "Finanças pessoais" },
     available: false,
     appUrl: 'https://kolo.liafrik.com',
     icon: PiggyBank,
     gradient: 'from-orange-500 to-amber-400',
     accent: '#F97316',
     features: [
-      { en: "Tontine group management", fr: "Gestion des groupes de tontine", ar: "إدارة مجموعات التونتين", es: "Gestión de grupos de tontina", pt: "Gestão de grupos de tontina" },
-      { en: "Contribution tracking", fr: "Suivi des contributions", ar: "تتبّع المساهمات", es: "Seguimiento de aportes", pt: "Rastreamento de contribuições" },
-      { en: "Savings wallets", fr: "Portefeuilles d'épargne", ar: "محافظ الادخار", es: "Billeteras de ahorro", pt: "Carteiras de poupança" },
-      { en: "Micro-loans", fr: "Micro-prêts", ar: "قروض صغيرة", es: "Microcréditos", pt: "Microcréditos" },
-      { en: "Automatic payouts", fr: "Paiements automatiques", ar: "مدفوعات تلقائية", es: "Pagos automáticos", pt: "Pagamentos automáticos" },
-      { en: "Mobile money integration", fr: "Intégration mobile money", ar: "تكامل مع الأموال المحمولة", es: "Integración de dinero móvil", pt: "Integração com mobile money" },
+      { en: "Expense tracking", fr: "Suivi des dépenses", ar: "تتبّع النفقات", es: "Seguimiento de gastos", pt: "Rastreamento de despesas" },
+      { en: "Expense categorization", fr: "Catégorisation des dépenses", ar: "تصنيف النفقات", es: "Categorización de gastos", pt: "Categorização de despesas" },
+      { en: "Income & expense tracking", fr: "Suivi des revenus et dépenses", ar: "تتبّع الدخل والنفقات", es: "Seguimiento de ingresos y gastos", pt: "Rastreamento de receitas e despesas" },
+      { en: "Financial overview & visualization", fr: "Visualisation de la situation financière", ar: "تصور الوضع المالي", es: "Visualización de la situación financiera", pt: "Visualização da situação financeira" },
+      { en: "Personal & family budgets", fr: "Budgets personnels et familiaux", ar: "ميزانيات شخصية وعائلية", es: "Presupuestos personales y familiares", pt: "Orçamentos pessoais e familiares" },
+      { en: "Works for individuals, families & teams", fr: "Fonctionne pour particuliers, familles et équipes", ar: "يعمل للأفراد والعائلات والفرق", es: "Funciona para particulares, familias y equipos", pt: "Funciona para pessoas, famílias e equipes" },
     ],
     benefits: [
-      { en: "Trust through transparency", fr: "Confiance par la transparence", ar: "الثقة من خلال الشفافية", es: "Confianza a través de la transparencia", pt: "Confiança através da transparência" },
-      { en: "Save as a community", fr: "Épargnez en communauté", ar: "ادّخر كمجتمع", es: "Ahorra en comunidad", pt: "Poupe em comunidade" },
-      { en: "Access micro-loans", fr: "Accédez à des micro-prêts", ar: "احصل على قروض صغيرة", es: "Accede a microcréditos", pt: "Acesse microcréditos" },
-      { en: "Pay out automatically", fr: "Versez automatiquement", ar: "اصرف تلقائياً", es: "Realiza pagos automáticamente", pt: "Faça pagamentos automaticamente" },
+      { en: "Know exactly where your money goes", fr: "Sachez exactement où va votre argent", ar: "اعرف بالضبط أين يذهب مالك", es: "Sabe exactamente adónde va tu dinero", pt: "Saiba exatamente para onde vai o seu dinheiro" },
+      { en: "Build better financial habits", fr: "Développez de meilleures habitudes financières", ar: "طوّر عادات مالية أفضل", es: "Desarrolla mejores hábitos financieros", pt: "Desenvolva melhores hábitos financeiros" },
+      { en: "Manage money together as a family", fr: "Gérez votre argent en famille", ar: "أدر أموالك مع عائلتك", es: "Gestiona el dinero en familia", pt: "Gerencie o dinheiro em família" },
+      { en: "See your full financial picture at a glance", fr: "Visualisez toute votre situation financière en un coup d'œil", ar: "اطّلع على وضعك المالي الكامل بلمحة", es: "Ve tu situación financiera completa de un vistazo", pt: "Veja sua situação financeira completa rapidamente" },
     ],
     industries: [
-      { en: "Cooperatives", fr: "Coopératives", ar: "التعاونيات", es: "Cooperativas", pt: "Cooperativas" },
-      { en: "Savings groups", fr: "Groupes d'épargne", ar: "مجموعات الادخار", es: "Grupos de ahorro", pt: "Grupos de poupança" },
-      { en: "Microfinance", fr: "Microfinance", ar: "التمويل الأصغر", es: "Microfinanzas", pt: "Microfinanças" },
-      { en: "Communities", fr: "Communautés", ar: "المجتمعات", es: "Comunidades", pt: "Comunidades" },
+      { en: "Individuals", fr: "Particuliers", ar: "الأفراد", es: "Particulares", pt: "Pessoas físicas" },
+      { en: "Families", fr: "Familles", ar: "العائلات", es: "Familias", pt: "Famílias" },
+      { en: "Freelancers", fr: "Freelances", ar: "المستقلون", es: "Autónomos", pt: "Freelancers" },
+      { en: "Small teams", fr: "Petites équipes", ar: "الفرق الصغيرة", es: "Equipos pequeños", pt: "Pequenas equipes" },
     ],
     dashboard: {
       title: { en: 'Kolo Dashboard', fr: 'Tableau de bord Kolo' },
-      metric: { label: { en: 'Total savings', fr: 'Épargne totale' }, value: '$1.2M', delta: '+22%', up: true },
+      metric: { label: { en: "This month's balance", fr: 'Solde de ce mois-ci' }, value: '+$2,450', delta: '+8.2%', up: true },
       panels: [
-        { kind: 'stat', title: { en: 'Groups overview', fr: 'Aperçu des groupes' }, stats: [
-          { label: { en: 'Active groups', fr: 'Groupes actifs' }, value: '842' },
-          { label: { en: 'Members', fr: 'Membres' }, value: '12,480' },
-          { label: { en: 'Contributions / mo', fr: 'Contributions / mois' }, value: '$340k' },
-          { label: { en: 'Active loans', fr: 'Prêts actifs' }, value: '218' },
+        { kind: 'line', title: { en: 'Balance — last 6 months', fr: 'Solde — 6 derniers mois' }, data: [1200, 1900, 1500, 2200, 1800, 2450] },
+        { kind: 'donut', title: { en: 'Spending by category', fr: 'Dépenses par catégorie' }, segments: [
+          { label: { en: 'Housing', fr: 'Logement' }, value: 35, color: '#0070E0' },
+          { label: { en: 'Food', fr: 'Alimentation' }, value: 25, color: '#3D9BFF' },
+          { label: { en: 'Transport', fr: 'Transport' }, value: 20, color: '#00BFE0' },
+          { label: { en: 'Other', fr: 'Autre' }, value: 20, color: '#A8D0FF' },
         ]},
-        { kind: 'progress', title: { en: 'Top groups progress', fr: 'Progression des top groupes' }, progress: [
-          { label: { en: 'Dakar Circle', fr: 'Cercle Dakar' }, value: 78, color: '#0070E0' },
-          { label: { en: 'Yaoundé Trust', fr: 'Trust Yaoundé' }, value: 64, color: '#3D9BFF' },
-          { label: { en: 'Savannah Savers', fr: 'Savannah Savers' }, value: 52, color: '#00BFE0' },
-        ]},
-        { kind: 'list', title: { en: 'Recent payouts', fr: 'Versements récents' }, items: [
-          { label: { en: 'Dakar Circle — Round 8', fr: 'Cercle Dakar — Tour 8' }, value: '$12,400', sub: 'Paid' },
-          { label: { en: 'Yaoundé Trust — Round 5', fr: 'Trust Yaoundé — Tour 5' }, value: '$8,200', sub: 'Paid' },
-          { label: { en: 'Savannah Savers — Round 3', fr: 'Savannah Savers — Tour 3' }, value: '$5,600', sub: 'Processing' },
+        { kind: 'list', title: { en: 'Recent transactions', fr: 'Transactions récentes' }, items: [
+          { label: { en: 'Salary', fr: 'Salaire' }, value: '+$3,200', sub: 'Income' },
+          { label: { en: 'Rent', fr: 'Loyer' }, value: '-$950', sub: 'Housing' },
+          { label: { en: 'Groceries', fr: 'Courses' }, value: '-$180', sub: 'Food' },
+          { label: { en: 'Transport', fr: 'Transport' }, value: '-$60', sub: 'Transport' },
         ]},
       ],
     },
     pricing: [
-      { name: { en: "Community", fr: "Community", ar: "Community", es: "Community", pt: "Community" }, price: 'Free', description: { en: "For small savings groups.", fr: "Pour les petits groupes d'épargne.", ar: "لمجموعات الادخار الصغيرة.", es: "Para grupos de ahorro pequeños.", pt: "Para pequenos grupos de poupança." }, features: [
-        { en: "Up to 30 members", fr: "Jusqu'à 30 membres", ar: "حتى 30 عضواً", es: "Hasta 30 miembros", pt: "Até 30 membros" },
-        { en: "1 active group", fr: "1 groupe actif", ar: "مجموعة نشطة واحدة", es: "1 grupo activo", pt: "1 grupo ativo" },
-        { en: "Contribution tracking", fr: "Suivi des contributions", ar: "تتبّع المساهمات", es: "Seguimiento de aportes", pt: "Rastreamento de contribuições" },
-        { en: "Mobile money", fr: "Mobile money", ar: "الأموال المحمولة", es: "Dinero móvil", pt: "Mobile money" },
+      { name: { en: "Personal", fr: "Personnel", ar: "شخصي", es: "Personal", pt: "Pessoal" }, price: 'Free', description: { en: "For individuals getting started.", fr: "Pour les particuliers qui démarrent.", ar: "للأفراد المبتدئين.", es: "Para particulares que empiezan.", pt: "Para pessoas que estão começando." }, features: [
+        { en: "Unlimited transactions", fr: "Transactions illimitées", ar: "معاملات غير محدودة", es: "Transacciones ilimitadas", pt: "Transações ilimitadas" },
+        { en: "Expense categorization", fr: "Catégorisation des dépenses", ar: "تصنيف النفقات", es: "Categorización de gastos", pt: "Categorização de despesas" },
+        { en: "1 account", fr: "1 compte", ar: "حساب واحد", es: "1 cuenta", pt: "1 conta" },
+        { en: "Basic reports", fr: "Rapports de base", ar: "تقارير أساسية", es: "Informes básicos", pt: "Relatórios básicos" },
       ], cta: { en: "Start free", fr: "Commencer", ar: "ابدأ مجاناً", es: "Empezar gratis", pt: "Começar grátis" } },
-      { name: { en: "Pro", fr: "Pro", ar: "Pro", es: "Pro", pt: "Pro" }, price: '$25', period: 'mo', popular: true, description: { en: "For active organizers.", fr: "Pour les organisateurs actifs.", ar: "للمنظمين النشطين.", es: "Para organizadores activos.", pt: "Para organizadores ativos." }, features: [
-        { en: "Unlimited members", fr: "Membres illimités", ar: "أعضاء غير محدودين", es: "Miembros ilimitados", pt: "Membros ilimitados" },
-        { en: "Unlimited groups", fr: "Groupes illimités", ar: "مجموعات غير محدودة", es: "Grupos ilimitados", pt: "Grupos ilimitados" },
-        { en: "Micro-loans", fr: "Micro-prêts", ar: "قروض صغيرة", es: "Microcréditos", pt: "Microcréditos" },
-        { en: "Automatic payouts", fr: "Versements automatiques", ar: "مدفوعات تلقائية", es: "Pagos automáticos", pt: "Pagamentos automáticos" },
+      { name: { en: "Family", fr: "Famille", ar: "عائلي", es: "Familiar", pt: "Familiar" }, price: '$6', period: 'mo', popular: true, description: { en: "For families managing money together.", fr: "Pour les familles qui gèrent leur argent ensemble.", ar: "للعائلات التي تدير أموالها معاً.", es: "Para familias que gestionan el dinero juntas.", pt: "Para famílias que administram o dinheiro juntas." }, features: [
+        { en: "Shared family budgets", fr: "Budgets familiaux partagés", ar: "ميزانيات عائلية مشتركة", es: "Presupuestos familiares compartidos", pt: "Orçamentos familiares compartilhados" },
+        { en: "Up to 5 members", fr: "Jusqu'à 5 membres", ar: "حتى 5 أعضاء", es: "Hasta 5 miembros", pt: "Até 5 membros" },
+        { en: "Income & expense tracking", fr: "Suivi des revenus et dépenses", ar: "تتبّع الدخل والنفقات", es: "Seguimiento de ingresos y gastos", pt: "Rastreamento de receitas e despesas" },
+        { en: "Custom categories", fr: "Catégories personnalisées", ar: "فئات مخصصة", es: "Categorías personalizadas", pt: "Categorias personalizadas" },
       ], cta: { en: "Start free", fr: "Commencer", ar: "ابدأ مجاناً", es: "Empezar gratis", pt: "Começar grátis" } },
-      { name: { en: "Institution", fr: "Institution", ar: "Institution", es: "Institución", pt: "Instituição" }, price: 'Custom', description: { en: "For cooperatives & microfinance.", fr: "Pour coopératives et microfinance.", ar: "للتعاونيات والتمويل الأصغر.", es: "Para cooperativas y microfinanzas.", pt: "Para cooperativas e microfinanças." }, features: [
-        { en: "White-label", fr: "Marque blanche", ar: "علامة بيضاء", es: "Marca blanca", pt: "White-label" },
-        { en: "API access", fr: "Accès API", ar: "وصول إلى واجهة برمجة التطبيقات", es: "Acceso a la API", pt: "Acesso à API" },
-        { en: "Compliance tools", fr: "Outils de conformité", ar: "أدوات الامتثال", es: "Herramientas de cumplimiento", pt: "Ferramentas de conformidade" },
-        { en: "Dedicated support", fr: "Support dédié", ar: "دعم مخصص", es: "Soporte dedicado", pt: "Suporte dedicado" },
-      ], cta: { en: "Contact sales", fr: "Contacter les ventes", ar: "التواصل مع المبيعات", es: "Contactar con ventas", pt: "Falar com vendas" } },
+      { name: { en: "Business", fr: "Business", ar: "Business", es: "Business", pt: "Business" }, price: '$15', period: 'mo', description: { en: "For freelancers & small teams.", fr: "Pour les freelances et petites équipes.", ar: "للمستقلين والفرق الصغيرة.", es: "Para autónomos y equipos pequeños.", pt: "Para freelancers e pequenas equipes." }, features: [
+        { en: "Multiple accounts", fr: "Comptes multiples", ar: "حسابات متعددة", es: "Cuentas múltiples", pt: "Múltiplas contas" },
+        { en: "Team collaboration", fr: "Collaboration en équipe", ar: "تعاون الفريق", es: "Colaboración en equipo", pt: "Colaboração em equipe" },
+        { en: "Advanced reports & exports", fr: "Rapports avancés et exports", ar: "تقارير متقدمة وتصدير", es: "Informes avanzados y exportaciones", pt: "Relatórios avançados e exportações" },
+        { en: "Priority support", fr: "Support prioritaire", ar: "دعم أولوية", es: "Soporte prioritario", pt: "Suporte prioritário" },
+      ], cta: { en: "Start free", fr: "Commencer", ar: "ابدأ مجاناً", es: "Empezar gratis", pt: "Começar grátis" } },
     ],
   },
   {
@@ -741,7 +738,7 @@ export const products: Product[] = [
       { en: "Upskill your team", fr: "Formez vos équipes", ar: "طوّر مهارات فريقك", es: "Mejora las habilidades de tu equipo", pt: "Capacite sua equipe" },
       { en: "Earn recognized certs", fr: "Obtenez des certifications reconnues", ar: "احصل على شهادات معترف بها", es: "Obtén certificaciones reconocidas", pt: "Obtenha certificados reconhecidos" },
       { en: "Learn at your pace", fr: "Apprenez à votre rythme", ar: "تعلّم بالسرعة التي تناسبك", es: "Aprende a tu propio ritmo", pt: "Aprenda no seu próprio ritmo" },
-      { en: "African-focused content", fr: "Contenu adapté à l'Afrique", ar: "محتوى موجّه لأفريقيا", es: "Contenido enfocado en África", pt: "Conteúdo focado na África" },
+      { en: "World-class content", fr: "Contenu de classe mondiale", ar: "محتوى عالمي المستوى", es: "Contenido de clase mundial", pt: "Conteúdo de classe mundial" },
     ],
     industries: [
       { en: "Schools", fr: "Écoles", ar: "المدارس", es: "Colegios", pt: "Escolas" },
@@ -1084,6 +1081,78 @@ export const products: Product[] = [
       ], cta: { en: "Contact sales", fr: "Contacter les ventes", ar: "التواصل مع المبيعات", es: "Contactar con ventas", pt: "Falar com vendas" } },
     ],
   },
+  {
+    slug: 'hostrek',
+    logo: '/images/logos/hostrek.png',
+    name: 'Hostrek',
+    tagline: { en: "Hotel Management, Booking & Marketplace", fr: "Gestion hôtelière, réservation et marketplace", ar: "إدارة الفنادق والحجوزات والسوق الإلكتروني", es: "Gestión hotelera, reservas y marketplace", pt: "Gestão hoteleira, reservas e marketplace" },
+    description: {
+      en: "A sophisticated hospitality platform combining property management (PMS), online booking, and a public marketplace — so hotels, lodges, and guesthouses can manage every room, reservation, and rate in one place, while travelers book directly.", fr: "Une plateforme hôtelière sophistiquée combinant gestion des établissements (PMS), réservation en ligne et marketplace publique — pour que hôtels, lodges et maisons d'hôtes gèrent chaque chambre, réservation et tarif au même endroit, pendant que les voyageurs réservent directement.", ar: "منصة ضيافة متطورة تجمع بين إدارة الممتلكات (PMS)، والحجز عبر الإنترنت، وسوق عام — بحيث تدير الفنادق والنُزل وبيوت الضيافة كل غرفة وحجز وسعر في مكان واحد، بينما يحجز المسافرون مباشرة.", es: "Una plataforma hotelera sofisticada que combina gestión de propiedades (PMS), reservas en línea y un mercado público — para que hoteles, lodges y casas de huéspedes gestionen cada habitación, reserva y tarifa en un solo lugar, mientras los viajeros reservan directamente.", pt: "Uma plataforma de hotelaria sofisticada que combina gestão de propriedades (PMS), reservas online e um marketplace público — para que hotéis, pousadas e casas de hóspedes gerenciem cada quarto, reserva e tarifa em um só lugar, enquanto os viajantes reservam diretamente.",
+    },
+    category: { en: "Hospitality", fr: "Hôtellerie", ar: "الضيافة", es: "Hostelería", pt: "Hotelaria" },
+    available: false,
+    icon: Hotel,
+    gradient: 'from-teal-500 to-cyan-400',
+    accent: '#14B8A6',
+    features: [
+      { en: "Property management system (PMS)", fr: "Système de gestion hôtelière (PMS)", ar: "نظام إدارة الممتلكات (PMS)", es: "Sistema de gestión hotelera (PMS)", pt: "Sistema de gestão hoteleira (PMS)" },
+      { en: "Reservation & booking management", fr: "Gestion des réservations", ar: "إدارة الحجوزات", es: "Gestión de reservas", pt: "Gestão de reservas" },
+      { en: "Room & rate management", fr: "Gestion des chambres et tarifs", ar: "إدارة الغرف والأسعار", es: "Gestión de habitaciones y tarifas", pt: "Gestão de quartos e tarifas" },
+      { en: "Public booking marketplace", fr: "Marketplace de réservation publique", ar: "سوق حجز عام", es: "Mercado de reservas público", pt: "Marketplace de reservas público" },
+      { en: "Availability calendar", fr: "Calendrier de disponibilité", ar: "تقويم التوافر", es: "Calendario de disponibilidad", pt: "Calendário de disponibilidade" },
+      { en: "Direct booking for travelers", fr: "Réservation directe pour les voyageurs", ar: "حجز مباشر للمسافرين", es: "Reserva directa para viajeros", pt: "Reserva direta para viajantes" },
+    ],
+    benefits: [
+      { en: "Manage every property from one dashboard", fr: "Gérez chaque établissement depuis un seul tableau de bord", ar: "أدر كل ممتلكاتك من لوحة تحكم واحدة", es: "Gestiona cada propiedad desde un solo panel", pt: "Gerencie cada propriedade a partir de um único painel" },
+      { en: "Reach travelers directly, no middleman", fr: "Touchez les voyageurs directement, sans intermédiaire", ar: "صِل إلى المسافرين مباشرة، بدون وسيط", es: "Llega a los viajeros directamente, sin intermediarios", pt: "Alcance viajantes diretamente, sem intermediários" },
+      { en: "Never double-book a room again", fr: "Ne surréservez plus jamais une chambre", ar: "لا تحجز غرفة مرتين بعد الآن", es: "Nunca vuelvas a hacer overbooking", pt: "Nunca mais tenha overbooking" },
+      { en: "One platform for PMS, booking and marketplace", fr: "Une seule plateforme pour le PMS, la réservation et la marketplace", ar: "منصة واحدة لنظام PMS والحجز والسوق الإلكتروني", es: "Una sola plataforma para PMS, reservas y marketplace", pt: "Uma única plataforma para PMS, reservas e marketplace" },
+    ],
+    industries: [
+      { en: "Hotels", fr: "Hôtels", ar: "الفنادق", es: "Hoteles", pt: "Hotéis" },
+      { en: "Lodges", fr: "Lodges", ar: "النُزل", es: "Lodges", pt: "Pousadas" },
+      { en: "Guesthouses", fr: "Maisons d'hôtes", ar: "بيوت الضيافة", es: "Casas de huéspedes", pt: "Casas de hóspedes" },
+      { en: "Hospitality groups", fr: "Groupes hôteliers", ar: "مجموعات الضيافة", es: "Grupos hoteleros", pt: "Grupos de hotelaria" },
+    ],
+    dashboard: {
+      title: { en: 'Hostrek Dashboard', fr: 'Tableau de bord Hostrek' },
+      metric: { label: { en: 'Occupancy rate', fr: "Taux d'occupation" }, value: '84%', delta: '+6.2%', up: true },
+      panels: [
+        { kind: 'line', title: { en: 'Bookings — last 7 days', fr: 'Réservations — 7 derniers jours' }, data: [40, 55, 48, 62, 58, 70, 82] },
+        { kind: 'donut', title: { en: 'Room types booked', fr: 'Types de chambres réservées' }, segments: [
+          { label: { en: 'Standard', fr: 'Standard' }, value: 40, color: '#0070E0' },
+          { label: { en: 'Deluxe', fr: 'Deluxe' }, value: 30, color: '#3D9BFF' },
+          { label: { en: 'Suite', fr: 'Suite' }, value: 20, color: '#00BFE0' },
+          { label: { en: 'Other', fr: 'Autre' }, value: 10, color: '#A8D0FF' },
+        ]},
+        { kind: 'list', title: { en: 'Upcoming check-ins', fr: 'Arrivées à venir' }, items: [
+          { label: { en: 'Room 204 — 2 nights', fr: 'Chambre 204 — 2 nuits' }, value: 'Today', sub: 'Confirmed' },
+          { label: { en: 'Room 108 — 5 nights', fr: 'Chambre 108 — 5 nuits' }, value: 'Tomorrow', sub: 'Confirmed' },
+          { label: { en: 'Suite 12 — 3 nights', fr: 'Suite 12 — 3 nuits' }, value: 'Sep 28', sub: 'Pending' },
+        ]},
+      ],
+    },
+    pricing: [
+      { name: { en: "Single Property", fr: "Établissement unique", ar: "منشأة واحدة", es: "Propiedad única", pt: "Propriedade única" }, price: '$39', period: 'mo', description: { en: "For a single hotel or guesthouse.", fr: "Pour un seul hôtel ou une seule maison d'hôtes.", ar: "لفندق أو بيت ضيافة واحد.", es: "Para un solo hotel o casa de huéspedes.", pt: "Para um único hotel ou casa de hóspedes." }, features: [
+        { en: "Up to 20 rooms", fr: "Jusqu'à 20 chambres", ar: "حتى 20 غرفة", es: "Hasta 20 habitaciones", pt: "Até 20 quartos" },
+        { en: "Booking calendar", fr: "Calendrier de réservation", ar: "تقويم الحجز", es: "Calendario de reservas", pt: "Calendário de reservas" },
+        { en: "Direct bookings", fr: "Réservations directes", ar: "حجوزات مباشرة", es: "Reservas directas", pt: "Reservas diretas" },
+        { en: "Basic reports", fr: "Rapports de base", ar: "تقارير أساسية", es: "Informes básicos", pt: "Relatórios básicos" },
+      ], cta: { en: "Notify me", fr: "Prévenez-moi", ar: "أعلمني", es: "Avísame", pt: "Avise-me" } },
+      { name: { en: "Multi-Property", fr: "Multi-établissements", ar: "متعدد المنشآت", es: "Multipropiedad", pt: "Multi-propriedades" }, price: '$99', period: 'mo', popular: true, description: { en: "For hospitality groups with several properties.", fr: "Pour les groupes hôteliers avec plusieurs établissements.", ar: "لمجموعات الضيافة التي تدير عدة منشآت.", es: "Para grupos hoteleros con varias propiedades.", pt: "Para grupos de hotelaria com várias propriedades." }, features: [
+        { en: "Unlimited rooms", fr: "Chambres illimitées", ar: "غرف غير محدودة", es: "Habitaciones ilimitadas", pt: "Quartos ilimitados" },
+        { en: "Multiple properties", fr: "Plusieurs établissements", ar: "منشآت متعددة", es: "Varias propiedades", pt: "Várias propriedades" },
+        { en: "Marketplace listing", fr: "Présence sur la marketplace", ar: "إدراج في السوق الإلكتروني", es: "Listado en el mercado", pt: "Listagem no marketplace" },
+        { en: "Advanced reports", fr: "Rapports avancés", ar: "تقارير متقدمة", es: "Informes avanzados", pt: "Relatórios avançados" },
+      ], cta: { en: "Notify me", fr: "Prévenez-moi", ar: "أعلمني", es: "Avísame", pt: "Avise-me" } },
+      { name: { en: "Enterprise", fr: "Enterprise", ar: "Enterprise", es: "Enterprise", pt: "Enterprise" }, price: 'Custom', description: { en: "For large hotel chains.", fr: "Pour les grandes chaînes hôtelières.", ar: "لسلاسل الفنادق الكبرى.", es: "Para grandes cadenas hoteleras.", pt: "Para grandes redes hoteleiras." }, features: [
+        { en: "API access", fr: "Accès API", ar: "وصول إلى واجهة برمجة التطبيقات", es: "Acceso a la API", pt: "Acesso à API" },
+        { en: "Channel manager integrations", fr: "Intégrations channel manager", ar: "تكاملات مدير القنوات", es: "Integraciones con channel manager", pt: "Integrações com channel manager" },
+        { en: "Dedicated support", fr: "Support dédié", ar: "دعم مخصص", es: "Soporte dedicado", pt: "Suporte dedicado" },
+        { en: "Custom SLA", fr: "SLA personnalisé", ar: "اتفاقية مستوى خدمة مخصصة", es: "SLA personalizado", pt: "SLA personalizado" },
+      ], cta: { en: "Contact sales", fr: "Contacter les ventes", ar: "التواصل مع المبيعات", es: "Contactar con ventas", pt: "Falar com vendas" } },
+    ],
+  },
 ];
 
 
@@ -1132,9 +1201,15 @@ export const sectors: Sector[] = [
   },
   {
     id: 'finance',
-    name: { en: "Cooperative & Finance", fr: "Coopérative & Finance", ar: "التعاونيات والتمويل", es: "Cooperativas y finanzas", pt: "Cooperativas e finanças" },
+    name: { en: "Personal Finance", fr: "Finances personnelles", ar: "التمويل الشخصي", es: "Finanzas personales", pt: "Finanças pessoais" },
     icon: PiggyBank,
     productSlugs: ['kolo', 'libooks'],
+  },
+  {
+    id: 'hospitality',
+    name: { en: "Hospitality", fr: "Hôtellerie", ar: "الضيافة", es: "Hostelería", pt: "Hotelaria" },
+    icon: Hotel,
+    productSlugs: ['hostrek', 'pos', 'libooks'],
   },
   {
     id: 'hr',
