@@ -286,7 +286,7 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, e
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${url}" />
     <meta property="og:site_name" content="Liafrik" />
-    <meta property="og:image" content="${SITE}/og-image.png" />
+    <meta property="og:image" content="${SITE}/og-image.png?v=2" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(description)}" />

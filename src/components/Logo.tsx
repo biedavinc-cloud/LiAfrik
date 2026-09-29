@@ -46,8 +46,8 @@ export function LogoMark({ variant = 'color', size = 'md' }: { variant?: Variant
   // On dark backgrounds ('light' variant), use the white version of the
   // wordmark (orange accents preserved). Otherwise the official navy one.
   const logoSrc = variant === 'light'
-    ? '/images/brand/liafrik-logo-light.png'
-    : '/images/brand/liafrik-logo.png';
+    ? '/images/brand/liafrik-wordmark-light.png'
+    : '/images/brand/liafrik-wordmark.png';
 
   return (
     <motion.span
@@ -57,9 +57,9 @@ export function LogoMark({ variant = 'color', size = 'md' }: { variant?: Variant
     >
       {/*
         Liafrik official wordmark. The full lockup with the tagline is available
-        at public/images/brand/liafrik-logo-full.png.
+        at public/images/brand/liafrik-lockup.png.
         TO REPLACE: swap the file at
-        public/images/brand/liafrik-logo.png with your own image
+        public/images/brand/liafrik-wordmark.png with your own image
         (same filename) — no code change needed. Note: the box above is
         pinned to a fixed height AND width per size (see sizeMap) so the
         mark can't overflow its slot; if you swap in an image with a very

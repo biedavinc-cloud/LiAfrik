@@ -51,11 +51,11 @@ logo: '/images/logos/sellia.svg',
 
 Les fichiers de la marque sont dans `public/images/brand/` :
 
-- `liafrik-logo.png` — logo officiel (wordmark), navbar et footer
-- `liafrik-logo-light.png` — même logo en blanc + orange, pour fonds sombres
-- `liafrik-logo-full.png` — logo officiel avec la signature
+- `liafrik-wordmark.png` — logo officiel (wordmark), navbar et footer
+- `liafrik-wordmark-light.png` — même logo en blanc + orange, pour fonds sombres
+- `liafrik-lockup.png` — logo officiel avec la signature
   « African roots · Global vision · Building the future »
-- `liafrik-icon.png` — icône carrée (le « A »), utilisée dans le hub
+- `liafrik-mark.png` — icône carrée (le « A »), utilisée dans le hub
   de la section « Build your stack »
 
 Le favicon (`public/favicon.png`) et l'icône PWA (`public/icon-512.png`)

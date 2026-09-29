@@ -9,13 +9,13 @@
   "theme_color": "#0070E0",
   "icons": [
     {
-      "src": "/icon-512.png",
+      "src": "/icon-512.png?v=2",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/favicon.png",
+      "src": "/favicon.png?v=2",
       "sizes": "160x160",
       "type": "image/png",
       "purpose": "any"
