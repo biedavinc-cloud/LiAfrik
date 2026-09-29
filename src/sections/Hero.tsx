@@ -49,7 +49,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="mt-7 flex flex-wrap items-center justify-center gap-3"
           >
             <LinkButton to="/products" variant="primary" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
@@ -63,7 +63,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-light"
           >
             <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-liafrik-600" /> {pick(lang, { en: 'Bank-grade security', fr: 'Sécurité niveau bancaire', ar: 'أمان بمستوى مصرفي', es: 'Seguridad de nivel bancario', pt: 'Segurança de nível bancário' })}</span>
@@ -78,7 +78,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative perspective-2000"
         >
           {/* Ambient glow behind the mockup */}

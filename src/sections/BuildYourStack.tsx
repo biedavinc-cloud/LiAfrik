@@ -106,7 +106,7 @@ export default function BuildYourStack() {
                           <p className="text-sm font-semibold text-ink leading-tight">{p.name}</p>
                           <p className="text-[11px] text-ink-light truncate">{p.tagline[lang]}</p>
                         </div>
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 bg-emerald-50 rounded-full px-2 py-0.5">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 rounded-full px-2 py-0.5">
                           <Check className="h-3 w-3" /> {t('stack.added')}
                         </span>
                       </motion.li>

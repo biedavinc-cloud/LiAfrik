@@ -36,7 +36,7 @@ export default function ProductPage() {
         <div aria-hidden className="absolute inset-0 bg-radial-blue" />
         <div aria-hidden className="absolute -top-20 right-0 h-72 w-72 rounded-full bg-liafrik-200/40 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-          <Link to="/products" className="inline-flex items-center gap-1.5 text-sm text-ink-muted hover:text-liafrik-700 transition-colors mb-6">
+          <Link to="/products" className="inline-flex items-center gap-1.5 py-2 text-sm text-ink-muted hover:text-liafrik-700 transition-colors mb-4">
             <ArrowLeft className="h-4 w-4" /> {t('product.back')}
           </Link>
 

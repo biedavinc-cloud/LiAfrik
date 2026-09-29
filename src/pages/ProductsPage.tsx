@@ -164,7 +164,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             href={product.appUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-liafrik-700 hover:text-liafrik-800 transition-colors"
+            className="inline-flex items-center gap-1.5 py-2 -my-2 text-xs font-bold text-liafrik-700 hover:text-liafrik-800 transition-colors"
           >
             <ExternalLink className="h-3.5 w-3.5" /> {t('products.launch')}
           </a>

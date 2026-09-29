@@ -67,7 +67,7 @@ export default function Footer() {
     <footer className="relative bg-gradient-to-b from-white to-cloud-100/70 border-t border-cloud-200 overflow-hidden">
       <div aria-hidden className="absolute -top-24 left-1/4 h-48 w-48 rounded-full bg-liafrik-100/40 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-16 pb-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-16 pb-24 sm:pb-8">
         {/* Top — brand + newsletter */}
         <div className="grid lg:grid-cols-12 gap-10 pb-10 border-b border-cloud-200">
           <div className="lg:col-span-5">

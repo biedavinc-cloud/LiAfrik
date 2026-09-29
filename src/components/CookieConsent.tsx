@@ -61,7 +61,7 @@ export default function CookieConsent() {
                 <p className="mt-1 text-xs text-ink-muted leading-relaxed">
                   {t('cookie.body')}{' '}
                   <Link to="/privacy" className="text-liafrik-700 font-medium hover:text-liafrik-800">
-                    {t('cookie.learnMore')}
+                    {t('footer.privacy')}
                   </Link>
                 </p>
               </div>

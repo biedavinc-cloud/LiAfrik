@@ -105,14 +105,14 @@ export default function DashboardMockup({ spec, productName, accent = '#0070E0',
             <div className="flex items-center justify-between gap-3 rounded-xl bg-white border border-cloud-200 px-3 py-2 shadow-sm">
               <div className="min-w-0">
                 <p className="text-[9px] text-ink-light font-medium">{spec.metric.label.en}</p>
-                <p className="text-base sm:text-lg font-bold tabular-nums leading-tight" style={{ color: accent }}>
+                <p className="text-base sm:text-lg font-bold tabular-nums leading-tight" style={{ color: `color-mix(in srgb, ${accent} 62%, #000)` }}>
                   {spec.metric.value}
                 </p>
               </div>
               <div className="flex flex-col items-end gap-1">
                 <span
                   className={`inline-flex items-center gap-0.5 text-[10px] font-bold px-1.5 py-0.5 rounded-md ${
-                    spec.metric.up ? 'bg-emerald-50 text-emerald-600' : 'bg-red-50 text-red-500'
+                    spec.metric.up ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-600'
                   }`}
                 >
                   {spec.metric.up ? <TrendingUp className="h-2.5 w-2.5" /> : <TrendingDown className="h-2.5 w-2.5" />}
@@ -128,7 +128,7 @@ export default function DashboardMockup({ spec, productName, accent = '#0070E0',
               <div className="rounded-xl bg-white border border-cloud-200 p-2.5 shadow-sm">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-[9px] text-ink-light font-medium">{mainPanel.title.en}</p>
-                  <span className="text-[8px] text-ink-light/70">7d</span>
+                  <span className="text-[8px] text-ink-muted">7d</span>
                 </div>
                 <ChartArea panel={mainPanel} accent={accent} />
               </div>
@@ -345,7 +345,7 @@ function PanelContent({ panel, accent, index }: { panel: DashboardSpec['panels']
               </div>
               <div className="flex items-center gap-1.5 shrink-0">
                 {item.sub && (
-                  <span className="text-[8px] px-1 py-0.5 rounded bg-cloud-100 text-ink-light font-medium">{item.sub}</span>
+                  <span className="text-[8px] px-1 py-0.5 rounded bg-cloud-100 text-ink-muted font-medium">{item.sub}</span>
                 )}
                 <span className="font-semibold text-ink-soft tabular-nums">{item.value}</span>
               </div>
@@ -360,7 +360,7 @@ function PanelContent({ panel, accent, index }: { panel: DashboardSpec['panels']
             <div key={j} className="rounded-lg bg-cloud-50 border border-cloud-100 px-2 py-1.5">
               <p className="text-[13px] font-bold text-ink tabular-nums leading-tight">{stat.value}</p>
               <div className="flex items-center justify-between gap-1">
-                <p className="text-[8px] text-ink-light truncate">{stat.label.en}</p>
+                <p className="text-[8px] text-ink-muted truncate">{stat.label.en}</p>
                 {stat.delta && (
                   <span className={`text-[8px] font-bold ${stat.up ? 'text-emerald-600' : 'text-red-500'}`}>
                     {stat.up ? '↑' : '↓'}{stat.delta}

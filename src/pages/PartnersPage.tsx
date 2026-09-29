@@ -118,7 +118,7 @@ export default function PartnersPage() {
               <button
                 type="button"
                 onClick={() => selectType(c.id)}
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-liafrik-700 hover:text-liafrik-800 group"
+                className="mt-3 inline-flex items-center gap-1.5 py-2 text-sm font-semibold text-liafrik-700 hover:text-liafrik-800 group"
               >
                 {pick(lang, { en: 'Get in touch', fr: 'Nous contacter', ar: 'تواصل معنا', es: 'Ponte en contacto', pt: 'Entre em contato' })}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />

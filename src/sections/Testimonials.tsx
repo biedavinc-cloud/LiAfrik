@@ -183,10 +183,12 @@ export default function Testimonials() {
             <button onClick={() => go(-1)} className="grid place-items-center h-10 w-10 rounded-full bg-white border border-cloud-200 text-ink-soft hover:bg-liafrik-50 hover:text-liafrik-700 transition-colors shadow-card" aria-label="Previous">
               <ChevronLeft className="h-5 w-5" />
             </button>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center">
               {examples.map((_, i) => (
-                <button key={i} onClick={() => setIndex(i)} aria-label={`Go to ${i + 1}`}
-                  className={`h-2 rounded-full transition-all ${i === index ? 'w-6 bg-liafrik-600' : 'w-2 bg-cloud-300 hover:bg-liafrik-300'}`} />
+                <button key={i} onClick={() => setIndex(i)} aria-label={`Go to ${i + 1}`} aria-current={i === index}
+                  className="group grid h-6 min-w-6 place-items-center px-2">
+                  <span className={`block h-2 rounded-full transition-all ${i === index ? 'w-6 bg-liafrik-600' : 'w-2 bg-cloud-300 group-hover:bg-liafrik-300'}`} />
+                </button>
               ))}
             </div>
             <button onClick={() => go(1)} className="grid place-items-center h-10 w-10 rounded-full bg-white border border-cloud-200 text-ink-soft hover:bg-liafrik-50 hover:text-liafrik-700 transition-colors shadow-card" aria-label="Next">

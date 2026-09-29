@@ -32,7 +32,7 @@ export default function LanguageToggle({ lang, setLang, className }: { lang: Lan
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label="Change language"
+        aria-label={`${SHORT_LABEL[lang]} — Change language`}
         className="flex items-center gap-1.5 rounded-full bg-cloud-100 border border-cloud-200 px-2.5 py-1.5 text-xs font-semibold text-liafrik-700 hover:bg-cloud-200/70 transition-colors"
       >
         <Globe className="h-3.5 w-3.5 text-liafrik-600" />

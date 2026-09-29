@@ -14,10 +14,10 @@ Liafrik is not a single product — it's an ecosystem of independent SaaS applic
 - [LiBooks](https://liafrik.com/en/products/libooks) — Accounting and financial management: invoicing, double-entry bookkeeping, financial reports, tax compliance.
 - [Atlas](https://liafrik.com/en/products/atlas) — Property management: rent collection, tenant management, maintenance requests.
 - [Zanldo](https://liafrik.com/en/products/zanldo) — Fashion & lifestyle marketplace connecting buyers and sellers worldwide. Every seller connects their own payment provider and is paid directly — Zanldo never holds seller funds; revenue is subscriptions and advertising only, never a cut of sales. Own domain: zanldo.com.
+- [Kolo](https://liafrik.com/en/products/kolo) — Personal & family finance manager: expense tracking, expense categorization, income & expense tracking, financial overview. For individuals, families, freelancers, and small teams.
 
 ## In development (coming soon)
 
-- Kolo (kolo.liafrik.com) — Personal & family finance manager: expense tracking, expense categorization, income & expense tracking, financial overview. For individuals, families, freelancers, and small teams.
 - Hostrek — Sophisticated hospitality platform combining a property management system (PMS), online booking, and a public booking marketplace, for hotels, lodges, guesthouses, and hospitality groups.
 - Faka (HR & payroll), Klasoo (school management), Bailly (accounting & finance — enterprise), Skills (learning marketplace), Mafo (women's health), Litrek (transport & travel booking).
 

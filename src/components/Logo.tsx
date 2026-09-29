@@ -15,9 +15,9 @@ interface LogoProps {
 // mark can never inflate beyond its intended footprint, regardless of the
 // surrounding flex/grid context.
 const sizeMap = {
-  sm: { markHeight: 'h-7', markWidth: 'w-[134px]', text: 'text-[18px]' },
-  md: { markHeight: 'h-9', markWidth: 'w-[173px]', text: 'text-[22px]' },
-  lg: { markHeight: 'h-12', markWidth: 'w-[230px]', text: 'text-[28px]' },
+  sm: { markHeight: 'h-5', markWidth: 'w-[96px]', text: 'text-[18px]' },
+  md: { markHeight: 'h-6 sm:h-7', markWidth: 'w-[115px] sm:w-[134px]', text: 'text-[22px]' },
+  lg: { markHeight: 'h-9', markWidth: 'w-[173px]', text: 'text-[28px]' },
 };
 
 export default function Logo({ className = '', variant = 'color', showText = false, size = 'md' }: LogoProps) {
@@ -25,7 +25,7 @@ export default function Logo({ className = '', variant = 'color', showText = fal
   const textColor = variant === 'light' ? 'text-white' : 'text-ink';
 
   return (
-    <Link to="/" className={className} aria-label="Liafrik — home">
+    <Link to="/" className={`${className ?? ''} py-2 -my-2`} aria-label="Liafrik — home">
       <span className="flex items-center gap-2.5">
         <LogoMark variant={variant} size={size} />
         {showText && (

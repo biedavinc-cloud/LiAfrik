@@ -29,7 +29,7 @@ const NotFound = lazy(() => import('@/pages/NotFound'));
 
 function PageFallback() {
   return (
-    <div className="min-h-[60vh] grid place-items-center">
+    <div className="min-h-screen grid place-items-center">
       <div className="h-8 w-8 rounded-full border-2 border-liafrik-200 border-t-liafrik-600 animate-spin" />
     </div>
   );

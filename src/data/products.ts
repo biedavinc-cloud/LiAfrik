@@ -649,7 +649,7 @@ export const products: Product[] = [
       en: "Track spending, categorize expenses, and see your complete financial picture — for individuals, families, and small teams. Kolo brings clarity to your income and expenses so you always know where your money goes.", fr: "Suivez vos dépenses, catégorisez-les et visualisez l'ensemble de votre situation financière — pour les particuliers, les familles et les petites équipes. Kolo apporte de la clarté à vos revenus et dépenses pour que vous sachiez toujours où va votre argent.", ar: "تتبّع نفقاتك، صنّفها، واطّلع على وضعك المالي بالكامل — للأفراد والعائلات والفرق الصغيرة. يمنحك Kolo وضوحاً حول دخلك ونفقاتك لتعرف دائماً أين يذهب مالك.", es: "Registra tus gastos, categorízalos y ve tu situación financiera completa: para particulares, familias y equipos pequeños. Kolo aporta claridad a tus ingresos y gastos para que siempre sepas adónde va tu dinero.", pt: "Acompanhe seus gastos, categorize-os e veja sua situação financeira completa — para pessoas, famílias e pequenas equipes. A Kolo traz clareza às suas receitas e despesas para que você sempre saiba para onde vai o seu dinheiro.",
     },
     category: { en: "Personal Finance", fr: "Finances personnelles", ar: "التمويل الشخصي", es: "Finanzas personales", pt: "Finanças pessoais" },
-    available: false,
+    available: true,
     appUrl: 'https://kolo.liafrik.com',
     icon: PiggyBank,
     gradient: 'from-orange-500 to-amber-400',
