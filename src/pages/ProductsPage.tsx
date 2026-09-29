@@ -24,18 +24,18 @@ export default function ProductsPage() {
   const { t, lang } = useLang();
   useSEO({
     title: pick(lang, {
-      en: 'All Products — LiAfrik SaaS Ecosystem',
-      fr: 'Tous les produits — Écosystème SaaS LiAfrik',
-      ar: 'كل المنتجات — نظام LiAfrik المتكامل',
-      es: 'Todos los productos — Ecosistema SaaS LiAfrik',
-      pt: 'Todos os produtos — Ecossistema SaaS LiAfrik',
+      en: 'All Products — Liafrik SaaS Ecosystem',
+      fr: 'Tous les produits — Écosystème SaaS Liafrik',
+      ar: 'كل المنتجات — نظام Liafrik المتكامل',
+      es: 'Todos los productos — Ecosistema SaaS Liafrik',
+      pt: 'Todos os produtos — Ecossistema SaaS Liafrik',
     }),
     description: pick(lang, {
-      en: 'Explore every LiAfrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — one connected ecosystem, built for the world.',
-      fr: "Découvrez toutes les applications LiAfrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — un écosystème connecté, pensé pour le monde entier.",
-      ar: 'استكشف كل تطبيقات LiAfrik: POS وSellia وCRM وAtlas وFaka وKlasoo وNutro وHealth وBailly وKolo وSkills وMafo وLiBooks وZanldo وLitrek — نظام واحد متكامل، مصمم للعالم.',
-      es: 'Explora todas las apps de LiAfrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek: un ecosistema conectado, creado para el mundo.',
-      pt: 'Explore todos os aplicativos da LiAfrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — um ecossistema conectado, criado para o mundo.',
+      en: 'Explore every Liafrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — one connected ecosystem, built for the world.',
+      fr: "Découvrez toutes les applications Liafrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — un écosystème connecté, pensé pour le monde entier.",
+      ar: 'استكشف كل تطبيقات Liafrik: POS وSellia وCRM وAtlas وFaka وKlasoo وNutro وHealth وBailly وKolo وSkills وMafo وLiBooks وZanldo وLitrek — نظام واحد متكامل، مصمم للعالم.',
+      es: 'Explora todas las apps de Liafrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek: un ecosistema conectado, creado para el mundo.',
+      pt: 'Explore todos os aplicativos da Liafrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — um ecossistema conectado, criado para o mundo.',
     }),
   });
   const [filter, setFilter] = useState<CategoryFilter>('all');

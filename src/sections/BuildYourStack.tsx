@@ -187,7 +187,7 @@ function StackOrbit({ products: mods }: { products: Product[] }) {
         transition={{ type: 'spring', stiffness: 260, damping: 18 }}
         className="relative z-10 grid place-items-center h-20 w-20 rounded-2xl bg-white shadow-glow-blue p-3"
       >
-        <img src="/images/brand/liafrik-logo.png" alt="LiAfrik" className="h-full w-full object-contain" />
+        <img src="/images/brand/liafrik-icon.png" alt="Liafrik" className="h-full w-full object-contain" />
         <motion.span
           className="absolute inset-0 rounded-2xl border-2 border-liafrik-300"
           animate={{ scale: [1, 1.25, 1], opacity: [0.6, 0, 0.6] }}

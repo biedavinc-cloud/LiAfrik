@@ -26,8 +26,8 @@ Deno.serve(async (req: Request) => {
     }
 
     const subject = form_type === "newsletter"
-      ? `[LiAfrik Newsletter] New subscription from ${name}`
-      : `[LiAfrik Contact] New message from ${name}`;
+      ? `[Liafrik Newsletter] New subscription from ${name}`
+      : `[Liafrik Contact] New message from ${name}`;
 
     const emailBody = form_type === "newsletter"
       ? `New newsletter subscription:\n\nName: ${name}\nEmail: ${email}\n`
@@ -68,7 +68,7 @@ Deno.serve(async (req: Request) => {
           "Authorization": `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
-          from: `LiAfrik <${FROM_EMAIL}>`,
+          from: `Liafrik <${FROM_EMAIL}>`,
           to: TO_EMAILS,
           reply_to: email,
           subject,

@@ -20,7 +20,7 @@ export default function ProductPage() {
   const product = getProductBySlug(slug);
 
   useSEO({
-    title: product ? `${product.name} — ${product.tagline[lang]} | LiAfrik` : 'LiAfrik',
+    title: product ? `${product.name} — ${product.tagline[lang]} | Liafrik` : 'Liafrik',
     description: product?.description[lang],
   });
 

@@ -10,15 +10,15 @@ export default function PartnersPage() {
   const { lang } = useLang();
   useSEO({
     title: pick(lang, {
-      en: 'Partners & Investors | LiAfrik', fr: 'Partenaires & Investisseurs | LiAfrik',
-      ar: 'الشركاء والمستثمرون | LiAfrik', es: 'Socios e Inversores | LiAfrik', pt: 'Parceiros e Investidores | LiAfrik',
+      en: 'Partners & Investors | Liafrik', fr: 'Partenaires & Investisseurs | Liafrik',
+      ar: 'الشركاء والمستثمرون | Liafrik', es: 'Socios e Inversores | Liafrik', pt: 'Parceiros e Investidores | Liafrik',
     }),
     description: pick(lang, {
-      en: 'Partner with LiAfrik or invest in a global SaaS ecosystem spanning commerce, hospitality, healthcare, education, finance and more.',
-      fr: "Devenez partenaire de LiAfrik ou investissez dans un écosystème SaaS mondial couvrant le commerce, l'hôtellerie, la santé, l'éducation, la finance et plus.",
-      ar: 'كن شريكاً لـ LiAfrik أو استثمر في نظام SaaS عالمي متكامل يشمل التجارة والضيافة والصحة والتعليم والتمويل وأكثر.',
-      es: 'Asóciate con LiAfrik o invierte en un ecosistema SaaS global que abarca comercio, hostelería, salud, educación, finanzas y más.',
-      pt: 'Seja parceiro da LiAfrik ou invista em um ecossistema SaaS global que abrange comércio, hotelaria, saúde, educação, finanças e mais.',
+      en: 'Partner with Liafrik or invest in a global SaaS ecosystem spanning commerce, hospitality, healthcare, education, finance and more.',
+      fr: "Devenez partenaire de Liafrik ou investissez dans un écosystème SaaS mondial couvrant le commerce, l'hôtellerie, la santé, l'éducation, la finance et plus.",
+      ar: 'كن شريكاً لـ Liafrik أو استثمر في نظام SaaS عالمي متكامل يشمل التجارة والضيافة والصحة والتعليم والتمويل وأكثر.',
+      es: 'Asóciate con Liafrik o invierte en un ecosistema SaaS global que abarca comercio, hostelería, salud, educación, finanzas y más.',
+      pt: 'Seja parceiro da Liafrik ou invista em um ecossistema SaaS global que abrange comércio, hotelaria, saúde, educação, finanças e mais.',
     }),
   });
 
@@ -49,22 +49,22 @@ export default function PartnersPage() {
       icon: Cpu,
       title: pick(lang, { en: 'Technology Partners', fr: 'Partenaires technologiques', ar: 'الشركاء التقنيون', es: 'Socios tecnológicos', pt: 'Parceiros de tecnologia' }),
       desc: pick(lang, {
-        en: 'Integrate your payment, logistics, or infrastructure services with the LiAfrik ecosystem.',
-        fr: 'Intégrez vos services de paiement, logistique ou infrastructure à l\'écosystème LiAfrik.',
-        ar: 'ادمج خدماتك في الدفع أو اللوجستيات أو البنية التحتية مع نظام LiAfrik المتكامل.',
-        es: 'Integra tus servicios de pago, logística o infraestructura con el ecosistema LiAfrik.',
-        pt: 'Integre seus serviços de pagamento, logística ou infraestrutura ao ecossistema LiAfrik.',
+        en: 'Integrate your payment, logistics, or infrastructure services with the Liafrik ecosystem.',
+        fr: 'Intégrez vos services de paiement, logistique ou infrastructure à l\'écosystème Liafrik.',
+        ar: 'ادمج خدماتك في الدفع أو اللوجستيات أو البنية التحتية مع نظام Liafrik المتكامل.',
+        es: 'Integra tus servicios de pago, logística o infraestructura con el ecosistema Liafrik.',
+        pt: 'Integre seus serviços de pagamento, logística ou infraestrutura ao ecossistema Liafrik.',
       }),
     },
     {
       icon: Building2,
       title: pick(lang, { en: 'Business Partners', fr: 'Partenaires commerciaux', ar: 'الشركاء التجاريون', es: 'Socios comerciales', pt: 'Parceiros comerciais' }),
       desc: pick(lang, {
-        en: 'Resell, implement, or bundle LiAfrik apps for your own clients and markets.',
-        fr: 'Revendez, déployez ou intégrez les applications LiAfrik pour vos propres clients et marchés.',
-        ar: 'أعد بيع أو نفّذ أو ادمج تطبيقات LiAfrik لعملائك وأسواقك الخاصة.',
-        es: 'Revende, implementa o combina las aplicaciones LiAfrik para tus propios clientes y mercados.',
-        pt: 'Revenda, implemente ou combine os aplicativos da LiAfrik para seus próprios clientes e mercados.',
+        en: 'Resell, implement, or bundle Liafrik apps for your own clients and markets.',
+        fr: 'Revendez, déployez ou intégrez les applications Liafrik pour vos propres clients et marchés.',
+        ar: 'أعد بيع أو نفّذ أو ادمج تطبيقات Liafrik لعملائك وأسواقك الخاصة.',
+        es: 'Revende, implementa o combina las aplicaciones Liafrik para tus propios clientes y mercados.',
+        pt: 'Revenda, implemente ou combine os aplicativos da Liafrik para seus próprios clientes e mercados.',
       }),
     },
   ];
@@ -75,18 +75,18 @@ export default function PartnersPage() {
         <SectionHeading
           tag={pick(lang, { en: 'Partners & Investors', fr: 'Partenaires & Investisseurs', ar: 'الشركاء والمستثمرون', es: 'Socios e Inversores', pt: 'Parceiros e Investidores' })}
           title={pick(lang, {
-            en: 'Build the future of the LiAfrik ecosystem with us',
-            fr: "Construisez l'avenir de l'écosystème LiAfrik avec nous",
-            ar: 'ابنِ مستقبل نظام LiAfrik المتكامل معنا',
-            es: 'Construye el futuro del ecosistema LiAfrik con nosotros',
-            pt: 'Construa o futuro do ecossistema LiAfrik conosco',
+            en: 'Build the future of the Liafrik ecosystem with us',
+            fr: "Construisez l'avenir de l'écosystème Liafrik avec nous",
+            ar: 'ابنِ مستقبل نظام Liafrik المتكامل معنا',
+            es: 'Construye el futuro del ecosistema Liafrik con nosotros',
+            pt: 'Construa o futuro do ecossistema Liafrik conosco',
           })}
           subtitle={pick(lang, {
-            en: 'LiAfrik is a connected ecosystem of SaaS platforms — commerce, hospitality, healthcare, education, HR, finance, real estate, restaurants and community. We work with investors, strategic and technology partners, and businesses who want to grow with us.',
-            fr: "LiAfrik est un écosystème connecté de plateformes SaaS — commerce, hôtellerie, santé, éducation, RH, finance, immobilier, restauration et communauté. Nous collaborons avec des investisseurs, des partenaires stratégiques et technologiques, et des entreprises qui veulent grandir avec nous.",
-            ar: 'LiAfrik هو نظام متكامل ومترابط من منصات SaaS — التجارة، الضيافة، الصحة، التعليم، الموارد البشرية، التمويل، العقارات، المطاعم والمجتمع. نعمل مع المستثمرين والشركاء الاستراتيجيين والتقنيين والشركات الراغبة في النمو معنا.',
-            es: 'LiAfrik es un ecosistema conectado de plataformas SaaS: comercio, hostelería, salud, educación, RR. HH., finanzas, bienes raíces, restaurantes y comunidad. Trabajamos con inversores, socios estratégicos y tecnológicos, y empresas que quieren crecer con nosotros.',
-            pt: 'A LiAfrik é um ecossistema conectado de plataformas SaaS — comércio, hotelaria, saúde, educação, RH, finanças, imóveis, restaurantes e comunidade. Trabalhamos com investidores, parceiros estratégicos e tecnológicos, e empresas que querem crescer conosco.',
+            en: 'Liafrik is a connected ecosystem of SaaS platforms — commerce, hospitality, healthcare, education, HR, finance, real estate, restaurants and community. We work with investors, strategic and technology partners, and businesses who want to grow with us.',
+            fr: "Liafrik est un écosystème connecté de plateformes SaaS — commerce, hôtellerie, santé, éducation, RH, finance, immobilier, restauration et communauté. Nous collaborons avec des investisseurs, des partenaires stratégiques et technologiques, et des entreprises qui veulent grandir avec nous.",
+            ar: 'Liafrik هو نظام متكامل ومترابط من منصات SaaS — التجارة، الضيافة، الصحة، التعليم، الموارد البشرية، التمويل، العقارات، المطاعم والمجتمع. نعمل مع المستثمرين والشركاء الاستراتيجيين والتقنيين والشركات الراغبة في النمو معنا.',
+            es: 'Liafrik es un ecosistema conectado de plataformas SaaS: comercio, hostelería, salud, educación, RR. HH., finanzas, bienes raíces, restaurantes y comunidad. Trabajamos con inversores, socios estratégicos y tecnológicos, y empresas que quieren crecer con nosotros.',
+            pt: 'A Liafrik é um ecossistema conectado de plataformas SaaS — comércio, hotelaria, saúde, educação, RH, finanças, imóveis, restaurantes e comunidade. Trabalhamos com investidores, parceiros estratégicos e tecnológicos, e empresas que querem crescer conosco.',
           })}
         />
 
@@ -117,7 +117,7 @@ export default function PartnersPage() {
           className="mt-10 rounded-3xl bg-cloud-50 border border-cloud-200 p-8"
         >
           <h3 className="font-display font-bold text-lg text-ink text-center">
-            {pick(lang, { en: 'The LiAfrik ecosystem', fr: "L'écosystème LiAfrik", ar: 'نظام LiAfrik المتكامل', es: 'El ecosistema LiAfrik', pt: 'O ecossistema LiAfrik' })}
+            {pick(lang, { en: 'The Liafrik ecosystem', fr: "L'écosystème Liafrik", ar: 'نظام Liafrik المتكامل', es: 'El ecosistema Liafrik', pt: 'O ecossistema Liafrik' })}
           </h3>
           <p className="mt-2 text-sm text-ink-muted text-center max-w-2xl mx-auto">
             {pick(lang, {
@@ -157,11 +157,11 @@ export default function PartnersPage() {
             </h3>
             <p className="mt-3 text-liafrik-100 max-w-xl mx-auto">
               {pick(lang, {
-                en: 'Tell us about your organization and how you would like to work with LiAfrik.',
-                fr: 'Parlez-nous de votre organisation et de la façon dont vous aimeriez travailler avec LiAfrik.',
-                ar: 'أخبرنا عن مؤسستك وكيف تودّ العمل مع LiAfrik.',
-                es: 'Cuéntanos sobre tu organización y cómo te gustaría trabajar con LiAfrik.',
-                pt: 'Conte-nos sobre sua organização e como você gostaria de trabalhar com a LiAfrik.',
+                en: 'Tell us about your organization and how you would like to work with Liafrik.',
+                fr: 'Parlez-nous de votre organisation et de la façon dont vous aimeriez travailler avec Liafrik.',
+                ar: 'أخبرنا عن مؤسستك وكيف تودّ العمل مع Liafrik.',
+                es: 'Cuéntanos sobre tu organización y cómo te gustaría trabajar con Liafrik.',
+                pt: 'Conte-nos sobre sua organização e como você gostaria de trabalhar com a Liafrik.',
               })}
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
@@ -169,7 +169,7 @@ export default function PartnersPage() {
                 {pick(lang, { en: 'Become a Partner', fr: 'Devenir partenaire', ar: 'كن شريكاً', es: 'Ser socio', pt: 'Seja parceiro' })}
               </AnchorButton>
               <LinkButton to="/support" variant="outline" size="lg" iconRight={<ArrowRight className="h-4 w-4" />} className="!text-white !border-white/40 hover:!bg-white/10">
-                {pick(lang, { en: 'Talk to LiAfrik', fr: 'Parler à LiAfrik', ar: 'تحدث مع LiAfrik', es: 'Hablar con LiAfrik', pt: 'Falar com a LiAfrik' })}
+                {pick(lang, { en: 'Talk to Liafrik', fr: 'Parler à Liafrik', ar: 'تحدث مع Liafrik', es: 'Hablar con Liafrik', pt: 'Falar com a Liafrik' })}
               </LinkButton>
             </div>
           </div>

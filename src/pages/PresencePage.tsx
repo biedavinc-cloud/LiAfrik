@@ -9,15 +9,15 @@ export default function PresencePage() {
   const { t, lang } = useLang();
   useSEO({
     title: pick(lang, {
-      en: 'Global Presence | LiAfrik', fr: 'Présence mondiale | LiAfrik',
-      ar: 'الحضور العالمي | LiAfrik', es: 'Presencia global | LiAfrik', pt: 'Presença global | LiAfrik',
+      en: 'Global Presence | Liafrik', fr: 'Présence mondiale | Liafrik',
+      ar: 'الحضور العالمي | Liafrik', es: 'Presencia global | Liafrik', pt: 'Presença global | Liafrik',
     }),
     description: pick(lang, {
-      en: 'LiAfrik operates from Dubai and Yaoundé, built to serve businesses across Africa and the world.',
-      fr: "LiAfrik opère depuis Dubaï et Yaoundé, conçu pour servir les entreprises à travers l'Afrique et le monde.",
-      ar: 'يعمل LiAfrik من دبي وياوندي، وقد صُمم لخدمة الشركات عبر أفريقيا والعالم.',
-      es: 'LiAfrik opera desde Dubái y Yaundé, creado para servir a empresas en toda África y el mundo.',
-      pt: 'A LiAfrik opera a partir de Dubai e Yaoundé, criada para atender empresas em toda a África e no mundo.',
+      en: 'Liafrik operates from Dubai and Yaoundé, built to serve businesses across Africa and the world.',
+      fr: "Liafrik opère depuis Dubaï et Yaoundé, conçu pour servir les entreprises à travers l'Afrique et le monde.",
+      ar: 'يعمل Liafrik من دبي وياوندي، وقد صُمم لخدمة الشركات عبر أفريقيا والعالم.',
+      es: 'Liafrik opera desde Dubái y Yaundé, creado para servir a empresas en toda África y el mundo.',
+      pt: 'A Liafrik opera a partir de Dubai e Yaoundé, criada para atender empresas em toda a África e no mundo.',
     }),
   });
 

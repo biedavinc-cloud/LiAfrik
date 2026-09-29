@@ -14,11 +14,11 @@ const sections: Section[] = [
   {
     title: { en: '1. Scope', fr: "1. Champ d'application", ar: '1. النطاق', es: '1. Alcance', pt: '1. Escopo' },
     body: {
-      en: 'This Refund Policy applies to paid subscriptions and one-time purchases made across LiAfrik platforms (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). It complements our Terms of Service.',
-      fr: "Cette Politique de remboursement s'applique aux abonnements payants et achats ponctuels effectués sur les plateformes LiAfrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). Elle complète nos Conditions d'Utilisation.",
-      ar: 'تنطبق سياسة الاسترداد هذه على الاشتراكات المدفوعة والمشتريات لمرة واحدة عبر منصات LiAfrik (Sellia وPOS وCRM وAtlas وLiBooks وFaka وHealth وMafo وKolo وBailly وSkills وKlasoo وNutro وZanldo وLitrek وHostrek). وهي تكمّل شروط الخدمة الخاصة بنا.',
-      es: 'Esta Política de reembolso se aplica a las suscripciones pagas y compras únicas realizadas en las plataformas LiAfrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). Complementa nuestros Términos de Servicio.',
-      pt: 'Esta Política de reembolso aplica-se a assinaturas pagas e compras únicas feitas nas plataformas da LiAfrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). Ela complementa nossos Termos de Serviço.',
+      en: 'This Refund Policy applies to paid subscriptions and one-time purchases made across Liafrik platforms (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). It complements our Terms of Service.',
+      fr: "Cette Politique de remboursement s'applique aux abonnements payants et achats ponctuels effectués sur les plateformes Liafrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). Elle complète nos Conditions d'Utilisation.",
+      ar: 'تنطبق سياسة الاسترداد هذه على الاشتراكات المدفوعة والمشتريات لمرة واحدة عبر منصات Liafrik (Sellia وPOS وCRM وAtlas وLiBooks وFaka وHealth وMafo وKolo وBailly وSkills وKlasoo وNutro وZanldo وLitrek وHostrek). وهي تكمّل شروط الخدمة الخاصة بنا.',
+      es: 'Esta Política de reembolso se aplica a las suscripciones pagas y compras únicas realizadas en las plataformas Liafrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). Complementa nuestros Términos de Servicio.',
+      pt: 'Esta Política de reembolso aplica-se a assinaturas pagas e compras únicas feitas nas plataformas da Liafrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). Ela complementa nossos Termos de Serviço.',
     },
   },
   {
@@ -94,11 +94,11 @@ const sections: Section[] = [
   {
     title: { en: '9. Changes to This Policy', fr: '9. Modifications de cette politique', ar: '9. تعديلات على هذه السياسة', es: '9. Cambios en esta política', pt: '9. Alterações a esta política' },
     body: {
-      en: 'We may update this Refund Policy from time to time. Material changes will be communicated through our platforms or by email. Continued use of LiAfrik after changes constitutes acceptance of the updated policy.',
-      fr: "Nous pouvons mettre à jour cette Politique de remboursement de temps à autre. Les changements importants seront communiqués via nos plateformes ou par e-mail. L'utilisation continue de LiAfrik après modification vaut acceptation de la politique mise à jour.",
-      ar: 'يجوز لنا تحديث سياسة الاسترداد هذه من وقت لآخر. سيتم إبلاغك بالتغييرات الجوهرية عبر منصاتنا أو عبر البريد الإلكتروني. يُعد استمرارك في استخدام LiAfrik بعد التعديل بمثابة موافقة على السياسة المحدَّثة.',
-      es: 'Podemos actualizar esta Política de reembolso de vez en cuando. Los cambios importantes se comunicarán a través de nuestras plataformas o por correo electrónico. El uso continuado de LiAfrik después de los cambios constituye la aceptación de la política actualizada.',
-      pt: 'Podemos atualizar esta Política de reembolso periodicamente. Alterações relevantes serão comunicadas por meio de nossas plataformas ou por e-mail. O uso contínuo da LiAfrik após as alterações constitui aceitação da política atualizada.',
+      en: 'We may update this Refund Policy from time to time. Material changes will be communicated through our platforms or by email. Continued use of Liafrik after changes constitutes acceptance of the updated policy.',
+      fr: "Nous pouvons mettre à jour cette Politique de remboursement de temps à autre. Les changements importants seront communiqués via nos plateformes ou par e-mail. L'utilisation continue de Liafrik après modification vaut acceptation de la politique mise à jour.",
+      ar: 'يجوز لنا تحديث سياسة الاسترداد هذه من وقت لآخر. سيتم إبلاغك بالتغييرات الجوهرية عبر منصاتنا أو عبر البريد الإلكتروني. يُعد استمرارك في استخدام Liafrik بعد التعديل بمثابة موافقة على السياسة المحدَّثة.',
+      es: 'Podemos actualizar esta Política de reembolso de vez en cuando. Los cambios importantes se comunicarán a través de nuestras plataformas o por correo electrónico. El uso continuado de Liafrik después de los cambios constituye la aceptación de la política actualizada.',
+      pt: 'Podemos atualizar esta Política de reembolso periodicamente. Alterações relevantes serão comunicadas por meio de nossas plataformas ou por e-mail. O uso contínuo da Liafrik após as alterações constitui aceitação da política atualizada.',
     },
   },
   {
@@ -117,15 +117,15 @@ export default function RefundPolicy() {
   const { lang } = useLang();
   useSEO({
     title: pick(lang, {
-      en: 'Refund Policy | LiAfrik', fr: 'Politique de remboursement | LiAfrik',
-      ar: 'سياسة الاسترداد | LiAfrik', es: 'Política de reembolso | LiAfrik', pt: 'Política de reembolso | LiAfrik',
+      en: 'Refund Policy | Liafrik', fr: 'Politique de remboursement | Liafrik',
+      ar: 'سياسة الاسترداد | Liafrik', es: 'Política de reembolso | Liafrik', pt: 'Política de reembolso | Liafrik',
     }),
     description: pick(lang, {
-      en: 'How refunds, cancellations, and billing disputes are handled across the LiAfrik SaaS ecosystem.',
-      fr: "Comment les remboursements, annulations et litiges de facturation sont gérés au sein de l'écosystème SaaS LiAfrik.",
-      ar: 'كيف تُدار عمليات الاسترداد والإلغاء ومنازعات الفوترة عبر نظام LiAfrik المتكامل.',
-      es: 'Cómo se gestionan los reembolsos, cancelaciones y disputas de facturación en el ecosistema SaaS LiAfrik.',
-      pt: 'Como reembolsos, cancelamentos e disputas de faturamento são tratados no ecossistema SaaS LiAfrik.',
+      en: 'How refunds, cancellations, and billing disputes are handled across the Liafrik SaaS ecosystem.',
+      fr: "Comment les remboursements, annulations et litiges de facturation sont gérés au sein de l'écosystème SaaS Liafrik.",
+      ar: 'كيف تُدار عمليات الاسترداد والإلغاء ومنازعات الفوترة عبر نظام Liafrik المتكامل.',
+      es: 'Cómo se gestionan los reembolsos, cancelaciones y disputas de facturación en el ecosistema SaaS Liafrik.',
+      pt: 'Como reembolsos, cancelamentos e disputas de faturamento são tratados no ecossistema SaaS Liafrik.',
     }),
   });
 

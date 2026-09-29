@@ -9,18 +9,18 @@ export default function FounderPage() {
   const { t, lang } = useLang();
   useSEO({
     title: pick(lang, {
-      en: 'Vincent Nogué — Founder & CEO | LiAfrik',
-      fr: 'Vincent Nogué — Fondateur et PDG | LiAfrik',
-      ar: 'فينسنت نوغيه — المؤسس والرئيس التنفيذي | LiAfrik',
-      es: 'Vincent Nogué — Fundador y CEO | LiAfrik',
-      pt: 'Vincent Nogué — Fundador e CEO | LiAfrik',
+      en: 'Vincent Nogué — Founder & CEO | Liafrik',
+      fr: 'Vincent Nogué — Fondateur et PDG | Liafrik',
+      ar: 'فينسنت نوغيه — المؤسس والرئيس التنفيذي | Liafrik',
+      es: 'Vincent Nogué — Fundador y CEO | Liafrik',
+      pt: 'Vincent Nogué — Fundador e CEO | Liafrik',
     }),
     description: pick(lang, {
-      en: 'The story behind LiAfrik: from graphic design in Cameroon to building a global SaaS ecosystem, led by founder Vincent Nogué.',
-      fr: "L'histoire derrière LiAfrik : du design graphique au Cameroun à la construction d'un écosystème SaaS mondial, menée par le fondateur Vincent Nogué.",
-      ar: 'قصة LiAfrik: من التصميم الجرافيكي في الكاميرون إلى بناء نظام SaaS عالمي متكامل، بقيادة المؤسس فينسنت نوغيه.',
-      es: 'La historia detrás de LiAfrik: del diseño gráfico en Camerún a construir un ecosistema SaaS global, liderado por el fundador Vincent Nogué.',
-      pt: 'A história por trás da LiAfrik: do design gráfico nos Camarões à construção de um ecossistema SaaS global, liderado pelo fundador Vincent Nogué.',
+      en: 'The story behind Liafrik: from graphic design in Cameroon to building a global SaaS ecosystem, led by founder Vincent Nogué.',
+      fr: "L'histoire derrière Liafrik : du design graphique au Cameroun à la construction d'un écosystème SaaS mondial, menée par le fondateur Vincent Nogué.",
+      ar: 'قصة Liafrik: من التصميم الجرافيكي في الكاميرون إلى بناء نظام SaaS عالمي متكامل، بقيادة المؤسس فينسنت نوغيه.',
+      es: 'La historia detrás de Liafrik: del diseño gráfico en Camerún a construir un ecosistema SaaS global, liderado por el fundador Vincent Nogué.',
+      pt: 'A história por trás da Liafrik: do design gráfico nos Camarões à construção de um ecossistema SaaS global, liderado pelo fundador Vincent Nogué.',
     }),
   });
 
@@ -54,11 +54,11 @@ export default function FounderPage() {
       pt: 'Reestruturou e expandiu as operações da LIYAH GROUP em Abu Dhabi, EAU',
     }) },
     { year: '2025', text: pick(lang, {
-      en: 'Launched LiAfrik with the full suite of SaaS platforms in Dubai, UAE',
-      fr: "Lancement de LiAfrik avec l'ensemble des plateformes SaaS à Dubaï, EAU",
-      ar: 'أطلق LiAfrik بمجموعته الكاملة من منصات SaaS في دبي، الإمارات',
-      es: 'Lanzó LiAfrik con la suite completa de plataformas SaaS en Dubái, EAU',
-      pt: 'Lançou a LiAfrik com o conjunto completo de plataformas SaaS em Dubai, EAU',
+      en: 'Launched Liafrik with the full suite of SaaS platforms in Dubai, UAE',
+      fr: "Lancement de Liafrik avec l'ensemble des plateformes SaaS à Dubaï, EAU",
+      ar: 'أطلق Liafrik بمجموعته الكاملة من منصات SaaS في دبي، الإمارات',
+      es: 'Lanzó Liafrik con la suite completa de plataformas SaaS en Dubái, EAU',
+      pt: 'Lançou a Liafrik com o conjunto completo de plataformas SaaS em Dubai, EAU',
     }) },
   ];
 
@@ -85,7 +85,7 @@ export default function FounderPage() {
             <div className="h-32 w-32 sm:h-40 sm:w-40 rounded-3xl overflow-hidden ring-4 ring-liafrik-100 shadow-glow-blue">
               <img
                 src="/images/founder/IMG_6290.JPG"
-                alt="Vincent Nogue — CEO & Founder of LiAfrik"
+                alt="Vincent Nogue — CEO & Founder of Liafrik"
                 className="h-full w-full object-cover object-top"
               />
             </div>
@@ -93,15 +93,15 @@ export default function FounderPage() {
           </div>
           <div className="text-center sm:text-left">
             <h3 className="font-display font-bold text-2xl sm:text-3xl text-ink">Vincent Nogue</h3>
-            <p className="text-sm font-medium text-liafrik-700 mt-1">{pick(lang, { en: 'CEO & Founder of LiAfrik', fr: 'CEO & Fondateur de LiAfrik', ar: 'الرئيس التنفيذي ومؤسس LiAfrik', es: 'CEO y fundador de LiAfrik', pt: 'CEO e fundador da LiAfrik' })}</p>
+            <p className="text-sm font-medium text-liafrik-700 mt-1">{pick(lang, { en: 'CEO & Founder of Liafrik', fr: 'CEO & Fondateur de Liafrik', ar: 'الرئيس التنفيذي ومؤسس Liafrik', es: 'CEO y fundador de Liafrik', pt: 'CEO e fundador da Liafrik' })}</p>
             <p className="mt-1 text-xs text-ink-light uppercase tracking-wider">{pick(lang, { en: 'Dubai, UAE · Yaoundé, Cameroon', fr: 'Dubaï, EAU · Yaoundé, Cameroun', ar: 'دبي، الإمارات · ياوندي، الكاميرون', es: 'Dubái, EAU · Yaundé, Camerún', pt: 'Dubai, EAU · Yaoundé, Camarões' })}</p>
             <p className="mt-4 text-sm text-ink-muted leading-relaxed max-w-md">
               {pick(lang, {
-                en: 'A designer-turned-developer-turned-founder, Vincent built LiAfrik from a conviction: technology with African roots can serve the world. Over 12 years building digital products, he combined his background in design, e-commerce, and engineering to create an ecosystem that works for any ambitious business, anywhere.',
-                fr: "Designer devenu développeur devenu fondateur, Vincent a construit LiAfrik avec une conviction : la technologie née en Afrique peut servir le monde. En plus de 12 ans à construire des produits numériques, il a combiné son expérience en design, e-commerce et ingénierie pour créer un écosystème qui fonctionne pour toute entreprise ambitieuse, partout.",
-                ar: 'مصمم تحوّل إلى مطوّر ثم إلى مؤسس، بنى فينسنت LiAfrik انطلاقاً من قناعة راسخة: أن التقنية ذات الجذور الأفريقية يمكنها خدمة العالم. على مدى أكثر من 12 عاماً في بناء المنتجات الرقمية، جمع بين خبرته في التصميم والتجارة الإلكترونية والهندسة ليصنع نظاماً متكاملاً يخدم أي عمل طموح، في أي مكان.',
-                es: 'Diseñador convertido en desarrollador y luego en fundador, Vincent construyó LiAfrik a partir de una convicción: la tecnología con raíces africanas puede servir al mundo. Con más de 12 años creando productos digitales, combinó su experiencia en diseño, comercio electrónico e ingeniería para crear un ecosistema que funciona para cualquier negocio ambicioso, en cualquier lugar.',
-                pt: 'De designer a desenvolvedor e depois fundador, Vincent construiu a LiAfrik a partir de uma convicção: a tecnologia com raízes africanas pode servir o mundo. Com mais de 12 anos construindo produtos digitais, ele combinou sua experiência em design, e-commerce e engenharia para criar um ecossistema que funciona para qualquer negócio ambicioso, em qualquer lugar.',
+                en: 'A designer-turned-developer-turned-founder, Vincent built Liafrik from a conviction: technology with African roots can serve the world. Over 12 years building digital products, he combined his background in design, e-commerce, and engineering to create an ecosystem that works for any ambitious business, anywhere.',
+                fr: "Designer devenu développeur devenu fondateur, Vincent a construit Liafrik avec une conviction : la technologie née en Afrique peut servir le monde. En plus de 12 ans à construire des produits numériques, il a combiné son expérience en design, e-commerce et ingénierie pour créer un écosystème qui fonctionne pour toute entreprise ambitieuse, partout.",
+                ar: 'مصمم تحوّل إلى مطوّر ثم إلى مؤسس، بنى فينسنت Liafrik انطلاقاً من قناعة راسخة: أن التقنية ذات الجذور الأفريقية يمكنها خدمة العالم. على مدى أكثر من 12 عاماً في بناء المنتجات الرقمية، جمع بين خبرته في التصميم والتجارة الإلكترونية والهندسة ليصنع نظاماً متكاملاً يخدم أي عمل طموح، في أي مكان.',
+                es: 'Diseñador convertido en desarrollador y luego en fundador, Vincent construyó Liafrik a partir de una convicción: la tecnología con raíces africanas puede servir al mundo. Con más de 12 años creando productos digitales, combinó su experiencia en diseño, comercio electrónico e ingeniería para crear un ecosistema que funciona para cualquier negocio ambicioso, en cualquier lugar.',
+                pt: 'De designer a desenvolvedor e depois fundador, Vincent construiu a Liafrik a partir de uma convicção: a tecnologia com raízes africanas pode servir o mundo. Com mais de 12 anos construindo produtos digitais, ele combinou sua experiência em design, e-commerce e engenharia para criar um ecossistema que funciona para qualquer negócio ambicioso, em qualquer lugar.',
               })}
             </p>
           </div>
@@ -191,11 +191,11 @@ export default function FounderPage() {
             </h3>
             <p className="mt-4 text-liafrik-100 max-w-2xl mx-auto leading-relaxed">
               {pick(lang, {
-                en: 'LiAfrik was built from the belief that powerful, elegant software should not be the privilege of any single continent. Every platform in the ecosystem reflects the real problems Vincent encountered across Africa and the Middle East — and the conviction that they deserve world-class solutions.',
-                fr: "LiAfrik a été construit avec la conviction que des logiciels puissants et élégants ne devraient pas être le privilège d'un seul continent. Chaque plateforme de l'écosystème reflète des problèmes réels rencontrés en Afrique et au Moyen-Orient — et la conviction qu'ils méritent des solutions de classe mondiale.",
-                ar: 'بُني LiAfrik انطلاقاً من قناعة بأن البرمجيات القوية والأنيقة لا ينبغي أن تكون امتيازاً لقارة واحدة فقط. تعكس كل منصة في هذا النظام المتكامل مشكلات حقيقية واجهها فينسنت في أفريقيا والشرق الأوسط — وقناعة بأنها تستحق حلولاً عالمية المستوى.',
-                es: 'LiAfrik se construyó a partir de la convicción de que un software potente y elegante no debería ser el privilegio de un solo continente. Cada plataforma del ecosistema refleja los problemas reales que Vincent encontró en África y Oriente Medio, y la convicción de que merecen soluciones de clase mundial.',
-                pt: 'A LiAfrik foi construída a partir da crença de que um software poderoso e elegante não deveria ser privilégio de um único continente. Cada plataforma do ecossistema reflete os problemas reais que Vincent encontrou na África e no Oriente Médio — e a convicção de que eles merecem soluções de classe mundial.',
+                en: 'Liafrik was built from the belief that powerful, elegant software should not be the privilege of any single continent. Every platform in the ecosystem reflects the real problems Vincent encountered across Africa and the Middle East — and the conviction that they deserve world-class solutions.',
+                fr: "Liafrik a été construit avec la conviction que des logiciels puissants et élégants ne devraient pas être le privilège d'un seul continent. Chaque plateforme de l'écosystème reflète des problèmes réels rencontrés en Afrique et au Moyen-Orient — et la conviction qu'ils méritent des solutions de classe mondiale.",
+                ar: 'بُني Liafrik انطلاقاً من قناعة بأن البرمجيات القوية والأنيقة لا ينبغي أن تكون امتيازاً لقارة واحدة فقط. تعكس كل منصة في هذا النظام المتكامل مشكلات حقيقية واجهها فينسنت في أفريقيا والشرق الأوسط — وقناعة بأنها تستحق حلولاً عالمية المستوى.',
+                es: 'Liafrik se construyó a partir de la convicción de que un software potente y elegante no debería ser el privilegio de un solo continente. Cada plataforma del ecosistema refleja los problemas reales que Vincent encontró en África y Oriente Medio, y la convicción de que merecen soluciones de clase mundial.',
+                pt: 'A Liafrik foi construída a partir da crença de que um software poderoso e elegante não deveria ser privilégio de um único continente. Cada plataforma do ecossistema reflete os problemas reais que Vincent encontrou na África e no Oriente Médio — e a convicção de que eles merecem soluções de classe mundial.',
               })}
             </p>
           </div>

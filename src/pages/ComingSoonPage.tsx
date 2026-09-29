@@ -23,15 +23,15 @@ export default function ComingSoonPage() {
     product
       ? {
           title: pick(lang, {
-            en: `${product.name} — Coming Soon | LiAfrik`,
-            fr: `${product.name} — Bientôt disponible | LiAfrik`,
-            ar: `${product.name} — قريباً | LiAfrik`,
-            es: `${product.name} — Próximamente | LiAfrik`,
-            pt: `${product.name} — Em breve | LiAfrik`,
+            en: `${product.name} — Coming Soon | Liafrik`,
+            fr: `${product.name} — Bientôt disponible | Liafrik`,
+            ar: `${product.name} — قريباً | Liafrik`,
+            es: `${product.name} — Próximamente | Liafrik`,
+            pt: `${product.name} — Em breve | Liafrik`,
           }),
           description: product.description[lang],
         }
-      : { title: 'LiAfrik', noindex: true }
+      : { title: 'Liafrik', noindex: true }
   );
 
   if (!product || product.available) {

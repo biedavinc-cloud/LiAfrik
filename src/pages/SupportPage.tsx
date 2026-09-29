@@ -13,13 +13,13 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 export default function SupportPage() {
   const { t, lang } = useLang();
   useSEO({
-    title: 'Support | LiAfrik',
+    title: 'Support | Liafrik',
     description: pick(lang, {
-      en: 'Get help from the LiAfrik team — customer support, customer service, and general inquiries for every app in the ecosystem.',
-      fr: "Obtenez de l'aide de l'équipe LiAfrik — support client, service client et demandes générales pour chaque application de l'écosystème.",
-      ar: 'احصل على المساعدة من فريق LiAfrik — دعم العملاء، وخدمة العملاء، والاستفسارات العامة لكل تطبيق في النظام المتكامل.',
-      es: 'Obtén ayuda del equipo de LiAfrik: soporte técnico, atención al cliente y consultas generales para cada app del ecosistema.',
-      pt: 'Obtenha ajuda da equipe da LiAfrik — suporte ao cliente, atendimento ao cliente e perguntas gerais para cada aplicativo do ecossistema.',
+      en: 'Get help from the Liafrik team — customer support, customer service, and general inquiries for every app in the ecosystem.',
+      fr: "Obtenez de l'aide de l'équipe Liafrik — support client, service client et demandes générales pour chaque application de l'écosystème.",
+      ar: 'احصل على المساعدة من فريق Liafrik — دعم العملاء، وخدمة العملاء، والاستفسارات العامة لكل تطبيق في النظام المتكامل.',
+      es: 'Obtén ayuda del equipo de Liafrik: soporte técnico, atención al cliente y consultas generales para cada app del ecosistema.',
+      pt: 'Obtenha ajuda da equipe da Liafrik — suporte ao cliente, atendimento ao cliente e perguntas gerais para cada aplicativo do ecossistema.',
     }),
   });
   const [status, setStatus] = useState<Status>('idle');

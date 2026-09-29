@@ -12,15 +12,15 @@ export default function SecurityPage() {
   const { t, lang } = useLang();
   useSEO({
     title: pick(lang, {
-      en: 'Security & Trust | LiAfrik', fr: 'Sécurité et confiance | LiAfrik',
-      ar: 'الأمان والثقة | LiAfrik', es: 'Seguridad y confianza | LiAfrik', pt: 'Segurança e confiança | LiAfrik',
+      en: 'Security & Trust | Liafrik', fr: 'Sécurité et confiance | Liafrik',
+      ar: 'الأمان والثقة | Liafrik', es: 'Seguridad y confianza | Liafrik', pt: 'Segurança e confiança | Liafrik',
     }),
     description: pick(lang, {
-      en: 'How LiAfrik protects your data: strict multi-tenant isolation, encryption, cloud infrastructure, backups, and role-based access across every app.',
-      fr: "Comment LiAfrik protège vos données : isolation stricte multi-tenant, chiffrement, infrastructure cloud, sauvegardes, et accès par rôle sur chaque application.",
-      ar: 'كيف يحمي LiAfrik بياناتك: عزل صارم متعدد المستأجرين، تشفير، بنية تحتية سحابية، نسخ احتياطي، ووصول قائم على الأدوار عبر كل تطبيق.',
-      es: 'Cómo LiAfrik protege tus datos: aislamiento estricto multi-tenant, cifrado, infraestructura en la nube, copias de seguridad y acceso basado en roles en cada app.',
-      pt: 'Como a LiAfrik protege seus dados: isolamento rigoroso multi-tenant, criptografia, infraestrutura em nuvem, backups e acesso baseado em função em cada aplicativo.',
+      en: 'How Liafrik protects your data: strict multi-tenant isolation, encryption, cloud infrastructure, backups, and role-based access across every app.',
+      fr: "Comment Liafrik protège vos données : isolation stricte multi-tenant, chiffrement, infrastructure cloud, sauvegardes, et accès par rôle sur chaque application.",
+      ar: 'كيف يحمي Liafrik بياناتك: عزل صارم متعدد المستأجرين، تشفير، بنية تحتية سحابية، نسخ احتياطي، ووصول قائم على الأدوار عبر كل تطبيق.',
+      es: 'Cómo Liafrik protege tus datos: aislamiento estricto multi-tenant, cifrado, infraestructura en la nube, copias de seguridad y acceso basado en roles en cada app.',
+      pt: 'Como a Liafrik protege seus dados: isolamento rigoroso multi-tenant, criptografia, infraestrutura em nuvem, backups e acesso baseado em função em cada aplicativo.',
     }),
   });
 
@@ -87,11 +87,11 @@ export default function SecurityPage() {
 
         <p className="mt-10 text-center text-xs text-ink-light max-w-2xl mx-auto">
           {pick(lang, {
-            en: 'LiAfrik is designed with strong data protection and privacy practices in mind. Specific compliance certifications will be documented here as they are verified.',
-            fr: "LiAfrik est conçu avec de solides pratiques de protection des données et de confidentialité. Les certifications de conformité spécifiques seront documentées ici dès qu'elles seront vérifiées.",
-            ar: 'صُمم LiAfrik وفق ممارسات صارمة لحماية البيانات والخصوصية. سيتم توثيق شهادات الامتثال المحددة هنا فور التحقق منها.',
-            es: 'LiAfrik está diseñado con sólidas prácticas de protección de datos y privacidad. Las certificaciones de cumplimiento específicas se documentarán aquí a medida que se verifiquen.',
-            pt: 'A LiAfrik é projetada com fortes práticas de proteção de dados e privacidade. Certificações de conformidade específicas serão documentadas aqui à medida que forem verificadas.',
+            en: 'Liafrik is designed with strong data protection and privacy practices in mind. Specific compliance certifications will be documented here as they are verified.',
+            fr: "Liafrik est conçu avec de solides pratiques de protection des données et de confidentialité. Les certifications de conformité spécifiques seront documentées ici dès qu'elles seront vérifiées.",
+            ar: 'صُمم Liafrik وفق ممارسات صارمة لحماية البيانات والخصوصية. سيتم توثيق شهادات الامتثال المحددة هنا فور التحقق منها.',
+            es: 'Liafrik está diseñado con sólidas prácticas de protección de datos y privacidad. Las certificaciones de cumplimiento específicas se documentarán aquí a medida que se verifiquen.',
+            pt: 'A Liafrik é projetada com fortes práticas de proteção de dados e privacidade. Certificações de conformidade específicas serão documentadas aqui à medida que forem verificadas.',
           })}
         </p>
       </div>

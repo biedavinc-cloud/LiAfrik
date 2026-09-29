@@ -59,8 +59,8 @@ const { products } = await import(`${tmpProductsPath}?t=${Date.now()}`);
 const STATIC_PAGES = {
   '': {
     title: {
-      en: 'LiAfrik — Global SaaS Ecosystem', fr: 'LiAfrik — Écosystème SaaS mondial',
-      ar: 'LiAfrik — نظام SaaS عالمي متكامل', es: 'LiAfrik — Ecosistema SaaS global', pt: 'LiAfrik — Ecossistema SaaS global',
+      en: 'Liafrik — Global SaaS Ecosystem', fr: 'Liafrik — Écosystème SaaS mondial',
+      ar: 'Liafrik — نظام SaaS عالمي متكامل', es: 'Liafrik — Ecosistema SaaS global', pt: 'Liafrik — Ecossistema SaaS global',
     },
     h1: {
       en: 'One Ecosystem. Powerful SaaS. Built for the World.',
@@ -70,137 +70,137 @@ const STATIC_PAGES = {
       pt: 'Um ecossistema. SaaS poderosos. Criado para o mundo.',
     },
     desc: {
-      en: 'LiAfrik — a global SaaS ecosystem. African roots, global vision. One connected platform for commerce, healthcare, education, HR, finance and more.',
-      fr: "LiAfrik — un écosystème SaaS mondial. Racines africaines, vision globale. Une plateforme connectée pour le commerce, la santé, l'éducation, les RH, la finance et plus.",
-      ar: 'LiAfrik — نظام SaaS عالمي متكامل. جذور أفريقية، رؤية عالمية. منصة واحدة متصلة للتجارة والصحة والتعليم والموارد البشرية والتمويل وأكثر.',
-      es: 'LiAfrik: un ecosistema SaaS global. Raíces africanas, visión global. Una plataforma conectada para comercio, salud, educación, RR. HH., finanzas y más.',
-      pt: 'LiAfrik — um ecossistema SaaS global. Raízes africanas, visão global. Uma plataforma conectada para comércio, saúde, educação, RH, finanças e mais.',
+      en: 'Liafrik — a global SaaS ecosystem. African roots, global vision. One connected platform for commerce, healthcare, education, HR, finance and more.',
+      fr: "Liafrik — un écosystème SaaS mondial. Racines africaines, vision globale. Une plateforme connectée pour le commerce, la santé, l'éducation, les RH, la finance et plus.",
+      ar: 'Liafrik — نظام SaaS عالمي متكامل. جذور أفريقية، رؤية عالمية. منصة واحدة متصلة للتجارة والصحة والتعليم والموارد البشرية والتمويل وأكثر.',
+      es: 'Liafrik: un ecosistema SaaS global. Raíces africanas, visión global. Una plataforma conectada para comercio, salud, educación, RR. HH., finanzas y más.',
+      pt: 'Liafrik — um ecossistema SaaS global. Raízes africanas, visão global. Uma plataforma conectada para comércio, saúde, educação, RH, finanças e mais.',
     },
   },
   products: {
     title: {
-      en: 'All Products — LiAfrik SaaS Ecosystem', fr: 'Tous les produits — Écosystème SaaS LiAfrik',
-      ar: 'كل المنتجات — نظام LiAfrik المتكامل', es: 'Todos los productos — Ecosistema SaaS LiAfrik', pt: 'Todos os produtos — Ecossistema SaaS LiAfrik',
+      en: 'All Products — Liafrik SaaS Ecosystem', fr: 'Tous les produits — Écosystème SaaS Liafrik',
+      ar: 'كل المنتجات — نظام Liafrik المتكامل', es: 'Todos los productos — Ecosistema SaaS Liafrik', pt: 'Todos os produtos — Ecossistema SaaS Liafrik',
     },
     h1: {
-      en: 'Explore every LiAfrik platform', fr: 'Explorez chaque plateforme LiAfrik',
-      ar: 'استكشف كل منصات LiAfrik', es: 'Explora todas las plataformas LiAfrik', pt: 'Explore todas as plataformas LiAfrik',
+      en: 'Explore every Liafrik platform', fr: 'Explorez chaque plateforme Liafrik',
+      ar: 'استكشف كل منصات Liafrik', es: 'Explora todas las plataformas Liafrik', pt: 'Explore todas as plataformas Liafrik',
     },
     desc: {
-      en: 'Explore every LiAfrik app: POS, CRM, Nutro, Health, LiBooks, Atlas and more — one connected ecosystem, built for the world.',
-      fr: "Découvrez toutes les applications LiAfrik : POS, CRM, Nutro, Health, LiBooks, Atlas et plus — un écosystème connecté, pensé pour le monde.",
-      ar: 'استكشف كل تطبيقات LiAfrik: POS وCRM وNutro وHealth وLiBooks وAtlas وأكثر — نظام واحد متكامل، مصمم للعالم.',
-      es: 'Explora todas las apps de LiAfrik: POS, CRM, Nutro, Health, LiBooks, Atlas y más: un ecosistema conectado, creado para el mundo.',
-      pt: 'Explore todos os aplicativos da LiAfrik: POS, CRM, Nutro, Health, LiBooks, Atlas e mais — um ecossistema conectado, criado para o mundo.',
+      en: 'Explore every Liafrik app: POS, CRM, Nutro, Health, LiBooks, Atlas and more — one connected ecosystem, built for the world.',
+      fr: "Découvrez toutes les applications Liafrik : POS, CRM, Nutro, Health, LiBooks, Atlas et plus — un écosystème connecté, pensé pour le monde.",
+      ar: 'استكشف كل تطبيقات Liafrik: POS وCRM وNutro وHealth وLiBooks وAtlas وأكثر — نظام واحد متكامل، مصمم للعالم.',
+      es: 'Explora todas las apps de Liafrik: POS, CRM, Nutro, Health, LiBooks, Atlas y más: un ecosistema conectado, creado para el mundo.',
+      pt: 'Explore todos os aplicativos da Liafrik: POS, CRM, Nutro, Health, LiBooks, Atlas e mais — um ecossistema conectado, criado para o mundo.',
     },
   },
   founder: {
     title: {
-      en: 'Vincent Nogué — Founder & CEO | LiAfrik', fr: 'Vincent Nogué — Fondateur et PDG | LiAfrik',
-      ar: 'فينسنت نوغيه — المؤسس والرئيس التنفيذي | LiAfrik', es: 'Vincent Nogué — Fundador y CEO | LiAfrik', pt: 'Vincent Nogué — Fundador e CEO | LiAfrik',
+      en: 'Vincent Nogué — Founder & CEO | Liafrik', fr: 'Vincent Nogué — Fondateur et PDG | Liafrik',
+      ar: 'فينسنت نوغيه — المؤسس والرئيس التنفيذي | Liafrik', es: 'Vincent Nogué — Fundador y CEO | Liafrik', pt: 'Vincent Nogué — Fundador e CEO | Liafrik',
     },
     h1: {
-      en: 'The vision behind LiAfrik', fr: 'La vision derrière LiAfrik',
-      ar: 'الرؤية وراء LiAfrik', es: 'La visión detrás de LiAfrik', pt: 'A visão por trás da LiAfrik',
+      en: 'The vision behind Liafrik', fr: 'La vision derrière Liafrik',
+      ar: 'الرؤية وراء Liafrik', es: 'La visión detrás de Liafrik', pt: 'A visão por trás da Liafrik',
     },
     desc: {
-      en: 'The story behind LiAfrik: from graphic design in Cameroon to building a global SaaS ecosystem, led by founder Vincent Nogué.',
-      fr: "L'histoire derrière LiAfrik : du design graphique au Cameroun à la construction d'un écosystème SaaS mondial.",
-      ar: 'قصة LiAfrik: من التصميم الجرافيكي في الكاميرون إلى بناء نظام SaaS عالمي متكامل.',
-      es: 'La historia detrás de LiAfrik: del diseño gráfico en Camerún a construir un ecosistema SaaS global.',
-      pt: 'A história por trás da LiAfrik: do design gráfico nos Camarões à construção de um ecossistema SaaS global.',
+      en: 'The story behind Liafrik: from graphic design in Cameroon to building a global SaaS ecosystem, led by founder Vincent Nogué.',
+      fr: "L'histoire derrière Liafrik : du design graphique au Cameroun à la construction d'un écosystème SaaS mondial.",
+      ar: 'قصة Liafrik: من التصميم الجرافيكي في الكاميرون إلى بناء نظام SaaS عالمي متكامل.',
+      es: 'La historia detrás de Liafrik: del diseño gráfico en Camerún a construir un ecosistema SaaS global.',
+      pt: 'A história por trás da Liafrik: do design gráfico nos Camarões à construção de um ecossistema SaaS global.',
     },
   },
   presence: {
     title: {
-      en: 'Global Presence | LiAfrik', fr: 'Présence mondiale | LiAfrik',
-      ar: 'الحضور العالمي | LiAfrik', es: 'Presencia global | LiAfrik', pt: 'Presença global | LiAfrik',
+      en: 'Global Presence | Liafrik', fr: 'Présence mondiale | Liafrik',
+      ar: 'الحضور العالمي | Liafrik', es: 'Presencia global | Liafrik', pt: 'Presença global | Liafrik',
     },
     h1: { en: 'Where we are', fr: 'Où nous sommes', ar: 'أين نحن', es: 'Dónde estamos', pt: 'Onde estamos' },
     desc: {
-      en: 'LiAfrik operates from Dubai and Yaoundé, built to serve businesses across Africa and the world.',
-      fr: "LiAfrik opère depuis Dubaï et Yaoundé, conçu pour servir les entreprises à travers l'Afrique et le monde.",
-      ar: 'يعمل LiAfrik من دبي وياوندي، وقد صُمم لخدمة الشركات عبر أفريقيا والعالم.',
-      es: 'LiAfrik opera desde Dubái y Yaundé, creado para servir a empresas en toda África y el mundo.',
-      pt: 'A LiAfrik opera a partir de Dubai e Yaoundé, criada para atender empresas em toda a África e no mundo.',
+      en: 'Liafrik operates from Dubai and Yaoundé, built to serve businesses across Africa and the world.',
+      fr: "Liafrik opère depuis Dubaï et Yaoundé, conçu pour servir les entreprises à travers l'Afrique et le monde.",
+      ar: 'يعمل Liafrik من دبي وياوندي، وقد صُمم لخدمة الشركات عبر أفريقيا والعالم.',
+      es: 'Liafrik opera desde Dubái y Yaundé, creado para servir a empresas en toda África y el mundo.',
+      pt: 'A Liafrik opera a partir de Dubai e Yaoundé, criada para atender empresas em toda a África e no mundo.',
     },
   },
   security: {
     title: {
-      en: 'Security & Trust | LiAfrik', fr: 'Sécurité et confiance | LiAfrik',
-      ar: 'الأمان والثقة | LiAfrik', es: 'Seguridad y confianza | LiAfrik', pt: 'Segurança e confiança | LiAfrik',
+      en: 'Security & Trust | Liafrik', fr: 'Sécurité et confiance | Liafrik',
+      ar: 'الأمان والثقة | Liafrik', es: 'Seguridad y confianza | Liafrik', pt: 'Segurança e confiança | Liafrik',
     },
     h1: {
       en: 'Security at the core of everything we build', fr: 'La sécurité au cœur de tout ce que nous construisons',
       ar: 'الأمان في صميم كل ما نبنيه', es: 'La seguridad en el centro de todo lo que construimos', pt: 'A segurança no centro de tudo o que construímos',
     },
     desc: {
-      en: 'How LiAfrik protects your data: strict multi-tenant isolation, encryption, cloud infrastructure, backups, and role-based access across every app.',
-      fr: "Comment LiAfrik protège vos données : isolation stricte multi-tenant, chiffrement, infrastructure cloud, sauvegardes.",
-      ar: 'كيف يحمي LiAfrik بياناتك: عزل صارم متعدد المستأجرين، تشفير، بنية تحتية سحابية، نسخ احتياطي.',
-      es: 'Cómo LiAfrik protege tus datos: aislamiento estricto multi-tenant, cifrado, infraestructura en la nube, copias de seguridad.',
-      pt: 'Como a LiAfrik protege seus dados: isolamento rigoroso multi-tenant, criptografia, infraestrutura em nuvem, backups.',
+      en: 'How Liafrik protects your data: strict multi-tenant isolation, encryption, cloud infrastructure, backups, and role-based access across every app.',
+      fr: "Comment Liafrik protège vos données : isolation stricte multi-tenant, chiffrement, infrastructure cloud, sauvegardes.",
+      ar: 'كيف يحمي Liafrik بياناتك: عزل صارم متعدد المستأجرين، تشفير، بنية تحتية سحابية، نسخ احتياطي.',
+      es: 'Cómo Liafrik protege tus datos: aislamiento estricto multi-tenant, cifrado, infraestructura en la nube, copias de seguridad.',
+      pt: 'Como a Liafrik protege seus dados: isolamento rigoroso multi-tenant, criptografia, infraestrutura em nuvem, backups.',
     },
   },
   support: {
-    title: { en: 'Support | LiAfrik', fr: 'Support | LiAfrik', ar: 'الدعم | LiAfrik', es: 'Soporte | LiAfrik', pt: 'Suporte | LiAfrik' },
+    title: { en: 'Support | Liafrik', fr: 'Support | Liafrik', ar: 'الدعم | Liafrik', es: 'Soporte | Liafrik', pt: 'Suporte | Liafrik' },
     h1: {
       en: 'We are here to help', fr: 'Nous sommes là pour vous aider',
       ar: 'نحن هنا لمساعدتك', es: 'Estamos aquí para ayudarte', pt: 'Estamos aqui para ajudar',
     },
     desc: {
-      en: 'Get help from the LiAfrik team — customer support, customer service, and general inquiries for every app in the ecosystem.',
-      fr: "Obtenez de l'aide de l'équipe LiAfrik — support client, service client et demandes générales.",
-      ar: 'احصل على المساعدة من فريق LiAfrik — دعم العملاء والاستفسارات العامة.',
-      es: 'Obtén ayuda del equipo de LiAfrik: soporte técnico, atención al cliente y consultas generales.',
-      pt: 'Obtenha ajuda da equipe da LiAfrik — suporte ao cliente e perguntas gerais.',
+      en: 'Get help from the Liafrik team — customer support, customer service, and general inquiries for every app in the ecosystem.',
+      fr: "Obtenez de l'aide de l'équipe Liafrik — support client, service client et demandes générales.",
+      ar: 'احصل على المساعدة من فريق Liafrik — دعم العملاء والاستفسارات العامة.',
+      es: 'Obtén ayuda del equipo de Liafrik: soporte técnico, atención al cliente y consultas generales.',
+      pt: 'Obtenha ajuda da equipe da Liafrik — suporte ao cliente e perguntas gerais.',
     },
   },
   privacy: {
     title: {
-      en: 'Privacy Policy | LiAfrik', fr: 'Politique de confidentialité | LiAfrik',
-      ar: 'سياسة الخصوصية | LiAfrik', es: 'Política de privacidad | LiAfrik', pt: 'Política de privacidade | LiAfrik',
+      en: 'Privacy Policy | Liafrik', fr: 'Politique de confidentialité | Liafrik',
+      ar: 'سياسة الخصوصية | Liafrik', es: 'Política de privacidad | Liafrik', pt: 'Política de privacidade | Liafrik',
     },
     h1: {
       en: 'Privacy Policy', fr: 'Politique de Confidentialité', ar: 'سياسة الخصوصية',
       es: 'Política de Privacidad', pt: 'Política de Privacidade',
     },
     desc: {
-      en: 'How LiAfrik collects, uses, and protects your data across every app in the ecosystem, with strict multi-tenant data isolation.',
-      fr: "Comment LiAfrik collecte, utilise et protège vos données à travers chaque application de l'écosystème.",
-      ar: 'كيف يجمع LiAfrik بياناتك ويستخدمها ويحميها عبر كل تطبيق في النظام المتكامل.',
-      es: 'Cómo LiAfrik recopila, usa y protege tus datos en cada app del ecosistema.',
-      pt: 'Como a LiAfrik coleta, usa e protege seus dados em cada aplicativo do ecossistema.',
+      en: 'How Liafrik collects, uses, and protects your data across every app in the ecosystem, with strict multi-tenant data isolation.',
+      fr: "Comment Liafrik collecte, utilise et protège vos données à travers chaque application de l'écosystème.",
+      ar: 'كيف يجمع Liafrik بياناتك ويستخدمها ويحميها عبر كل تطبيق في النظام المتكامل.',
+      es: 'Cómo Liafrik recopila, usa y protege tus datos en cada app del ecosistema.',
+      pt: 'Como a Liafrik coleta, usa e protege seus dados em cada aplicativo do ecossistema.',
     },
   },
   terms: {
     title: {
-      en: 'Terms of Service | LiAfrik', fr: "Conditions d'utilisation | LiAfrik",
-      ar: 'شروط الخدمة | LiAfrik', es: 'Términos de servicio | LiAfrik', pt: 'Termos de serviço | LiAfrik',
+      en: 'Terms of Service | Liafrik', fr: "Conditions d'utilisation | Liafrik",
+      ar: 'شروط الخدمة | Liafrik', es: 'Términos de servicio | Liafrik', pt: 'Termos de serviço | Liafrik',
     },
     h1: {
       en: 'Terms of Service', fr: "Conditions d'Utilisation", ar: 'شروط الخدمة',
       es: 'Términos de servicio', pt: 'Termos de serviço',
     },
     desc: {
-      en: 'The terms governing your use of the LiAfrik SaaS ecosystem — accounts, acceptable use, subscriptions, and liability.',
-      fr: "Les conditions régissant votre utilisation de l'écosystème SaaS LiAfrik.",
-      ar: 'الشروط الحاكمة لاستخدامك لنظام LiAfrik المتكامل.',
-      es: 'Los términos que rigen el uso del ecosistema SaaS LiAfrik.',
-      pt: 'Os termos que regem o uso do ecossistema SaaS LiAfrik.',
+      en: 'The terms governing your use of the Liafrik SaaS ecosystem — accounts, acceptable use, subscriptions, and liability.',
+      fr: "Les conditions régissant votre utilisation de l'écosystème SaaS Liafrik.",
+      ar: 'الشروط الحاكمة لاستخدامك لنظام Liafrik المتكامل.',
+      es: 'Los términos que rigen el uso del ecosistema SaaS Liafrik.',
+      pt: 'Os termos que regem o uso do ecossistema SaaS Liafrik.',
     },
   },
   refund: {
     title: {
-      en: 'Refund Policy | LiAfrik', fr: 'Politique de remboursement | LiAfrik',
-      ar: 'سياسة الاسترداد | LiAfrik', es: 'Política de reembolso | LiAfrik', pt: 'Política de reembolso | LiAfrik',
+      en: 'Refund Policy | Liafrik', fr: 'Politique de remboursement | Liafrik',
+      ar: 'سياسة الاسترداد | Liafrik', es: 'Política de reembolso | Liafrik', pt: 'Política de reembolso | Liafrik',
     },
     h1: {
       en: 'Refund Policy', fr: 'Politique de remboursement', ar: 'سياسة الاسترداد',
       es: 'Política de reembolso', pt: 'Política de reembolso',
     },
     desc: {
-      en: 'How refunds, cancellations, and billing disputes are handled across the LiAfrik SaaS ecosystem.',
+      en: 'How refunds, cancellations, and billing disputes are handled across the Liafrik SaaS ecosystem.',
       fr: "Comment les remboursements, annulations et litiges de facturation sont gérés.",
       ar: 'كيف تُدار عمليات الاسترداد والإلغاء ومنازعات الفوترة.',
       es: 'Cómo se gestionan los reembolsos, cancelaciones y disputas de facturación.',
@@ -209,19 +209,19 @@ const STATIC_PAGES = {
   },
   partners: {
     title: {
-      en: 'Partners & Investors | LiAfrik', fr: 'Partenaires & Investisseurs | LiAfrik',
-      ar: 'الشركاء والمستثمرون | LiAfrik', es: 'Socios e Inversores | LiAfrik', pt: 'Parceiros e Investidores | LiAfrik',
+      en: 'Partners & Investors | Liafrik', fr: 'Partenaires & Investisseurs | Liafrik',
+      ar: 'الشركاء والمستثمرون | Liafrik', es: 'Socios e Inversores | Liafrik', pt: 'Parceiros e Investidores | Liafrik',
     },
     h1: {
-      en: 'Build the future of the LiAfrik ecosystem with us', fr: "Construisez l'avenir de l'écosystème LiAfrik avec nous",
-      ar: 'ابنِ مستقبل نظام LiAfrik المتكامل معنا', es: 'Construye el futuro del ecosistema LiAfrik con nosotros', pt: 'Construa o futuro do ecossistema LiAfrik conosco',
+      en: 'Build the future of the Liafrik ecosystem with us', fr: "Construisez l'avenir de l'écosystème Liafrik avec nous",
+      ar: 'ابنِ مستقبل نظام Liafrik المتكامل معنا', es: 'Construye el futuro del ecosistema Liafrik con nosotros', pt: 'Construa o futuro do ecossistema Liafrik conosco',
     },
     desc: {
-      en: 'Partner with LiAfrik or invest in a global SaaS ecosystem spanning commerce, hospitality, healthcare, education, finance and more.',
-      fr: "Devenez partenaire de LiAfrik ou investissez dans un écosystème SaaS mondial couvrant le commerce, l'hôtellerie, la santé, l'éducation, la finance et plus.",
-      ar: 'كن شريكاً لـ LiAfrik أو استثمر في نظام SaaS عالمي متكامل يشمل التجارة والضيافة والصحة والتعليم والتمويل وأكثر.',
-      es: 'Asóciate con LiAfrik o invierte en un ecosistema SaaS global que abarca comercio, hostelería, salud, educación, finanzas y más.',
-      pt: 'Seja parceiro da LiAfrik ou invista em um ecossistema SaaS global que abrange comércio, hotelaria, saúde, educação, finanças e mais.',
+      en: 'Partner with Liafrik or invest in a global SaaS ecosystem spanning commerce, hospitality, healthcare, education, finance and more.',
+      fr: "Devenez partenaire de Liafrik ou investissez dans un écosystème SaaS mondial couvrant le commerce, l'hôtellerie, la santé, l'éducation, la finance et plus.",
+      ar: 'كن شريكاً لـ Liafrik أو استثمر في نظام SaaS عالمي متكامل يشمل التجارة والضيافة والصحة والتعليم والتمويل وأكثر.',
+      es: 'Asóciate con Liafrik o invierte en un ecosistema SaaS global que abarca comercio, hostelería, salud, educación, finanzas y más.',
+      pt: 'Seja parceiro da Liafrik ou invista em um ecossistema SaaS global que abrange comércio, hotelaria, saúde, educação, finanças e mais.',
     },
   },
 };
@@ -285,7 +285,7 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, e
     <meta property="og:description" content="${esc(description)}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${url}" />
-    <meta property="og:site_name" content="LiAfrik" />
+    <meta property="og:site_name" content="Liafrik" />
     <meta property="og:image" content="${SITE}/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(title)}" />
@@ -359,13 +359,13 @@ for (const lang of LANGS) {
   // Product pages
   for (const p of products) {
     const routePath = `/products/${p.slug}`;
-    const title = `${p.name} — LiAfrik`;
+    const title = `${p.name} — Liafrik`;
     const firstPlan = p.pricing && p.pricing[0];
     const priceNumber = firstPlan ? String(firstPlan.price).replace(/[^0-9.]/g, '') : '';
     const softwareAppLd = {
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
-      name: `LiAfrik ${p.name}`,
+      name: `Liafrik ${p.name}`,
       url: `${SITE}/en/products/${p.slug}`,
       description: p.description.en,
       applicationCategory: p.category.en,

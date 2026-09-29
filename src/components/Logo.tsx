@@ -11,13 +11,13 @@ interface LogoProps {
 }
 
 // Fixed box (height + width) for every size, derived from the logo's own
-// aspect ratio (787x480 ≈ 1.64:1). Both axes are pinned explicitly so the
+// aspect ratio (767x160 ≈ 4.79:1). Both axes are pinned explicitly so the
 // mark can never inflate beyond its intended footprint, regardless of the
 // surrounding flex/grid context.
 const sizeMap = {
-  sm: { markHeight: 'h-7', markWidth: 'w-[46px]', text: 'text-[18px]' },
-  md: { markHeight: 'h-9', markWidth: 'w-[59px]', text: 'text-[22px]' },
-  lg: { markHeight: 'h-12', markWidth: 'w-[79px]', text: 'text-[28px]' },
+  sm: { markHeight: 'h-7', markWidth: 'w-[134px]', text: 'text-[18px]' },
+  md: { markHeight: 'h-9', markWidth: 'w-[173px]', text: 'text-[22px]' },
+  lg: { markHeight: 'h-12', markWidth: 'w-[230px]', text: 'text-[28px]' },
 };
 
 export default function Logo({ className = '', variant = 'color', showText = false, size = 'md' }: LogoProps) {
@@ -25,13 +25,13 @@ export default function Logo({ className = '', variant = 'color', showText = fal
   const textColor = variant === 'light' ? 'text-white' : 'text-ink';
 
   return (
-    <Link to="/" className={className} aria-label="LiAfrik — home">
+    <Link to="/" className={className} aria-label="Liafrik — home">
       <span className="flex items-center gap-2.5">
         <LogoMark variant={variant} size={size} />
         {showText && (
           <span className="flex flex-col leading-none">
             <span className={`font-display font-bold ${s.text} tracking-tight ${textColor}`}>
-              LiAfrik
+              Liafrik
             </span>
           </span>
         )}
@@ -43,9 +43,11 @@ export default function Logo({ className = '', variant = 'color', showText = fal
 export function LogoMark({ variant = 'color', size = 'md' }: { variant?: Variant; size?: 'sm' | 'md' | 'lg' }) {
   const s = sizeMap[size];
 
-  // On dark backgrounds ('light' variant), invert the mark so the dark
-  // linework reads as white. On white/light backgrounds it renders as-is.
-  const imgFilter = variant === 'light' ? 'invert(1) brightness(1.15)' : 'none';
+  // On dark backgrounds ('light' variant), use the white version of the
+  // wordmark (orange accents preserved). Otherwise the official navy one.
+  const logoSrc = variant === 'light'
+    ? '/images/brand/liafrik-logo-light.png'
+    : '/images/brand/liafrik-logo.png';
 
   return (
     <motion.span
@@ -54,7 +56,8 @@ export function LogoMark({ variant = 'color', size = 'md' }: { variant?: Variant
       className={`relative grid place-items-center shrink-0 overflow-hidden ${s.markHeight} ${s.markWidth}`}
     >
       {/*
-        LiAfrik logo mark — full lockup (icon + wordmark), used as designed.
+        Liafrik official wordmark. The full lockup with the tagline is available
+        at public/images/brand/liafrik-logo-full.png.
         TO REPLACE: swap the file at
         public/images/brand/liafrik-logo.png with your own image
         (same filename) — no code change needed. Note: the box above is
@@ -63,10 +66,9 @@ export function LogoMark({ variant = 'color', size = 'md' }: { variant?: Variant
         different aspect ratio, adjust markWidth to match.
       */}
       <img
-        src="/images/brand/liafrik-logo.png"
-        alt="LiAfrik"
+        src={logoSrc}
+        alt="Liafrik"
         className="max-h-full max-w-full w-auto h-auto object-contain"
-        style={{ filter: imgFilter }}
       />
     </motion.span>
   );
@@ -76,7 +78,7 @@ export function LogoWordmark({ variant = 'color' }: { variant?: Variant }) {
   const textColor = variant === 'light' ? 'text-white' : 'text-ink';
   return (
     <span className={`font-display font-bold text-2xl tracking-tight ${textColor}`}>
-      LiAfrik
+      Liafrik
     </span>
   );
 }

@@ -24,7 +24,7 @@ export default class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     // eslint-disable-next-line no-console
-    console.error('LiAfrik: uncaught render error', error, info);
+    console.error('Liafrik: uncaught render error', error, info);
     // Dynamically imported so a rare render error doesn't force Sentry
     // into the critical-path bundle — see main.tsx for the normal
     // (idle-time) load path. initSentry() is idempotent, so this is

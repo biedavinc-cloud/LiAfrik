@@ -25,10 +25,10 @@ function TikTokIcon({ className }: { className?: string }) {
 
 const SOCIAL_LINKS = [
   { icon: TikTokIcon, href: 'https://www.tiktok.com/@liyahgroup?_r=1&_t=ZS-9981XGgaxrE', label: 'TikTok — LiYah Group' },
-  { icon: TikTokIcon, href: 'https://www.tiktok.com/@liafrik4?_r=1&_t=ZN-9981b1Sq59K', label: 'TikTok — LiAfrik' },
+  { icon: TikTokIcon, href: 'https://www.tiktok.com/@liafrik4?_r=1&_t=ZN-9981b1Sq59K', label: 'TikTok — Liafrik' },
   { icon: Facebook, href: 'https://www.facebook.com/share/1LMAGqsy3n/?mibextid=wwXIfr', label: 'Facebook' },
   { icon: Instagram, href: 'https://www.instagram.com/liafrik_tech?igsi=eXBjdTc5NG42Zml4&utm_source=qr', label: 'Instagram' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/company/liafrik/', label: 'LinkedIn — LiAfrik' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/liafrik/', label: 'LinkedIn — Liafrik' },
   { icon: Linkedin, href: 'https://www.linkedin.com/in/vincent-nogue-5a985a207?utm_source=share_via&utm_content=profile&utm_medium=member_ios', label: 'LinkedIn — Vincent Nogué' },
   { icon: Youtube, href: 'https://youtube.com/@liyah-n?si=D-lXwovYubw3sdaf', label: 'YouTube' },
 ];
@@ -225,7 +225,7 @@ export default function Footer() {
             <LanguageToggle lang={lang} setLang={setLang} />
           </div>
           <p className="text-xs text-ink-light text-center sm:text-right">
-            {pick(lang, { en: 'LIYAH GROUP · SPC FZC, UAE — operating LiAfrik — License No. 4425201.01', fr: 'LIYAH GROUP · SPC FZC, EAU — exploitant LiAfrik — Licence N° 4425201.01', ar: 'LIYAH GROUP · SPC FZC، الإمارات — تدير LiAfrik — رخصة رقم 4425201.01', es: 'LIYAH GROUP · SPC FZC, EAU — opera LiAfrik — Licencia N.º 4425201.01', pt: 'LIYAH GROUP · SPC FZC, EAU — operando a LiAfrik — Licença N.º 4425201.01' })}
+            {pick(lang, { en: 'LIYAH GROUP · SPC FZC, UAE — operating Liafrik — License No. 4425201.01', fr: 'LIYAH GROUP · SPC FZC, EAU — exploitant Liafrik — Licence N° 4425201.01', ar: 'LIYAH GROUP · SPC FZC، الإمارات — تدير Liafrik — رخصة رقم 4425201.01', es: 'LIYAH GROUP · SPC FZC, EAU — opera Liafrik — Licencia N.º 4425201.01', pt: 'LIYAH GROUP · SPC FZC, EAU — operando a Liafrik — Licença N.º 4425201.01' })}
           </p>
         </div>
       </div>

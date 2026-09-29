@@ -29,11 +29,11 @@ export default function SecurityTeaser() {
               </h2>
               <p className="mt-3 text-liafrik-100 max-w-xl">
                 {pick(lang, {
-                  en: 'Encryption, secure cloud infrastructure, automated backups and role-based permissions — built into every LiAfrik platform.',
-                  fr: 'Chiffrement, infrastructure cloud sécurisée, sauvegardes automatiques et permissions par rôle — intégrés dans chaque plateforme LiAfrik.',
-                  ar: 'التشفير، والبنية التحتية السحابية الآمنة، والنسخ الاحتياطي التلقائي، والصلاحيات القائمة على الأدوار — مدمجة في كل منصة من منصات LiAfrik.',
-                  es: 'Cifrado, infraestructura en la nube segura, copias de seguridad automáticas y permisos basados en roles, integrados en cada plataforma LiAfrik.',
-                  pt: 'Criptografia, infraestrutura em nuvem segura, backups automáticos e permissões baseadas em função — integrados em cada plataforma LiAfrik.',
+                  en: 'Encryption, secure cloud infrastructure, automated backups and role-based permissions — built into every Liafrik platform.',
+                  fr: 'Chiffrement, infrastructure cloud sécurisée, sauvegardes automatiques et permissions par rôle — intégrés dans chaque plateforme Liafrik.',
+                  ar: 'التشفير، والبنية التحتية السحابية الآمنة، والنسخ الاحتياطي التلقائي، والصلاحيات القائمة على الأدوار — مدمجة في كل منصة من منصات Liafrik.',
+                  es: 'Cifrado, infraestructura en la nube segura, copias de seguridad automáticas y permisos basados en roles, integrados en cada plataforma Liafrik.',
+                  pt: 'Criptografia, infraestrutura em nuvem segura, backups automáticos e permissões baseadas em função — integrados em cada plataforma Liafrik.',
                 })}
               </p>
             </div>

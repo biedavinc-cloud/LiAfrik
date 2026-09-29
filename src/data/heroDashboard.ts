@@ -1,7 +1,7 @@
 import type { DashboardSpec } from './products';
 
 export const posProductDashboard: DashboardSpec = {
-  title: { en: 'LiAfrik Ecosystem — Overview', fr: 'Écosystème LiAfrik — Vue d\'ensemble' },
+  title: { en: 'Liafrik Ecosystem — Overview', fr: 'Écosystème Liafrik — Vue d\'ensemble' },
   metric: { label: { en: 'Ecosystem revenue today', fr: "Chiffre d'affaires écosystème du jour" }, value: '$48,920', delta: '+24.6%', up: true },
   panels: [
     {

@@ -198,7 +198,7 @@ export function FloatingContact() {
                 <Phone className="h-4 w-4 text-liafrik-600" /> +971 50 385 7203
               </a>
             </div>
-            <p className="mt-4 text-[11px] text-ink-light">{pick(lang, { en: 'LiAfrik — Dubai, UAE', fr: 'LiAfrik — Dubaï, EAU', ar: 'LiAfrik — دبي، الإمارات', es: 'LiAfrik — Dubái, EAU', pt: 'LiAfrik — Dubai, EAU' })}</p>
+            <p className="mt-4 text-[11px] text-ink-light">{pick(lang, { en: 'Liafrik — Dubai, UAE', fr: 'Liafrik — Dubaï, EAU', ar: 'Liafrik — دبي، الإمارات', es: 'Liafrik — Dubái, EAU', pt: 'Liafrik — Dubai, EAU' })}</p>
           </motion.div>
         )}
       </motion.div>

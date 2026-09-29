@@ -15,11 +15,11 @@ interface Testimonial {
 const examples: Testimonial[] = [
   {
     quote: {
-      en: 'LiAfrik would replace five separate tools for us. An entire retail operation — POS, inventory, staff, payments — running from one dashboard, with numbers visible in real time.',
-      fr: 'LiAfrik remplacerait cinq outils distincts pour nous. Toute une opération de vente au détail — POS, stocks, personnel, paiements — depuis un seul tableau de bord, avec des chiffres visibles en temps réel.',
-      ar: 'يمكن أن يحل LiAfrik محل خمس أدوات منفصلة بالنسبة لنا. عملية بيع بالتجزئة كاملة — نقاط البيع، المخزون، الموظفون، المدفوعات — تعمل من لوحة تحكم واحدة، مع أرقام مرئية في الوقت الفعلي.',
-      es: 'LiAfrik reemplazaría cinco herramientas separadas para nosotros. Toda una operación minorista — POS, inventario, personal, pagos — funcionando desde un solo panel, con cifras visibles en tiempo real.',
-      pt: 'A LiAfrik substituiria cinco ferramentas separadas para nós. Uma operação de varejo inteira — PDV, estoque, equipe, pagamentos — rodando a partir de um único painel, com números visíveis em tempo real.',
+      en: 'Liafrik would replace five separate tools for us. An entire retail operation — POS, inventory, staff, payments — running from one dashboard, with numbers visible in real time.',
+      fr: 'Liafrik remplacerait cinq outils distincts pour nous. Toute une opération de vente au détail — POS, stocks, personnel, paiements — depuis un seul tableau de bord, avec des chiffres visibles en temps réel.',
+      ar: 'يمكن أن يحل Liafrik محل خمس أدوات منفصلة بالنسبة لنا. عملية بيع بالتجزئة كاملة — نقاط البيع، المخزون، الموظفون، المدفوعات — تعمل من لوحة تحكم واحدة، مع أرقام مرئية في الوقت الفعلي.',
+      es: 'Liafrik reemplazaría cinco herramientas separadas para nosotros. Toda una operación minorista — POS, inventario, personal, pagos — funcionando desde un solo panel, con cifras visibles en tiempo real.',
+      pt: 'A Liafrik substituiria cinco ferramentas separadas para nós. Uma operação de varejo inteira — PDV, estoque, equipe, pagamentos — rodando a partir de um único painel, com números visíveis em tempo real.',
     },
     name: 'Example',
     role: {
@@ -90,11 +90,11 @@ const examples: Testimonial[] = [
   },
   {
     quote: {
-      en: 'As a founder, I would stop spending evenings reconciling tools. With LiAfrik, commerce, finance and HR connected — focus on growth, not on software. The future for ambitious businesses.',
-      fr: "En tant que fondateur, je cesserais de passer mes soirées à réconcilier des outils. Avec LiAfrik, commerce, finance et RH connectés — se concentrer sur la croissance, pas sur les logiciels. Le futur pour les entreprises ambitieuses.",
-      ar: 'بصفتي مؤسساً، سأتوقف عن قضاء أمسياتي في التوفيق بين الأدوات المختلفة. مع LiAfrik، تتصل التجارة والتمويل والموارد البشرية — للتركيز على النمو، لا على البرمجيات. المستقبل للشركات الطموحة.',
-      es: 'Como fundador, dejaría de pasar las noches conciliando herramientas. Con LiAfrik, comercio, finanzas y RR. HH. conectados: centrarse en el crecimiento, no en el software. El futuro para las empresas ambiciosas.',
-      pt: 'Como fundador, eu pararia de passar as noites conciliando ferramentas. Com a LiAfrik, comércio, finanças e RH conectados — foco no crescimento, não no software. O futuro para empresas ambiciosas.',
+      en: 'As a founder, I would stop spending evenings reconciling tools. With Liafrik, commerce, finance and HR connected — focus on growth, not on software. The future for ambitious businesses.',
+      fr: "En tant que fondateur, je cesserais de passer mes soirées à réconcilier des outils. Avec Liafrik, commerce, finance et RH connectés — se concentrer sur la croissance, pas sur les logiciels. Le futur pour les entreprises ambitieuses.",
+      ar: 'بصفتي مؤسساً، سأتوقف عن قضاء أمسياتي في التوفيق بين الأدوات المختلفة. مع Liafrik، تتصل التجارة والتمويل والموارد البشرية — للتركيز على النمو، لا على البرمجيات. المستقبل للشركات الطموحة.',
+      es: 'Como fundador, dejaría de pasar las noches conciliando herramientas. Con Liafrik, comercio, finanzas y RR. HH. conectados: centrarse en el crecimiento, no en el software. El futuro para las empresas ambiciosas.',
+      pt: 'Como fundador, eu pararia de passar as noites conciliando ferramentas. Com a Liafrik, comércio, finanças e RH conectados — foco no crescimento, não no software. O futuro para empresas ambiciosas.',
     },
     name: 'Example',
     role: {

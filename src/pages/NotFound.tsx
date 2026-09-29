@@ -8,8 +8,8 @@ export default function NotFound() {
   const lang = useCurrentLang();
   useSEO({
     title: pick(lang, {
-      en: 'Page Not Found | LiAfrik', fr: 'Page introuvable | LiAfrik',
-      ar: 'الصفحة غير موجودة | LiAfrik', es: 'Página no encontrada | LiAfrik', pt: 'Página não encontrada | LiAfrik',
+      en: 'Page Not Found | Liafrik', fr: 'Page introuvable | Liafrik',
+      ar: 'الصفحة غير موجودة | Liafrik', es: 'Página no encontrada | Liafrik', pt: 'Página não encontrada | Liafrik',
     }),
     description: pick(lang, {
       en: 'The page you are looking for does not exist or has moved.',

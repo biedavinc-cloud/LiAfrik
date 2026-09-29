@@ -1,4 +1,4 @@
-# Logos des applications LiAfrik
+# Logos des applications Liafrik
 
 Ce dossier contient le logo de chaque application affiché dans :
 - la grille "Écosystème" sur la page d'accueil,
@@ -47,9 +47,17 @@ sa ligne `logo:` pour pointer vers ton nouveau nom de fichier, ex :
 logo: '/images/logos/sellia.svg',
 ```
 
-## Le logo LiAfrik (marque, pas une app)
+## Le logo Liafrik (marque, pas une app)
 
-Le logo LiAfrik affiché dans la navbar, le footer et le favicon est
-géré séparément, dans `public/images/brand/liafrik-logo.png`.
-Pour le changer : remplace ce fichier par ton propre logo (même nom),
-redéploie. Voir aussi `src/components/Logo.tsx`.
+Les fichiers de la marque sont dans `public/images/brand/` :
+
+- `liafrik-logo.png` — logo officiel (wordmark), navbar et footer
+- `liafrik-logo-light.png` — même logo en blanc + orange, pour fonds sombres
+- `liafrik-logo-full.png` — logo officiel avec la signature
+  « African roots · Global vision · Building the future »
+- `liafrik-icon.png` — icône carrée (le « A »), utilisée dans le hub
+  de la section « Build your stack »
+
+Le favicon (`public/favicon.png`) et l'icône PWA (`public/icon-512.png`)
+utilisent la même icône. Pour changer un logo : remplace le fichier
+(même nom) et redéploie. Voir aussi `src/components/Logo.tsx`.
