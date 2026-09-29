@@ -1,13 +1,19 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Handshake, TrendingUp, Cpu, Building2, Mail, ArrowRight } from 'lucide-react';
+import { Handshake, TrendingUp, Cpu, Building2, ArrowRight } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
-import { AnchorButton, LinkButton } from '@/components/Button';
+import PartnerForm, { type PartnerType } from '@/components/PartnerForm';
 import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
 import { products } from '@/data/products';
 
 export default function PartnersPage() {
   const { lang } = useLang();
+  const [type, setType] = useState<PartnerType>('investor');
+  const selectType = (t: PartnerType) => {
+    setType(t);
+    document.getElementById('partner-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   useSEO({
     title: pick(lang, {
       en: 'Partners & Investors | Liafrik', fr: 'Partenaires & Investisseurs | Liafrik',
@@ -24,6 +30,7 @@ export default function PartnersPage() {
 
   const categories = [
     {
+      id: 'investor' as PartnerType,
       icon: TrendingUp,
       title: pick(lang, { en: 'Investors', fr: 'Investisseurs', ar: 'المستثمرون', es: 'Inversores', pt: 'Investidores' }),
       desc: pick(lang, {
@@ -35,6 +42,7 @@ export default function PartnersPage() {
       }),
     },
     {
+      id: 'strategic' as PartnerType,
       icon: Handshake,
       title: pick(lang, { en: 'Strategic Partners', fr: 'Partenaires stratégiques', ar: 'الشركاء الاستراتيجيون', es: 'Socios estratégicos', pt: 'Parceiros estratégicos' }),
       desc: pick(lang, {
@@ -46,6 +54,7 @@ export default function PartnersPage() {
       }),
     },
     {
+      id: 'technology' as PartnerType,
       icon: Cpu,
       title: pick(lang, { en: 'Technology Partners', fr: 'Partenaires technologiques', ar: 'الشركاء التقنيون', es: 'Socios tecnológicos', pt: 'Parceiros de tecnologia' }),
       desc: pick(lang, {
@@ -57,6 +66,7 @@ export default function PartnersPage() {
       }),
     },
     {
+      id: 'business' as PartnerType,
       icon: Building2,
       title: pick(lang, { en: 'Business Partners', fr: 'Partenaires commerciaux', ar: 'الشركاء التجاريون', es: 'Socios comerciales', pt: 'Parceiros comerciais' }),
       desc: pick(lang, {
@@ -105,6 +115,14 @@ export default function PartnersPage() {
               </span>
               <h3 className="font-display font-bold text-xl text-ink">{c.title}</h3>
               <p className="mt-3 text-sm text-ink-muted leading-relaxed">{c.desc}</p>
+              <button
+                type="button"
+                onClick={() => selectType(c.id)}
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-liafrik-700 hover:text-liafrik-800 group"
+              >
+                {pick(lang, { en: 'Get in touch', fr: 'Nous contacter', ar: 'تواصل معنا', es: 'Ponte en contacto', pt: 'Entre em contato' })}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
+              </button>
             </motion.div>
           ))}
         </div>
@@ -140,40 +158,7 @@ export default function PartnersPage() {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-10 rounded-3xl bg-gradient-to-br from-liafrik-700 to-cyanx-500 p-10 text-center shadow-glow-blue relative overflow-hidden"
-        >
-          <div aria-hidden className="absolute inset-0 bg-grid-soft opacity-10" />
-          <div className="relative">
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
-              {pick(lang, {
-                en: 'Ready to talk?', fr: 'Prêt à en discuter ?', ar: 'هل أنت مستعد للحديث؟',
-                es: '¿Listo para hablar?', pt: 'Pronto para conversar?',
-              })}
-            </h3>
-            <p className="mt-3 text-liafrik-100 max-w-xl mx-auto">
-              {pick(lang, {
-                en: 'Tell us about your organization and how you would like to work with Liafrik.',
-                fr: 'Parlez-nous de votre organisation et de la façon dont vous aimeriez travailler avec Liafrik.',
-                ar: 'أخبرنا عن مؤسستك وكيف تودّ العمل مع Liafrik.',
-                es: 'Cuéntanos sobre tu organización y cómo te gustaría trabajar con Liafrik.',
-                pt: 'Conte-nos sobre sua organização e como você gostaria de trabalhar com a Liafrik.',
-              })}
-            </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <AnchorButton href="mailto:cs@liafrik.com" external variant="white" size="lg" icon={<Mail className="h-4 w-4" />}>
-                {pick(lang, { en: 'Become a Partner', fr: 'Devenir partenaire', ar: 'كن شريكاً', es: 'Ser socio', pt: 'Seja parceiro' })}
-              </AnchorButton>
-              <LinkButton to="/support" variant="outline" size="lg" iconRight={<ArrowRight className="h-4 w-4" />} className="!text-white !border-white/40 hover:!bg-white/10">
-                {pick(lang, { en: 'Talk to Liafrik', fr: 'Parler à Liafrik', ar: 'تحدث مع Liafrik', es: 'Hablar con Liafrik', pt: 'Falar com a Liafrik' })}
-              </LinkButton>
-            </div>
-          </div>
-        </motion.div>
+        <PartnerForm type={type} onTypeChange={setType} />
       </div>
     </div>
   );
