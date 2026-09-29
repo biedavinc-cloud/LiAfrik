@@ -90,7 +90,7 @@ export const products: Product[] = [
     appUrl: 'https://pos.liafrik.com',
     icon: ShoppingCart,
     gradient: 'from-liafrik-600 to-cyanx-500',
-    accent: '#0070E0',
+    accent: '#031D58',
     features: [
       { en: "Real-time sales dashboard", fr: "Tableau de ventes en temps réel", ar: "لوحة مبيعات في الوقت الفعلي", es: "Panel de ventas en tiempo real", pt: "Painel de vendas em tempo real" },
       { en: "Smart inventory tracking", fr: "Suivi intelligent des stocks", ar: "تتبّع ذكي للمخزون", es: "Seguimiento inteligente de inventario", pt: "Rastreamento inteligente de estoque" },
@@ -159,7 +159,7 @@ export const products: Product[] = [
     appUrl: 'https://sellia.liafrik.com',
     icon: Store,
     gradient: 'from-liafrik-500 to-liafrik-700',
-    accent: '#3D9BFF',
+    accent: '#4B7EDD',
     features: [
       { en: "Online storefront builder", fr: "Créateur de boutique en ligne", ar: "منشئ واجهة متجر إلكتروني", es: "Creador de tienda online", pt: "Criador de loja online" },
       { en: "Order management", fr: "Gestion des commandes", ar: "إدارة الطلبات", es: "Gestión de pedidos", pt: "Gestão de pedidos" },
@@ -186,9 +186,9 @@ export const products: Product[] = [
       panels: [
         { kind: 'line', title: { en: 'Orders — last 7 days', fr: 'Commandes — 7 derniers jours' }, data: [120, 180, 150, 220, 200, 260, 320] },
         { kind: 'donut', title: { en: 'Traffic sources', fr: 'Sources de trafic' }, segments: [
-          { label: { en: 'Organic', fr: 'Organique' }, value: 48, color: '#0070E0' },
-          { label: { en: 'Social', fr: 'Social' }, value: 27, color: '#3D9BFF' },
-          { label: { en: 'Direct', fr: 'Direct' }, value: 15, color: '#00BFE0' },
+          { label: { en: 'Organic', fr: 'Organique' }, value: 48, color: '#031D58' },
+          { label: { en: 'Social', fr: 'Social' }, value: 27, color: '#4B7EDD' },
+          { label: { en: 'Direct', fr: 'Direct' }, value: 15, color: '#FBA70A' },
           { label: { en: 'Ads', fr: 'Pubs' }, value: 10, color: '#A8D0FF' },
         ]},
         { kind: 'list', title: { en: 'Latest orders', fr: 'Dernières commandes' }, items: [
@@ -233,7 +233,7 @@ export const products: Product[] = [
     appUrl: 'https://crm.liafrik.com',
     icon: Users,
     gradient: 'from-cyanx-500 to-liafrik-600',
-    accent: '#00BFE0',
+    accent: '#245FCC',
     features: [
       { en: "Visual sales pipeline", fr: "Pipeline de ventes visuel", ar: "خط مبيعات مرئي", es: "Embudo de ventas visual", pt: "Funil de vendas visual" },
       { en: "Lead tracking", fr: "Suivi des prospects", ar: "تتبّع العملاء المحتملين", es: "Seguimiento de clientes potenciales", pt: "Rastreamento de leads" },
@@ -279,7 +279,7 @@ export const products: Product[] = [
     appUrl: 'https://faka.liafrik.com',
     icon: Users,
     gradient: 'from-liafrik-600 to-liafrik-400',
-    accent: '#0070E0',
+    accent: '#031D58',
     features: [
       { en: "Employee records", fr: "Dossiers employés", ar: "سجلات الموظفين", es: "Registros de empleados", pt: "Registros de funcionários" },
       { en: "Payroll processing", fr: "Traitement de la paie", ar: "معالجة الرواتب", es: "Procesamiento de nóminas", pt: "Processamento de folha de pagamento" },
@@ -311,9 +311,9 @@ export const products: Product[] = [
           { label: { en: 'Pending reviews', fr: 'Évaluations en attente' }, value: '7' },
         ]},
         { kind: 'progress', title: { en: 'Department headcount', fr: 'Effectifs par département' }, progress: [
-          { label: { en: 'Operations', fr: 'Opérations' }, value: 82, color: '#0070E0' },
-          { label: { en: 'Sales', fr: 'Ventes' }, value: 64, color: '#3D9BFF' },
-          { label: { en: 'Finance', fr: 'Finance' }, value: 45, color: '#00BFE0' },
+          { label: { en: 'Operations', fr: 'Opérations' }, value: 82, color: '#031D58' },
+          { label: { en: 'Sales', fr: 'Ventes' }, value: 64, color: '#4B7EDD' },
+          { label: { en: 'Finance', fr: 'Finance' }, value: 45, color: '#FBA70A' },
           { label: { en: 'Tech', fr: 'Tech' }, value: 38, color: '#A8D0FF' },
         ]},
         { kind: 'list', title: { en: 'Recent hires', fr: 'Récentes embauches' }, items: [
@@ -357,7 +357,7 @@ export const products: Product[] = [
     appUrl: 'https://klasoo.liafrik.com',
     icon: GraduationCap,
     gradient: 'from-liafrik-500 to-cyanx-500',
-    accent: '#3D9BFF',
+    accent: '#4B7EDD',
     features: [
       { en: "Student records", fr: "Dossiers élèves", ar: "سجلات الطلاب", es: "Registros de estudiantes", pt: "Registros de alunos" },
       { en: "Teacher management", fr: "Gestion des enseignants", ar: "إدارة المعلمين", es: "Gestión de docentes", pt: "Gestão de professores" },
@@ -430,7 +430,7 @@ export const products: Product[] = [
     appUrl: 'https://nutro.liafrik.com',
     icon: UtensilsCrossed,
     gradient: 'from-cyanx-500 to-liafrik-500',
-    accent: '#00BFE0',
+    accent: '#245FCC',
     features: [
       { en: "Order management", fr: "Gestion des commandes", ar: "إدارة الطلبات", es: "Gestión de pedidos", pt: "Gestão de pedidos" },
       { en: "Kitchen display system", fr: "Système d'affichage cuisine", ar: "نظام عرض المطبخ", es: "Sistema de pantalla de cocina", pt: "Sistema de exibição de cozinha" },
@@ -503,7 +503,7 @@ export const products: Product[] = [
     appUrl: 'https://health.liafrik.com',
     icon: HeartPulse,
     gradient: 'from-liafrik-600 to-cyanx-400',
-    accent: '#0070E0',
+    accent: '#031D58',
     features: [
       { en: "Hospital dashboard", fr: "Tableau de bord hospitalier", ar: "لوحة تحكم المستشفى", es: "Panel del hospital", pt: "Painel do hospital" },
       { en: "Patient records", fr: "Dossiers patients", ar: "سجلات المرضى", es: "Historiales de pacientes", pt: "Prontuários de pacientes" },
@@ -576,7 +576,7 @@ export const products: Product[] = [
     appUrl: 'https://bailly.liafrik.com',
     icon: Building2,
     gradient: 'from-liafrik-500 to-liafrik-700',
-    accent: '#3D9BFF',
+    accent: '#4B7EDD',
     features: [
       { en: "Property portfolio", fr: "Portefeuille de biens", ar: "محفظة العقارات", es: "Cartera de propiedades", pt: "Portfólio de imóveis" },
       { en: "Tenant management", fr: "Gestion des locataires", ar: "إدارة المستأجرين", es: "Gestión de inquilinos", pt: "Gestão de inquilinos" },
@@ -602,9 +602,9 @@ export const products: Product[] = [
       metric: { label: { en: 'Occupancy rate', fr: "Taux d'occupation" }, value: '94%', delta: '+3.1%', up: true },
       panels: [
         { kind: 'donut', title: { en: 'Portfolio mix', fr: 'Répartition du portefeuille' }, segments: [
-          { label: { en: 'Residential', fr: 'Résidentiel' }, value: 58, color: '#0070E0' },
-          { label: { en: 'Commercial', fr: 'Commercial' }, value: 27, color: '#3D9BFF' },
-          { label: { en: 'Mixed-use', fr: 'Mixte' }, value: 15, color: '#00BFE0' },
+          { label: { en: 'Residential', fr: 'Résidentiel' }, value: 58, color: '#031D58' },
+          { label: { en: 'Commercial', fr: 'Commercial' }, value: 27, color: '#4B7EDD' },
+          { label: { en: 'Mixed-use', fr: 'Mixte' }, value: 15, color: '#FBA70A' },
         ]},
         { kind: 'stat', title: { en: 'Portfolio status', fr: 'État du portefeuille' }, stats: [
           { label: { en: 'Total units', fr: 'Total unités' }, value: '1,240' },
@@ -680,9 +680,9 @@ export const products: Product[] = [
       panels: [
         { kind: 'line', title: { en: 'Balance — last 6 months', fr: 'Solde — 6 derniers mois' }, data: [1200, 1900, 1500, 2200, 1800, 2450] },
         { kind: 'donut', title: { en: 'Spending by category', fr: 'Dépenses par catégorie' }, segments: [
-          { label: { en: 'Housing', fr: 'Logement' }, value: 35, color: '#0070E0' },
-          { label: { en: 'Food', fr: 'Alimentation' }, value: 25, color: '#3D9BFF' },
-          { label: { en: 'Transport', fr: 'Transport' }, value: 20, color: '#00BFE0' },
+          { label: { en: 'Housing', fr: 'Logement' }, value: 35, color: '#031D58' },
+          { label: { en: 'Food', fr: 'Alimentation' }, value: 25, color: '#4B7EDD' },
+          { label: { en: 'Transport', fr: 'Transport' }, value: 20, color: '#FBA70A' },
           { label: { en: 'Other', fr: 'Autre' }, value: 20, color: '#A8D0FF' },
         ]},
         { kind: 'list', title: { en: 'Recent transactions', fr: 'Transactions récentes' }, items: [
@@ -727,7 +727,7 @@ export const products: Product[] = [
     appUrl: 'https://skills.liafrik.com',
     icon: MonitorPlay,
     gradient: 'from-liafrik-500 to-cyanx-500',
-    accent: '#3D9BFF',
+    accent: '#4B7EDD',
     features: [
       { en: "Course catalog", fr: "Catalogue de cours", ar: "كتالوج الدورات", es: "Catálogo de cursos", pt: "Catálogo de cursos" },
       { en: "Certifications", fr: "Certifications", ar: "الشهادات", es: "Certificaciones", pt: "Certificações" },
@@ -773,7 +773,7 @@ export const products: Product[] = [
     appUrl: 'https://mafo.liafrik.com',
     icon: Flower2,
     gradient: 'from-cyanx-500 to-liafrik-500',
-    accent: '#00BFE0',
+    accent: '#245FCC',
     features: [
       { en: "Cycle tracking", fr: "Suivi du cycle", ar: "تتبّع الدورة", es: "Seguimiento del ciclo", pt: "Acompanhamento do ciclo" },
       { en: "Personalized advice", fr: "Conseils personnalisés", ar: "نصائح مخصصة", es: "Consejos personalizados", pt: "Conselhos personalizados" },
@@ -797,9 +797,9 @@ export const products: Product[] = [
       metric: { label: { en: 'Cycle day', fr: 'Jour du cycle' }, value: 'Day 14', delta: 'Ovulation', up: true },
       panels: [
         { kind: 'progress', title: { en: 'Cycle phases', fr: 'Phases du cycle' }, progress: [
-          { label: { en: 'Menstrual', fr: 'Menstruelle' }, value: 18, color: '#0070E0' },
-          { label: { en: 'Follicular', fr: 'Folliculaire' }, value: 32, color: '#3D9BFF' },
-          { label: { en: 'Ovulation', fr: 'Ovulation' }, value: 14, color: '#00BFE0' },
+          { label: { en: 'Menstrual', fr: 'Menstruelle' }, value: 18, color: '#031D58' },
+          { label: { en: 'Follicular', fr: 'Folliculaire' }, value: 32, color: '#4B7EDD' },
+          { label: { en: 'Ovulation', fr: 'Ovulation' }, value: 14, color: '#FBA70A' },
           { label: { en: 'Luteal', fr: 'Lutéale' }, value: 36, color: '#A8D0FF' },
         ]},
         { kind: 'list', title: { en: "Today's reminders", fr: 'Rappels du jour' }, items: [
@@ -824,7 +824,7 @@ export const products: Product[] = [
     appUrl: 'https://libooks.liafrik.com',
     icon: BookOpenCheck,
     gradient: 'from-liafrik-600 to-liafrik-400',
-    accent: '#0070E0',
+    accent: '#031D58',
     features: [
       { en: "Invoicing", fr: "Facturation", ar: "الفوترة", es: "Facturación", pt: "Faturamento" },
       { en: "Double-entry accounting", fr: "Comptabilité en partie double", ar: "المحاسبة بالقيد المزدوج", es: "Contabilidad de partida doble", pt: "Contabilidade de partidas dobradas" },
@@ -876,7 +876,7 @@ export const products: Product[] = [
     appUrl: 'https://zanldo.com',
     icon: ShoppingBag,
     gradient: 'from-cyanx-500 to-liafrik-500',
-    accent: '#00BFE0',
+    accent: '#245FCC',
     features: [
       { en: "Multi-vendor storefronts", fr: "Boutiques multi-vendeurs", ar: "واجهات متاجر متعددة البائعين", es: "Tiendas multivendedor", pt: "Vitrines multi-vendedor" },
       { en: "Connect your own payment provider", fr: "Connectez votre propre prestataire de paiement", ar: "اربط مزوّد الدفع الخاص بك", es: "Conecta tu propio proveedor de pagos", pt: "Conecte seu próprio provedor de pagamentos" },
@@ -950,7 +950,7 @@ export const products: Product[] = [
     appUrl: 'https://atlas.liafrik.com',
     icon: Users,
     gradient: 'from-liafrik-600 to-cyanx-500',
-    accent: '#0070E0',
+    accent: '#031D58',
     features: [
       { en: "Strict multi-tenant data isolation", fr: "Isolation stricte des données multi-tenant", ar: "عزل صارم للبيانات متعدد المستأجرين", es: "Aislamiento estricto de datos multi-tenant", pt: "Isolamento rigoroso de dados multi-tenant" },
       { en: "Per-tenant roles & permissions", fr: "Rôles et permissions par tenant", ar: "أدوار وصلاحيات لكل مستأجر", es: "Roles y permisos por tenant", pt: "Funções e permissões por tenant" },
@@ -1120,9 +1120,9 @@ export const products: Product[] = [
       panels: [
         { kind: 'line', title: { en: 'Bookings — last 7 days', fr: 'Réservations — 7 derniers jours' }, data: [40, 55, 48, 62, 58, 70, 82] },
         { kind: 'donut', title: { en: 'Room types booked', fr: 'Types de chambres réservées' }, segments: [
-          { label: { en: 'Standard', fr: 'Standard' }, value: 40, color: '#0070E0' },
-          { label: { en: 'Deluxe', fr: 'Deluxe' }, value: 30, color: '#3D9BFF' },
-          { label: { en: 'Suite', fr: 'Suite' }, value: 20, color: '#00BFE0' },
+          { label: { en: 'Standard', fr: 'Standard' }, value: 40, color: '#031D58' },
+          { label: { en: 'Deluxe', fr: 'Deluxe' }, value: 30, color: '#4B7EDD' },
+          { label: { en: 'Suite', fr: 'Suite' }, value: 20, color: '#FBA70A' },
           { label: { en: 'Other', fr: 'Autre' }, value: 10, color: '#A8D0FF' },
         ]},
         { kind: 'list', title: { en: 'Upcoming check-ins', fr: 'Arrivées à venir' }, items: [

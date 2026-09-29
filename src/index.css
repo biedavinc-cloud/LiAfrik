@@ -4,10 +4,11 @@
 
 @layer base {
   :root {
-    --liafrik-primary: #0070E0;
-    --liafrik-primary-dark: #005BB5;
-    --liafrik-primary-light: #3D9BFF;
-    --liafrik-cyan: #00BFE0;
+    --liafrik-primary: #031D58;
+    --liafrik-primary-dark: #031637;
+    --liafrik-primary-light: #4B7EDD;
+    --liafrik-cyan: #245FCC;
+    --liafrik-orange: #FBA70A;
     --liafrik-ink: #0F172A;
     --liafrik-cloud: #F7F9FC;
   }
@@ -48,20 +49,20 @@
   body {
     font-family: 'Glacial Indifference', system-ui, -apple-system, sans-serif;
     background-color: #FFFFFF;
-    color: #0F172A;
+    color: #031637;
     overflow-x: hidden;
     font-weight: 400;
   }
 
   ::selection {
-    background-color: rgba(0, 112, 224, 0.18);
-    color: #005BB5;
+    background-color: rgba(3, 29, 88, 0.15);
+    color: #031637;
   }
 
   /* Visible keyboard focus ring — accessible for keyboard/screen-reader
      navigation, without adding an outline on mouse clicks. */
   :focus-visible {
-    outline: 2px solid #0070E0;
+    outline: 2px solid #031D58;
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -75,12 +76,12 @@
     background: #F7F9FC;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #0070E0, #00BFE0);
+    background: linear-gradient(180deg, #031D58, #245FCC);
     border-radius: 999px;
     border: 2px solid #F7F9FC;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #005BB5, #0070E0);
+    background: linear-gradient(180deg, #031637, #031D58);
   }
 }
 
@@ -90,14 +91,14 @@
   }
 
   .text-gradient-blue {
-    background: linear-gradient(120deg, #0070E0 0%, #00BFE0 100%);
+    background: linear-gradient(120deg, #031D58 0%, #245FCC 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .text-gradient-blue-strong {
-    background: linear-gradient(120deg, #005BB5 0%, #0070E0 50%, #00BFE0 100%);
+    background: linear-gradient(120deg, #031637 0%, #031D58 45%, #245FCC 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -105,13 +106,13 @@
 
   .bg-grid-soft {
     background-image:
-      linear-gradient(rgba(0, 112, 224, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 112, 224, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(3, 29, 88, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(3, 29, 88, 0.03) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .bg-radial-blue {
-    background: radial-gradient(circle at 50% 0%, rgba(0, 112, 224, 0.10), transparent 55%);
+    background: radial-gradient(circle at 50% 0%, rgba(3, 29, 88, 0.09), transparent 55%);
   }
 
   .glass-card {
@@ -121,7 +122,7 @@
     border: 1px solid rgba(255, 255, 255, 0.9);
     box-shadow:
       0 1px 2px rgba(15, 23, 42, 0.04),
-      0 12px 40px -12px rgba(0, 112, 224, 0.18);
+      0 12px 40px -12px rgba(3, 29, 88, 0.15);
   }
 
   .glass-card-strong {
@@ -131,27 +132,27 @@
     border: 1px solid rgba(255, 255, 255, 1);
     box-shadow:
       0 1px 2px rgba(15, 23, 42, 0.05),
-      0 24px 60px -18px rgba(0, 112, 224, 0.22);
+      0 24px 60px -18px rgba(3, 29, 88, 0.19);
   }
 
   .shadow-premium {
     box-shadow:
       0 1px 2px rgba(15, 23, 42, 0.04),
-      0 8px 24px -8px rgba(0, 112, 224, 0.14),
-      0 24px 60px -20px rgba(0, 112, 224, 0.16);
+      0 8px 24px -8px rgba(3, 29, 88, 0.12),
+      0 24px 60px -20px rgba(3, 29, 88, 0.14);
   }
 
   .shadow-glow-blue {
     box-shadow:
-      0 0 0 1px rgba(0, 112, 224, 0.08),
-      0 8px 30px -6px rgba(0, 112, 224, 0.28),
-      0 20px 60px -16px rgba(0, 112, 224, 0.22);
+      0 0 0 1px rgba(3, 29, 88, 0.07),
+      0 8px 30px -6px rgba(3, 29, 88, 0.24),
+      0 20px 60px -16px rgba(3, 29, 88, 0.19);
   }
 
   .shadow-float {
     box-shadow:
       0 2px 4px rgba(15, 23, 42, 0.04),
-      0 16px 40px -12px rgba(0, 112, 224, 0.20);
+      0 16px 40px -12px rgba(3, 29, 88, 0.17);
   }
 
   .preserve-3d {
@@ -227,7 +228,7 @@
     100% { background-position: 200% 0; }
   }
   .animate-shimmer {
-    background: linear-gradient(90deg, transparent, rgba(0,112,224,0.10), transparent);
+    background: linear-gradient(90deg, transparent, rgba(3, 29, 88, 0.09), transparent);
     background-size: 200% 100%;
     animation: shimmer 2.4s linear infinite;
   }

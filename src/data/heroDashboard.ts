@@ -33,9 +33,9 @@ export const posProductDashboard: DashboardSpec = {
       kind: 'donut',
       title: { en: 'Apps in use', fr: 'Apps utilisées' },
       segments: [
-        { label: { en: 'POS', fr: 'POS' }, value: 30, color: '#0070E0' },
-        { label: { en: 'Sellia', fr: 'Sellia' }, value: 24, color: '#3D9BFF' },
-        { label: { en: 'Atlas', fr: 'Atlas' }, value: 16, color: '#00BFE0' },
+        { label: { en: 'POS', fr: 'POS' }, value: 30, color: '#031D58' },
+        { label: { en: 'Sellia', fr: 'Sellia' }, value: 24, color: '#4B7EDD' },
+        { label: { en: 'Atlas', fr: 'Atlas' }, value: 16, color: '#FBA70A' },
         { label: { en: 'Other', fr: 'Autres' }, value: 30, color: '#A8D0FF' },
       ],
     },

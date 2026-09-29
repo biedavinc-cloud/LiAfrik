@@ -28,7 +28,7 @@ export default function SectionHeading({
             tagClassName
           )}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-liafrik-600" />
+          <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />
           {tag}
         </motion.span>
       )}

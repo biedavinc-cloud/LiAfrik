@@ -33,7 +33,7 @@ export default function WorldMap() {
                 {/* Europe */}
                 <path d="M44,14 Q48,12 52,14 L54,18 Q52,20 50,20 L46,19 Q44,17 44,15 Z" />
                 {/* Africa — emphasized */}
-                <path d="M46,20 Q52,18 56,22 L58,28 Q60,34 58,40 L54,44 Q50,45 48,42 L46,36 Q44,30 45,24 Z" fill="#0070E0" fillOpacity="0.18" stroke="#0070E0" strokeWidth="0.2" />
+                <path d="M46,20 Q52,18 56,22 L58,28 Q60,34 58,40 L54,44 Q50,45 48,42 L46,36 Q44,30 45,24 Z" fill="#031D58" fillOpacity="0.18" stroke="#031D58" strokeWidth="0.2" />
                 {/* Middle East */}
                 <path d="M58,20 Q62,18 64,22 L62,26 Q60,27 58,25 Z" />
                 {/* Asia */}
@@ -45,7 +45,7 @@ export default function WorldMap() {
               {/* Africa highlight glow */}
               <motion.circle
                 cx="52" cy="32" r="14"
-                fill="none" stroke="#0070E0" strokeWidth="0.3" strokeOpacity="0.4"
+                fill="none" stroke="#031D58" strokeWidth="0.3" strokeOpacity="0.4"
                 animate={{ r: [13, 15, 13], opacity: [0.3, 0.5, 0.3] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               />

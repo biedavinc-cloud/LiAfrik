@@ -21,7 +21,7 @@ const NAV_ITEMS = [
   { icon: Settings, label: 'Settings' },
 ];
 
-export default function DashboardMockup({ spec, productName, accent = '#0070E0', variant = 'product', compact = false }: Props) {
+export default function DashboardMockup({ spec, productName, accent = '#031D58', variant = 'product', compact = false }: Props) {
   const isHero = variant === 'hero';
   const panels = spec.panels;
   const mainPanel = panels[0];

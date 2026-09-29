@@ -12,19 +12,19 @@ export default function HeroBackground() {
       {/* FIX: taille + blur réduits sur mobile (blur-[60px] au lieu de 100px sous sm) pour alléger le rendu sur petits écrans/appareils moins puissants */}
       <motion.div
         className="absolute -top-24 -left-24 h-[280px] w-[280px] sm:h-[500px] sm:w-[500px] rounded-full blur-[60px] sm:blur-[100px]"
-        style={{ background: 'radial-gradient(circle, rgba(0,112,224,0.18) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(36,95,204,0.16) 0%, transparent 70%)' }}
         animate={shouldReduceMotion ? undefined : { x: [0, 80, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
         className="absolute top-1/3 -right-32 h-[250px] w-[250px] sm:h-[450px] sm:w-[450px] rounded-full blur-[60px] sm:blur-[100px]"
-        style={{ background: 'radial-gradient(circle, rgba(0,191,224,0.15) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(36,95,204,0.12) 0%, transparent 70%)' }}
         animate={shouldReduceMotion ? undefined : { x: [0, -60, 0], y: [0, 60, 0], scale: [1, 1.2, 1] }}
         transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
       />
       <motion.div
         className="absolute -bottom-32 left-1/4 h-[220px] w-[220px] sm:h-[400px] sm:w-[400px] rounded-full blur-[60px] sm:blur-[100px]"
-        style={{ background: 'radial-gradient(circle, rgba(0,112,224,0.10) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(36,95,204,0.09) 0%, transparent 70%)' }}
         animate={shouldReduceMotion ? undefined : { x: [0, 100, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
       />
@@ -36,7 +36,7 @@ export default function HeroBackground() {
         <motion.div
           aria-hidden
           className="absolute left-1/2 top-40 sm:top-48 h-[380px] w-[380px] sm:h-[600px] sm:w-[600px] lg:h-[720px] lg:w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.06]"
-          style={{ border: '1px dashed #0070E0' }}
+          style={{ border: '1px dashed #031D58' }}
           animate={{ rotate: 360 }}
           transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
         />
@@ -46,7 +46,7 @@ export default function HeroBackground() {
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,112,224,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,112,224,0.5) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(3,29,88,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(3,29,88,0.5) 1px, transparent 1px)`,
           backgroundSize: '48px 48px',
           maskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%)',
           WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%)',
@@ -57,7 +57,7 @@ export default function HeroBackground() {
       {!shouldReduceMotion && (
         <motion.div
           className="absolute left-0 right-0 h-px"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(0,112,224,0.3), transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(3,29,88,0.3), transparent)' }}
           animate={{ top: ['10%', '90%', '10%'] }}
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
         />
@@ -98,9 +98,9 @@ export default function HeroBackground() {
         >
           <defs>
             <linearGradient id="net-line" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#0070E0" stopOpacity="0" />
-              <stop offset="50%" stopColor="#00BFE0" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#0070E0" stopOpacity="0" />
+              <stop offset="0%" stopColor="#031D58" stopOpacity="0" />
+              <stop offset="50%" stopColor="#FBA70A" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#031D58" stopOpacity="0" />
             </linearGradient>
           </defs>
 
@@ -112,7 +112,7 @@ export default function HeroBackground() {
               <g key={i} className={secondary ? 'hidden sm:block' : undefined}>
                 <line
                   x1={a.x} y1={a.y} x2={b.x} y2={b.y}
-                  stroke="rgba(0,112,224,0.14)" strokeWidth="0.15"
+                  stroke="rgba(3,29,88,0.14)" strokeWidth="0.15"
                   vectorEffect="non-scaling-stroke"
                 />
                 <motion.line
@@ -133,13 +133,13 @@ export default function HeroBackground() {
                   keep mobile animation load light */}
               <motion.circle
                 cx={n.x} cy={n.y} r="0.6" fill="none"
-                stroke="#0070E0" strokeWidth="0.15"
+                stroke="#031D58" strokeWidth="0.15"
                 className={i >= 6 ? 'hidden sm:block' : undefined}
                 initial={{ opacity: 0.6, r: 0.6 }}
                 animate={{ opacity: [0.6, 0], r: [0.6, 4] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeOut', delay: i * 0.5 }}
               />
-              <circle cx={n.x} cy={n.y} r="0.5" fill="#0070E0" opacity="0.7" />
+              <circle cx={n.x} cy={n.y} r="0.5" fill="#031D58" opacity="0.7" />
             </g>
           ))}
         </svg>
@@ -149,12 +149,12 @@ export default function HeroBackground() {
 }
 
 const PARTICLES = [
-  { x: 15, y: 20, size: 3, color: 'rgba(0,112,224,0.4)', duration: 8, delay: 0 },
-  { x: 80, y: 15, size: 2, color: 'rgba(0,191,224,0.5)', duration: 10, delay: 1 },
-  { x: 45, y: 60, size: 4, color: 'rgba(0,112,224,0.3)', duration: 12, delay: 2 },
-  { x: 70, y: 75, size: 2, color: 'rgba(0,191,224,0.4)', duration: 9, delay: 3 },
-  { x: 25, y: 80, size: 3, color: 'rgba(0,112,224,0.35)', duration: 11, delay: 1.5 },
-  { x: 60, y: 35, size: 2, color: 'rgba(0,191,224,0.3)', duration: 7, delay: 4 },
+  { x: 15, y: 20, size: 3, color: 'rgba(3,29,88,0.4)', duration: 8, delay: 0 },
+  { x: 80, y: 15, size: 2, color: 'rgba(251,167,10,0.5)', duration: 10, delay: 1 },
+  { x: 45, y: 60, size: 4, color: 'rgba(3,29,88,0.3)', duration: 12, delay: 2 },
+  { x: 70, y: 75, size: 2, color: 'rgba(251,167,10,0.4)', duration: 9, delay: 3 },
+  { x: 25, y: 80, size: 3, color: 'rgba(3,29,88,0.35)', duration: 11, delay: 1.5 },
+  { x: 60, y: 35, size: 2, color: 'rgba(251,167,10,0.3)', duration: 7, delay: 4 },
 ];
 
 // Node positions (viewBox 0–100) — an irregular, non-grid layout reads

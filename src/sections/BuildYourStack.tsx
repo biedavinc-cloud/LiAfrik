@@ -171,7 +171,7 @@ function StackOrbit({ products: mods }: { products: Product[] }) {
             <motion.line
               key={i}
               x1="150" y1="150" x2={x2} y2={y2}
-              stroke="#0070E0" strokeWidth="1.5" strokeOpacity="0.3" strokeDasharray="4 4"
+              stroke="#031D58" strokeWidth="1.5" strokeOpacity="0.3" strokeDasharray="4 4"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ pathLength: 1, opacity: 1 }}
               transition={{ delay: 0.2 + i * 0.12, duration: 0.5 }}

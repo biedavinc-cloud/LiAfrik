@@ -95,7 +95,7 @@ export default function Hero() {
               <DashboardMockup
                 spec={posProductDashboard}
                 productName="POS"
-                accent="#0070E0"
+                accent="#031D58"
                 variant="hero"
               />
             </motion.div>
