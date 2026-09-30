@@ -3,15 +3,17 @@ import { Link } from '@/components/Link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Linkedin, Facebook, Instagram, Youtube, Clock,
-  ArrowRight, Mail, MapPin, Phone, Send, CheckCircle2, Loader2,
+  ArrowRight, Mail, MapPin, Send, CheckCircle2, Loader2,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 import AppLogo from '@/components/AppLogo';
 import LanguageToggle from '@/components/LanguageToggle';
 import { products } from '@/data/products';
 import { useLang, pick } from '@/i18n/LanguageContext';
+import { altNavLabel } from '@/lib/seoCopy';
 
-const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
+// Cloudflare Pages Function (functions/api/forward-form.ts): same origin, no key needed.
+const EDGE_URL = '/api/forward-form';
 
 // Minimal TikTok glyph — lucide-react has no TikTok icon, so this is a
 // small hand-drawn SVG kept visually consistent (24x24, currentColor).
@@ -48,7 +50,7 @@ export default function Footer() {
     try {
       const res = await fetch(EDGE_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}` },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: email.split('@')[0], email, company: null, message: 'Newsletter subscription', lang, form_type: 'newsletter' }),
       });
       if (res.ok) {
@@ -121,6 +123,7 @@ export default function Footer() {
               {/*
                 RÉSERVÉ — numéro de téléphone, à activer manuellement.
                 Décommente la ligne ci-dessous et remplace :
+                  0) ajouter `Phone` à l'import lucide-react en haut du fichier
                   1) href="tel:+XXXXXXXXXXX"  (code pays + numéro, sans espaces)
                   2) le texte affiché, ex: "+237 6XX XXX XXX"
                 Laissé désactivé pour l'instant pour ne pas afficher un
@@ -190,6 +193,7 @@ export default function Footer() {
               <li><Link to="/presence" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.presence')}</Link></li>
               <li><Link to="/security" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.security')}</Link></li>
               <li><Link to="/partners" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.partners')}</Link></li>
+              <li><Link to="/alternatives" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{altNavLabel(lang)}</Link></li>
             </ul>
           </div>
           <div>

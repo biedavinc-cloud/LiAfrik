@@ -35,9 +35,9 @@ export function useSEO({ title, description, noindex }: SEOOptions) {
       descTag.setAttribute('content', description);
     }
 
-    let ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) ogTitle.setAttribute('content', title);
-    let ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc && description) ogDesc.setAttribute('content', description);
 
     let robotsTag: HTMLMetaElement | null = null;

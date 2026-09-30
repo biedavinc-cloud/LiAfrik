@@ -131,12 +131,14 @@ export default function HeroBackground() {
             <g key={i}>
               {/* radar ping — only on the first half of nodes below sm, to
                   keep mobile animation load light */}
+              {/* Animated with scale (not the SVG `r` attribute): framer-motion
+                  occasionally wrote r="undefined" here, logging a console error. */}
               <motion.circle
                 cx={n.x} cy={n.y} r="0.6" fill="none"
                 stroke="#031D58" strokeWidth="0.15"
                 className={i >= 6 ? 'hidden sm:block' : undefined}
-                initial={{ opacity: 0.6, r: 0.6 }}
-                animate={{ opacity: [0.6, 0], r: [0.6, 4] }}
+                initial={{ opacity: 0.6, scale: 1 }}
+                animate={{ opacity: [0.6, 0], scale: [1, 6.6] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeOut', delay: i * 0.5 }}
               />
               <circle cx={n.x} cy={n.y} r="0.5" fill="#031D58" opacity="0.7" />

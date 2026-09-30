@@ -22,3 +22,10 @@
 
 /manifest.json
   Content-Type: application/manifest+json
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/api/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

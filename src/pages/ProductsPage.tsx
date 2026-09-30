@@ -9,6 +9,7 @@ import AppLogo from '@/components/AppLogo';
 import SectionHeading from '@/components/SectionHeading';
 import { cn } from '@/lib/cn';
 import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 
 type CategoryFilter = 'all' | 'business' | 'industry' | 'education' | 'community';
 
@@ -22,22 +23,7 @@ const categoryMap: Record<CategoryFilter, string[]> = {
 
 export default function ProductsPage() {
   const { t, lang } = useLang();
-  useSEO({
-    title: pick(lang, {
-      en: 'All Products — Liafrik SaaS Ecosystem',
-      fr: 'Tous les produits — Écosystème SaaS Liafrik',
-      ar: 'كل المنتجات — نظام Liafrik المتكامل',
-      es: 'Todos los productos — Ecosistema SaaS Liafrik',
-      pt: 'Todos os produtos — Ecossistema SaaS Liafrik',
-    }),
-    description: pick(lang, {
-      en: 'Explore every Liafrik app: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — one connected ecosystem, built for the world.',
-      fr: "Découvrez toutes les applications Liafrik : POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — un écosystème connecté, pensé pour le monde entier.",
-      ar: 'استكشف كل تطبيقات Liafrik: POS وSellia وCRM وAtlas وFaka وKlasoo وNutro وHealth وBailly وKolo وSkills وMafo وLiBooks وZanldo وLitrek — نظام واحد متكامل، مصمم للعالم.',
-      es: 'Explora todas las apps de Liafrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek: un ecosistema conectado, creado para el mundo.',
-      pt: 'Explore todos os aplicativos da Liafrik: POS, Sellia, CRM, Atlas, Faka, Klasoo, Nutro, Health, Bailly, Kolo, Skills, Mafo, LiBooks, Zanldo, Litrek — um ecossistema conectado, criado para o mundo.',
-    }),
-  });
+  useSEO(pageSeo('products', lang));
   const [filter, setFilter] = useState<CategoryFilter>('all');
   const [query, setQuery] = useState('');
 
@@ -69,7 +55,7 @@ export default function ProductsPage() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 min-h-screen bg-gradient-to-b from-cloud-50 to-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionHeading
+        <SectionHeading as="h1"
           tag={t('products.tag')}
           title={t('products.title')}
           subtitle={t('products.sub')}

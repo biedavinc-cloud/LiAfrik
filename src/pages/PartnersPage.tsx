@@ -5,6 +5,7 @@ import SectionHeading from '@/components/SectionHeading';
 import PartnerForm, { type PartnerType } from '@/components/PartnerForm';
 import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 import { products } from '@/data/products';
 
 export default function PartnersPage() {
@@ -14,19 +15,7 @@ export default function PartnersPage() {
     setType(t);
     document.getElementById('partner-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
-  useSEO({
-    title: pick(lang, {
-      en: 'Partners & Investors | Liafrik', fr: 'Partenaires & Investisseurs | Liafrik',
-      ar: 'الشركاء والمستثمرون | Liafrik', es: 'Socios e Inversores | Liafrik', pt: 'Parceiros e Investidores | Liafrik',
-    }),
-    description: pick(lang, {
-      en: 'Partner with Liafrik or invest in a global SaaS ecosystem spanning commerce, hospitality, healthcare, education, finance and more.',
-      fr: "Devenez partenaire de Liafrik ou investissez dans un écosystème SaaS mondial couvrant le commerce, l'hôtellerie, la santé, l'éducation, la finance et plus.",
-      ar: 'كن شريكاً لـ Liafrik أو استثمر في نظام SaaS عالمي متكامل يشمل التجارة والضيافة والصحة والتعليم والتمويل وأكثر.',
-      es: 'Asóciate con Liafrik o invierte en un ecosistema SaaS global que abarca comercio, hostelería, salud, educación, finanzas y más.',
-      pt: 'Seja parceiro da Liafrik ou invista em um ecossistema SaaS global que abrange comércio, hotelaria, saúde, educação, finanças e mais.',
-    }),
-  });
+  useSEO(pageSeo('partners', lang));
 
   const categories = [
     {
@@ -82,7 +71,7 @@ export default function PartnersPage() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 min-h-screen">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeading
+        <SectionHeading as="h1"
           tag={pick(lang, { en: 'Partners & Investors', fr: 'Partenaires & Investisseurs', ar: 'الشركاء والمستثمرون', es: 'Socios e Inversores', pt: 'Parceiros e Investidores' })}
           title={pick(lang, {
             en: 'Build the future of the Liafrik ecosystem with us',

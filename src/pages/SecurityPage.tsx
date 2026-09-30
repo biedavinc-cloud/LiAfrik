@@ -1,28 +1,17 @@
 import { motion } from 'framer-motion';
 import {
-  Lock, Cloud, DatabaseBackup, ScrollText, UserCog, ShieldCheck, Eye, ServerCog,
+  Lock, Cloud, DatabaseBackup, ScrollText, UserCog, Eye, ServerCog,
   ArrowRight, Boxes,
 } from 'lucide-react';
 import { LinkButton } from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
 import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 
 export default function SecurityPage() {
   const { t, lang } = useLang();
-  useSEO({
-    title: pick(lang, {
-      en: 'Security & Trust | Liafrik', fr: 'Sécurité et confiance | Liafrik',
-      ar: 'الأمان والثقة | Liafrik', es: 'Seguridad y confianza | Liafrik', pt: 'Segurança e confiança | Liafrik',
-    }),
-    description: pick(lang, {
-      en: 'How Liafrik protects your data: strict multi-tenant isolation, encryption, cloud infrastructure, backups, and role-based access across every app.',
-      fr: "Comment Liafrik protège vos données : isolation stricte multi-tenant, chiffrement, infrastructure cloud, sauvegardes, et accès par rôle sur chaque application.",
-      ar: 'كيف يحمي Liafrik بياناتك: عزل صارم متعدد المستأجرين، تشفير، بنية تحتية سحابية، نسخ احتياطي، ووصول قائم على الأدوار عبر كل تطبيق.',
-      es: 'Cómo Liafrik protege tus datos: aislamiento estricto multi-tenant, cifrado, infraestructura en la nube, copias de seguridad y acceso basado en roles en cada app.',
-      pt: 'Como a Liafrik protege seus dados: isolamento rigoroso multi-tenant, criptografia, infraestrutura em nuvem, backups e acesso baseado em função em cada aplicativo.',
-    }),
-  });
+  useSEO(pageSeo('security', lang));
 
   const pillars = [
     { icon: Boxes, title: t('secPage.tenant.title'), desc: t('secPage.tenant.desc') },
@@ -37,7 +26,7 @@ export default function SecurityPage() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 min-h-screen">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeading
+        <SectionHeading as="h1"
           tag={t('secPage.tag')}
           title={t('secPage.title')}
           subtitle={t('secPage.sub')}

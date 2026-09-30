@@ -33,6 +33,22 @@ Liafrik is not a single product — it's an ecosystem of independent SaaS applic
 - Products overview: https://liafrik.com/en/products
 - Security & data protection: https://liafrik.com/en/security
 - Partners & Investors: https://liafrik.com/en/partners
+- Alternatives hub (Liafrik vs popular tools): https://liafrik.com/en/alternatives
+- Shopify alternative (Sellia): https://liafrik.com/en/alternatives/shopify
+- WooCommerce alternative (Sellia): https://liafrik.com/en/alternatives/woocommerce
+- Wix alternative (Sellia): https://liafrik.com/en/alternatives/wix
+- Square alternative (POS): https://liafrik.com/en/alternatives/square
+- Lightspeed alternative (POS): https://liafrik.com/en/alternatives/lightspeed
+- HubSpot alternative (CRM): https://liafrik.com/en/alternatives/hubspot
+- Pipedrive alternative (CRM): https://liafrik.com/en/alternatives/pipedrive
+- Zoho CRM alternative (CRM): https://liafrik.com/en/alternatives/zoho-crm
+- Salesforce alternative (Atlas): https://liafrik.com/en/alternatives/salesforce
+- QuickBooks alternative (LiBooks): https://liafrik.com/en/alternatives/quickbooks
+- Xero alternative (LiBooks): https://liafrik.com/en/alternatives/xero
+- Toast alternative (Nutro): https://liafrik.com/en/alternatives/toast
+- Etsy alternative (Zanldo): https://liafrik.com/en/alternatives/etsy
+- YNAB alternative (Kolo): https://liafrik.com/en/alternatives/ynab
+- Mint alternative (Kolo): https://liafrik.com/en/alternatives/mint
 - Pricing/plans: listed on each product page above
 - Privacy Policy: https://liafrik.com/en/privacy
 - Terms of Service: https://liafrik.com/en/terms

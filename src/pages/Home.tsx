@@ -1,5 +1,8 @@
 import { Suspense, lazy } from 'react';
 import Hero from '@/sections/Hero';
+import { useLang } from '@/i18n/LanguageContext';
+import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 
 // Below-the-fold sections are code-split so the initial bundle only has
 // to parse/execute what's needed for the first paint (Hero). This is
@@ -25,6 +28,9 @@ const FinalCTA = lazy(() => import('@/sections/FinalCTA'));
 const SectionFallback = () => <div className="min-h-[200px]" aria-hidden="true" />;
 
 export default function Home() {
+  const { lang } = useLang();
+  useSEO(pageSeo('', lang));
+
   return (
     <>
       <Hero />

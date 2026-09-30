@@ -4,25 +4,11 @@ import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
 import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 
 export default function FounderPage() {
   const { t, lang } = useLang();
-  useSEO({
-    title: pick(lang, {
-      en: 'Vincent Nogué — Founder & CEO | Liafrik',
-      fr: 'Vincent Nogué — Fondateur et PDG | Liafrik',
-      ar: 'فينسنت نوغيه — المؤسس والرئيس التنفيذي | Liafrik',
-      es: 'Vincent Nogué — Fundador y CEO | Liafrik',
-      pt: 'Vincent Nogué — Fundador e CEO | Liafrik',
-    }),
-    description: pick(lang, {
-      en: 'The story behind Liafrik: from graphic design in Cameroon to building a global SaaS ecosystem, led by founder Vincent Nogué.',
-      fr: "L'histoire derrière Liafrik : du design graphique au Cameroun à la construction d'un écosystème SaaS mondial, menée par le fondateur Vincent Nogué.",
-      ar: 'قصة Liafrik: من التصميم الجرافيكي في الكاميرون إلى بناء نظام SaaS عالمي متكامل، بقيادة المؤسس فينسنت نوغيه.',
-      es: 'La historia detrás de Liafrik: del diseño gráfico en Camerún a construir un ecosistema SaaS global, liderado por el fundador Vincent Nogué.',
-      pt: 'A história por trás da Liafrik: do design gráfico nos Camarões à construção de um ecossistema SaaS global, liderado pelo fundador Vincent Nogué.',
-    }),
-  });
+  useSEO(pageSeo('founder', lang));
 
   const timeline = [
     { year: '2012', text: pick(lang, {
@@ -71,7 +57,7 @@ export default function FounderPage() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 min-h-screen">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
-        <SectionHeading tag={t('founder.tag')} title={t('founderPage.title')} subtitle={t('founderPage.desc')} />
+        <SectionHeading as="h1" tag={t('founder.tag')} title={t('founderPage.title')} subtitle={t('founderPage.desc')} />
 
         {/* Founder portrait — real photo */}
         <motion.div

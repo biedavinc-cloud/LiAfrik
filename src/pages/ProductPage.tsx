@@ -6,6 +6,8 @@ import {
   ExternalLink, Clock, LayoutDashboard,
 } from 'lucide-react';
 import { getProductBySlug } from '@/data/products';
+import { alternativesForProduct } from '@/data/alternatives';
+import { productSeo, altToHeading, altHubLink } from '@/lib/seoCopy';
 import DashboardMockup from '@/components/DashboardMockup';
 import AppLogo from '@/components/AppLogo';
 import { LinkButton } from '@/components/Button';
@@ -19,9 +21,10 @@ export default function ProductPage() {
   const { t, lang } = useLang();
   const product = getProductBySlug(slug);
 
+  const seo = product ? productSeo(product, lang) : null;
   useSEO({
-    title: product ? `${product.name} — ${product.tagline[lang]} | Liafrik` : 'Liafrik',
-    description: product?.description[lang],
+    title: seo?.title ?? 'Liafrik',
+    description: seo?.description,
   });
 
   if (!product || !product.available) {
@@ -259,6 +262,27 @@ export default function ProductPage() {
           </div>
         </div>
       </section>
+
+      {/* Internal links to the "alternative to X" pages for this product */}
+      {alternativesForProduct(product.slug).length > 0 && (
+        <section className="pb-16 sm:pb-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <h2 className="font-display text-xl font-bold text-ink">{altToHeading(lang)}</h2>
+            <ul className="mt-4 flex flex-wrap gap-2.5">
+              {alternativesForProduct(product.slug).map((a) => (
+                <li key={a.slug}>
+                  <Link
+                    to={`/alternatives/${a.slug}`}
+                    className="inline-flex items-center rounded-full border border-cloud-200 bg-white px-4 py-2 text-sm font-semibold text-liafrik-700 hover:border-liafrik-300 hover:bg-liafrik-50 transition-colors"
+                  >
+                    {altHubLink(lang, a.name)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

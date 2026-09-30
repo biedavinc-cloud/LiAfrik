@@ -5,13 +5,14 @@ import SectionHeading from '@/components/SectionHeading';
 import { Button } from '@/components/Button';
 import { useLang, pick } from '@/i18n/LanguageContext';
 
-const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
+// Cloudflare Pages Function (functions/api/forward-form.ts): same origin, no key needed.
+const EDGE_URL = '/api/forward-form';
 
 async function submitForm(payload: Record<string, unknown>): Promise<boolean> {
   try {
     const res = await fetch(EDGE_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}` },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
     return res.ok;
@@ -54,7 +55,7 @@ export default function Contact() {
         <div className="mt-12 grid lg:grid-cols-5 gap-5">
           {/* Contact info cards */}
           <div className="lg:col-span-2 space-y-4">
-            <InfoCard icon={Phone} title={t('contact.phone')} lines={['+971 50 385 7203', '+237 6XX XXX XXX']} />
+            <InfoCard icon={Phone} title={t('contact.phone')} lines={['+971 50 385 7203']} />
             <InfoCard icon={Mail} title={t('contact.email')} lines={['cs@liafrik.com', 'support@liafrik.com']} />
             <InfoCard icon={MapPin} title={pick(lang, { en: 'Presence', fr: 'Présence', ar: 'حضورنا', es: 'Presencia', pt: 'Presença' })} lines={['Dubai · Yaoundé']} />
             <motion.div

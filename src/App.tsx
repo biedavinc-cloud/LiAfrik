@@ -25,6 +25,8 @@ const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('@/pages/TermsOfService'));
 const RefundPolicy = lazy(() => import('@/pages/RefundPolicy'));
 const ComingSoonPage = lazy(() => import('@/pages/ComingSoonPage'));
+const AlternativePage = lazy(() => import('@/pages/AlternativePage'));
+const AlternativesHubPage = lazy(() => import('@/pages/AlternativesHubPage'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 function PageFallback() {
@@ -134,6 +136,8 @@ export default function App() {
           <Route path="founder" element={<FounderPage />} />
           <Route path="presence" element={<PresencePage />} />
           <Route path="partners" element={<PartnersPage />} />
+          <Route path="alternatives" element={<AlternativesHubPage />} />
+          <Route path="alternatives/:slug" element={<AlternativePage />} />
           <Route path="support" element={<SupportPage />} />
           <Route path="privacy" element={<PrivacyPolicy />} />
           <Route path="terms" element={<TermsOfService />} />
@@ -148,6 +152,7 @@ export default function App() {
         <Route path="/founder" element={<LegacyRedirect suffix="founder" />} />
         <Route path="/presence" element={<LegacyRedirect suffix="presence" />} />
         <Route path="/partners" element={<LegacyRedirect suffix="partners" />} />
+        <Route path="/alternatives" element={<LegacyRedirect suffix="alternatives" />} />
         <Route path="/support" element={<LegacyRedirect suffix="support" />} />
         <Route path="/privacy" element={<LegacyRedirect suffix="privacy" />} />
         <Route path="/terms" element={<LegacyRedirect suffix="terms" />} />

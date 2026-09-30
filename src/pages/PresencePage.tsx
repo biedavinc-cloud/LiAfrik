@@ -4,22 +4,11 @@ import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
 import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 
 export default function PresencePage() {
   const { t, lang } = useLang();
-  useSEO({
-    title: pick(lang, {
-      en: 'Global Presence | Liafrik', fr: 'Présence mondiale | Liafrik',
-      ar: 'الحضور العالمي | Liafrik', es: 'Presencia global | Liafrik', pt: 'Presença global | Liafrik',
-    }),
-    description: pick(lang, {
-      en: 'Liafrik operates from Dubai and Yaoundé, built to serve businesses across Africa and the world.',
-      fr: "Liafrik opère depuis Dubaï et Yaoundé, conçu pour servir les entreprises à travers l'Afrique et le monde.",
-      ar: 'يعمل Liafrik من دبي وياوندي، وقد صُمم لخدمة الشركات عبر أفريقيا والعالم.',
-      es: 'Liafrik opera desde Dubái y Yaundé, creado para servir a empresas en toda África y el mundo.',
-      pt: 'A Liafrik opera a partir de Dubai e Yaoundé, criada para atender empresas em toda a África e no mundo.',
-    }),
-  });
+  useSEO(pageSeo('presence', lang));
 
   const locations = [
     {
@@ -41,7 +30,7 @@ export default function PresencePage() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 min-h-screen">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeading
+        <SectionHeading as="h1"
           tag={t('presence.tag')}
           title={t('presence.title')}
           subtitle={t('presence.sub')}

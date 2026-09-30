@@ -53,178 +53,23 @@ const tmpProductsPath = join(ROOT, 'scripts', '.products-bundle.mjs');
 writeFileSync(tmpProductsPath, patchedCode);
 const { products } = await import(`${tmpProductsPath}?t=${Date.now()}`);
 
+// Shared search-facing copy (titles, descriptions, "alternative to X" pages).
+// The same module powers the React pages, so static HTML and app never drift.
+async function bundlePure(entry, outName) {
+  const out = await esbuild.build({
+    entryPoints: [join(ROOT, entry)], bundle: true, write: false, format: 'esm', platform: 'node', loader: { '.ts': 'ts' },
+  });
+  const path = join(ROOT, 'scripts', outName);
+  writeFileSync(path, out.outputFiles[0].text);
+  return import(`${path}?t=${Date.now()}`);
+}
+const { productSeo, alternativePage, alternativesHub, altNavLabel, altToHeading, altHubLink } = await bundlePure('src/lib/seoCopy.ts', '.seo-bundle.mjs');
+const { ALTERNATIVES, alternativesForProduct } = await bundlePure('src/data/alternatives.ts', '.alternatives-bundle.mjs');
+
 // ---- 2. Static page manifest (title/description per language) ----
 // Kept in sync by hand with each page's useSEO() call — a small, stable
 // list (9 pages), reviewed whenever those pages' SEO copy changes.
-const STATIC_PAGES = {
-  '': {
-    title: {
-      en: 'Liafrik — Global SaaS Ecosystem', fr: 'Liafrik — Écosystème SaaS mondial',
-      ar: 'Liafrik — نظام SaaS عالمي متكامل', es: 'Liafrik — Ecosistema SaaS global', pt: 'Liafrik — Ecossistema SaaS global',
-    },
-    h1: {
-      en: 'One Ecosystem. Powerful SaaS. Built for the World.',
-      fr: 'Un écosystème. Des SaaS puissants. Conçu pour le monde.',
-      ar: 'نظام واحد متكامل. برمجيات قوية. مصمم للعالم.',
-      es: 'Un ecosistema. SaaS potentes. Creado para el mundo.',
-      pt: 'Um ecossistema. SaaS poderosos. Criado para o mundo.',
-    },
-    desc: {
-      en: 'Liafrik — a global SaaS ecosystem. African roots, global vision. One connected platform for commerce, healthcare, education, HR, finance and more.',
-      fr: "Liafrik — un écosystème SaaS mondial. Racines africaines, vision globale. Une plateforme connectée pour le commerce, la santé, l'éducation, les RH, la finance et plus.",
-      ar: 'Liafrik — نظام SaaS عالمي متكامل. جذور أفريقية، رؤية عالمية. منصة واحدة متصلة للتجارة والصحة والتعليم والموارد البشرية والتمويل وأكثر.',
-      es: 'Liafrik: un ecosistema SaaS global. Raíces africanas, visión global. Una plataforma conectada para comercio, salud, educación, RR. HH., finanzas y más.',
-      pt: 'Liafrik — um ecossistema SaaS global. Raízes africanas, visão global. Uma plataforma conectada para comércio, saúde, educação, RH, finanças e mais.',
-    },
-  },
-  products: {
-    title: {
-      en: 'All Products — Liafrik SaaS Ecosystem', fr: 'Tous les produits — Écosystème SaaS Liafrik',
-      ar: 'كل المنتجات — نظام Liafrik المتكامل', es: 'Todos los productos — Ecosistema SaaS Liafrik', pt: 'Todos os produtos — Ecossistema SaaS Liafrik',
-    },
-    h1: {
-      en: 'Explore every Liafrik platform', fr: 'Explorez chaque plateforme Liafrik',
-      ar: 'استكشف كل منصات Liafrik', es: 'Explora todas las plataformas Liafrik', pt: 'Explore todas as plataformas Liafrik',
-    },
-    desc: {
-      en: 'Explore every Liafrik app: POS, CRM, Nutro, Health, LiBooks, Atlas and more — one connected ecosystem, built for the world.',
-      fr: "Découvrez toutes les applications Liafrik : POS, CRM, Nutro, Health, LiBooks, Atlas et plus — un écosystème connecté, pensé pour le monde.",
-      ar: 'استكشف كل تطبيقات Liafrik: POS وCRM وNutro وHealth وLiBooks وAtlas وأكثر — نظام واحد متكامل، مصمم للعالم.',
-      es: 'Explora todas las apps de Liafrik: POS, CRM, Nutro, Health, LiBooks, Atlas y más: un ecosistema conectado, creado para el mundo.',
-      pt: 'Explore todos os aplicativos da Liafrik: POS, CRM, Nutro, Health, LiBooks, Atlas e mais — um ecossistema conectado, criado para o mundo.',
-    },
-  },
-  founder: {
-    title: {
-      en: 'Vincent Nogué — Founder & CEO | Liafrik', fr: 'Vincent Nogué — Fondateur et PDG | Liafrik',
-      ar: 'فينسنت نوغيه — المؤسس والرئيس التنفيذي | Liafrik', es: 'Vincent Nogué — Fundador y CEO | Liafrik', pt: 'Vincent Nogué — Fundador e CEO | Liafrik',
-    },
-    h1: {
-      en: 'The vision behind Liafrik', fr: 'La vision derrière Liafrik',
-      ar: 'الرؤية وراء Liafrik', es: 'La visión detrás de Liafrik', pt: 'A visão por trás da Liafrik',
-    },
-    desc: {
-      en: 'The story behind Liafrik: from graphic design in Cameroon to building a global SaaS ecosystem, led by founder Vincent Nogué.',
-      fr: "L'histoire derrière Liafrik : du design graphique au Cameroun à la construction d'un écosystème SaaS mondial.",
-      ar: 'قصة Liafrik: من التصميم الجرافيكي في الكاميرون إلى بناء نظام SaaS عالمي متكامل.',
-      es: 'La historia detrás de Liafrik: del diseño gráfico en Camerún a construir un ecosistema SaaS global.',
-      pt: 'A história por trás da Liafrik: do design gráfico nos Camarões à construção de um ecossistema SaaS global.',
-    },
-  },
-  presence: {
-    title: {
-      en: 'Global Presence | Liafrik', fr: 'Présence mondiale | Liafrik',
-      ar: 'الحضور العالمي | Liafrik', es: 'Presencia global | Liafrik', pt: 'Presença global | Liafrik',
-    },
-    h1: { en: 'Where we are', fr: 'Où nous sommes', ar: 'أين نحن', es: 'Dónde estamos', pt: 'Onde estamos' },
-    desc: {
-      en: 'Liafrik operates from Dubai and Yaoundé, built to serve businesses across Africa and the world.',
-      fr: "Liafrik opère depuis Dubaï et Yaoundé, conçu pour servir les entreprises à travers l'Afrique et le monde.",
-      ar: 'يعمل Liafrik من دبي وياوندي، وقد صُمم لخدمة الشركات عبر أفريقيا والعالم.',
-      es: 'Liafrik opera desde Dubái y Yaundé, creado para servir a empresas en toda África y el mundo.',
-      pt: 'A Liafrik opera a partir de Dubai e Yaoundé, criada para atender empresas em toda a África e no mundo.',
-    },
-  },
-  security: {
-    title: {
-      en: 'Security & Trust | Liafrik', fr: 'Sécurité et confiance | Liafrik',
-      ar: 'الأمان والثقة | Liafrik', es: 'Seguridad y confianza | Liafrik', pt: 'Segurança e confiança | Liafrik',
-    },
-    h1: {
-      en: 'Security at the core of everything we build', fr: 'La sécurité au cœur de tout ce que nous construisons',
-      ar: 'الأمان في صميم كل ما نبنيه', es: 'La seguridad en el centro de todo lo que construimos', pt: 'A segurança no centro de tudo o que construímos',
-    },
-    desc: {
-      en: 'How Liafrik protects your data: strict multi-tenant isolation, encryption, cloud infrastructure, backups, and role-based access across every app.',
-      fr: "Comment Liafrik protège vos données : isolation stricte multi-tenant, chiffrement, infrastructure cloud, sauvegardes.",
-      ar: 'كيف يحمي Liafrik بياناتك: عزل صارم متعدد المستأجرين، تشفير، بنية تحتية سحابية، نسخ احتياطي.',
-      es: 'Cómo Liafrik protege tus datos: aislamiento estricto multi-tenant, cifrado, infraestructura en la nube, copias de seguridad.',
-      pt: 'Como a Liafrik protege seus dados: isolamento rigoroso multi-tenant, criptografia, infraestrutura em nuvem, backups.',
-    },
-  },
-  support: {
-    title: { en: 'Support | Liafrik', fr: 'Support | Liafrik', ar: 'الدعم | Liafrik', es: 'Soporte | Liafrik', pt: 'Suporte | Liafrik' },
-    h1: {
-      en: 'We are here to help', fr: 'Nous sommes là pour vous aider',
-      ar: 'نحن هنا لمساعدتك', es: 'Estamos aquí para ayudarte', pt: 'Estamos aqui para ajudar',
-    },
-    desc: {
-      en: 'Get help from the Liafrik team — customer support, customer service, and general inquiries for every app in the ecosystem.',
-      fr: "Obtenez de l'aide de l'équipe Liafrik — support client, service client et demandes générales.",
-      ar: 'احصل على المساعدة من فريق Liafrik — دعم العملاء والاستفسارات العامة.',
-      es: 'Obtén ayuda del equipo de Liafrik: soporte técnico, atención al cliente y consultas generales.',
-      pt: 'Obtenha ajuda da equipe da Liafrik — suporte ao cliente e perguntas gerais.',
-    },
-  },
-  privacy: {
-    title: {
-      en: 'Privacy Policy | Liafrik', fr: 'Politique de confidentialité | Liafrik',
-      ar: 'سياسة الخصوصية | Liafrik', es: 'Política de privacidad | Liafrik', pt: 'Política de privacidade | Liafrik',
-    },
-    h1: {
-      en: 'Privacy Policy', fr: 'Politique de Confidentialité', ar: 'سياسة الخصوصية',
-      es: 'Política de Privacidad', pt: 'Política de Privacidade',
-    },
-    desc: {
-      en: 'How Liafrik collects, uses, and protects your data across every app in the ecosystem, with strict multi-tenant data isolation.',
-      fr: "Comment Liafrik collecte, utilise et protège vos données à travers chaque application de l'écosystème.",
-      ar: 'كيف يجمع Liafrik بياناتك ويستخدمها ويحميها عبر كل تطبيق في النظام المتكامل.',
-      es: 'Cómo Liafrik recopila, usa y protege tus datos en cada app del ecosistema.',
-      pt: 'Como a Liafrik coleta, usa e protege seus dados em cada aplicativo do ecossistema.',
-    },
-  },
-  terms: {
-    title: {
-      en: 'Terms of Service | Liafrik', fr: "Conditions d'utilisation | Liafrik",
-      ar: 'شروط الخدمة | Liafrik', es: 'Términos de servicio | Liafrik', pt: 'Termos de serviço | Liafrik',
-    },
-    h1: {
-      en: 'Terms of Service', fr: "Conditions d'Utilisation", ar: 'شروط الخدمة',
-      es: 'Términos de servicio', pt: 'Termos de serviço',
-    },
-    desc: {
-      en: 'The terms governing your use of the Liafrik SaaS ecosystem — accounts, acceptable use, subscriptions, and liability.',
-      fr: "Les conditions régissant votre utilisation de l'écosystème SaaS Liafrik.",
-      ar: 'الشروط الحاكمة لاستخدامك لنظام Liafrik المتكامل.',
-      es: 'Los términos que rigen el uso del ecosistema SaaS Liafrik.',
-      pt: 'Os termos que regem o uso do ecossistema SaaS Liafrik.',
-    },
-  },
-  refund: {
-    title: {
-      en: 'Refund Policy | Liafrik', fr: 'Politique de remboursement | Liafrik',
-      ar: 'سياسة الاسترداد | Liafrik', es: 'Política de reembolso | Liafrik', pt: 'Política de reembolso | Liafrik',
-    },
-    h1: {
-      en: 'Refund Policy', fr: 'Politique de remboursement', ar: 'سياسة الاسترداد',
-      es: 'Política de reembolso', pt: 'Política de reembolso',
-    },
-    desc: {
-      en: 'How refunds, cancellations, and billing disputes are handled across the Liafrik SaaS ecosystem.',
-      fr: "Comment les remboursements, annulations et litiges de facturation sont gérés.",
-      ar: 'كيف تُدار عمليات الاسترداد والإلغاء ومنازعات الفوترة.',
-      es: 'Cómo se gestionan los reembolsos, cancelaciones y disputas de facturación.',
-      pt: 'Como reembolsos, cancelamentos e disputas de faturamento são tratados.',
-    },
-  },
-  partners: {
-    title: {
-      en: 'Partners & Investors | Liafrik', fr: 'Partenaires & Investisseurs | Liafrik',
-      ar: 'الشركاء والمستثمرون | Liafrik', es: 'Socios e Inversores | Liafrik', pt: 'Parceiros e Investidores | Liafrik',
-    },
-    h1: {
-      en: 'Build the future of the Liafrik ecosystem with us', fr: "Construisez l'avenir de l'écosystème Liafrik avec nous",
-      ar: 'ابنِ مستقبل نظام Liafrik المتكامل معنا', es: 'Construye el futuro del ecosistema Liafrik con nosotros', pt: 'Construa o futuro do ecossistema Liafrik conosco',
-    },
-    desc: {
-      en: 'Partner with Liafrik or invest in a global SaaS ecosystem spanning commerce, hospitality, healthcare, education, finance and more.',
-      fr: "Devenez partenaire de Liafrik ou investissez dans un écosystème SaaS mondial couvrant le commerce, l'hôtellerie, la santé, l'éducation, la finance et plus.",
-      ar: 'كن شريكاً لـ Liafrik أو استثمر في نظام SaaS عالمي متكامل يشمل التجارة والضيافة والصحة والتعليم والتمويل وأكثر.',
-      es: 'Asóciate con Liafrik o invierte en un ecosistema SaaS global que abarca comercio, hostelería, salud, educación, finanzas y más.',
-      pt: 'Seja parceiro da Liafrik ou invista em um ecossistema SaaS global que abrange comércio, hotelaria, saúde, educação, finanças e mais.',
-    },
-  },
-};
+const STATIC_PAGES = (await bundlePure('src/data/pageSeo.ts', '.pageseo-bundle.mjs')).PAGE_SEO;
 
 const NAV_LABEL = {
   home: { en: 'Home', fr: 'Accueil', ar: 'الرئيسية', es: 'Inicio', pt: 'Início' },
@@ -263,12 +108,38 @@ function hreflangTags(path) {
   return lines.join('\n    ');
 }
 
-function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, extraJsonLd }) {
+const OG_LOCALE = { en: 'en_US', fr: 'fr_FR', ar: 'ar_AE', es: 'es_ES', pt: 'pt_PT' };
+const ld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
+
+// Site-wide JSON-LD from index.html: first block = Organization, second = the
+// product ItemList (only useful on the home and products pages).
+const [orgLdRaw, itemListLdRaw] = [...baseHtml.matchAll(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g)].map((m) => m[0]);
+const websiteLd = (lang) => ({
+  '@context': 'https://schema.org', '@type': 'WebSite', name: 'Liafrik', url: SITE, inLanguage: lang,
+  publisher: { '@type': 'Organization', name: 'Liafrik', url: SITE },
+});
+const breadcrumbLd = (lang, crumbs) => ({
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [{ name: NAV_LABEL.home[lang], href: `/${lang}` }, ...crumbs].map((c, idx) => ({
+    '@type': 'ListItem', position: idx + 1, name: c.name ?? c.label, item: `${SITE}${c.href}`,
+  })),
+});
+
+const SCHEMA_CATEGORY = {
+  Education: 'EducationApplication', 'Personal Finance': 'FinanceApplication', Accounting: 'FinanceApplication',
+  Transport: 'TravelApplication', Hospitality: 'TravelApplication', Marketplace: 'ShoppingApplication',
+  Ecommerce: 'ShoppingApplication', Healthcare: 'HealthApplication', 'Health & Wellness': 'HealthApplication',
+};
+
+function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, ldBlocks = [], withItemList = false, ogType = 'website' }) {
   const dir = RTL_LANGS.includes(lang) ? 'rtl' : 'ltr';
   const url = `${SITE}/${lang}${path}`;
   const navHtml = navLinks
     .map((n) => `<a href="${esc(n.href)}">${esc(n.label)}</a>`)
     .join('\n        ');
+  const alternates = LANGS.filter((l) => l !== lang)
+    .map((l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}" />`)
+    .join('\n    ');
 
   return `<!doctype html>
 <html lang="${lang}" dir="${dir}">
@@ -277,21 +148,30 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, e
     ${faviconTags}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="${esc(description)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     ${themeColorTag}
     <link rel="canonical" href="${url}" />
     ${hreflangTags(path)}
     <title>${esc(title)}</title>
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="${ogType}" />
     <meta property="og:url" content="${url}" />
     <meta property="og:site_name" content="Liafrik" />
+    <meta property="og:locale" content="${OG_LOCALE[lang]}" />
+    ${alternates}
     <meta property="og:image" content="${SITE}/og-image-v2.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Liafrik — African roots. Global vision. Building the future." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(description)}" />
-    ${jsonLd}
-    ${extraJsonLd ? `<script type="application/ld+json">${JSON.stringify(extraJsonLd)}</script>` : ''}
+    <meta name="twitter:image" content="${SITE}/og-image-v2.png" />
+    ${orgLdRaw}
+    ${ld(websiteLd(lang))}
+    ${withItemList ? itemListLdRaw : ''}
+    ${ldBlocks.map(ld).join('\n    ')}
     ${headAssetTags}
   </head>
   <body>
@@ -322,12 +202,21 @@ function writeRoute(lang, routePath, html) {
   writeFileSync(join(dir, 'index.html'), html);
 }
 
+const ul = (items) => `<ul>\n            ${items.map((i) => `<li>${esc(i)}</li>`).join('\n            ')}\n          </ul>`;
+const COMING = { en: 'Coming soon', fr: 'Bientôt disponible', ar: 'قريباً', es: 'Próximamente', pt: 'Em breve' };
+const PRICING_LABEL = { en: 'Pricing', fr: 'Tarifs', ar: 'الأسعار', es: 'Precios', pt: 'Preços' };
+const FEATURES_LABEL = { en: 'Features', fr: 'Fonctionnalités', ar: 'الميزات', es: 'Funciones', pt: 'Recursos' };
+const BENEFITS_LABEL = { en: 'Benefits', fr: 'Avantages', ar: 'المزايا', es: 'Ventajas', pt: 'Vantagens' };
+const INDUSTRIES_LABEL = { en: 'Built for', fr: 'Conçu pour', ar: 'مصمم لـ', es: 'Pensado para', pt: 'Criado para' };
+
 let count = 0;
+const sitemapEntries = []; // every routed path, for sitemap.xml
 
 for (const lang of LANGS) {
   const commonNav = [
     { href: `/${lang}`, label: NAV_LABEL.home[lang] },
     { href: `/${lang}/products`, label: NAV_LABEL.products[lang] },
+    { href: `/${lang}/alternatives`, label: altNavLabel(lang) },
     { href: `/${lang}/founder`, label: NAV_LABEL.founder[lang] },
     { href: `/${lang}/security`, label: NAV_LABEL.security[lang] },
     { href: `/${lang}/support`, label: NAV_LABEL.support[lang] },
@@ -336,7 +225,7 @@ for (const lang of LANGS) {
     { href: `/${lang}/partners`, label: NAV_LABEL.partners[lang] },
   ];
 
-  // Static pages (home + 8 others)
+  // ---- Static pages (home + others) ----
   for (const [slug, page] of Object.entries(STATIC_PAGES)) {
     const routePath = slug ? `/${slug}` : '';
     const html = renderPage({
@@ -345,51 +234,175 @@ for (const lang of LANGS) {
       title: page.title[lang],
       description: page.desc[lang],
       h1: page.h1[lang],
-      bodyExtra: slug === 'products'
+      withItemList: slug === '' || slug === 'products',
+      bodyExtra: slug === 'products' || slug === ''
         ? `<ul>\n            ${products
             .map((p) => `<li><a href="/${lang}/products/${p.slug}">${esc(p.name)} — ${esc(p.tagline[lang])}</a></li>`)
             .join('\n            ')}\n          </ul>`
         : '',
       navLinks: commonNav,
+      ldBlocks: slug && slug !== 'products'
+        ? [breadcrumbLd(lang, [{ name: page.h1[lang], href: `/${lang}${routePath}` }])]
+        : [],
     });
     writeRoute(lang, routePath.slice(1), html);
     count++;
   }
 
-  // Product pages
+  // ---- Product pages ----
   for (const p of products) {
     const routePath = `/products/${p.slug}`;
-    const title = `${p.name} — Liafrik`;
-    const firstPlan = p.pricing && p.pricing[0];
-    const priceNumber = firstPlan ? String(firstPlan.price).replace(/[^0-9.]/g, '') : '';
+    const seo = productSeo(p, lang);
+    const plans = (p.pricing || []).filter((x) => /\d|free/i.test(x.price));
+    const offers = plans.map((x) => ({
+      '@type': 'Offer', name: x.name[lang],
+      price: /free/i.test(x.price) ? '0' : String(x.price).replace(/[^0-9.]/g, ''),
+      priceCurrency: 'USD',
+      availability: p.available ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder',
+    })).filter((o) => o.price !== '');
     const softwareAppLd = {
-      '@context': 'https://schema.org',
-      '@type': 'SoftwareApplication',
-      name: `Liafrik ${p.name}`,
-      url: `${SITE}/en/products/${p.slug}`,
-      description: p.description.en,
-      applicationCategory: p.category.en,
-      operatingSystem: 'Web',
-      ...(firstPlan && priceNumber
-        ? { offers: { '@type': 'Offer', price: priceNumber, priceCurrency: 'USD', availability: p.available ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder' } }
-        : {}),
+      '@context': 'https://schema.org', '@type': 'SoftwareApplication',
+      name: `Liafrik ${p.name}`, url: `${SITE}/${lang}${routePath}`, description: p.description[lang],
+      applicationCategory: SCHEMA_CATEGORY[p.category.en] || 'BusinessApplication',
+      operatingSystem: 'Web', inLanguage: lang,
+      publisher: { '@type': 'Organization', name: 'Liafrik', url: SITE },
+      ...(offers.length ? { offers } : {}),
     };
+    const alts = alternativesForProduct(p.slug);
     const html = renderPage({
       lang,
       path: routePath,
-      title,
-      description: p.description[lang],
+      title: seo.title,
+      description: seo.description,
       h1: `${p.name} — ${p.tagline[lang]}`,
-      bodyExtra: `<p>${esc(p.category[lang])}${p.available ? '' : ` · ${esc({ en: 'Coming soon', fr: 'Bientôt disponible', ar: 'قريباً', es: 'Próximamente', pt: 'Em breve' }[lang])}`}</p>
-          <ul>
-            ${p.features.slice(0, 6).map((f) => `<li>${esc(f[lang])}</li>`).join('\n            ')}
-          </ul>`,
-      navLinks: [...commonNav, { href: `/${lang}/products`, label: NAV_LABEL.products[lang] }],
-      extraJsonLd: softwareAppLd,
+      bodyExtra: `<p>${esc(p.description[lang])}</p>
+          <p>${esc(p.category[lang])}${p.available ? '' : ` · ${esc(COMING[lang])}`}</p>
+          <h2>${esc(FEATURES_LABEL[lang])}</h2>
+          ${ul(p.features.map((f) => f[lang]))}
+          <h2>${esc(BENEFITS_LABEL[lang])}</h2>
+          ${ul(p.benefits.map((f) => f[lang]))}
+          <h2>${esc(INDUSTRIES_LABEL[lang])}</h2>
+          ${ul(p.industries.map((f) => f[lang]))}
+          ${plans.length ? `<h2>${esc(PRICING_LABEL[lang])}</h2>\n          ${ul(plans.map((x) => `${x.name[lang]} — ${x.price}${x.period ? `/${x.period}` : ''}`))}` : ''}
+          ${p.available && alts.length ? `<h2>${esc(altToHeading(lang))}</h2>\n          <ul>\n            ${alts.map((a) => `<li><a href="/${lang}/alternatives/${a.slug}">${esc(altHubLink(lang, a.name))}</a></li>`).join('\n            ')}\n          </ul>` : ''}`,
+      navLinks: [...commonNav],
+      ldBlocks: [
+        softwareAppLd,
+        breadcrumbLd(lang, [
+          { name: NAV_LABEL.products[lang], href: `/${lang}/products` },
+          { name: p.name, href: `/${lang}${routePath}` },
+        ]),
+      ],
+      ogType: 'website',
     });
     writeRoute(lang, `products/${p.slug}`, html);
     count++;
   }
+
+  // ---- Alternatives hub ----
+  {
+    const hub = alternativesHub(products, lang);
+    const html = renderPage({
+      lang,
+      path: '/alternatives',
+      title: hub.title,
+      description: hub.description,
+      h1: hub.h1,
+      bodyExtra: hub.groups
+        .map((g) => `<h2>${esc(g.heading)}</h2>\n          <ul>\n            ${g.links.map((l) => `<li><a href="/${lang}/alternatives/${l.slug}">${esc(l.label)}</a></li>`).join('\n            ')}\n          </ul>`)
+        .join('\n        '),
+      navLinks: commonNav,
+      ldBlocks: [breadcrumbLd(lang, [{ name: altNavLabel(lang), href: `/${lang}/alternatives` }])],
+    });
+    writeRoute(lang, 'alternatives', html);
+    count++;
+  }
+
+  // ---- "Alternative to X" pages ----
+  for (const alt of ALTERNATIVES) {
+    const p = products.find((x) => x.slug === alt.product);
+    if (!p || !p.available) continue;
+    const pg = alternativePage(alt, p, lang);
+    const routePath = `/alternatives/${alt.slug}`;
+    const faqLd = {
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: pg.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    };
+    const html = renderPage({
+      lang,
+      path: routePath,
+      title: pg.title,
+      description: pg.description,
+      h1: pg.h1,
+      bodyExtra: `<p>${esc(pg.intro)}</p>
+          ${p.appUrl ? `<p><a href="${esc(p.appUrl)}">${esc(pg.cta.open)}</a> · <a href="/${lang}/products/${p.slug}">${esc(p.name)}</a></p>` : ''}
+          <h2>${esc(pg.featuresH)}</h2>
+          ${ul(pg.features)}
+          <h2>${esc(pg.benefitsH)}</h2>
+          ${ul(pg.benefits)}
+          <h2>${esc(pg.versusH)}</h2>
+          <p>${esc(pg.versusIntro)}</p>
+          ${pg.chooseC.length ? `<h3>${esc(pg.chooseCH)}</h3>\n          ${ul(pg.chooseC)}` : ''}
+          <h3>${esc(pg.choosePH)}</h3>
+          ${ul(pg.chooseP)}
+          <h2>${esc(pg.pricingH)}</h2>
+          <p>${esc(pg.pricing)}</p>
+          <h2>${esc(pg.faqH)}</h2>
+          ${pg.faq.map((f) => `<h3>${esc(f.q)}</h3>\n          <p>${esc(f.a)}</p>`).join('\n          ')}
+          <p><small>${esc(pg.disclaimer)}</small></p>
+          <p><a href="/${lang}/alternatives">${esc(pg.cta.all)}</a></p>`,
+      navLinks: commonNav,
+      ldBlocks: [
+        faqLd,
+        breadcrumbLd(lang, [
+          { name: altNavLabel(lang), href: `/${lang}/alternatives` },
+          { name: pg.h1, href: `/${lang}${routePath}` },
+        ]),
+      ],
+    });
+    writeRoute(lang, `alternatives/${alt.slug}`, html);
+    count++;
+  }
 }
+
+// ---- sitemap.xml: every page in every language, with full hreflang sets ----
+{
+  const paths = new Set();
+  for (const slug of Object.keys(STATIC_PAGES)) paths.add(slug ? `/${slug}` : '');
+  for (const p of products) paths.add(`/products/${p.slug}`);
+  paths.add('/alternatives');
+  for (const alt of ALTERNATIVES) {
+    const p = products.find((x) => x.slug === alt.product);
+    if (p && p.available) paths.add(`/alternatives/${alt.slug}`);
+  }
+  const lastmod = new Date().toISOString().slice(0, 10);
+  const urls = [];
+  for (const path of paths) {
+    for (const lang of LANGS) {
+      urls.push(`  <url>
+    <loc>${SITE}/${lang}${path}</loc>
+    <lastmod>${lastmod}</lastmod>
+${LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE}/${l}${path}" />`).join('\n')}
+    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/en${path}" />
+  </url>`);
+    }
+  }
+  writeFileSync(
+    join(DIST, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`,
+  );
+  console.log(`sitemap.xml: ${urls.length} URLs (${paths.size} pages x ${LANGS.length} languages).`);
+}
+
+// ---- 404.html: Cloudflare Pages serves it with a real HTTP 404 for any URL
+// that has no file (instead of the old catch-all that answered 200 "soft 404").
+// It is the normal app shell, so the visitor still sees the friendly 404 page.
+writeFileSync(
+  join(DIST, '404.html'),
+  baseHtml
+    .replace(/<title>[^<]*<\/title>/, '<title>Page not found | Liafrik</title>')
+    .replace(/<link rel="canonical"[^>]*>\s*/, '')
+    .replace('<meta charset="UTF-8" />', '<meta charset="UTF-8" />\n    <meta name="robots" content="noindex, nofollow" />'),
+);
 
 console.log(`Prerendered ${count} static HTML files across ${LANGS.length} languages.`);

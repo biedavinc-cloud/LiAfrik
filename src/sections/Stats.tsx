@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import SectionHeading from '@/components/SectionHeading';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import { useInViewOnce } from '@/hooks/useInView';
 import { useLang, type Lang } from '@/i18n/LanguageContext';

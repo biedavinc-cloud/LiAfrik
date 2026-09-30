@@ -12,17 +12,15 @@ import { cn } from '@/lib/cn';
 
 export type PartnerType = 'investor' | 'strategic' | 'technology' | 'business';
 
-const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
+// Cloudflare Pages Function (functions/api/forward-form.ts): same origin, no key needed.
+const EDGE_URL = '/api/forward-form';
 const PARTNER_EMAIL = 'cs@liafrik.com';
 
 async function submitPartnerForm(payload: Record<string, unknown>): Promise<boolean> {
   try {
     const res = await fetch(EDGE_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
     return res.ok;

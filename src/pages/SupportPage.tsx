@@ -5,23 +5,16 @@ import SectionHeading from '@/components/SectionHeading';
 import { LinkButton, Button } from '@/components/Button';
 import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 
-const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
+// Cloudflare Pages Function (functions/api/forward-form.ts): same origin, no key needed.
+const EDGE_URL = '/api/forward-form';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function SupportPage() {
   const { t, lang } = useLang();
-  useSEO({
-    title: 'Support | Liafrik',
-    description: pick(lang, {
-      en: 'Get help from the Liafrik team — customer support, customer service, and general inquiries for every app in the ecosystem.',
-      fr: "Obtenez de l'aide de l'équipe Liafrik — support client, service client et demandes générales pour chaque application de l'écosystème.",
-      ar: 'احصل على المساعدة من فريق Liafrik — دعم العملاء، وخدمة العملاء، والاستفسارات العامة لكل تطبيق في النظام المتكامل.',
-      es: 'Obtén ayuda del equipo de Liafrik: soporte técnico, atención al cliente y consultas generales para cada app del ecosistema.',
-      pt: 'Obtenha ajuda da equipe da Liafrik — suporte ao cliente, atendimento ao cliente e perguntas gerais para cada aplicativo do ecossistema.',
-    }),
-  });
+  useSEO(pageSeo('support', lang));
   const [status, setStatus] = useState<Status>('idle');
 
   const onSubmit = async (e: FormEvent) => {
@@ -37,7 +30,7 @@ export default function SupportPage() {
     try {
       const res = await fetch(EDGE_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}` },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, company, message, lang, form_type: 'contact' }),
       });
       if (res.ok) {
@@ -60,7 +53,7 @@ export default function SupportPage() {
   return (
     <div className="pt-28 sm:pt-32 pb-20 min-h-screen">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeading tag={t('support.tag')} title={t('support.title')} subtitle={t('support.sub')} />
+        <SectionHeading as="h1" tag={t('support.tag')} title={t('support.title')} subtitle={t('support.sub')} />
 
         <div className="mt-12 grid sm:grid-cols-2 gap-5">
           {channels.map((c, i) => (

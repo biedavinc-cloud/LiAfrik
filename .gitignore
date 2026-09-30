@@ -26,3 +26,8 @@ scripts/.products-bundle.mjs
 *.sln
 *.sw?
 .env
+scripts/.seo-bundle.mjs
+scripts/.alternatives-bundle.mjs
+scripts/.pageseo-bundle.mjs
+.dev.vars
+.wrangler

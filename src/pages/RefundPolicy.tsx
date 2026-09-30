@@ -4,6 +4,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
 import { useLang, pick, type Lang } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 
 interface Section {
   title: Record<Lang, string>;
@@ -115,24 +116,12 @@ const sections: Section[] = [
 
 export default function RefundPolicy() {
   const { lang } = useLang();
-  useSEO({
-    title: pick(lang, {
-      en: 'Refund Policy | Liafrik', fr: 'Politique de remboursement | Liafrik',
-      ar: 'سياسة الاسترداد | Liafrik', es: 'Política de reembolso | Liafrik', pt: 'Política de reembolso | Liafrik',
-    }),
-    description: pick(lang, {
-      en: 'How refunds, cancellations, and billing disputes are handled across the Liafrik SaaS ecosystem.',
-      fr: "Comment les remboursements, annulations et litiges de facturation sont gérés au sein de l'écosystème SaaS Liafrik.",
-      ar: 'كيف تُدار عمليات الاسترداد والإلغاء ومنازعات الفوترة عبر نظام Liafrik المتكامل.',
-      es: 'Cómo se gestionan los reembolsos, cancelaciones y disputas de facturación en el ecosistema SaaS Liafrik.',
-      pt: 'Como reembolsos, cancelamentos e disputas de faturamento são tratados no ecossistema SaaS Liafrik.',
-    }),
-  });
+  useSEO(pageSeo('refund', lang));
 
   return (
     <div className="pt-28 sm:pt-32 pb-20 min-h-screen">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <SectionHeading
+        <SectionHeading as="h1"
           tag={pick(lang, { en: 'Legal', fr: 'Mentions légales', ar: 'قانوني', es: 'Legal', pt: 'Legal' })}
           title={pick(lang, { en: 'Refund Policy', fr: 'Politique de remboursement', ar: 'سياسة الاسترداد', es: 'Política de reembolso', pt: 'Política de reembolso' })}
           subtitle={pick(lang, {

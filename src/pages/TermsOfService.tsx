@@ -4,6 +4,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
 import { useLang, pick, type Lang } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 
 interface Section {
   title: Record<Lang, string>;
@@ -135,24 +136,12 @@ const sections: Section[] = [
 
 export default function TermsOfService() {
   const { lang } = useLang();
-  useSEO({
-    title: pick(lang, {
-      en: 'Terms of Service | Liafrik', fr: "Conditions d'utilisation | Liafrik",
-      ar: 'شروط الخدمة | Liafrik', es: 'Términos de servicio | Liafrik', pt: 'Termos de serviço | Liafrik',
-    }),
-    description: pick(lang, {
-      en: 'The terms governing your use of the Liafrik SaaS ecosystem — accounts, acceptable use, subscriptions, and liability.',
-      fr: "Les conditions régissant votre utilisation de l'écosystème SaaS Liafrik — comptes, utilisation acceptable, abonnements et responsabilité.",
-      ar: 'الشروط الحاكمة لاستخدامك لنظام Liafrik المتكامل — الحسابات، والاستخدام المقبول، والاشتراكات، والمسؤولية.',
-      es: 'Los términos que rigen el uso del ecosistema SaaS Liafrik: cuentas, uso aceptable, suscripciones y responsabilidad.',
-      pt: 'Os termos que regem o uso do ecossistema SaaS Liafrik — contas, uso aceitável, assinaturas e responsabilidade.',
-    }),
-  });
+  useSEO(pageSeo('terms', lang));
 
   return (
     <div className="pt-28 sm:pt-32 pb-20 min-h-screen">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <SectionHeading
+        <SectionHeading as="h1"
           tag={pick(lang, { en: 'Legal', fr: 'Mentions légales', ar: 'قانوني', es: 'Legal', pt: 'Legal' })}
           title={pick(lang, { en: 'Terms of Service', fr: "Conditions d'Utilisation", ar: 'شروط الخدمة', es: 'Términos de servicio', pt: 'Termos de serviço' })}
           subtitle={pick(lang, {

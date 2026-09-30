@@ -8,9 +8,11 @@ import { Button } from '@/components/Button';
 import AppLogo from '@/components/AppLogo';
 import { useLang, pick } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
+import { productSeo } from '@/lib/seoCopy';
 import NotFound from '@/pages/NotFound';
 
-const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/forward-form`;
+// Cloudflare Pages Function (functions/api/forward-form.ts): same origin, no key needed.
+const EDGE_URL = '/api/forward-form';
 
 export default function ComingSoonPage() {
   const { slug = '' } = useParams();
@@ -18,21 +20,9 @@ export default function ComingSoonPage() {
   const product = getProductBySlug(slug);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
-  useSEO(
-    product
-      ? {
-          title: pick(lang, {
-            en: `${product.name} — Coming Soon | Liafrik`,
-            fr: `${product.name} — Bientôt disponible | Liafrik`,
-            ar: `${product.name} — قريباً | Liafrik`,
-            es: `${product.name} — Próximamente | Liafrik`,
-            pt: `${product.name} — Em breve | Liafrik`,
-          }),
-          description: product.description[lang],
-        }
-      : { title: 'Liafrik', noindex: true }
-  );
+  useSEO(product ? productSeo(product, lang) : { title: 'Liafrik' });
 
   if (!product || product.available) {
     if (product && product.available) return null;
@@ -47,16 +37,21 @@ export default function ComingSoonPage() {
     if (!email) return;
 
     setSending(true);
+    setFailed(false);
     try {
-      await fetch(EDGE_URL, {
+      const res = await fetch(EDGE_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}` },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: email.split('@')[0], email, company: null, message: `Notify me when ${product.name} launches`, lang, form_type: 'newsletter' }),
       });
-      setSent(true);
-      form.reset();
+      if (res.ok) {
+        setSent(true);
+        form.reset();
+      } else {
+        setFailed(true);
+      }
     } catch {
-      setSent(true);
+      setFailed(true);
     }
     setSending(false);
   };
@@ -152,10 +147,15 @@ export default function ComingSoonPage() {
               </motion.div>
             ) : (
               <form onSubmit={onSubmit} className="mt-5 flex flex-col sm:flex-row gap-2.5">
-                <input type="email" required placeholder={t('cs.email')}
+                <input type="email" name="email" required autoComplete="email" aria-label={t('cs.email')} placeholder={t('cs.email')}
                   className="flex-1 rounded-xl border border-cloud-200 bg-cloud-50/50 px-4 py-3 text-sm text-ink placeholder:text-ink-light focus:border-liafrik-400 focus:bg-white focus:ring-2 focus:ring-liafrik-100 outline-none transition-all" />
                 <Button type="submit" variant="primary" size="md" disabled={sending} icon={sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Bell className="h-4 w-4" />}>{t('cs.notify')}</Button>
               </form>
+            )}
+            {failed && !sent && (
+              <p role="alert" className="mt-3 text-xs text-red-600 font-medium">
+                {pick(lang, { en: 'Something went wrong. Please try again.', fr: 'Une erreur est survenue. Veuillez réessayer.', ar: 'حدث خطأ ما. يرجى المحاولة مرة أخرى.', es: 'Algo salió mal. Inténtalo de nuevo.', pt: 'Algo deu errado. Tente novamente.' })}
+              </p>
             )}
           </motion.div>
 

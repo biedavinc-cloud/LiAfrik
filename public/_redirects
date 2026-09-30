@@ -16,4 +16,21 @@
 /es/products/zando  /es/products/zanldo  301
 /pt/products/zando  /pt/products/zanldo  301
 
-/*  /index.html  200
+# Old language-less URLs → default language, at the edge (no JS needed).
+/products  /en/products  302
+/products/*  /en/products/:splat  302
+/alternatives  /en/alternatives  302
+/alternatives/*  /en/alternatives/:splat  302
+/security  /en/security  302
+/founder  /en/founder  302
+/presence  /en/presence  302
+/partners  /en/partners  302
+/support  /en/support  302
+/privacy  /en/privacy  302
+/terms  /en/terms  302
+/refund  /en/refund  302
+
+# NOTE: there is deliberately NO catch-all ("/*  /index.html  200") any more.
+# Every real page is a pre-rendered file (scripts/prerender.mjs), so any other
+# URL now gets dist/404.html with a true HTTP 404 instead of a 200 "soft 404"
+# that search engines would treat as a thin, duplicate page.

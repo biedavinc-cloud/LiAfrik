@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Zap, Check } from 'lucide-react';
 import type { Sector, Product } from '@/data/products';
-import { sectors, products, getProductBySlug } from '@/data/products';
+import { sectors, getProductBySlug } from '@/data/products';
 import { useLang } from '@/i18n/LanguageContext';
 import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
@@ -145,7 +145,6 @@ export default function BuildYourStack() {
 }
 
 function StackOrbit({ products: mods }: { products: Product[] }) {
-  const { lang } = useLang();
   const count = mods.length;
   const radius = 120;
 

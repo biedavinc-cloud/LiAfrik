@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
 # Explicitly welcome AI assistant / LLM crawlers — already covered by the
 # wildcard rule above, but named here so intent is unambiguous if any of

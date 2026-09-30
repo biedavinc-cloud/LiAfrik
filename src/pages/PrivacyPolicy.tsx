@@ -4,6 +4,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { LinkButton } from '@/components/Button';
 import { useLang, pick, type Lang } from '@/i18n/LanguageContext';
 import { useSEO } from '@/lib/useSEO';
+import { pageSeo } from '@/data/pageSeo';
 
 interface Section {
   title: Record<Lang, string>;
@@ -115,24 +116,12 @@ const sections: Section[] = [
 
 export default function PrivacyPolicy() {
   const { lang } = useLang();
-  useSEO({
-    title: pick(lang, {
-      en: 'Privacy Policy | Liafrik', fr: 'Politique de confidentialité | Liafrik',
-      ar: 'سياسة الخصوصية | Liafrik', es: 'Política de privacidad | Liafrik', pt: 'Política de privacidade | Liafrik',
-    }),
-    description: pick(lang, {
-      en: 'How Liafrik collects, uses, and protects your data across every app in the ecosystem, with strict multi-tenant data isolation.',
-      fr: "Comment Liafrik collecte, utilise et protège vos données à travers chaque application de l'écosystème, avec une isolation stricte des données multi-tenant.",
-      ar: 'كيف يجمع Liafrik بياناتك ويستخدمها ويحميها عبر كل تطبيق في النظام المتكامل، مع عزل صارم متعدد المستأجرين للبيانات.',
-      es: 'Cómo Liafrik recopila, usa y protege tus datos en cada app del ecosistema, con estricto aislamiento de datos multi-tenant.',
-      pt: 'Como a Liafrik coleta, usa e protege seus dados em cada aplicativo do ecossistema, com isolamento rigoroso de dados multi-tenant.',
-    }),
-  });
+  useSEO(pageSeo('privacy', lang));
 
   return (
     <div className="pt-28 sm:pt-32 pb-20 min-h-screen">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <SectionHeading
+        <SectionHeading as="h1"
           tag={pick(lang, { en: 'Legal', fr: 'Mentions légales', ar: 'قانوني', es: 'Legal', pt: 'Legal' })}
           title={pick(lang, { en: 'Privacy Policy', fr: 'Politique de Confidentialité', ar: 'سياسة الخصوصية', es: 'Política de Privacidad', pt: 'Política de Privacidade' })}
           subtitle={pick(lang, {

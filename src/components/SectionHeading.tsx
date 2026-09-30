@@ -9,11 +9,14 @@ interface Props {
   align?: 'center' | 'left';
   className?: string;
   tagClassName?: string;
+  /** Use 'h1' for the main heading of a page (exactly one per page). */
+  as?: 'h1' | 'h2';
 }
 
 export default function SectionHeading({
-  tag, title, subtitle, align = 'center', className, tagClassName,
+  tag, title, subtitle, align = 'center', className, tagClassName, as = 'h2',
 }: Props) {
+  const Heading = as === 'h1' ? motion.h1 : motion.h2;
   const alignment = align === 'center' ? 'items-center text-center mx-auto' : 'items-start text-left';
   return (
     <div className={cn('flex flex-col gap-4 max-w-3xl', alignment, className)}>
@@ -32,7 +35,7 @@ export default function SectionHeading({
           {tag}
         </motion.span>
       )}
-      <motion.h2
+      <Heading
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -40,7 +43,7 @@ export default function SectionHeading({
         className="font-display text-3xl sm:text-4xl md:text-[44px] font-bold tracking-tight leading-[1.1] text-ink"
       >
         {title}
-      </motion.h2>
+      </Heading>
       {subtitle && (
         <motion.p
           initial={{ opacity: 0, y: 20 }}
