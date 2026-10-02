@@ -9,6 +9,7 @@ import Footer from '@/sections/Footer';
 import { FloatingContact } from '@/sections/Contact';
 import CursorGlow from '@/components/CursorGlow';
 import CookieConsent from '@/components/CookieConsent';
+import AnalyticsTracker from '@/components/AnalyticsTracker';
 import LiveChat from '@/components/LiveChat';
 
 // Home stays eager (first paint), every other route is code-split so the
@@ -98,6 +99,7 @@ function LocalizedLayout() {
       <Footer />
       <FloatingContact />
       <CookieConsent />
+      <AnalyticsTracker />
       <LiveChat />
     </LanguageProvider>
   );
