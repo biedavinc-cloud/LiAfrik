@@ -3,7 +3,7 @@ import { Link } from '@/components/Link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Linkedin, Facebook, Instagram, Youtube, Clock,
-  ArrowRight, Mail, MapPin, Send, CheckCircle2, Loader2,
+  ArrowRight, Mail, MapPin, Send, CheckCircle2, Loader2, Star, ExternalLink,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 import AppLogo from '@/components/AppLogo';
@@ -84,6 +84,23 @@ export default function Footer() {
                 </motion.a>
               ))}
             </div>
+            {/* Free Trustpilot "write a review" link: no widget, no third-party script. */}
+            <a
+              href="https://www.trustpilot.com/evaluate/liafrik.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-full border border-cloud-200 bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-card transition-colors hover:border-[#00B67A] hover:bg-[#00B67A]/5"
+            >
+              <Star className="h-4 w-4 fill-[#00B67A] text-[#00B67A]" aria-hidden="true" />
+              {pick(lang, {
+                en: 'Review us on Trustpilot',
+                fr: 'Laissez-nous un avis sur Trustpilot',
+                ar: 'قيّمنا على Trustpilot',
+                es: 'Déjanos tu opinión en Trustpilot',
+                pt: 'Deixe sua avaliação no Trustpilot',
+              })}
+              <ExternalLink className="h-3.5 w-3.5 text-ink-light" aria-hidden="true" />
+            </a>
           </div>
 
           <div className="lg:col-span-3">
