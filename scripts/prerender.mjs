@@ -65,6 +65,9 @@ async function bundlePure(entry, outName) {
 }
 const { productSeo, alternativePage, alternativesHub, altNavLabel, altToHeading, altHubLink } = await bundlePure('src/lib/seoCopy.ts', '.seo-bundle.mjs');
 const { ALTERNATIVES, alternativesForProduct } = await bundlePure('src/data/alternatives.ts', '.alternatives-bundle.mjs');
+const blog = await bundlePure('src/data/blog/index.ts', '.blog-prerender-bundle.mjs');
+const { parseInline } = await bundlePure('src/lib/blogMarkup.ts', '.blogmarkup-bundle.mjs');
+const { slugify } = await bundlePure('src/lib/blogMarkup.ts', '.blogmarkup-bundle.mjs');
 
 // ---- 2. Static page manifest (title/description per language) ----
 // Kept in sync by hand with each page's useSEO() call — a small, stable
@@ -84,7 +87,8 @@ const NAV_LABEL = {
 
 // ---- 3. Read the built index.html to reuse its <script>/<link> asset tags ----
 const baseHtml = readFileSync(join(DIST, 'index.html'), 'utf-8');
-const headAssetTags = [...baseHtml.matchAll(/<link rel="modulepreload"[^>]*>|<link rel="stylesheet"[^>]*>/g)]
+// Fonts are preloaded too: without this the web fonts arrive late on slow connections (text reflow / CLS).
+const headAssetTags = [...baseHtml.matchAll(/<link rel="preload"[^>]*>|<link rel="modulepreload"[^>]*>|<link rel="stylesheet"[^>]*>/g)]
   .map((m) => m[0])
   .join('\n    ');
 const bodyScriptTag = baseHtml.match(/<script type="module"[^>]*src="[^"]+"[^>]*><\/script>/)[0];
@@ -131,13 +135,13 @@ const SCHEMA_CATEGORY = {
   Ecommerce: 'ShoppingApplication', Healthcare: 'HealthApplication', 'Health & Wellness': 'HealthApplication',
 };
 
-function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, ldBlocks = [], withItemList = false, ogType = 'website' }) {
+function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, ldBlocks = [], withItemList = false, ogType = 'website', hreflangHtml = null, localeLangs = LANGS, extraHead = '' }) {
   const dir = RTL_LANGS.includes(lang) ? 'rtl' : 'ltr';
   const url = `${SITE}/${lang}${path}`;
   const navHtml = navLinks
     .map((n) => `<a href="${esc(n.href)}">${esc(n.label)}</a>`)
     .join('\n        ');
-  const alternates = LANGS.filter((l) => l !== lang)
+  const alternates = localeLangs.filter((l) => l !== lang)
     .map((l) => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}" />`)
     .join('\n    ');
 
@@ -151,7 +155,7 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, l
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     ${themeColorTag}
     <link rel="canonical" href="${url}" />
-    ${hreflangTags(path)}
+    ${hreflangHtml ?? hreflangTags(path)}
     <title>${esc(title)}</title>
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
@@ -172,6 +176,7 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, l
     ${ld(websiteLd(lang))}
     ${withItemList ? itemListLdRaw : ''}
     ${ldBlocks.map(ld).join('\n    ')}
+    ${extraHead}
     ${headAssetTags}
   </head>
   <body>
@@ -216,6 +221,7 @@ for (const lang of LANGS) {
   const commonNav = [
     { href: `/${lang}`, label: NAV_LABEL.home[lang] },
     { href: `/${lang}/products`, label: NAV_LABEL.products[lang] },
+    { href: blog.BLOG_LANGS.includes(lang) ? `/${lang}/blog` : '/en/blog', label: lang === 'ar' ? 'المدونة' : 'Blog' },
     { href: `/${lang}/alternatives`, label: altNavLabel(lang) },
     { href: `/${lang}/founder`, label: NAV_LABEL.founder[lang] },
     { href: `/${lang}/security`, label: NAV_LABEL.security[lang] },
@@ -365,6 +371,125 @@ for (const lang of LANGS) {
   }
 }
 
+// ---- Blog (French + English): hub, articles, RSS ----
+const blogAlt = (entries) =>
+  [...entries.map(([l, url]) => `<link rel="alternate" hreflang="${l}" href="${url}" />`),
+   `<link rel="alternate" hreflang="x-default" href="${entries.find(([l]) => l === 'en')[1]}" />`].join('\n    ');
+
+const inlineHtml = (text, lang) =>
+  parseInline(text).map((t) => {
+    if (t.type === 'bold') return `<strong>${esc(t.text)}</strong>`;
+    if (t.type === 'link') {
+      const href = blog.resolveHref(t.href, lang);
+      return `<a href="${esc(href.startsWith('/') ? `/${lang}${href}` : href)}">${esc(t.text)}</a>`;
+    }
+    return esc(t.text);
+  }).join('');
+
+const blockHtml = (b, post, product, lang) => {
+  const live = product.available && product.appUrl;
+  switch (b.t) {
+    case 'h2': return `<h2 id="${slugify(b.text)}">${esc(b.text)}</h2>`;
+    case 'h3': return `<h3>${esc(b.text)}</h3>`;
+    case 'p': return `<p>${inlineHtml(b.text, lang)}</p>`;
+    case 'ul': return `<ul>${b.items.map((i) => `<li>${inlineHtml(i, lang)}</li>`).join('')}</ul>`;
+    case 'ol': return `<ol>${b.items.map((i) => `<li>${inlineHtml(i, lang)}</li>`).join('')}</ol>`;
+    case 'tip': return `<aside><strong>${esc(b.title)}</strong> ${inlineHtml(b.text, lang)}</aside>`;
+    case 'cta': return `<aside><strong>${esc(b.title)}</strong><p>${inlineHtml(b.text, lang)}</p><a href="${esc(live ? product.appUrl : `/${lang}/products/${product.slug}`)}">${esc(product.name)}</a></aside>`;
+    default: return '';
+  }
+};
+
+const BLOG_UI = {
+  fr: { title: 'Le blog Liafrik : guides pratiques pour développer votre activité', desc: 'Commerce, santé, finance, éducation, immobilier, transport… Des guides concrets pour chaque métier, avec les outils Liafrik pour passer à l’action.', blog: 'Blog', faq: 'Questions fréquentes', related: 'À lire aussi', rss: 'Blog Liafrik' },
+  en: { title: 'The Liafrik blog: practical guides to grow your business', desc: 'Commerce, healthcare, finance, education, real estate, transport… Concrete guides for every trade, with Liafrik tools to put them into action.', blog: 'Blog', faq: 'Frequently asked questions', related: 'Keep reading', rss: 'Liafrik Blog' },
+};
+
+for (const lang of blog.BLOG_LANGS) {
+  const ui = BLOG_UI[lang];
+  const nav = [
+    { href: `/${lang}`, label: NAV_LABEL.home[lang] },
+    { href: `/${lang}/blog`, label: ui.blog },
+    { href: `/${lang}/products`, label: NAV_LABEL.products[lang] },
+    { href: `/${lang}/alternatives`, label: altNavLabel(lang) },
+    { href: `/${lang}/support`, label: NAV_LABEL.support[lang] },
+  ];
+  const rssLink = `<link rel="alternate" type="application/rss+xml" title="${esc(ui.rss)}" href="/${lang}/blog/rss.xml" />`;
+
+  // Hub
+  const hubUrl = `${SITE}/${lang}/blog`;
+  writeRoute(lang, 'blog', renderPage({
+    lang, path: '/blog', title: blog.withBrand(ui.title), description: ui.desc, h1: ui.title,
+    hreflangHtml: blogAlt(blog.BLOG_LANGS.map((l) => [l, `${SITE}/${l}/blog`])), localeLangs: blog.BLOG_LANGS, extraHead: rssLink,
+    bodyExtra: `<ul>\n          ${blog.POSTS.map((po) => `<li><a href="/${lang}${blog.postPath(po, lang)}">${esc(po[lang].title)}</a> — ${esc(po[lang].excerpt)}</li>`).join('\n          ')}\n        </ul>`,
+    navLinks: nav,
+    ldBlocks: [
+      { '@context': 'https://schema.org', '@type': 'Blog', name: ui.title, url: hubUrl, inLanguage: lang,
+        publisher: { '@type': 'Organization', name: 'Liafrik', url: SITE },
+        blogPost: blog.POSTS.map((po) => ({ '@type': 'BlogPosting', headline: po[lang].title, url: `${SITE}/${lang}${blog.postPath(po, lang)}`, datePublished: po.date })) },
+      breadcrumbLd(lang, [{ name: ui.blog, href: `/${lang}/blog` }]),
+    ],
+  }));
+  count++;
+
+  // Articles
+  for (const post of blog.POSTS) {
+    const c = post[lang];
+    const product = products.find((x) => x.slug === post.product);
+    const path = blog.postPath(post, lang);
+    const url = `${SITE}/${lang}${path}`;
+    const entries = blog.BLOG_LANGS.map((l) => [l, `${SITE}/${l}${blog.postPath(post, l)}`]);
+    const related = post.related.map((id) => blog.getPostById(id)).filter(Boolean);
+    const articleLd = {
+      '@context': 'https://schema.org', '@type': 'BlogPosting',
+      headline: c.title, description: c.description, inLanguage: lang, keywords: c.keyword, articleSection: c.category,
+      datePublished: post.date, dateModified: post.date, wordCount: blog.wordCount(c),
+      author: { '@type': 'Organization', name: 'Liafrik', url: SITE },
+      publisher: { '@type': 'Organization', name: 'Liafrik', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/favicon.png` } },
+      image: [`${SITE}/og-image-v2.png`], mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      about: { '@type': 'SoftwareApplication', name: `Liafrik ${product.name}`, url: `${SITE}/${lang}/products/${product.slug}` },
+    };
+    const faqLd = {
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: c.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    };
+    writeRoute(lang, `blog/${c.slug}`, renderPage({
+      lang, path, title: blog.withBrand(c.title), description: c.description, h1: c.title,
+      ogType: 'article', hreflangHtml: blogAlt(entries), localeLangs: blog.BLOG_LANGS,
+      extraHead: `${rssLink}\n    <meta property="article:published_time" content="${post.date}" />\n    <meta property="article:section" content="${esc(c.category)}" />`,
+      bodyExtra: `${c.blocks.map((b) => blockHtml(b, post, product, lang)).join('\n        ')}
+        <h2>${esc(ui.faq)}</h2>
+        ${c.faq.map((f) => `<h3>${esc(f.q)}</h3>\n        <p>${esc(f.a)}</p>`).join('\n        ')}
+        ${related.length ? `<h2>${esc(ui.related)}</h2>\n        <ul>${related.map((r) => `<li><a href="/${lang}${blog.postPath(r, lang)}">${esc(r[lang].title)}</a></li>`).join('')}</ul>` : ''}`,
+      navLinks: nav,
+      ldBlocks: [articleLd, faqLd, breadcrumbLd(lang, [{ name: ui.blog, href: `/${lang}/blog` }, { name: c.title, href: `/${lang}${path}` }])],
+    }));
+    count++;
+  }
+
+  // RSS
+  const rfc822 = (d) => new Date(`${d}T12:00:00Z`).toUTCString();
+  writeFileSync(join(DIST, lang, 'blog', 'rss.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${esc(ui.rss)}</title>
+    <link>${hubUrl}</link>
+    <atom:link href="${hubUrl}/rss.xml" rel="self" type="application/rss+xml" />
+    <description>${esc(ui.desc)}</description>
+    <language>${lang}</language>
+${blog.POSTS.map((po) => `    <item>
+      <title>${esc(po[lang].title)}</title>
+      <link>${SITE}/${lang}${blog.postPath(po, lang)}</link>
+      <guid isPermaLink="true">${SITE}/${lang}${blog.postPath(po, lang)}</guid>
+      <pubDate>${rfc822(po.date)}</pubDate>
+      <category>${esc(po[lang].category)}</category>
+      <description>${esc(po[lang].excerpt)}</description>
+    </item>`).join('\n')}
+  </channel>
+</rss>
+`);
+}
+
 // ---- sitemap.xml: every page in every language, with full hreflang sets ----
 {
   const paths = new Set();
@@ -387,11 +512,24 @@ ${LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE
   </url>`);
     }
   }
+  // Blog: only the languages where each page exists.
+  const blogUrlEntry = (loc, entries) => `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${lastmod}</lastmod>
+${entries.map(([l, u]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${u}" />`).join('\n')}
+    <xhtml:link rel="alternate" hreflang="x-default" href="${entries.find(([l]) => l === 'en')[1]}" />
+  </url>`;
+  const hubEntries = blog.BLOG_LANGS.map((l) => [l, `${SITE}/${l}/blog`]);
+  for (const l of blog.BLOG_LANGS) urls.push(blogUrlEntry(`${SITE}/${l}/blog`, hubEntries));
+  for (const post of blog.POSTS) {
+    const entries = blog.BLOG_LANGS.map((l) => [l, `${SITE}/${l}${blog.postPath(post, l)}`]);
+    for (const [, u] of entries) urls.push(blogUrlEntry(u, entries));
+  }
   writeFileSync(
     join(DIST, 'sitemap.xml'),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`,
   );
-  console.log(`sitemap.xml: ${urls.length} URLs (${paths.size} pages x ${LANGS.length} languages).`);
+  console.log(`sitemap.xml: ${urls.length} URLs (${paths.size} pages x ${LANGS.length} languages + blog).`);
 }
 
 // ---- 404.html: Cloudflare Pages serves it with a real HTTP 404 for any URL

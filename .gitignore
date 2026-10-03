@@ -31,3 +31,6 @@ scripts/.alternatives-bundle.mjs
 scripts/.pageseo-bundle.mjs
 .dev.vars
 .wrangler
+scripts/.blog-bundle.mjs
+scripts/.blog-prerender-bundle.mjs
+scripts/.blogmarkup-bundle.mjs

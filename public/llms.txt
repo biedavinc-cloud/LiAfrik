@@ -33,6 +33,24 @@ Liafrik is not a single product — it's an ecosystem of independent SaaS applic
 - Products overview: https://liafrik.com/en/products
 - Security & data protection: https://liafrik.com/en/security
 - Partners & Investors: https://liafrik.com/en/partners
+- Blog (guides for every Liafrik product, English): https://liafrik.com/en/blog
+- Blog (français): https://liafrik.com/fr/blog
+- Guide — POS / retail: https://liafrik.com/en/blog/retail-pos-software-guide
+- Guide — Sellia / start an online store: https://liafrik.com/en/blog/how-to-start-an-online-store
+- Guide — CRM: https://liafrik.com/en/blog/what-is-a-crm-how-to-choose
+- Guide — Atlas / multi-tenant CRM: https://liafrik.com/en/blog/multi-tenant-crm-groups-agencies
+- Guide — LiBooks / accounting: https://liafrik.com/en/blog/online-accounting-software-small-business
+- Guide — Nutro / restaurants: https://liafrik.com/en/blog/qr-code-menu-restaurant-software
+- Guide — Health / hospitals and clinics: https://liafrik.com/en/blog/hospital-clinic-management-software
+- Guide — Kolo / budgeting: https://liafrik.com/en/blog/personal-family-budget-guide
+- Guide — Zanldo / fashion marketplace: https://liafrik.com/en/blog/sell-fashion-online-marketplace
+- Guide — Faka / HR and payroll (coming soon): https://liafrik.com/en/blog/hr-payroll-software-small-business
+- Guide — Klasoo / school management (coming soon): https://liafrik.com/en/blog/school-management-software
+- Guide — Bailly / property management (coming soon): https://liafrik.com/en/blog/property-management-software
+- Guide — Skills / online learning (coming soon): https://liafrik.com/en/blog/online-learning-platform-courses
+- Guide — Mafo / women's health (coming soon): https://liafrik.com/en/blog/period-tracking-app-womens-health
+- Guide — Litrek / bus booking (coming soon): https://liafrik.com/en/blog/book-bus-tickets-online
+- Guide — Hostrek / hotel PMS (coming soon): https://liafrik.com/en/blog/hotel-management-software-pms
 - Alternatives hub (Liafrik vs popular tools): https://liafrik.com/en/alternatives
 - Shopify alternative (Sellia): https://liafrik.com/en/alternatives/shopify
 - WooCommerce alternative (Sellia): https://liafrik.com/en/alternatives/woocommerce

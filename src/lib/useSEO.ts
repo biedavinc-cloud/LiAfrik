@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { SUPPORTED_LANGS } from '@/i18n/LanguageContext';
+import { blogAlternates } from '@/data/blog';
 
 interface SEOOptions {
   title: string;
@@ -91,14 +92,22 @@ function setLinkTag(rel: string, hreflang: string | null, href: string) {
  */
 export function useHreflang(pathname: string) {
   useEffect(() => {
+    // Blog articles exist in fewer languages and have localized slugs, so
+    // their alternates come from the blog data instead of the generic rule.
+    const blog = blogAlternates(pathname);
     const rest = pathname.replace(/^\/(en|fr|ar|es|pt)/, '');
-    const canonical = `${SITE}${pathname}`;
-    const enHref = `${SITE}/en${rest}`;
+    const desired: Record<string, string> = blog
+      ? blog.alternates
+      : {
+          ...Object.fromEntries(SUPPORTED_LANGS.map((l) => [l, `${SITE}/${l}${rest}`])),
+          'x-default': `${SITE}/en${rest}`,
+        };
 
-    setLinkTag('canonical', null, canonical);
-    for (const l of SUPPORTED_LANGS) {
-      setLinkTag('alternate', l, `${SITE}/${l}${rest}`);
-    }
-    setLinkTag('alternate', 'x-default', enHref);
+    setLinkTag('canonical', null, blog ? blog.canonical : `${SITE}${pathname}`);
+    for (const [hreflang, href] of Object.entries(desired)) setLinkTag('alternate', hreflang, href);
+    // Remove alternates left over from the previous page.
+    document.head.querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]').forEach((el) => {
+      if (!(el.getAttribute('hreflang') as string in desired)) el.remove();
+    });
   }, [pathname]);
 }

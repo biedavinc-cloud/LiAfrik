@@ -36,6 +36,7 @@ export default function Navbar() {
 
   const navItems = [
     { label: t('nav.products'), href: '/products' },
+    { label: lang === 'ar' ? 'المدونة' : 'Blog', href: '/blog' },
     { label: t('nav.solutions'), href: '/#ecosystem' },
     { label: t('nav.security'), href: '/security' },
     { label: t('nav.about'), href: '/#why' },

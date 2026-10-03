@@ -210,6 +210,7 @@ export default function Footer() {
               <li><Link to="/presence" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.presence')}</Link></li>
               <li><Link to="/security" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.security')}</Link></li>
               <li><Link to="/partners" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{t('nav.partners')}</Link></li>
+              <li><Link to="/blog" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{lang === 'ar' ? 'المدونة' : 'Blog'}</Link></li>
               <li><Link to="/alternatives" className="text-sm text-ink-muted hover:text-liafrik-700 transition-colors">{altNavLabel(lang)}</Link></li>
             </ul>
           </div>

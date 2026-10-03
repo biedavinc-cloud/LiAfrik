@@ -19,6 +19,7 @@
 # Old language-less URLs → default language, at the edge (no JS needed).
 /products  /en/products  302
 /products/*  /en/products/:splat  302
+/blog  /en/blog  302
 /alternatives  /en/alternatives  302
 /alternatives/*  /en/alternatives/:splat  302
 /security  /en/security  302

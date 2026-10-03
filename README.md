@@ -44,6 +44,22 @@ Local test of the API: `npm run build && npx wrangler pages dev dist` (put the v
   `404.html` with a real HTTP 404. If you add a new route, it must be pre-rendered (or redirected).
 - Brand palette / logo files: see `tailwind.config.js` and `public/images/brand/`.
 
+## Blog (`/{fr,en}/blog`)
+
+16 guides, one per Liafrik product (including the ones not launched yet, clearly marked "coming soon"),
+in French and English. Everything is data-driven:
+
+- Articles live in `src/data/blog/posts/*.ts` (one file per product, both languages in the same file).
+- To add one: copy a file, change the id/product/slugs/texts, import it in `src/data/blog/index.ts`,
+  then run `npm run blog:check` (validates meta description < 155 chars, keyword in the H1, >= 4 H2,
+  >= 2 call-to-action boxes with the first one mid-article, FAQ, valid internal links, "Liafrik" spelling).
+- `npm run build` generates the static HTML for each article, the `BlogPosting` + FAQ + breadcrumb
+  JSON-LD, hreflang (only for languages where the article exists), the sitemap entries and
+  `/{lang}/blog/rss.xml`.
+- Inline markup in texts: `**bold**`, `[label](/products/sellia)`, `[label](post:other-article-id)`.
+- Other site languages (ar/es/pt) are redirected to the English blog. To add a language, add it to
+  `BLOG_LANGS` in `src/data/blog/types.ts` and write the texts.
+
 ## Scripts
 
 `npm run dev` · `npm run build` (build + pre-render) · `npm run typecheck` · `npm run lint`

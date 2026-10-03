@@ -12,7 +12,8 @@
     "postbuild": "node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "blog:check": "node scripts/blog-check.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
