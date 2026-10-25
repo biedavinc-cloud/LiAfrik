@@ -3,7 +3,7 @@ import { cta, h2, h3, ol, p, tip, ul, type BlogPost } from '../types';
 export const skills: BlogPost = {
   id: 'skills',
   product: 'skills',
-  related: ['klasoo', 'faka', 'sellia'],
+  related: ['sukulu', 'faka', 'sellia'],
   date: '2026-10-02',
   fr: {
     slug: 'plateforme-formation-en-ligne-cours',
@@ -42,7 +42,7 @@ export const skills: BlogPost = {
       ),
       h2(`Skills de Liafrik : la marketplace de formation`),
       p(`[Skills](/products/skills) est prévue comme une marketplace de formation où les instructeurs publient du contenu vidéo éducatif et où les apprenants accèdent aux cours. Elle s'adressera aux écoles, aux entreprises, aux gouvernements et aux ONG, avec un catalogue de cours, des certifications et un suivi de progression.`),
-      p(`Pour gérer une école, découvrez [Klasoo](post:klasoo). Pour la gestion de vos équipes, voyez [Faka](post:faka).`),
+      p(`Pour gérer une école, découvrez [Sukulu](post:sukulu). Pour la gestion de vos équipes, voyez [Faka](post:faka).`),
       cta(`Prévenez-moi à l'ouverture de Skills`, `Soyez parmi les premiers informés du lancement de la marketplace de formation de Liafrik.`),
     ],
     faq: [
@@ -88,7 +88,7 @@ export const skills: BlogPost = {
       ),
       h2(`Skills by Liafrik: the learning marketplace`),
       p(`[Skills](/products/skills) is planned as a learning marketplace where instructors publish educational video content and learners access courses. It will serve schools, companies, governments and NGOs, with a course catalogue, certifications and progress tracking.`),
-      p(`To run a school, discover [Klasoo](post:klasoo). To manage your teams, see [Faka](post:faka).`),
+      p(`To run a school, discover [Sukulu](post:sukulu). To manage your teams, see [Faka](post:faka).`),
       cta(`Notify me when Skills opens`, `Be among the first to hear about the launch of Liafrik's learning marketplace.`),
     ],
     faq: [

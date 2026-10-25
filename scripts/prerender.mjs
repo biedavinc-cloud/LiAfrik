@@ -33,9 +33,15 @@ const RTL_LANGS = ['ar'];
 
 // ---- 1. Load product data from the real source of truth (src/data/products.ts) ----
 const stubPath = join(ROOT, 'scripts', '.lucide-stub.mjs');
+// Stub every icon that products.ts imports from lucide-react. The list is
+// read from the source so adding a product with a new icon can never break
+// the prerender step again (it used to be a hardcoded list).
+const lucideNames = (readFileSync(join(ROOT, 'src/data/products.ts'), 'utf8')
+  .match(/import\s*\{([^}]+)\}\s*from 'lucide-react'/)?.[1] ?? '')
+  .split(',').map((n) => n.trim()).filter(Boolean);
 writeFileSync(
   stubPath,
-  `const stub = () => null;\nexport const ShoppingCart=stub,Store=stub,Users=stub,GraduationCap=stub,UtensilsCrossed=stub,HeartPulse=stub,Building2=stub,PiggyBank=stub,MonitorPlay=stub,Flower2=stub,BookOpenCheck=stub,ShoppingBag=stub,Route=stub,Hotel=stub;\n`
+  `const stub = () => null;\nexport const ${lucideNames.map((n) => `${n}=stub`).join(',')};\n`
 );
 
 const built = await esbuild.build({
@@ -164,14 +170,14 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, l
     <meta property="og:site_name" content="Liafrik" />
     <meta property="og:locale" content="${OG_LOCALE[lang]}" />
     ${alternates}
-    <meta property="og:image" content="${SITE}/og-image-v2.png" />
+    <meta property="og:image" content="${SITE}/og-image-v3.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Liafrik — African roots. Global vision. Building the future." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(description)}" />
-    <meta name="twitter:image" content="${SITE}/og-image-v2.png" />
+    <meta name="twitter:image" content="${SITE}/og-image-v3.png" />
     ${orgLdRaw}
     ${ld(websiteLd(lang))}
     ${withItemList ? itemListLdRaw : ''}
@@ -446,7 +452,7 @@ for (const lang of blog.BLOG_LANGS) {
       datePublished: post.date, dateModified: post.date, wordCount: blog.wordCount(c),
       author: { '@type': 'Organization', name: 'Liafrik', url: SITE },
       publisher: { '@type': 'Organization', name: 'Liafrik', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/favicon.png` } },
-      image: [`${SITE}/og-image-v2.png`], mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      image: [`${SITE}/og-image-v3.png`], mainEntityOfPage: { '@type': 'WebPage', '@id': url },
       about: { '@type': 'SoftwareApplication', name: `Liafrik ${product.name}`, url: `${SITE}/${lang}/products/${product.slug}` },
     };
     const faqLd = {

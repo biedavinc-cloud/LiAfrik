@@ -55,7 +55,7 @@ export default function Contact() {
         <div className="mt-12 grid lg:grid-cols-5 gap-5">
           {/* Contact info cards */}
           <div className="lg:col-span-2 space-y-4">
-            <InfoCard icon={Phone} title={t('contact.phone')} lines={['+971 50 385 7203']} />
+            <InfoCard icon={Phone} title={t('contact.phone')} lines={['+237 6 90 76 37 30', '+971 50 385 72 03']} />
             <InfoCard icon={Mail} title={t('contact.email')} lines={['cs@liafrik.com', 'support@liafrik.com']} />
             <InfoCard icon={MapPin} title={pick(lang, { en: 'Presence', fr: 'Présence', ar: 'حضورنا', es: 'Presencia', pt: 'Presença' })} lines={['Dubai · Yaoundé']} />
             <motion.div
@@ -195,8 +195,11 @@ export function FloatingContact() {
               <a href="mailto:cs@liafrik.com" className="flex items-center gap-2.5 rounded-xl bg-cloud-50 px-3 py-2.5 text-sm font-medium text-ink-soft hover:bg-liafrik-50 transition-colors">
                 <Mail className="h-4 w-4 text-liafrik-600" /> cs@liafrik.com
               </a>
+              <a href="tel:+237690763730" className="flex items-center gap-2.5 rounded-xl bg-cloud-50 px-3 py-2.5 text-sm font-medium text-ink-soft hover:bg-liafrik-50 transition-colors">
+                <Phone className="h-4 w-4 text-liafrik-600" /> +237 6 90 76 37 30
+              </a>
               <a href="tel:+971503857203" className="flex items-center gap-2.5 rounded-xl bg-cloud-50 px-3 py-2.5 text-sm font-medium text-ink-soft hover:bg-liafrik-50 transition-colors">
-                <Phone className="h-4 w-4 text-liafrik-600" /> +971 50 385 7203
+                <Phone className="h-4 w-4 text-liafrik-600" /> +971 50 385 72 03
               </a>
             </div>
             <p className="mt-4 text-[11px] text-ink-light">{pick(lang, { en: 'Liafrik — Dubai, UAE', fr: 'Liafrik — Dubaï, EAU', ar: 'Liafrik — دبي، الإمارات', es: 'Liafrik — Dubái, EAU', pt: 'Liafrik — Dubai, EAU' })}</p>

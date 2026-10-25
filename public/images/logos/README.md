@@ -20,23 +20,29 @@ ne casse jamais visuellement.
 
 ## Fichiers attendus par app
 
-| App     | Fichier attendu           | Statut        |
-|---------|----------------------------|---------------|
-| POS     | pos.png                    | Actif         |
-| Sellia  | sellia.png                 | Actif         |
-| CRM     | crm.png                    | Actif         |
-| Faka    | faka.png                   | Actif         |
-| Klasoo  | klasoo.png                 | Actif (violet)     |
-| Nutro   | nutro.png                  | Actif         |
-| Health  | health.png                 | Actif         |
-| Bailly  | bailly.png                 | Actif         |
-| Kolo    | kolo.png                   | Actif (orange)     |
-| Skills  | skills.png                 | Actif         |
-| Mafo    | mafo.png                   | Actif         |
-| LiBooks | libooks.png                | Actif         |
-| Zando   | zando.png                  | Actif         |
-| Atlas   | atlas.png                  | Actif         |
-| Litrek  | litrek.png                 | Actif         |
+| App        | Fichier attendu | Statut   | Logo |
+|------------|-----------------|----------|------|
+| POS        | pos-v2.png     | Actif    | ✅ présent |
+| Sellia     | sellia.png     | Actif    | ✅ présent |
+| CRM        | crm.png        | Actif    | ✅ présent |
+| Faka       | faka.png       | À venir  | ✅ présent |
+| Sukulu     | sukulu.png     | Actif    | ✅ présent |
+| Nutro      | nutro.png      | Actif    | ✅ présent |
+| Health     | health.png     | Actif    | ✅ présent |
+| Bailly     | bailly.png     | À venir  | ✅ présent |
+| Kolo       | kolo.png       | Actif    | ✅ présent |
+| Skills     | skills.png     | À venir  | ✅ présent |
+| Mafo       | mafo.png       | À venir  | ✅ présent |
+| LiBooks    | libooks.png    | Actif    | ✅ présent |
+| Zanldo     | zanldo.png     | Actif    | ✅ présent |
+| Atlas      | atlas.png      | Actif    | ✅ présent |
+| Litrek     | litrek.png     | À venir  | ✅ présent |
+| Hostrek    | hostrek.png    | À venir  | ⚠️ à fournir (icône provisoire) |
+| Z. Express | zexpress.png   | Actif    | ✅ présent |
+| Nkapo      | nkapo.png      | À venir  | ⚠️ à fournir (icône provisoire) |
+| ID         | id.png         | À venir  | ⚠️ à fournir (icône provisoire) |
+
+> Remplacer un logo : dépose ton image au **même nom** dans ce dossier puis redéploie (le cache des logos est de 24 h). Pour un nouveau fichier, nomme-le comme dans le tableau.
 
 ## Changer l'extension (ex: utiliser un .svg au lieu de .png)
 

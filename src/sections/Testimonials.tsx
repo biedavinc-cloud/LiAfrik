@@ -45,11 +45,11 @@ const examples: Testimonial[] = [
   },
   {
     quote: {
-      en: 'Managing 2,000 students across three campuses. Klasoo would centralize enrollment, grading and parent communication, keeping parents connected to what we do.',
-      fr: 'Gérer 2 000 élèves sur trois campus. Klasoo centraliserait les inscriptions, la notation et la communication avec les parents, gardant les parents connectés à notre travail.',
-      ar: 'إدارة 2000 طالب عبر ثلاث حرم جامعية. سيوحّد Klasoo عمليات التسجيل والتقييم والتواصل مع أولياء الأمور، مما يبقيهم على اطلاع دائم بما نقوم به.',
-      es: 'Gestionar 2000 estudiantes en tres campus. Klasoo centralizaría la matrícula, las calificaciones y la comunicación con los padres, manteniéndolos conectados con lo que hacemos.',
-      pt: 'Gerenciar 2.000 alunos em três campi. A Klasoo centralizaria matrículas, notas e comunicação com os pais, mantendo-os conectados ao que fazemos.',
+      en: 'Managing 2,000 students across three campuses. Sukulu would centralize enrollment, grading and parent communication, keeping parents connected to what we do.',
+      fr: 'Gérer 2 000 élèves sur trois campus. Sukulu centraliserait les inscriptions, la notation et la communication avec les parents, gardant les parents connectés à notre travail.',
+      ar: 'إدارة 2000 طالب عبر ثلاث حرم جامعية. سيوحّد Sukulu عمليات التسجيل والتقييم والتواصل مع أولياء الأمور، مما يبقيهم على اطلاع دائم بما نقوم به.',
+      es: 'Gestionar 2000 estudiantes en tres campus. Sukulu centralizaría la matrícula, las calificaciones y la comunicación con los padres, manteniéndolos conectados con lo que hacemos.',
+      pt: 'Gerenciar 2.000 alunos em três campi. A Sukulu centralizaria matrículas, notas e comunicação com os pais, mantendo-os conectados ao que fazemos.',
     },
     name: 'Example',
     role: {

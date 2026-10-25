@@ -3,7 +3,7 @@ import { cta, h2, h3, ol, p, tip, ul, type BlogPost } from '../types';
 export const faka: BlogPost = {
   id: 'faka',
   product: 'faka',
-  related: ['libooks', 'skills', 'klasoo'],
+  related: ['libooks', 'skills', 'sukulu'],
   date: '2026-10-02',
   fr: {
     slug: 'logiciel-rh-paie-pme',

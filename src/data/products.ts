@@ -3,7 +3,7 @@ import type { Lang } from '@/i18n/LanguageContext';
 import {
   ShoppingCart, Store, Users, GraduationCap, UtensilsCrossed,
   HeartPulse, Building2, PiggyBank, MonitorPlay, Flower2, BookOpenCheck,
-  ShoppingBag, Route, Hotel,
+  ShoppingBag, Route, Hotel, Truck, NotebookPen, ScanFace, Wrench,
 } from 'lucide-react';
 
 /** Fully localized (all 5 supported languages) short piece of text. */
@@ -79,7 +79,7 @@ export interface DashboardPanel {
 export const products: Product[] = [
   {
     slug: 'pos',
-    logo: '/images/logos/pos.png',
+    logo: '/images/logos/pos-v2.png',
     name: 'POS',
     tagline: { en: "Retail Management Platform", fr: "Plateforme de gestion de la vente au détail", ar: "منصة إدارة تجارة التجزئة", es: "Plataforma de gestión de tiendas", pt: "Plataforma de gestão de retalho" },
     description: {
@@ -345,16 +345,16 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: 'klasoo',
-    logo: '/images/logos/klasoo.png',
-    name: 'Klasoo',
+    slug: 'sukulu',
+    logo: '/images/logos/sukulu.png',
+    name: 'Sukulu',
     tagline: { en: "School Management Platform", fr: "Plateforme de gestion scolaire", ar: "منصة إدارة المدارس", es: "Plataforma de gestión escolar", pt: "Plataforma de gestão escolar" },
     description: {
       en: "A complete operating system for modern educational institutions — connecting administrators, teachers, students and parents in one interconnected platform.", fr: "Un système d'exploitation complet pour les établissements scolaires modernes — connectant administrateurs, enseignants, élèves et parents sur une seule plateforme interconnectée.", ar: "نظام تشغيل متكامل للمؤسسات التعليمية الحديثة — يربط الإداريين والمعلمين والطلاب وأولياء الأمور في منصة واحدة مترابطة.", es: "Un sistema operativo completo para instituciones educativas modernas, que conecta administradores, profesores, estudiantes y padres en una sola plataforma interconectada.", pt: "Um sistema operacional completo para instituições de ensino modernas — conectando administradores, professores, alunos e pais em uma única plataforma interligada.",
     },
     category: { en: "Education", fr: "Éducation", ar: "التعليم", es: "Educación", pt: "Educação" },
-    available: false,
-    appUrl: 'https://klasoo.liafrik.com',
+    available: true,
+    appUrl: 'https://sukulu.liafrik.com',
     icon: GraduationCap,
     gradient: 'from-liafrik-500 to-cyanx-500',
     accent: '#4B7EDD',
@@ -379,7 +379,7 @@ export const products: Product[] = [
       { en: "Cooperatives", fr: "Coopératives", ar: "التعاونيات", es: "Cooperativas", pt: "Cooperativas" },
     ],
     dashboard: {
-      title: { en: 'Klasoo Dashboard', fr: 'Tableau de bord Klasoo' },
+      title: { en: 'Sukulu Dashboard', fr: 'Tableau de bord Sukulu' },
       metric: { label: { en: 'Enrolled students', fr: 'Élèves inscrits' }, value: '2,184', delta: '+124', up: true },
       panels: [
         { kind: 'stat', title: { en: 'School overview', fr: 'Aperçu école' }, stats: [
@@ -865,7 +865,7 @@ export const products: Product[] = [
   },
   {
     slug: 'zanldo',
-    logo: '/images/logos/zando.png',
+    logo: '/images/logos/zanldo.png',
     name: 'Zanldo',
     tagline: { en: "Fashion & Lifestyle Marketplace", fr: "Marketplace mode et lifestyle", ar: "سوق الموضة ونمط الحياة", es: "Mercado de moda y estilo de vida", pt: "Marketplace de moda e estilo de vida" },
     description: {
@@ -1153,6 +1153,169 @@ export const products: Product[] = [
       ], cta: { en: "Contact sales", fr: "Contacter les ventes", ar: "التواصل مع المبيعات", es: "Contactar con ventas", pt: "Falar com vendas" } },
     ],
   },
+  {
+    slug: 'zexpress',
+    logo: '/images/logos/zexpress.png',
+    name: 'Z. Express',
+    tagline: { en: "Logistics & Delivery Management Platform", fr: "Plateforme de logistique et de gestion des livraisons", ar: "منصة اللوجستيات وإدارة التوصيل", es: "Plataforma de logística y gestión de entregas", pt: "Plataforma de logística e gestão de entregas" },
+    description: {
+      en: "A complete logistics SaaS for courier, delivery and freight companies — receive orders, dispatch drivers, track every parcel live, capture proof of delivery and reconcile cash on delivery from one platform. Created to solve last-mile delivery for marketplaces across Africa, like Zanldo, and open to any courier or logistics company.", fr: "Une plateforme SaaS logistique complète pour les sociétés de coursier, de livraison et de fret — recevez les commandes, dispatchez vos livreurs, suivez chaque colis en direct, capturez la preuve de livraison et rapprochez les paiements à la livraison depuis un seul outil. Née pour résoudre la livraison du dernier kilomètre des marketplaces en Afrique, comme Zanldo, et ouverte à tout coursier ou transporteur.", ar: "منصة SaaS لوجستية متكاملة لشركات البريد السريع والتوصيل والشحن — استقبل الطلبات، وزّع المهام على السائقين، وتتبّع كل طرد مباشرة، والتقط إثبات التسليم، وسوِّ مدفوعات الدفع عند الاستلام من منصة واحدة. أُنشئت لحل مشكلة التوصيل في الميل الأخير للأسواق الإلكترونية في أفريقيا مثل Zanldo، ومفتوحة لأي شركة توصيل أو نقل.", es: "Un SaaS logístico completo para empresas de mensajería, reparto y carga: recibe pedidos, asigna conductores, rastrea cada paquete en vivo, captura la prueba de entrega y concilia los cobros contra entrega desde una sola plataforma. Nació para resolver la entrega de última milla de los marketplaces en África, como Zanldo, y está abierto a cualquier empresa de mensajería o transporte.", pt: "Um SaaS logístico completo para empresas de courier, entregas e frete — receba pedidos, direcione entregadores, acompanhe cada encomenda ao vivo, capture a prova de entrega e concilie os pagamentos na entrega em uma só plataforma. Nasceu para resolver a entrega de última milha dos marketplaces na África, como a Zanldo, e está aberto a qualquer empresa de courier ou transporte.",
+    },
+    category: { en: "Logistics", fr: "Logistique", ar: "اللوجستيات", es: "Logística", pt: "Logística" },
+    available: true,
+    appUrl: 'https://express.zanldo.com',
+    icon: Truck,
+    gradient: 'from-liafrik-600 to-liafrik-400',
+    accent: '#031D58',
+    features: [
+      { en: "Order intake & bulk import", fr: "Saisie des commandes et import en masse", ar: "استقبال الطلبات والاستيراد بالجملة", es: "Recepción de pedidos e importación masiva", pt: "Recebimento de pedidos e importação em massa" },
+      { en: "Smart dispatch & route planning", fr: "Dispatch intelligent et planification des tournées", ar: "توزيع ذكي للمهام وتخطيط المسارات", es: "Asignación inteligente y planificación de rutas", pt: "Despacho inteligente e planejamento de rotas" },
+      { en: "Driver app with live GPS tracking", fr: "Application livreur avec suivi GPS en direct", ar: "تطبيق للسائقين مع تتبّع GPS مباشر", es: "App para conductores con rastreo GPS en vivo", pt: "App para entregadores com rastreamento GPS ao vivo" },
+      { en: "Proof of delivery (photo, signature, OTP)", fr: "Preuve de livraison (photo, signature, code OTP)", ar: "إثبات التسليم (صورة، توقيع، رمز OTP)", es: "Prueba de entrega (foto, firma, código OTP)", pt: "Prova de entrega (foto, assinatura, código OTP)" },
+      { en: "Cash-on-delivery reconciliation", fr: "Rapprochement des paiements à la livraison", ar: "تسوية مدفوعات الدفع عند الاستلام", es: "Conciliación de cobros contra entrega", pt: "Conciliação de pagamentos na entrega" },
+      { en: "Customer tracking page & automatic notifications", fr: "Page de suivi client et notifications automatiques", ar: "صفحة تتبّع للعملاء وإشعارات تلقائية", es: "Página de seguimiento para clientes y notificaciones automáticas", pt: "Página de rastreamento para clientes e notificações automáticas" },
+    ],
+    benefits: [
+      { en: "Deliver faster with smarter dispatch", fr: "Livrez plus vite grâce à un dispatch plus intelligent", ar: "وصّل أسرع بتوزيع أذكى للمهام", es: "Entrega más rápido con una asignación más inteligente", pt: "Entregue mais rápido com um despacho mais inteligente" },
+      { en: "Know where every parcel is, live", fr: "Sachez où se trouve chaque colis, en direct", ar: "اعرف مكان كل طرد مباشرة", es: "Sabe dónde está cada paquete, en vivo", pt: "Saiba onde está cada encomenda, ao vivo" },
+      { en: "Close cash gaps and delivery disputes", fr: "Réduisez les écarts de caisse et les litiges de livraison", ar: "قلّص فروقات النقد ونزاعات التسليم", es: "Reduce descuadres de caja y disputas de entrega", pt: "Reduza diferenças de caixa e disputas de entrega" },
+      { en: "Keep every customer informed automatically", fr: "Informez chaque client automatiquement", ar: "أبقِ كل عميل على اطلاع تلقائيًا", es: "Mantén informado a cada cliente automáticamente", pt: "Mantenha cada cliente informado automaticamente" },
+    ],
+    industries: [
+      { en: "Courier & delivery companies", fr: "Sociétés de coursier et de livraison", ar: "شركات البريد السريع والتوصيل", es: "Empresas de mensajería y reparto", pt: "Empresas de courier e entregas" },
+      { en: "Marketplaces & e-commerce stores", fr: "Marketplaces et boutiques e-commerce", ar: "الأسواق الإلكترونية ومتاجر التجارة الإلكترونية", es: "Marketplaces y tiendas de comercio electrónico", pt: "Marketplaces e lojas de e-commerce" },
+      { en: "Freight & last-mile operators", fr: "Transporteurs et opérateurs du dernier kilomètre", ar: "مشغّلو الشحن والميل الأخير", es: "Operadores de carga y última milla", pt: "Operadores de frete e última milha" },
+      { en: "Restaurants & pharmacies", fr: "Restaurants et pharmacies", ar: "المطاعم والصيدليات", es: "Restaurantes y farmacias", pt: "Restaurantes e farmácias" },
+    ],
+    dashboard: {
+      title: { en: "Z. Express Dashboard", fr: "Tableau de bord Z. Express" },
+      metric: { label: { en: "Deliveries today", fr: "Livraisons du jour" }, value: '1,284', delta: '+12.3%', up: true },
+      panels: [
+        { kind: 'line', title: { en: "Deliveries — last 7 days", fr: "Livraisons — 7 derniers jours" }, data: [820, 910, 880, 1010, 960, 1140, 1284] },
+        { kind: 'donut', title: { en: "Delivery status", fr: "Statut des livraisons" }, segments: [
+          { label: { en: "Delivered", fr: "Livrées" }, value: 78, color: '#031D58' },
+          { label: { en: "In transit", fr: "En transit" }, value: 14, color: '#4B7EDD' },
+          { label: { en: "Pending", fr: "En attente" }, value: 5, color: '#FBA70A' },
+          { label: { en: "Failed", fr: "Échecs" }, value: 3, color: '#A8D0FF' },
+        ]},
+        { kind: 'list', title: { en: "Live shipments", fr: "Colis en direct" }, items: [
+          { label: { en: "ZX-48213 — Out for delivery", fr: "ZX-48213 — En cours de livraison" }, value: '12 min', sub: 'Zone A' },
+          { label: { en: "ZX-48190 — Picked up", fr: "ZX-48190 — Récupéré" }, value: '35 min', sub: 'Zone C' },
+          { label: { en: "ZX-48177 — Delivered (OTP)", fr: "ZX-48177 — Livré (OTP)" }, value: 'Done', sub: 'Zone B' },
+        ]},
+      ],
+    },
+    pricing: [],
+  },
+  {
+    slug: 'nkapo',
+    logo: '/images/logos/nkapo.png',
+    name: 'Nkapo',
+    tagline: { en: "The Digital Job Book for Skilled Tradespeople", fr: "Le carnet digital des artisans et techniciens", ar: "دفتر الأعمال الرقمي للحرفيين والفنيين", es: "El cuaderno digital para artesanos y técnicos", pt: "O caderno digital para artesãos e técnicos" },
+    description: {
+      en: "Nkapo replaces the paper notebook for tailors, mechanics, hairdressers, seamstresses, cobblers and every skilled tradesperson. Keep client records, measurements, jobs and payments in one place — and let Nkapo notify your clients and send emails automatically.", fr: "Nkapo remplace le cahier papier des tailleurs, couturiers, mécaniciens, coiffeurs, cordonniers et de tous les artisans et techniciens. Gardez fiches clients, mesures, travaux et paiements au même endroit — et laissez Nkapo prévenir vos clients et envoyer des e-mails automatiquement.", ar: "يحلّ Nkapo محل دفتر الورق لدى الخياطين والميكانيكيين والحلاقين والخياطات والإسكافيين وكل الحرفيين والفنيين. احتفظ بسجلات العملاء والقياسات والأعمال والمدفوعات في مكان واحد — ودع Nkapo ينبّه عملاءك ويرسل رسائل البريد الإلكتروني تلقائيًا.", es: "Nkapo reemplaza el cuaderno de papel de sastres, mecánicos, peluqueros, costureras, zapateros y de todo oficio técnico. Guarda fichas de clientes, medidas, trabajos y pagos en un solo lugar — y deja que Nkapo avise a tus clientes y envíe correos automáticamente.", pt: "O Nkapo substitui o caderno de papel de alfaiates, mecânicos, cabeleireiros, costureiras, sapateiros e de todo profissional técnico. Guarde fichas de clientes, medidas, trabalhos e pagamentos em um só lugar — e deixe o Nkapo avisar seus clientes e enviar e-mails automaticamente.",
+    },
+    category: { en: "Trades & Services", fr: "Artisans et services", ar: "الحِرف والخدمات", es: "Oficios y servicios", pt: "Ofícios e serviços" },
+    available: false,
+    icon: NotebookPen,
+    gradient: 'from-liafrik-500 to-liafrik-700',
+    accent: '#4B7EDD',
+    features: [
+      { en: "Client & job records", fr: "Fiches clients et travaux", ar: "سجلات العملاء والأعمال", es: "Fichas de clientes y trabajos", pt: "Fichas de clientes e trabalhos" },
+      { en: "Measurements & service history", fr: "Mesures et historique des interventions", ar: "القياسات وسجل الخدمات", es: "Medidas e historial de servicios", pt: "Medidas e histórico de serviços" },
+      { en: "Appointments & job status", fr: "Rendez-vous et suivi des travaux", ar: "المواعيد وحالة الأعمال", es: "Citas y estado de los trabajos", pt: "Agendamentos e status dos trabalhos" },
+      { en: "Automatic client notifications", fr: "Notifications automatiques aux clients", ar: "إشعارات تلقائية للعملاء", es: "Notificaciones automáticas a clientes", pt: "Notificações automáticas para clientes" },
+      { en: "Automatic emails (quotes, receipts, reminders)", fr: "E-mails automatiques (devis, reçus, rappels)", ar: "رسائل بريد إلكتروني تلقائية (عروض أسعار، إيصالات، تذكيرات)", es: "Correos automáticos (presupuestos, recibos, recordatorios)", pt: "E-mails automáticos (orçamentos, recibos, lembretes)" },
+      { en: "Payments & outstanding balances", fr: "Paiements et soldes à recevoir", ar: "المدفوعات والمبالغ المستحقة", es: "Pagos y saldos pendientes", pt: "Pagamentos e saldos a receber" },
+    ],
+    benefits: [
+      { en: "Never lose a paper note again", fr: "Ne perdez plus jamais une note papier", ar: "لن تفقد ملاحظة ورقية بعد اليوم", es: "No vuelvas a perder una nota en papel", pt: "Nunca mais perca uma anotação em papel" },
+      { en: "Keep clients informed without lifting a finger", fr: "Tenez vos clients informés sans effort", ar: "أبقِ عملاءك على اطلاع دون أي جهد", es: "Mantén informados a tus clientes sin esfuerzo", pt: "Mantenha seus clientes informados sem esforço" },
+      { en: "Look professional from day one", fr: "Paraissez professionnel dès le premier jour", ar: "اظهر بمظهر احترافي من اليوم الأول", es: "Proyecta una imagen profesional desde el primer día", pt: "Pareça profissional desde o primeiro dia" },
+      { en: "Know who owes you what", fr: "Sachez qui vous doit quoi", ar: "اعرف من يدين لك بماذا", es: "Sabe quién te debe qué", pt: "Saiba quem lhe deve o quê" },
+    ],
+    industries: [
+      { en: "Tailors & seamstresses", fr: "Tailleurs et couturières", ar: "الخياطون والخياطات", es: "Sastres y costureras", pt: "Alfaiates e costureiras" },
+      { en: "Mechanics & garages", fr: "Mécaniciens et garages", ar: "الميكانيكيون والورش", es: "Mecánicos y talleres", pt: "Mecânicos e oficinas" },
+      { en: "Hairdressers & barbers", fr: "Coiffeurs et barbiers", ar: "مصففو الشعر والحلاقون", es: "Peluqueros y barberos", pt: "Cabeleireiros e barbeiros" },
+      { en: "Cobblers & leather workers", fr: "Cordonniers et maroquiniers", ar: "الإسكافيون وحرفيو الجلود", es: "Zapateros y artesanos del cuero", pt: "Sapateiros e artesãos do couro" },
+    ],
+    dashboard: {
+      title: { en: "Nkapo Dashboard", fr: "Tableau de bord Nkapo" },
+      metric: { label: { en: "Jobs this week", fr: "Travaux cette semaine" }, value: '28', delta: '+5', up: true },
+      panels: [
+        { kind: 'stat', title: { en: "Workshop overview", fr: "Aperçu de l'atelier" }, stats: [
+          { label: { en: "Clients", fr: "Clients" }, value: '142' },
+          { label: { en: "Ready for pickup", fr: "Prêts à retirer" }, value: '6' },
+          { label: { en: "Reminders sent", fr: "Rappels envoyés" }, value: '34', up: true },
+          { label: { en: "Outstanding", fr: "À encaisser" }, value: '$420' },
+        ]},
+        { kind: 'list', title: { en: "Today", fr: "Aujourd'hui" }, items: [
+          { label: { en: "Dress fitting — Aïcha", fr: "Essayage robe — Aïcha" }, value: '10:00', sub: 'Tailoring' },
+          { label: { en: "Brake service — Peugeot 307", fr: "Freins — Peugeot 307" }, value: '13:30', sub: 'Garage' },
+          { label: { en: "Braids — Marie", fr: "Tresses — Marie" }, value: '15:00', sub: 'Salon' },
+        ]},
+      ],
+    },
+    pricing: [],
+  },
+  {
+    slug: 'id',
+    logo: '/images/logos/id.png',
+    name: 'ID',
+    tagline: { en: "Identity Verification & KYC Platform", fr: "Plateforme de vérification d'identité et KYC", ar: "منصة التحقق من الهوية واعرف عميلك (KYC)", es: "Plataforma de verificación de identidad y KYC", pt: "Plataforma de verificação de identidade e KYC" },
+    description: {
+      en: "Know who your users really are. ID verifies identity documents, matches faces with liveness detection and screens for fraud and compliance risks — through a simple API, SDK or ready-made flow, with strict data isolation for every client.", fr: "Sachez qui sont vraiment vos utilisateurs. ID vérifie les pièces d'identité, compare les visages avec détection du vivant et contrôle les risques de fraude et de conformité — via une API simple, un SDK ou un parcours prêt à l'emploi, avec une isolation stricte des données pour chaque client.", ar: "اعرف من هم مستخدموك حقًا. يتحقق ID من وثائق الهوية، ويطابق الوجوه مع كشف الحيوية، ويفحص مخاطر الاحتيال والامتثال — عبر واجهة برمجية بسيطة أو SDK أو مسار جاهز، مع عزل صارم للبيانات لكل عميل.", es: "Sabe quiénes son realmente tus usuarios. ID verifica documentos de identidad, compara rostros con detección de vida y revisa riesgos de fraude y cumplimiento — mediante una API sencilla, un SDK o un flujo listo para usar, con aislamiento estricto de datos para cada cliente.", pt: "Saiba quem realmente são seus usuários. O ID verifica documentos de identidade, compara rostos com detecção de vivacidade e analisa riscos de fraude e conformidade — por meio de uma API simples, um SDK ou um fluxo pronto, com isolamento rigoroso dos dados de cada cliente.",
+    },
+    category: { en: "Identity & Compliance", fr: "Identité et conformité", ar: "الهوية والامتثال", es: "Identidad y cumplimiento", pt: "Identidade e conformidade" },
+    available: false,
+    icon: ScanFace,
+    gradient: 'from-cyanx-500 to-liafrik-600',
+    accent: '#245FCC',
+    features: [
+      { en: "Identity document verification", fr: "Vérification des pièces d'identité", ar: "التحقق من وثائق الهوية", es: "Verificación de documentos de identidad", pt: "Verificação de documentos de identidade" },
+      { en: "Selfie & liveness detection", fr: "Selfie et détection du vivant", ar: "صورة سيلفي وكشف الحيوية", es: "Selfie y detección de vida", pt: "Selfie e detecção de vivacidade" },
+      { en: "Face matching", fr: "Comparaison faciale", ar: "مطابقة الوجه", es: "Comparación facial", pt: "Comparação facial" },
+      { en: "Fraud & compliance screening", fr: "Contrôle fraude et conformité", ar: "فحص الاحتيال والامتثال", es: "Control de fraude y cumplimiento", pt: "Triagem de fraude e conformidade" },
+      { en: "Review dashboard for compliance teams", fr: "Tableau de revue pour les équipes conformité", ar: "لوحة مراجعة لفرق الامتثال", es: "Panel de revisión para equipos de cumplimiento", pt: "Painel de revisão para equipes de conformidade" },
+      { en: "API, SDK & webhooks", fr: "API, SDK et webhooks", ar: "واجهة برمجية وSDK وWebhooks", es: "API, SDK y webhooks", pt: "API, SDK e webhooks" },
+    ],
+    benefits: [
+      { en: "Onboard real customers faster", fr: "Intégrez vos vrais clients plus vite", ar: "سجّل عملاءك الحقيقيين بشكل أسرع", es: "Incorpora a clientes reales más rápido", pt: "Integre clientes reais mais rápido" },
+      { en: "Stop fake accounts and identity fraud", fr: "Bloquez faux comptes et fraude à l'identité", ar: "أوقف الحسابات المزيفة وانتحال الهوية", es: "Frena cuentas falsas y fraude de identidad", pt: "Barre contas falsas e fraude de identidade" },
+      { en: "Support your KYC and AML workflows", fr: "Soutenez vos parcours KYC et LCB-FT", ar: "ادعم مسارات KYC ومكافحة غسل الأموال لديك", es: "Respalda tus flujos de KYC y AML", pt: "Apoie seus fluxos de KYC e AML" },
+      { en: "Integrate with a few lines of code", fr: "Intégrez-le en quelques lignes de code", ar: "ادمجه ببضعة أسطر برمجية", es: "Intégralo con unas pocas líneas de código", pt: "Integre com poucas linhas de código" },
+    ],
+    industries: [
+      { en: "Fintech & mobile money", fr: "Fintech et mobile money", ar: "التقنية المالية والأموال عبر الهاتف", es: "Fintech y dinero móvil", pt: "Fintech e dinheiro móvel" },
+      { en: "Banks & microfinance", fr: "Banques et microfinance", ar: "البنوك والتمويل الأصغر", es: "Bancos y microfinanzas", pt: "Bancos e microfinanças" },
+      { en: "Marketplaces & gig platforms", fr: "Marketplaces et plateformes de services", ar: "الأسواق الإلكترونية ومنصات العمل الحر", es: "Marketplaces y plataformas de servicios", pt: "Marketplaces e plataformas de serviços" },
+      { en: "Telecom & insurance", fr: "Télécoms et assurance", ar: "الاتصالات والتأمين", es: "Telecomunicaciones y seguros", pt: "Telecomunicações e seguros" },
+    ],
+    dashboard: {
+      title: { en: "ID Dashboard", fr: "Tableau de bord ID" },
+      metric: { label: { en: "Verifications today", fr: "Vérifications du jour" }, value: '2,140', delta: '+8.7%', up: true },
+      panels: [
+        { kind: 'donut', title: { en: "Outcomes", fr: "Résultats" }, segments: [
+          { label: { en: "Approved", fr: "Approuvées" }, value: 82, color: '#031D58' },
+          { label: { en: "In review", fr: "En revue" }, value: 11, color: '#FBA70A' },
+          { label: { en: "Declined", fr: "Refusées" }, value: 7, color: '#A8D0FF' },
+        ]},
+        { kind: 'stat', title: { en: "Verification funnel", fr: "Parcours de vérification" }, stats: [
+          { label: { en: "Started", fr: "Démarrées" }, value: '2,614' },
+          { label: { en: "Completed", fr: "Terminées" }, value: '2,140' },
+          { label: { en: "Avg. time", fr: "Durée moyenne" }, value: '48s' },
+          { label: { en: "Auto-approved", fr: "Approbation auto" }, value: '82%', up: true },
+        ]},
+        { kind: 'list', title: { en: "Review queue", fr: "File de revue" }, items: [
+          { label: { en: "Passport — manual check", fr: "Passeport — contrôle manuel" }, value: '3 min', sub: 'Queue' },
+          { label: { en: "National ID — blurry photo", fr: "Carte nationale — photo floue" }, value: '5 min', sub: 'Queue' },
+          { label: { en: "Driver licence — name mismatch", fr: "Permis — nom différent" }, value: '8 min', sub: 'Queue' },
+        ]},
+      ],
+    },
+    pricing: [],
+  },
 ];
 
 
@@ -1179,7 +1342,7 @@ export const sectors: Sector[] = [
     id: 'education',
     name: { en: "Education", fr: "Éducation", ar: "التعليم", es: "Educación", pt: "Educação" },
     icon: GraduationCap,
-    productSlugs: ['klasoo', 'skills'],
+    productSlugs: ['sukulu', 'skills'],
   },
   {
     id: 'healthcare',
@@ -1221,6 +1384,12 @@ export const sectors: Sector[] = [
     id: 'transport',
     name: { en: "Transport", fr: "Transport", ar: "النقل", es: "Transporte", pt: "Transporte" },
     icon: Route,
-    productSlugs: ['litrek', 'crm', 'libooks'],
+    productSlugs: ['litrek', 'zexpress', 'crm', 'libooks'],
+  },
+  {
+    id: 'trades',
+    name: { en: "Trades & Services", fr: "Artisans et services", ar: "الحِرف والخدمات", es: "Oficios y servicios", pt: "Ofícios e serviços" },
+    icon: Wrench,
+    productSlugs: ['nkapo', 'pos', 'libooks'],
   },
 ];

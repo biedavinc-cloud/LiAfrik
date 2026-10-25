@@ -13,7 +13,7 @@ interface Stat {
 
 const stats: Stat[] = [
   { value: 50, suffix: '+', label: { en: 'Business Processes', fr: 'Processus métier', ar: 'عمليات الأعمال', es: 'Procesos empresariales', pt: 'Processos de negócio' } },
-  { value: 16, suffix: '+', label: { en: 'Enterprise Applications', fr: 'Applications entreprise', ar: 'تطبيقات المؤسسات', es: 'Aplicaciones empresariales', pt: 'Aplicativos empresariais' } },
+  { value: 18, suffix: '+', label: { en: 'Enterprise Applications', fr: 'Applications entreprise', ar: 'تطبيقات المؤسسات', es: 'Aplicaciones empresariales', pt: 'Aplicativos empresariais' } },
   { value: 100, suffix: '%', label: { en: 'Cloud Based', fr: 'Basé sur le cloud', ar: 'قائم على السحابة', es: 'Basado en la nube', pt: 'Baseado em nuvem' } },
   { value: 99.99, suffix: '%', decimals: 2, label: { en: 'Availability', fr: 'Disponibilité', ar: 'التوافر', es: 'Disponibilidad', pt: 'Disponibilidade' } },
   { value: 24, suffix: '/7', label: { en: 'Support', fr: 'Support', ar: 'الدعم', es: 'Soporte', pt: 'Suporte' } },

@@ -11,20 +11,24 @@ import { health } from './posts/health';
 import { kolo } from './posts/kolo';
 import { zanldo } from './posts/zanldo';
 import { faka } from './posts/faka';
-import { klasoo } from './posts/klasoo';
+import { sukulu } from './posts/sukulu';
 import { bailly } from './posts/bailly';
 import { skills } from './posts/skills';
 import { mafo } from './posts/mafo';
 import { litrek } from './posts/litrek';
 import { hostrek } from './posts/hostrek';
+import { zexpress } from './posts/zexpress';
+import { nkapo } from './posts/nkapo';
+import { id } from './posts/id';
 
 export * from './types';
 
 // Articles are added here (one file per product in ./posts).
 export const POSTS: BlogPost[] = [
   sellia, pos, crm, atlas, libooks, nutro,
-  health, kolo, zanldo, faka, klasoo, bailly,
+  health, kolo, zanldo, faka, sukulu, bailly,
   skills, mafo, litrek, hostrek,
+  zexpress, nkapo, id,
 ];
 
 const SITE = 'https://liafrik.com';

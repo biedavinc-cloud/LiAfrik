@@ -15,11 +15,11 @@ const sections: Section[] = [
   {
     title: { en: '1. Scope', fr: "1. Champ d'application", ar: '1. النطاق', es: '1. Alcance', pt: '1. Escopo' },
     body: {
-      en: 'This Refund Policy applies to paid subscriptions and one-time purchases made across Liafrik platforms (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). It complements our Terms of Service.',
-      fr: "Cette Politique de remboursement s'applique aux abonnements payants et achats ponctuels effectués sur les plateformes Liafrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). Elle complète nos Conditions d'Utilisation.",
-      ar: 'تنطبق سياسة الاسترداد هذه على الاشتراكات المدفوعة والمشتريات لمرة واحدة عبر منصات Liafrik (Sellia وPOS وCRM وAtlas وLiBooks وFaka وHealth وMafo وKolo وBailly وSkills وKlasoo وNutro وZanldo وLitrek وHostrek). وهي تكمّل شروط الخدمة الخاصة بنا.',
-      es: 'Esta Política de reembolso se aplica a las suscripciones pagas y compras únicas realizadas en las plataformas Liafrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). Complementa nuestros Términos de Servicio.',
-      pt: 'Esta Política de reembolso aplica-se a assinaturas pagas e compras únicas feitas nas plataformas da Liafrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Klasoo, Nutro, Zanldo, Litrek, Hostrek). Ela complementa nossos Termos de Serviço.',
+      en: 'This Refund Policy applies to paid subscriptions and one-time purchases made across Liafrik platforms (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Sukulu, Nutro, Zanldo, Litrek, Hostrek, Z. Express, Nkapo, ID). It complements our Terms of Service.',
+      fr: "Cette Politique de remboursement s'applique aux abonnements payants et achats ponctuels effectués sur les plateformes Liafrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Sukulu, Nutro, Zanldo, Litrek, Hostrek, Z. Express, Nkapo, ID). Elle complète nos Conditions d'Utilisation.",
+      ar: 'تنطبق سياسة الاسترداد هذه على الاشتراكات المدفوعة والمشتريات لمرة واحدة عبر منصات Liafrik (Sellia وPOS وCRM وAtlas وLiBooks وFaka وHealth وMafo وKolo وBailly وSkills وSukulu وNutro وZanldo وLitrek وHostrek وZ. Express وNkapo وID). وهي تكمّل شروط الخدمة الخاصة بنا.',
+      es: 'Esta Política de reembolso se aplica a las suscripciones pagas y compras únicas realizadas en las plataformas Liafrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Sukulu, Nutro, Zanldo, Litrek, Hostrek, Z. Express, Nkapo, ID). Complementa nuestros Términos de Servicio.',
+      pt: 'Esta Política de reembolso aplica-se a assinaturas pagas e compras únicas feitas nas plataformas da Liafrik (Sellia, POS, CRM, Atlas, LiBooks, Faka, Health, Mafo, Kolo, Bailly, Skills, Sukulu, Nutro, Zanldo, Litrek, Hostrek, Z. Express, Nkapo, ID). Ela complementa nossos Termos de Serviço.',
     },
   },
   {

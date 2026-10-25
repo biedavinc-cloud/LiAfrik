@@ -16,6 +16,13 @@
 /es/products/zando  /es/products/zanldo  301
 /pt/products/zando  /pt/products/zanldo  301
 
+# Klasoo was renamed to Sukulu — keep every old link/indexed URL working.
+/en/products/klasoo  /en/products/sukulu  301
+/fr/products/klasoo  /fr/products/sukulu  301
+/ar/products/klasoo  /ar/products/sukulu  301
+/es/products/klasoo  /es/products/sukulu  301
+/pt/products/klasoo  /pt/products/sukulu  301
+
 # Old language-less URLs → default language, at the edge (no JS needed).
 /products  /en/products  302
 /products/*  /en/products/:splat  302
