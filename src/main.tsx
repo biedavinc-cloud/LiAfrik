@@ -1,11 +1,24 @@
-import { StrictMode } from 'react';
+import { StrictMode, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import ErrorBoundary from './components/ErrorBoundary.tsx';
 import './index.css';
 
+/** Fades out and removes the boot splash (index.html) once React has painted. */
+function BootDone() {
+  useEffect(() => {
+    const splash = document.getElementById('splash');
+    if (!splash) return;
+    splash.classList.add('hide');
+    const t = window.setTimeout(() => splash.remove(), 450);
+    return () => window.clearTimeout(t);
+  }, []);
+  return null;
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <BootDone />
     <ErrorBoundary>
       <App />
     </ErrorBoundary>

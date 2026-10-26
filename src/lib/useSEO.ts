@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { SUPPORTED_LANGS } from '@/i18n/LanguageContext';
-import { blogAlternates } from '@/data/blog';
+type BlogAlt = { canonical: string; alternates: Record<string, string> } | null;
 
 interface SEOOptions {
   title: string;
@@ -92,22 +92,31 @@ function setLinkTag(rel: string, hreflang: string | null, href: string) {
  */
 export function useHreflang(pathname: string) {
   useEffect(() => {
-    // Blog articles exist in fewer languages and have localized slugs, so
-    // their alternates come from the blog data instead of the generic rule.
-    const blog = blogAlternates(pathname);
-    const rest = pathname.replace(/^\/(en|fr|ar|es|pt)/, '');
-    const desired: Record<string, string> = blog
-      ? blog.alternates
-      : {
-          ...Object.fromEntries(SUPPORTED_LANGS.map((l) => [l, `${SITE}/${l}${rest}`])),
-          'x-default': `${SITE}/en${rest}`,
-        };
+    let cancelled = false;
+    const apply = (blog: BlogAlt) => {
+      const rest = pathname.replace(/^\/(en|fr|ar|es|pt)/, '');
+      const desired: Record<string, string> = blog
+        ? blog.alternates
+        : {
+            ...Object.fromEntries(SUPPORTED_LANGS.map((l) => [l, `${SITE}/${l}${rest}`])),
+            'x-default': `${SITE}/en${rest}`,
+          };
 
-    setLinkTag('canonical', null, blog ? blog.canonical : `${SITE}${pathname}`);
-    for (const [hreflang, href] of Object.entries(desired)) setLinkTag('alternate', hreflang, href);
-    // Remove alternates left over from the previous page.
-    document.head.querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]').forEach((el) => {
-      if (!(el.getAttribute('hreflang') as string in desired)) el.remove();
-    });
+      setLinkTag('canonical', null, blog ? blog.canonical : `${SITE}${pathname}`);
+      for (const [hreflang, href] of Object.entries(desired)) setLinkTag('alternate', hreflang, href);
+      // Remove alternates left over from the previous page.
+      document.head.querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]').forEach((el) => {
+        if (!(el.getAttribute('hreflang') as string in desired)) el.remove();
+      });
+    };
+    // Blog articles exist in fewer languages and have localized slugs, so their
+    // alternates come from the blog data. That data is large, so it is only
+    // loaded (dynamically) on blog URLs — it no longer weighs on every page.
+    if (/^\/(en|fr|ar|es|pt)\/blog(\/|$)/.test(pathname)) {
+      import('@/data/blog').then((m) => { if (!cancelled) apply(m.blogAlternates(pathname)); });
+    } else {
+      apply(null);
+    }
+    return () => { cancelled = true; };
   }, [pathname]);
 }

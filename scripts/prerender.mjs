@@ -101,6 +101,11 @@ const bodyScriptTag = baseHtml.match(/<script type="module"[^>]*src="[^"]+"[^>]*
 const faviconTags = [...baseHtml.matchAll(/<link rel="icon"[^>]*>|<link rel="apple-touch-icon"[^>]*>|<link rel="manifest"[^>]*>/g)]
   .map((m) => m[0])
   .join('\n    ');
+// Boot screen (critical CSS + splash + failsafe) lives in index.html; reuse it so every
+// prerendered page shows the branded loader instead of the raw SEO snapshot.
+const bootHeadTags = baseHtml.match(/<style>\s*html\{background[\s\S]*?<\/style>\s*<noscript>[\s\S]*?<\/noscript>/)?.[0];
+const bootBodyTags = baseHtml.match(/<div id="splash"[\s\S]*?<\/script>/)?.[0];
+if (!bootHeadTags || !bootBodyTags) throw new Error('prerender: boot screen not found in dist/index.html');
 const themeColorTag = baseHtml.match(/<meta name="theme-color"[^>]*>/)[0];
 const jsonLd = [...baseHtml.matchAll(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g)]
   .map((m) => m[0])
@@ -183,6 +188,7 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, l
     ${withItemList ? itemListLdRaw : ''}
     ${ldBlocks.map(ld).join('\n    ')}
     ${extraHead}
+    ${bootHeadTags}
     ${headAssetTags}
   </head>
   <body>
@@ -192,7 +198,7 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, l
            with the full interactive app once the script below runs —
            main.tsx uses createRoot (fresh render), not hydrateRoot, so
            there is no hydration-mismatch risk with this markup. -->
-      <main>
+      <main data-seo-snapshot>
         <h1>${esc(h1)}</h1>
         <p>${esc(description)}</p>
         ${bodyExtra || ''}
@@ -201,6 +207,7 @@ function renderPage({ lang, path, title, description, h1, bodyExtra, navLinks, l
         </nav>
       </main>
     </div>
+    ${bootBodyTags}
     ${bodyScriptTag}
   </body>
 </html>
