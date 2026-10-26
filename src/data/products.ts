@@ -354,7 +354,7 @@ export const products: Product[] = [
     },
     category: { en: "Education", fr: "Éducation", ar: "التعليم", es: "Educación", pt: "Educação" },
     available: true,
-    appUrl: 'https://sukulu.liafrik.com',
+    appUrl: 'https://gosukulu.com',
     icon: GraduationCap,
     gradient: 'from-liafrik-500 to-cyanx-500',
     accent: '#4B7EDD',
