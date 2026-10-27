@@ -7,13 +7,19 @@
 // Required environment variables (Cloudflare Pages → Settings → Variables):
 //   DATABASE_URL     Neon connection string (use the *pooled* one, encrypted)
 //   RESEND_API_KEY   Resend API key (encrypted)
-// Optional:
-//   PARTNER_TO_EMAIL comma-separated recipients for partner/investor requests
-//                    (default: cs@liafrik.com)
-//   CONTACT_TO_EMAIL comma-separated recipients for contact/newsletter
-//                    (default: cs@liafrik.com,support@liafrik.com)
-//   FROM_EMAIL       sender address on a Resend-verified domain
-//                    (default: noreply@liafrik.com)
+// Optional — WHO RECEIVES THE EMAILS (comma-separated lists are fine):
+//   FORMS_TO_EMAIL       master switch: recipients of EVERY form.
+//                        Default: cs@liafrik.com. Change this one variable to
+//                        re-route / rotate the whole site's inbox.
+//   CONTACT_TO_EMAIL     override for contact & support messages only
+//   NEWSLETTER_TO_EMAIL  override for newsletter subscriptions only
+//   WAITLIST_TO_EMAIL    override for "notify me at launch" requests only
+//   PARTNER_TO_EMAIL     override for partner / investor requests only
+//   Resolution order for each form:  <FORM>_TO_EMAIL  ->  FORMS_TO_EMAIL  ->  cs@liafrik.com
+//   Invalid addresses are ignored; if none is valid the next level is used.
+//   (Cloudflare applies variable changes on the NEXT deployment.)
+//   FROM_EMAIL           sender address on a Resend-verified domain
+//                        (default: noreply@liafrik.com)
 //
 // Without RESEND_API_KEY the request is still saved to the database.
 // Without DATABASE_URL the request is still emailed.
@@ -27,6 +33,9 @@ interface Env {
   PARTNER_TO_EMAIL?: string;
   CONTACT_TO_EMAIL?: string;
   FROM_EMAIL?: string;
+  FORMS_TO_EMAIL?: string;
+  NEWSLETTER_TO_EMAIL?: string;
+  WAITLIST_TO_EMAIL?: string;
 }
 
 interface Ctx {
@@ -60,10 +69,32 @@ const clean = (v: unknown, max: number, multiline = false): string => {
 const escapeHtml = (v: string) =>
   v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-const list = (v: string | undefined, fallback: string[]) => {
-  const items = (v ?? '').split(',').map((e) => e.trim()).filter(Boolean);
-  return items.length ? items : fallback;
-};
+// ---------------------------------------------------------------------------
+// Routing — who receives which form
+// ---------------------------------------------------------------------------
+
+/** Used when no variable is set (or none contains a valid address). */
+const DEFAULT_TO = ['cs@liafrik.com'];
+
+type FormKind = 'contact' | 'newsletter' | 'waitlist' | 'partner';
+
+const validEmails = (v: string | undefined): string[] =>
+  (v ?? '').split(',').map((e) => e.trim()).filter((e) => EMAIL_RE.test(e));
+
+/** <FORM>_TO_EMAIL  ->  FORMS_TO_EMAIL  ->  DEFAULT_TO. Never returns an empty list. */
+function recipients(env: Env, form: FormKind): string[] {
+  const specific: Record<FormKind, string | undefined> = {
+    contact: env.CONTACT_TO_EMAIL,
+    newsletter: env.NEWSLETTER_TO_EMAIL,
+    waitlist: env.WAITLIST_TO_EMAIL,
+    partner: env.PARTNER_TO_EMAIL,
+  };
+  for (const candidate of [specific[form], env.FORMS_TO_EMAIL]) {
+    const ok = validEmails(candidate);
+    if (ok.length) return ok;
+  }
+  return DEFAULT_TO;
+}
 
 // Only accept browser requests coming from our own site (or previews / local dev).
 function originAllowed(request: Request): boolean {
@@ -236,7 +267,7 @@ async function handlePartner(body: Body, env: Env, country: string | null): Prom
 <p style="margin:0;white-space:pre-wrap;font-size:14px;line-height:1.55">${escapeHtml(message)}</p>
 </div>`;
 
-  const to = list(env.PARTNER_TO_EMAIL, ['cs@liafrik.com']);
+  const to = recipients(env, 'partner');
   const [dbOk, emailSent] = await Promise.all([
     saveSubmission(env, {
       name, email, company, message: text, lang, formType: 'partner', country,
@@ -254,12 +285,16 @@ async function handlePartner(body: Body, env: Env, country: string | null): Prom
 }
 
 async function handleContact(body: Body, env: Env, country: string | null): Promise<Response> {
-  const formType = clean(body.form_type, 20) === 'newsletter' ? 'newsletter' : 'contact';
+  const rawType = clean(body.form_type, 20);
+  const formType: 'contact' | 'newsletter' | 'waitlist' =
+    rawType === 'newsletter' || rawType === 'waitlist' ? rawType : 'contact';
   const name = clean(body.name, 120);
   const email = clean(body.email, 200).toLowerCase();
   const company = clean(body.company, 160) || null;
   const message = clean(body.message, 5000, true);
   const lang = LANGS.includes(clean(body.lang, 5)) ? clean(body.lang, 5) : 'en';
+  // "Notify me when <product> launches": the product the visitor is waiting for.
+  const product = formType === 'waitlist' ? clean(body.product, 60) : '';
 
   if (!name || !EMAIL_RE.test(email) || !message) {
     return json({ error: 'Missing required fields: name, email, message' }, 400);
@@ -268,19 +303,23 @@ async function handleContact(body: Body, env: Env, country: string | null): Prom
   const subject =
     formType === 'newsletter'
       ? `[Liafrik Newsletter] New subscription from ${name}`
-      : `[Liafrik Contact] New message from ${name}`;
+      : formType === 'waitlist'
+        ? `[Liafrik Waitlist] ${product || 'New launch'} — ${email}`
+        : `[Liafrik Contact] New message from ${name}`;
   const text =
     formType === 'newsletter'
       ? `New newsletter subscription:\n\nName: ${name}\nEmail: ${email}\nLanguage: ${lang}\n`
-      : `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nLanguage: ${lang}\n\nMessage:\n${message}\n`;
+      : formType === 'waitlist'
+        ? `New "notify me at launch" request:\n\nProduct: ${product || 'N/A'}\nEmail: ${email}\nLanguage: ${lang}\n`
+        : `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\nLanguage: ${lang}\n\nMessage:\n${message}\n`;
 
-  const to = list(env.CONTACT_TO_EMAIL, ['cs@liafrik.com', 'support@liafrik.com']);
+  const to = recipients(env, formType);
   const [dbOk, emailSent] = await Promise.all([
-    saveSubmission(env, { name, email, company, message, lang, formType, details: null, country }),
+    saveSubmission(env, { name, email, company, message, lang, formType, details: product ? { product } : null, country }),
     sendEmail(env, { fromName: 'Liafrik', to, replyTo: email, subject, text }),
   ]);
 
-  console.log(`${formType} — ${email} — dbOk=${dbOk} emailSent=${emailSent}`);
+  console.log(`${formType} — ${email} — dbOk=${dbOk} emailSent=${emailSent} — to: ${to.join(', ')}`);
   if (!dbOk && !emailSent) return json({ error: 'Could not process the request' }, 502);
   return json({ success: true });
 }

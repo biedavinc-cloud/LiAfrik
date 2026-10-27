@@ -42,7 +42,7 @@ export default function ComingSoonPage() {
       const res = await fetch(EDGE_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: email.split('@')[0], email, company: null, message: `Notify me when ${product.name} launches`, lang, form_type: 'newsletter' }),
+        body: JSON.stringify({ name: email.split('@')[0], email, company: null, message: `Notify me when ${product.name} launches`, lang, form_type: 'waitlist', product: product.name }),
       });
       if (res.ok) {
         setSent(true);

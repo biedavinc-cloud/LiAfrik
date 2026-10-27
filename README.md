@@ -19,9 +19,29 @@ to static HTML for SEO, deployed on **Cloudflare Pages** with **Neon** (Postgres
 |---|---|---|
 | `DATABASE_URL` | yes | Neon connection string (pooled). Store as an **encrypted secret**. |
 | `RESEND_API_KEY` | yes | Resend API key. **Encrypted secret.** The sender domain (`liafrik.com`) must be verified in Resend. |
-| `PARTNER_TO_EMAIL` | no | Recipients of Partners & Investors requests. Default `cs@liafrik.com`. |
-| `CONTACT_TO_EMAIL` | no | Recipients of contact / newsletter. Default `cs@liafrik.com,support@liafrik.com`. |
+| `FORMS_TO_EMAIL` | no | **Master switch — who receives every form.** Default `cs@liafrik.com`. Comma-separated for several inboxes. |
+| `CONTACT_TO_EMAIL` | no | Override for contact / support messages only. |
+| `NEWSLETTER_TO_EMAIL` | no | Override for newsletter subscriptions only. |
+| `WAITLIST_TO_EMAIL` | no | Override for "notify me at launch" requests only. |
+| `PARTNER_TO_EMAIL` | no | Override for Partners & Investors requests only. |
 | `FROM_EMAIL` | no | Default `noreply@liafrik.com`. |
+
+### Who receives the forms (routing)
+
+Every form lands in **`cs@liafrik.com`** unless you change it — no code edit needed:
+
+| Form on the site | Type sent | Variable checked first | Then | Then |
+|---|---|---|---|---|
+| Contact section, Support page | `contact` | `CONTACT_TO_EMAIL` | `FORMS_TO_EMAIL` | `cs@liafrik.com` |
+| Footer newsletter | `newsletter` | `NEWSLETTER_TO_EMAIL` | `FORMS_TO_EMAIL` | `cs@liafrik.com` |
+| "Notify me at launch" (coming-soon apps) | `waitlist` | `WAITLIST_TO_EMAIL` | `FORMS_TO_EMAIL` | `cs@liafrik.com` |
+| Partners & Investors | `partner` | `PARTNER_TO_EMAIL` | `FORMS_TO_EMAIL` | `cs@liafrik.com` |
+
+- **Change / rotate the inbox:** edit `FORMS_TO_EMAIL` in Cloudflare Pages → Settings → Variables and Secrets, then trigger a new deployment (Cloudflare applies variable changes on the next deployment).
+- **Route one form elsewhere:** set only its own variable (e.g. `PARTNER_TO_EMAIL=invest@liafrik.com`).
+- Invalid addresses are ignored; if none is valid the next level is used, so a typo can never make forms disappear.
+- Replying to an email answers the visitor directly (`Reply-To` is their address).
+- The waitlist email states which app the visitor is waiting for.
 
 The table is created automatically on the first request; `db/schema.sql` is the reference.
 Without `RESEND_API_KEY` requests are still saved; without `DATABASE_URL` they are still emailed.

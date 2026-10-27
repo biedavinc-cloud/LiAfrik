@@ -1,0 +1,7 @@
+# Copy to .dev.vars (git-ignored) to test the API locally:
+#   npm run build && npx wrangler pages dev dist
+DATABASE_URL=
+RESEND_API_KEY=
+FROM_EMAIL=noreply@liafrik.com
+# Who receives the forms (see README > Who receives the forms)
+FORMS_TO_EMAIL=cs@liafrik.com
