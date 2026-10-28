@@ -16,6 +16,10 @@
 /es/products/zando  /es/products/zanldo  301
 /pt/products/zando  /pt/products/zanldo  301
 
+# Zanldo guide rewritten for the new marketplace model — keep the old URLs working.
+/en/blog/sell-fashion-online-marketplace  /en/blog/sell-online-in-africa-marketplace  301
+/fr/blog/vendre-vetements-en-ligne-marketplace-mode  /fr/blog/vendre-en-ligne-en-afrique-marketplace  301
+
 # Klasoo was renamed to Sukulu — keep every old link/indexed URL working.
 /en/products/klasoo  /en/products/sukulu  301
 /fr/products/klasoo  /fr/products/sukulu  301
